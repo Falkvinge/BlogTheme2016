@@ -1,0 +1,338 @@
+/*
+* Color: Dark Cyan
+*
+*/
+
+/*--------------------------------------------------------------
+-----TABLE OF CONTENTS------------------------------------------
+----------------------------------------------------------------
+1. Header Lines
+2. Buttons and Tabs
+3. Text and Links
+4. Lines, Borders and Objects
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1. Header Lines
+--------------------------------------------------------------*/
+.header-wrapper {
+    border-bottom: 9px solid #008B8B;
+}
+
+.headhesive {
+    border-bottom: 5px solid #008B8B;
+}
+
+/*--------------------------------------------------------------
+2. Buttons and Tabs
+--------------------------------------------------------------*/
+a.button-2:hover,
+a.button-2:active,
+a.button-2:focus {
+	background: #008B8B;
+}
+
+a.button-orig:hover,
+a.button-orig:active,
+a.button-orig:focus {
+	background: #008B8B;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+    background: #008B8B;
+}
+
+.res-button a:hover,
+.res-button a.active,
+.res-button a:visited,
+.res-button-top a:hover,
+.res-button-top a.active,
+.res-button-top a:visited {
+	color: #008B8B;
+}
+
+.search-icon2 a:hover, 
+.search-icon2 a.active {
+	background: #008B8B;
+}
+
+.cd-top:hover {
+	background-color: #008B8B;
+}
+
+.no-touch .cd-top:hover {
+	background-color: #008B8B;
+}
+
+.bbp-login-form .bbp-login-links a:hover {
+	color: #008B8B;
+}
+
+#bbpress-forums a:hover {
+	color: #008B8B;
+}
+
+.bbp-login-form .bbp-login-links a:hover {
+	color: #008B8B;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+	color: #008B8B;
+}
+
+.woocommerce #respond input#submit:hover, 
+.woocommerce a.button:hover, 
+.woocommerce button.button:hover, 
+.woocommerce input.button:hover {
+	background: #008B8B;
+}
+
+.index-cart:hover {
+	background: #008B8B;
+}
+
+.woocommerce span.onsale {
+    background-color: #008B8B;
+}
+
+.woocommerce span.onsale:after {
+    border-left: 14px solid #008B8B;
+}
+
+.woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover {
+	background-color: #008B8B;
+}
+
+.woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] {
+	background-color: #008B8B;
+}
+
+.ctc-alignleft-side {
+    background: #008B8B;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+	color: #008B8B;
+}
+
+div#schat-widget .schat-button.schat-primary:hover {
+    background-color: #008B8B !important;
+}
+
+div#schat-widget .schat-popup a.schat-button:hover {
+	background: #008B8B !important;
+}
+
+a.next,
+span.next {
+	background: #008B8B;
+}
+
+a.next:after,
+span.next:after {
+	border-left: 11px solid #008B8B;
+}
+
+.paging-navigation .current {
+	color: #008B8B;
+}
+
+.feat-home-index-thumb .index-cat {
+	background: #008B8B;
+}
+
+.search-iconhead a:hover, 
+.search-iconhead a.active {
+	background: #008B8B;
+}
+
+/*--------------------------------------------------------------
+3. Text and Links
+--------------------------------------------------------------*/
+.login-top a:hover {
+	color: #008B8B;
+}
+
+.tag-span {
+	color:#008B8B;
+}
+
+.search-top a:hover, 
+.search-top a.active {
+	background: #008B8B;
+}
+
+.headhesive-menu li:hover > a,
+.headhesive-menu li.focus > a {
+	color: #008B8B;
+}
+
+.headhesive-menu .sf-arrows > li > .sf-with-ul:focus:after,
+.headhesive-menu .sf-arrows > li:hover > .sf-with-ul:after,
+.headhesive-menu .sf-arrows > .sfHover > .sf-with-ul:after {
+	border-top-color: #008B8B;
+}
+
+.headhesive-tag-lines a:hover {
+	color: #008B8B;
+}
+
+.headhesive-social a:hover,
+.headhesive-social a .fa-caret-down:hover,
+.headhesive-social a.active {
+	color: #008B8B;
+}
+
+a:hover,
+a:active {
+	color: #008B8B;
+}
+
+.main-navigation li:hover > a,
+.main-navigation li.focus > a {
+	color: #008B8B;
+}
+
+.main-navigation .sf-arrows > li > .sf-with-ul:focus:after,
+.main-navigation .sf-arrows > li:hover > .sf-with-ul:after,
+.main-navigation .sf-arrows > .sfHover > .sf-with-ul:after {
+	border-top-color: #008B8B;
+}
+
+.secondary-menu li:hover > a,
+.secondary-menu li.focus > a {
+	color: #008B8B;
+}
+
+.secondary-menu .sf-arrows > li > .sf-with-ul:focus:after,
+.secondary-menu .sf-arrows > li:hover > .sf-with-ul:after,
+.secondary-menu .sf-arrows > .sfHover > .sf-with-ul:after {
+	border-top-color: #008B8B;
+}
+
+.widget a:hover,
+.widget li a:hover {
+	color: #008B8B;
+}
+
+.read-more:hover {
+	color: #008B8B !important;
+}
+
+.entry-title-index a:hover {
+	color: #008B8B;
+}
+
+.entry-title-index-feat a:hover {
+	color: #008B8B;
+}
+
+.entry-title-index-grid a:hover {
+	color: #008B8B;
+}
+
+.top-meta a {
+	color: #008B8B;
+}
+
+.comments-count,
+.comments-count a {
+	color: #008B8B;
+}
+
+.entry-title a:hover {
+	color: #008B8B;
+}
+
+.entry-content a {
+	color: #008B8B;
+}
+
+.post-pagination a,
+.post-pagination span {
+	background: #008B8B;
+}
+
+blockquote p:before{
+	color: #008B8B;
+}
+
+.related-post-thumb a:hover {
+	color: #008B8B;
+}
+
+.custom-posts ul li a h4:hover {
+	color: #008B8B;
+}
+
+a.default-url:hover {
+	color: #008B8B;
+}
+
+.top-meta-2 a {
+	color: #008B8B;
+}
+
+.config-please a:hover {
+	color: #008B8B;
+}
+
+.complex-titles a > .page-title:hover {
+	color: #008B8B;
+}
+
+.entry-title-index-compsub a:hover {
+	color: #008B8B;
+}
+
+.titles-cover h1 a:hover {
+	color: #008B8B;
+}
+
+.woocommerce .lost_password a:hover {
+	color: #008B8B;
+}
+
+.custom-posts ul li a h4:hover {
+	color: #008B8B;
+}
+
+div#schat-widget .schat-links a:hover {
+	color: #008B8B !important;
+}
+
+/*--------------------------------------------------------------
+4. Lines, Borders and Objects
+--------------------------------------------------------------*/
+.widget-title:after {
+    background: #008B8B;
+}
+
+.page-title {
+	border-left: 7px solid #008B8B;
+}
+
+.page-title-archive:after {
+	background: #008B8B;
+}
+
+.comment-awaiting-moderation {
+    background: #008B8B;
+}
+
+.titles-cover {
+    border-bottom: 7px solid #008B8B;
+}
+
+.related h2 {
+	border-left: 7px solid #008B8B;
+}
+
+p.demo_store {
+    background-color: #008B8B;
+}

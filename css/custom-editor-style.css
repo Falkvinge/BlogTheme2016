@@ -1,0 +1,708 @@
+/*
+* Custom Editor Style
+*
+*/
+
+/*--------------------------------------------------------------
+Body
+--------------------------------------------------------------*/
+html .mceContentBody {
+	max-width: 730px;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: #555;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+    font-size: 15px;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	word-wrap: break-word;
+}
+
+input,
+select,
+textarea {
+	font-family: "Ubuntu", sans-serif;
+	font-weight: 400;
+}
+
+
+/*--------------------------------------------------------------
+Base Elements
+--------------------------------------------------------------*/
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+	text-decoration: none;
+	color: #3a90fd;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: right;
+	font-family: "Roboto", sans-serif;
+	font-weight: 500;
+	color: #333232;
+	word-wrap: break-word;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: .5em;
+}
+
+h1 {
+    font-size: 32px;
+	font-size: 2rem;
+}
+
+h2 {
+    font-size: 28px;
+	font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 26px;
+    font-size: 1.625rem;
+}
+
+h4 {
+    font-size: 24px;
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 22px;
+    font-size: 1.375rem;
+}
+
+h6 {
+    font-size: 20px;
+    font-size: 1.25rem;
+}
+
+p,
+ul {
+    font-size: 15px;
+	font-size: 0.9375rem;
+    line-height: 1.6em;
+}
+
+ol {
+    counter-reset: li;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+ol > li {
+    position: relative;
+    margin: 0 0 6px 2em;
+    padding: 4px 8px;
+    list-style: none;
+    background: #ffffff;
+}
+
+ol > li:before {
+	content: counter(li);
+    counter-increment: li;
+    position: absolute;
+	top: -.5px;
+    left: -2em;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 2em;
+    margin-right: 8px;
+    padding: 4px 0;
+    color: #ffffff;
+    background: #ccc;
+    font-family: "Ubuntu", sans-serif;
+	font-weight: 400;
+    font-size: 17px;
+    text-align: center;
+    border-radius: 1em;
+}
+
+ol#alps > li:before,
+ol#roms > li:before,
+ol#decs > li:before,
+ol#lowalps > li:before,
+ol#lowroms > li:before,
+ol#decszero > li:before {
+	display: none;
+}
+
+ol#alps > li {
+	list-style-type: upper-alpha;
+}
+
+ol#roms > li {
+	list-style-type: upper-roman;
+}
+
+ol#decs > li {
+	list-style-type: decimal;
+}
+
+ol#lowalps > li {
+	list-style-type: lower-alpha;
+}
+
+ol#lowroms > li {
+	list-style-type: lower-roman;
+}
+
+ol#decszero > li {
+	list-style-type: decimal-leading-zero;
+}
+
+
+li ol {
+	margin-top:6px;
+}
+
+ol ol li:last-child {
+	margin-bottom:0;
+}
+
+/*--------------------------------------------------------------
+Blockquote
+--------------------------------------------------------------*/
+.entry-content blockquote p {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+    font-size: 19px;
+	font-size: 1.188rem;
+    line-height: 1.5em;
+	display: inline-block;
+	margin: 1em 0 .5em;
+}
+
+blockquote {
+	font-style: italic;
+	padding: .5em 3em 0;
+	background: transparent;
+	display: block;
+	margin: 0;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+blockquote p:before{
+	content: "\f10d";
+	font-family: "Fontawesome";
+	font-size: 24px;
+	font-size: 1.5rem;
+	display: inline;
+	margin-left: -1.2em;
+	margin-top: -.2em;
+	color: #3a90fd;
+	position: absolute;
+}
+
+blockquote em {
+	font-style: normal;
+}
+
+blockquote cite {
+	display: block;
+	font-size: 85%;
+	font-family: "Ubuntu", sans-serif;
+	font-weight: 400;
+	float: right;
+	font-style: normal;
+	margin-left: 30%;
+	line-height: 1.5em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-right: 1em;
+}
+
+blockquote.alignleft{
+    width: 50%;
+    float: left;
+    padding: 0 1em 0 2.8em;
+    margin-right: 1.5em;
+	margin-bottom: 0;
+	display: inline;
+}
+
+blockquote.alignright {
+    width: 50%;
+    float: right;
+    padding: 0 1em 0 2.8em;
+    margin-left: 1.5em;
+	display: inline;
+}
+
+/*--------------------------------------------------------------
+Image
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: .5em;
+	max-width: 100%;
+	display: inline-block;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin: 0 auto;
+}
+
+.wp-caption-text,
+.wp-caption-dd {
+	text-align: center;
+}
+
+.wp-caption .wp-caption-text,
+.wp-caption-dd {
+	padding: 1em .3em 0;
+	font-family: "Ubuntu", sans-serif;
+	font-weight: 400;
+	font-size: 13px;
+	font-style: italic;
+	background: #ffffff;
+}
+
+.gallery {
+	margin-left: -0.5em;
+	margin-right: -0.5em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+.gallery:after {
+	display: table;
+	content: "";
+	clear: both;
+}
+
+.gallery-item {
+	display: inline-block;
+	position: relative;
+	margin: 0;
+	float: left;
+	padding: 0;
+}
+
+.gallery-item img {
+	width: 100%;
+}
+
+.gallery-columns-1 .gallery-item {
+    width: 100%;
+    float: none;
+}
+.gallery-columns-2 .gallery-item {
+    width: 50%;
+}
+.gallery-columns-3 .gallery-item {
+    width: 33.3333%;
+}
+.gallery-columns-4 .gallery-item {
+    width: 25%;
+}
+.gallery-columns-5 .gallery-item {
+    width: 20%;
+}
+.gallery-columns-6 .gallery-item {
+    width: 16.6667%;
+}
+.gallery-columns-7 .gallery-item {
+    width: 14.2857%;
+}
+.gallery-columns-8 .gallery-item {
+    width: 12.5%;
+}
+.gallery-columns-9 .gallery-item {
+    width: 11.1111%
+}
+
+.gallery-columns-2 .gallery-item:nth-child(2n+1),
+.gallery-columns-3 .gallery-item:nth-child(3n+1),
+.gallery-columns-4 .gallery-item:nth-child(4n+1),
+.gallery-columns-5 .gallery-item:nth-child(5n+1),
+.gallery-columns-6 .gallery-item:nth-child(6n+1),
+.gallery-columns-7 .gallery-item:nth-child(7n+1),
+.gallery-columns-8 .gallery-item:nth-child(8n+1),
+.gallery-columns-9 .gallery-item:nth-child(9n+1) {
+	clear: left;
+}
+
+.gallery-caption {
+    padding: 0.8075em 1em;
+    font-size: 12px;
+    font-size: 0.75rem;
+    font-family: "Ubuntu", sans-serif;
+	font-weight: 400;
+	text-align: center !important;
+    background: #333232;
+	color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-height: 50%;
+    width: 100%;
+    margin: 0;
+    line-height: 1.5;
+    text-align: left;
+    opacity: 0;
+}
+
+.gallery-item:hover .gallery-caption { 
+    opacity: 1;
+}
+
+/*--------------------------------------------------------------
+Tools
+--------------------------------------------------------------*/
+a.default-url {
+	color: #333232;
+}
+
+a.default-url:hover {
+	color: #3a90fd;
+}
+
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
+}
+
+.centre {
+	margin: 0 auto;
+}
+
+.center {
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+
+.table {
+	display: table;
+}
+
+.td {
+	display: table-cell;
+}
+
+.tr {
+	display: table-row;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.page-header {
+	width: 100%;
+	display: inline-block;
+	padding-bottom: .5em;
+	word-wrap: break-word;
+	position: relative;
+}
+
+.border-3 {
+	border-bottom: 3px solid #eee;
+}
+
+.border-1 {
+	border-bottom: 1px solid #eee;
+}
+
+.border-right-1 {
+	border-right: 1px solid #eee;
+}
+
+.border-dual {
+	border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 1em 0;
+    margin-bottom: 2em;
+}
+
+.white, .white span.byline a, .white span.comments-only a {
+	color: #ffffff;
+}
+
+.white a:hover {
+	color: #ffffff;
+}
+
+.none {
+	display: none;
+}
+
+.caps {
+	text-transform: uppercase;
+}
+
+.twitter-tweet {
+	display: inline-block !important;
+	width: auto !important;
+}
+
+/*--------------------------------------------------------------
+Others
+--------------------------------------------------------------*/
+/* Buttons */
+.button-single {
+	width: 100%;
+	display: block;
+	position: relative;
+}
+
+.butones {
+	margin: 10px 10px;
+}
+
+a.button-1 {
+	padding: 9px 20px;
+	font-size: 15px;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 600;
+	color: #000;
+	background: #ffffff;
+	border: 4px solid #434343;
+	text-transform: uppercase;
+	text-decoration: none !important;
+}
+
+a.button-1:hover,
+a.button-1:active,
+a.button-1:focus {
+	color: #434343 !important;
+	background: #ccc;
+}
+
+a.button-2 {
+	padding: 9px 20px;
+	font-size: 15px;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 600;
+	color: #ffffff;
+	background: none;
+	border: 2px solid #ffffff;
+	text-transform: uppercase;
+	text-decoration: none !important;
+}
+
+a.button-2:hover,
+a.button-2:active,
+a.button-2:focus {
+	color: #ffffff;
+	background: #3a90fd;
+}
+
+a.button-orig {
+    padding: 9px 20px;
+	font-size: 15px;
+	font-size: 0.9375rem;
+    font-family: "Open Sans", sans-serif;
+	font-weight: 600;
+	text-transform: uppercase;
+	text-decoration: none !important;
+    line-height: 1;
+    color: #ffffff;
+    background: #434343;
+    border: none;
+    cursor: pointer;
+	-webkit-transition: all 0.7s ease-out 0s;
+    -moz-transition: all 0.7s ease-out 0s;
+    transition: all 0.7s ease-out 0s;
+}
+
+a.button-orig:hover,
+a.button-orig:active,
+a.button-orig:focus {
+	color: #ffffff;
+	background: #3a90fd;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    padding: 11px 20px;
+	font-size: 15px;
+	font-size: 0.9375rem;
+    font-family: "Open Sans", sans-serif;
+	font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: #ffffff;
+    background: #434343;
+    border: none;
+    cursor: pointer;
+    -webkit-appearance: button;
+	-webkit-transition: all 0.7s ease-out 0s;
+    -moz-transition: all 0.7s ease-out 0s;
+    transition: all 0.7s ease-out 0s;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+    background: #3a90fd;
+}
+
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+    outline: none;
+}
+                    
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+    padding: .4em;
+    font-family: "Ubuntu", sans-serif;
+	font-weight: 400;
+    color: #333;
+    border: 3px solid #ddd;
+}
+
+.search-form-top input[type="search"] {
+	padding: 20px;
+	border: 4px solid #ccc;
+}
+
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"] {
+	font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+}
+
+/* Button Responsiveness */
+@media screen and (max-width: 560px) {
+	button, a.button-orig, a.button-1, a.button-2 {
+		font-size: 13px;
+	}
+}
+
+/*--------------------------------------------------------------
+Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+	margin-bottom: .5em;
+	text-align: left;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+	margin-bottom: .5em;
+	text-align: right;
+}
+
+.aligncenter {
+	clear: both;
+	display: block !important;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+Typography
+--------------------------------------------------------------*/
+pre {
+	background: #fafafa;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+	border: 1px solid #ddd;
+	white-space: pre-wrap;
+}
+
+code,
+kbd,
+tt,
+var {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #717171;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+/*--------------------------------------------------------------
+Table
+--------------------------------------------------------------*/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+table {
+	border-color: #ddd !important;
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+.mce-item-table, .mce-item-table td, .mce-item-table th, .mce-item-table caption {
+	border: 1px solid #ddd;
+}

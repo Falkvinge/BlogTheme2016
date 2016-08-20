@@ -1,0 +1,283 @@
+/*
+* Wise Panel Style
+*
+*/
+
+.button-2 button,
+.button-2 input[type="button"],
+.button-2 input[type="reset"],
+.button-2 input[type="submit"] {
+	padding: 11px 20px;
+	font-size: 15px;
+	font-family: 'Open Sans', sans-serif;
+	color: #ffffff;
+	background: none;
+	border: 2px solid #ffffff;
+	font-weight: bold;
+    cursor: pointer;
+	text-transform: uppercase;
+    -webkit-appearance: button;
+	-webkit-transition: all 0.7s ease-out 0s;
+    -moz-transition: all 0.7s ease-out 0s;
+    transition: all 0.7s ease-out 0s;
+}
+
+.button-2 button:hover,
+.button-2 input[type="button"]:hover,
+.button-2 input[type="reset"]:hover,
+.button-2 input[type="submit"]:hover {
+	color: #222;
+	border: 2px solid #222;
+	background: #ffd700;
+}
+
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+    outline: none !important;
+}
+
+.wise_wrap { 
+	width: 90%;
+	display: inline-block;
+	padding: 2em;
+	background: #847059;
+    border: 12px solid #323232;
+}
+
+.wise_wrap h2 {
+	color: #ffffff;
+	font-family: 'Ubuntu', sans-serif;
+	padding: 2em 1.2em 1.2em !important;
+	font-weight: 500;
+	text-transform: uppercase;
+	margin-bottom: 1em !important;
+	line-height: 2.7em !important;
+}
+
+.wise_wrap img.logo {
+	float: left;
+    margin-bottom: 40px;
+    display: inline-block;
+    padding-right: 20px;
+	max-width: 64px;
+}
+
+.wise_section { 
+	border-bottom: 0;
+	background: #f9f9f9;
+}
+
+.wise_opts label {
+	font-size: 12px;
+	font-weight: 700;
+	width: 30%;
+	display: block;
+	float: left;
+	padding-left: 20px;
+	line-height: 3.5em;
+}
+
+.wise_input {
+	padding: 1.5em 1em;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #fff;
+}
+
+.wise_input input[type="button"] {
+	margin-left: 10px;
+    height: 39px;
+}
+
+.wise_input select {
+	height: auto !important;
+	padding: 10px !important;
+}
+
+.wise_opts small {
+	display: inline;
+	width: auto;
+	color: #999;
+	padding-right: 20px;
+}
+
+.wise_opts small.th-color {
+	vertical-align: 50%;
+}
+
+.wise_opts input[type="text"],
+.wise_opts select {
+    width: 50%;
+    font-size: 12px;
+    padding: 10px;
+    color: #333;
+    line-height: 1em;
+    background: #ffffff;
+}
+
+.wise_input input:focus,
+.wise_input textarea:focus {
+	background: #fff;
+}
+
+.wise_input textarea {
+	width: 50%;
+	height: 175px;
+	font-size: 12px;
+	padding: 10px;
+	color: #333;
+	line-height: 1.5em;
+	background: #ffffff;
+}
+
+.wise_input select {
+	padding: 10px;
+}
+
+.wise_checkbox {
+	padding-bottom: 1em;
+    padding-top: 1em;
+    line-height: 3em;
+}
+
+.wise_down {
+	margin-right: .5em;
+}
+
+.wise_title h3 {
+	cursor: pointer;
+	font-size: 1.2em;
+	margin: 0 0 0 6px;
+	font-weight: bold;
+	color: #ffffff;
+	padding: 1em;
+	clear: both;
+	width: 100%;
+}
+
+.wise_title h3:before {
+	font-family: 'Fontawesome';
+	content: '\f078';
+	margin-right: .5em;
+}
+
+.wise_title h3.inactive:before {
+	font-family: 'Fontawesome';
+	content: '\f078';
+	margin-right: .5em;
+}
+
+.wise_title h3.active:before {
+	font-family: 'Fontawesome';
+	content: '\f077';
+	margin-right: .5em;
+}
+
+.wise_title {
+	cursor: pointer;
+	border-bottom: 1px solid #555;
+	background: #847059;
+	padding:0;
+}
+
+.wise_title span.submit {
+	display: block;
+	float: right;
+	margin: 0;
+	padding: 0;
+	width: 15%;
+	padding: 8px 0;
+}
+
+.wise_table th,
+.wise_table td {
+	border: 1px solid #bbb;
+	padding: 10px;
+	text-align: center;
+}
+
+.wise_table th,
+.wise_table td.feature {
+	border-color: #888;
+}
+
+.wise_buttons {
+	display: table;
+	float: left;
+	width: 100%;
+	margin-top: 3em;
+}
+
+.reset-button {
+	float: left;
+	margin-right: 1em;
+	display: table-row;
+}
+
+.save-button {
+	float: right;
+	margin-left: 1em;
+	display: table-row;
+}
+
+.wise-footer-functions {
+	width: 90%;
+    margin: 2em;
+    display: table;
+}
+
+.wise-footer-functions a {
+	text-decoration: none;
+}
+
+.wise-footer-functions p {
+	line-height: 1em;
+}
+
+.wise-help-functions {
+	font-size: 14px;
+	font-style: italic;
+	float: left;
+}
+
+.wise-theme-info {
+	float: right;
+	font-style: italic;
+}
+
+#excerpt {
+	height: 10em;
+}
+
+#toplevel_page_wise-panel .dashicons-admin-generic:before {
+	font-family: 'Fontawesome';
+	content: '\f085';
+}
+
+/* Wise Preloader */
+#wiseload {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    z-index: 9999999;
+	display: none;
+}
+
+#stats {
+    background: url('../img/wise-panel.png') no-repeat center;
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -32px 0 0 -32px;
+    background-size: 100%;
+}
