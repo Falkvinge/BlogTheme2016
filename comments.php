@@ -9,6 +9,11 @@
 	if ( post_password_required() ) {
 		return;
 	}
+
+        if (is_page())
+        {
+		return;  // Falkvinge: do not show comment field at all on pages
+	}
 ?>
 
 <div id="comments" class="comments-area">
@@ -76,25 +81,25 @@
 		'format'            => 'xhtml',
 		
 		'comment_field' =>  '<p class="comment-form-comment">' .
-		'<textarea id="comment" name="comment" placeholder="Your comment here *" cols="45" rows="8" aria-required="true">' .
+		'<textarea id="comment" name="comment" placeholder="What do you think of this? Is somebody wrong on the Internet? Type the right answer here!" cols="45" rows="8" aria-required="true">' .
 			'</textarea></p>',
 			
 		$fields =  array(
 		  'author' =>
 			'<p class="comment-form-author">' .
 			( $req ? '' : '' ) .
-			'<input id="author" name="author" type="text" placeholder="Your name here *" value="' . esc_attr( $commenter['comment_author']) .
+			'<input id="author" name="author" type="text" placeholder="Your name, maybe" value="' . esc_attr( $commenter['comment_author']) .
 			'" size="30"></p>',
 
 		  'email' =>
 			'<p class="comment-form-email">' .
 			( $req ? '' : '' ) .
-			'<input id="email" name="email" type="text" placeholder="Your email here *" value="' . esc_attr( $commenter['comment_author_email']) .
+			'<input id="email" name="email" type="text" placeholder="Mail, totally optional" value="' . esc_attr( $commenter['comment_author_email']) .
 			'" size="30"></p>',
 
 		  'url' =>
 			'<p class="comment-form-url">' .
-			'<input id="url" name="url" type="text" placeholder="Your website here" value="' . esc_url( $commenter['comment_author_url']) .
+			'<input id="url" name="url" type="text" placeholder="Link, if relevant" value="' . esc_url( $commenter['comment_author_url']) .
 			'" size="30"></p>',
 		),
 			

@@ -2407,7 +2407,7 @@ endif;
 				if( $navfonts != null ) { $google_fonts .= $navfonts; } else { $google_fonts .= 'Open Sans:600,600italic|'; }
 				if( $descfonts != null ) { $google_fonts .= $descfonts; } else { $google_fonts .= 'Raleway:400'; }
 				
-				$wise_protocol = is_ssl() ? 'https' : 'http';
+				$wise_protocol = 'https'; // is_ssl() ? 'https' : 'http';   -- Falkvinge: always use HTTPS to fetch Google Fonts
 				$wise_google_url = $wise_protocol . '://fonts.googleapis.com/css';
 				$google_fonts = esc_url( add_query_arg( 'family', urlencode($google_fonts), $wise_google_url ) );
 				

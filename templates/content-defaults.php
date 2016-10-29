@@ -8,8 +8,8 @@
 	if ( get_query_var('paged') ) { $paged = get_query_var('paged');
 	} elseif ( get_query_var('page') ) { $paged = get_query_var('page');
 	} else { $paged = 1; }
-	global $wise_post_layout, $wise_lpost_number, $wise_lpost_pagination, $wise_post_categ;
-query_posts( array( 'category_name' => $wise_post_categ, 'post_type' => 'post', 'post_status' => 'publish', 'orderby' => 'date', 'posts_per_page' => $wise_lpost_number, 'paged' => $paged ) ); ?>
+	global $wise_post_layout, $wise_lpost_number, $wise_lpost_pagination, $wise_post_categ, $do_not_duplicate;
+query_posts( array( 'category_name' => $wise_post_categ, 'post_type' => 'post', 'post_status' => 'publish', 'orderby' => 'date', 'posts_per_page' => $wise_lpost_number, 'paged' => $paged, 'post__not_in' => $do_not_duplicate ) ); ?>
 
 <?php if ( have_posts() ) : ?>
 

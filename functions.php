@@ -381,6 +381,7 @@ endif; // End Enqueue
 	6.1 Additional Functions
 	--------------------------------------------------------------*/
 	require get_template_directory() . '/inc/additional-functions.php';
+	require get_template_directory() . '/inc/falkvinge-functions.php';
 
 	/*--------------------------------------------------------------
 	6.2 Wise Widgets

@@ -19,7 +19,7 @@
 				
 				<?php if( !is_home() ) : ?>
 				<header class="page-header">
-					<?php	$wise_arch_title = sprintf( '<h2 class="page-title-archive">%s</h2>', get_the_archive_title() );
+					<?php	$wise_arch_title = sprintf( '<h2 class="page-title">%s</h2>', get_the_archive_title() );
 							echo wp_kses_post( str_replace( 'Category: ', '', $wise_arch_title ) );
 							the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
 				</header><!-- End of .page-header -->

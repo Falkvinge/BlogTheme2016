@@ -16,9 +16,9 @@
 			<?php echo wise_entry_header(); ?><br>
 			<?php wise_posted_on(); ?><?php wise_posted_by(); ?><?php echo '<span class="post-views"> ' . wise_get_post_views(get_the_ID()) . '</span>'; ?><?php wise_comments(); ?>
 		</div><!-- End of .entry-meta -->
-		<div class="share-entry-meta">
-			<?php get_template_part('templates/custom-social'); ?>
-		</div><!-- End of Custom Social -->
+		<!--<div class="share-entry-meta">-->
+			<?php /* get_template_part('templates/custom-social'); --commented out; no other way to disable pre-article social buttons */ ?>
+		<!--</div>--><!-- End of Custom Social -->
 	</header><!-- End of .entry-header -->
 	
 	<?php if( has_post_thumbnail() ) :
@@ -31,7 +31,7 @@
 	<div class="entry-content">
 		<?php global $post; $disable_ads = get_post_meta($post->ID, 'wise_ads_post', true); ?>
 		<?php if($disable_ads == false) : echo ads_top_post(); endif; ?>
-		<?php wise_cont_ads(); ?>
+		<?php /* wise_cont_ads(); */ falkvinge_formatted_post(); ?>
 		<?php wise_custom_wp_link_pages(); ?>
 		
 		<?php if( get_option('wise_enable_aff_top') == false ) : echo wise_affiliates_disclaimer(); endif; ?>
@@ -61,7 +61,7 @@
 	</div>
 	<?php } ?>
 	
-	<?php wise_single_post_nav(); ?>
+	<?php /* wise_single_post_nav(); --Falkvinge disabled prev/next links-- */ ?>
 	
 	<?php if($disable_ads == false) : echo ads_bottom_post_2(); endif; ?>
 		

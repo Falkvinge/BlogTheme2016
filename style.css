@@ -5529,3 +5529,28 @@ textarea {
     top: 50%;
 	margin: -100px 0 0 -100px;
 }
+
+
+
+
+/* ------------------------------------------------
+         FALKVINGE ADDITIONS, OVERRIDES
+------------------------------------------------ */
+
+
+.entry-content p
+{
+    font-size: 17px;
+    line-height: 160%;
+    padding-bottom: 10px;
+}
+
+
+div.entry-content p.intro {
+    font-size: 120%;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+
+
+
