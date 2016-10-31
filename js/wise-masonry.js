@@ -55,17 +55,34 @@ jQuery(document).ready(function($){
 	var $contRight = $('.widget-area-right');
 	var greatbreak = 947;
 	var greatless = 662;
+	var windoWidth = $(window).width();
 
-	if (($(document).width() < greatbreak) && ($(document).width() > greatless)) {
+	if ((windoWidth < greatbreak) && (windoWidth > greatless)) {
+		wiseRightSide();
+	} else {
+	   $contRight.masonry().masonry('destroy');
+	}
+	
+	$(window).resize(function() {
+		var greatbreak = 947;
+		var greatless = 662;
+		var windoWidth = $(window).width();
+		
+		if ((windoWidth < greatbreak) && (windoWidth > greatless)) {
+			wiseRightSide();
+		} else {
+		   $contRight.masonry().masonry('destroy');
+		}
+	});
+	
+	function wiseRightSide() {
+		var $contRight = $('.widget-area-right');
 		$contRight.imagesLoaded(function() {
 			$contRight.masonry({
 			   itemSelector: '.widget',
 			   isAnimated: true
 			});
 		});
-	}
-	else {
-	   $contRight.masonry().masonry('destroy');
 	}
 	
 }); /* End jQuery */

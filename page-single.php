@@ -27,7 +27,7 @@ get_header(); ?>
 									
 									<?php the_title( '<h2 class="entry-title center">', '</h2>' ); ?>
 									<?php if( $wise_page_share == 'enable' ) : ?>
-										<div class="share-entry-meta center">
+										<div class="center">
 											<?php get_template_part('templates/custom-social'); ?>
 										</div><!-- End of Custom Social -->
 									<?php endif; ?>
@@ -48,14 +48,14 @@ get_header(); ?>
 								<footer class="entry-footer">
 									<?php edit_post_link( esc_html__( 'Edit', 'wise-blog' ), '<span class="edit-link">', '</span>' ); ?>
 								</footer><!-- End of .entry-footer -->
+								
+								<?php
+									// If comments are open or we have at least one comment, load up the comment template.
+									if ( comments_open() || get_comments_number() ) :
+										comments_template();
+									endif;
+								?>
 							</article><!-- End of #post-## -->
-
-							<?php
-								// If comments are open or we have at least one comment, load up the comment template.
-								if ( comments_open() || get_comments_number() ) :
-									comments_template();
-								endif;
-							?>
 
 						<?php endwhile; // End of the loop.
 

@@ -19,9 +19,9 @@ public function widget( $args, $instance ) {
 $title = apply_filters( 'widget_title', @$instance['title'] );
 
 // Before and after the widget
-echo $args['before_widget'];
+echo wp_kses_post($args['before_widget']);
 if ( ! empty( $title ) )
-echo $args['before_title'] . esc_html($title) . $args['after_title'];
+echo wp_kses_post($args['before_title']) . esc_html($title) . wp_kses_post($args['after_title']);
 
 // The Output
 echo '<div class="site-links">';
@@ -42,7 +42,7 @@ echo '<div class="site-links">';
 	
 echo '</div>'; // End Sitelinks
 
-echo $args['after_widget'];
+echo wp_kses_post($args['after_widget']);
 }
 		
 // Backend

@@ -15,12 +15,12 @@
 		echo '<link rel="shortcut icon" href="' . esc_url( get_template_directory_uri() . '/img/favicon.ico') . '">'; }	
 	endif;
 ?>
-<?php wise_code_before_head(); ?>
+<?php echo wise_before_head(); ?>
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<?php wise_code_after_body(); ?>
+<?php echo wise_after_body(); ?>
 <?php wise_preloader(); ?>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wise-blog' ); ?></a>
@@ -37,8 +37,8 @@
 					</a>
 					
 					<div class="headhesive-menu"><?php wise_headhesive_menu(); ?></div>
-					<?php if( function_exists('is_bbpress') && ( is_bbpress() || is_page_template('page-bbpress.php') || is_page_template('page-bbpress-topics.php') ) ) : echo null; ?>
-					<?php elseif( function_exists('is_woocommerce') && is_woocommerce() ) : echo null; else : ?>	
+					<?php if( function_exists('is_bbpress') && ( is_bbpress() || is_page_template('page-bbpress.php') || is_page_template('page-bbpress-topics.php') ) ) : null; ?>
+					<?php elseif( function_exists('is_woocommerce') && is_woocommerce() ) : null; else : ?>	
 						<div class="headhesive-tag-lines"><a href="<?php echo esc_url(get_option('wise_tag_lines_links')); ?>"><?php echo esc_html(get_option('wise_tag_lines_title')); ?></a></div>
 					<?php endif; ?>
 				</div>			
@@ -49,7 +49,7 @@
 					<div class="search-iconhead"><a href="#search-conthead"><i class="fa fa-search"></i></a></div>
 					<div class="search-formhead" id="search-conthead"><?php get_search_form(); ?></div>
 				<?php wise_headhesive_social_menu(); ?>
-			</div>
+			</div><div class="headhesive-wraps" <?php $wise_headhesive_opacity = get_option('wise_headhesive_opacity'); if( !empty($wise_headhesive_opacity) ) { echo 'style="opacity:' . $wise_headhesive_opacity . ';"'; } else { echo 'style="opacity:.95;"'; } ?>></div>
 		</div><!-- End Headhesive -->
 	<?php } ?>
 	
@@ -74,7 +74,7 @@
 						<div class="secondary-menu"><?php wise_secondary_menu(); ?></div>
 					<?php } ?>
 					
-					<div class="login-top">
+					<div class="login-top">						
 						<?php if (get_option('wise_login') == false) : ?>
 							<?php if (is_user_logged_in()) { ?>
 								<a class="lg-dash" href="<?php echo esc_url( home_url('/') . 'wp-admin/'); ?>"><?php esc_html_e( 'Dashboard', 'wise-blog' ); ?></a><a class="lg-out" href="<?php echo wp_logout_url( home_url('/') ); ?>"><?php esc_html_e( 'Logout', 'wise-blog' ); ?></a>
@@ -82,6 +82,7 @@
 								<a class="lg-in" href="<?php echo esc_url( home_url('/') . 'wp-admin/'); ?>"><?php esc_html_e( 'Login', 'wise-blog' ); ?></a><a class="lg-reg" href="<?php echo esc_url( home_url('/') . 'wp-login.php?action=register'); ?>"><?php esc_attr_e( 'Register', 'wise-blog' ); ?></a>
 							<?php } ?>
 						<?php endif; ?>
+						<?php if( function_exists('is_woocommerce') ) : wise_woo_icon(); endif; ?>
 					</div>
 					
 				</div>
@@ -117,9 +118,10 @@
 					<div class="search-top"><a href="#search-cont"><i class='fa fa-search'></i></a></div>
 				</div><!-- End Block-2 -->
 			</header><!-- End Header -->
+		<div class="header-wraps" <?php $wise_head_opacity = get_option('wise_head_opacity'); if( !empty($wise_head_opacity) ) { echo 'style="opacity:' . $wise_head_opacity . ';"'; } else { echo 'style="opacity:.95;"'; } ?>></div>
 	</div>
 		
-	<div id="search-cont" class="search-form-wrapper centre">
+	<div id="search-cont" class="search-form-wrapper centre" <?php $wise_head_opacity = get_option('wise_head_opacity'); if( !empty($wise_head_opacity) ) { echo 'style="opacity:' . $wise_head_opacity . ';"'; } else { echo 'style="opacity:.95;"'; } ?>">
 		<div class="search-form-top centre">
 			<?php get_search_form(); ?>
 		</div>				

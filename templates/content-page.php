@@ -14,9 +14,7 @@
 		
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<?php if( $wise_page_share == 'enable' ) : ?>
-			<div class="share-entry-meta">
-				<?php get_template_part('templates/custom-social'); ?>
-			</div><!-- End of Custom Social -->
+			<?php get_template_part('templates/custom-social'); ?>
 		<?php endif; ?>
 	</header><!-- End of .entry-header -->
 	

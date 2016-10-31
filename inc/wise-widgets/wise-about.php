@@ -20,26 +20,90 @@ $title = apply_filters( 'widget_title', @$instance['title'] );
 $about_img = apply_filters( 'widget_about_img', @$instance['about_img'] );
 $about_content = apply_filters( 'widget_about_content', @$instance['about_content'] );
 $about_url = apply_filters( 'widget_about_url', @$instance['about_url'] );
+$enable_social = apply_filters( 'widget_enable_social', @$instance['enable_social'] );
+$wise_about_location = apply_filters( 'widget_wise_about_location', @$instance['wise_about_location'] );
+$wise_about_email = apply_filters( 'widget_wise_about_email', @$instance['wise_about_email'] );
+$wise_about_phone = apply_filters( 'widget_wise_about_phone', @$instance['wise_about_phone'] );
 
 // Before and after the widget
-echo $args['before_widget'];
+echo wp_kses_post($args['before_widget']);
 if ( ! empty( $title ) )
-echo $args['before_title'] . esc_html($title) . $args['after_title'];
+echo wp_kses_post($args['before_title']) . esc_html($title) . wp_kses_post($args['after_title']);
 
 // The Output
 if(get_option('wise_footer_about_logo')==false) {
 	$def_footer_url = get_template_directory_uri() . '/img/footer_logo.png';
 	echo '<div class="about-logo"><a href="' . esc_url( home_url('/') ) . '">';
 	if ($about_img == true) {
-		echo '<img src="' . esc_url($about_img) . '" alt="' . get_the_title() . '"></a></div>'; }
+		echo '<img src="' . esc_url($about_img) . '" alt="' . esc_attr(get_the_title()) . '"></a></div>'; }
 	else {
-		echo '<img src="' . esc_url($def_footer_url) . '" alt="' . get_the_title() . '"></a></div>'; }
+		echo '<img src="' . esc_url($def_footer_url) . '" alt="' . esc_attr(get_the_title()) . '"></a></div>'; }
 }
-	
-echo '<div class="about-text">' . esc_html($about_content) . '</div>';
-echo '<span class="nolinehover"><a href="' . esc_url($about_url) . '">Read More</a></span>';
 
-echo $args['after_widget'];
+echo '<div class="about-text">' . esc_html($about_content);
+if($wise_about_location != null) : echo '<p><strong>' . esc_html__('Location', 'wise-blog') . '</strong>: ' . esc_html($wise_about_location); endif;
+if($wise_about_email != null) : echo '<br><strong>' . esc_html__('Email', 'wise-blog') . '</strong>: <a href="mailto:' . esc_html($wise_about_email) . '">' . esc_html($wise_about_email) . '</a>'; endif;
+if($wise_about_phone != null) : echo '<br><strong>' . esc_html__('Phone', 'wise-blog') . '</strong>: ' . esc_html($wise_about_phone); endif;
+echo '</p></div>';
+
+if($enable_social == 'true') {
+	// Social Media Footer
+	echo '<ul class="social-links-footer">';
+
+		if (get_option('wise_soc_rss_links') != null) { 
+			echo '<li><a href="';
+			echo esc_url(get_option('wise_soc_rss_links'));
+			echo '" target="_blank"><i class="fa fa-rss"></i></a></li>';
+		} else  {
+			null;
+		}
+
+		if (get_option('wise_soc_fb_links') != null) { 
+			echo '<li><a href="';
+			echo esc_url(get_option('wise_soc_fb_links'));
+			echo '" target="_blank"><i class="fa fa-facebook"></i></a></li>';
+		} else  {
+			null;
+		}
+
+		if (get_option('wise_soc_twitter_links') != null) { 
+			echo '<li><a href="';
+			echo esc_url(get_option('wise_soc_twitter_links'));
+			echo '" target="_blank"><i class="fa fa-twitter"></i></a></li>';
+		} else  {
+			null;
+		}
+
+		if (get_option('wise_soc_gplus_links') != null) { 
+			echo '<li><a href="';
+			echo esc_url(get_option('wise_soc_gplus_links'));
+			echo '" target="_blank"><i class="fa fa-google-plus"></i></a></li>';
+		} else  {
+			null;
+		}
+
+		if (get_option('wise_soc_yt_links') != null) { 
+			echo '<li><a href="';
+			echo esc_url(get_option('wise_soc_yt_links'));
+			echo '" target="_blank"><i class="fa fa-youtube"></i></a></li>';
+		} else  {
+			null;
+		}
+		
+		if (get_option('wise_soc_in_links') != null) { 
+			echo '<li><a href="';
+			echo esc_url(get_option('wise_soc_in_links'));
+			echo '" target="_blank"><i class="fa fa-linkedin"></i></a></li>';
+		} else  {
+			null;
+		}
+
+	echo '</ul>';
+} else { // If enable social is false
+	echo '<span class="nolinehover"><a href="' . esc_url($about_url) . '">Read More</a></span>';
+}
+
+echo wp_kses_post($args['after_widget']);
 }
 		
 // Backend
@@ -72,6 +136,34 @@ else {
 	$about_url = null;
 }
 
+if ( isset( $instance[ 'enable_social' ] ) ) {
+	$enable_social = $instance[ 'enable_social' ];
+}
+else {
+	$enable_social = 'false';
+}
+
+if ( isset( $instance[ 'wise_about_location' ] ) ) {
+	$wise_about_location = $instance[ 'wise_about_location' ];
+}
+else {
+	$wise_about_location = null;
+}
+
+if ( isset( $instance[ 'wise_about_email' ] ) ) {
+	$wise_about_email = $instance[ 'wise_about_email' ];
+}
+else {
+	$wise_about_email = null;
+}
+
+if ( isset( $instance[ 'wise_about_phone' ] ) ) {
+	$wise_about_phone = $instance[ 'wise_about_phone' ];
+}
+else {
+	$wise_about_phone = null;
+}
+
 // Backend Admin Form
 ?>
 <p>
@@ -86,12 +178,32 @@ else {
 
 <p>
 <label for="<?php echo esc_attr($this->get_field_id( 'about_content' )); ?>"><?php esc_html_e( 'Content:', 'wise-blog' ); ?></label>
-<textarea class="widefat" rows="12" cols="20" id="<?php echo esc_attr($this->get_field_id('about_content')); ?>" name="<?php echo esc_attr($this->get_field_name('about_content')); ?>"><?php echo esc_attr($about_content); ?></textarea></p>
+<textarea class="widefat" rows="12" cols="20" id="<?php echo esc_attr($this->get_field_id('about_content')); ?>" name="<?php echo esc_attr($this->get_field_name('about_content')); ?>"><?php echo esc_textarea($about_content); ?></textarea></p>
 <p>
+
+<p>
+<label for="<?php echo esc_attr($this->get_field_id( 'wise_about_location' )); ?>"><?php esc_html_e( 'Location:', 'wise-blog' ); ?></label> 
+<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'wise_about_location' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'wise_about_location' )); ?>" type="text" value="<?php echo esc_attr( $wise_about_location ); ?>">
+</p>
+
+<p>
+<label for="<?php echo esc_attr($this->get_field_id( 'wise_about_email' )); ?>"><?php esc_html_e( 'Email:', 'wise-blog' ); ?></label> 
+<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'wise_about_email' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'wise_about_email' )); ?>" type="text" value="<?php echo esc_attr( $wise_about_email ); ?>">
+</p>
+
+<p>
+<label for="<?php echo esc_attr($this->get_field_id( 'wise_about_phone' )); ?>"><?php esc_html_e( 'Phone:', 'wise-blog' ); ?></label> 
+<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'wise_about_phone' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'wise_about_phone' )); ?>" type="text" value="<?php echo esc_attr( $wise_about_phone ); ?>">
+</p>
 
 <p>
 <label for="<?php echo esc_attr($this->get_field_id( 'about_url' )); ?>"><?php esc_html_e( 'URL (Please input complete URL address):', 'wise-blog' ); ?></label> 
 <input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'about_url' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'about_url' )); ?>" type="text" value="<?php echo esc_attr( $about_url ); ?>">
+</p>
+
+<p>
+<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'enable_social' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'enable_social' )); ?>" type="checkbox" value="<?php echo esc_attr($enable_social); ?>" <?php if($enable_social == 'true') { echo 'checked'; } ?>>
+<label for="<?php echo esc_attr($this->get_field_id( 'enable_social' )); ?>"><?php esc_html_e( 'Enable Social Buttons', 'wise-blog' ); ?></label>
 </p>
 
 <?php 
@@ -104,6 +216,10 @@ $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_in
 $instance['about_img'] = ( ! empty( $new_instance['about_img'] ) ) ? strip_tags( $new_instance['about_img'] ) : '';
 $instance['about_content'] = ( ! empty( $new_instance['about_content'] ) ) ? strip_tags( $new_instance['about_content'] ) : '';
 $instance['about_url'] = ( ! empty( $new_instance['about_url'] ) ) ? strip_tags( $new_instance['about_url'] ) : '';
+$instance['enable_social'] = ( ! empty( $new_instance['enable_social'] ) ) ? 'true' : 'false';
+$instance['wise_about_location'] = ( ! empty( $new_instance['wise_about_location'] ) ) ? strip_tags( $new_instance['wise_about_location'] ) : '';
+$instance['wise_about_email'] = ( ! empty( $new_instance['wise_about_email'] ) ) ? strip_tags( $new_instance['wise_about_email'] ) : '';
+$instance['wise_about_phone'] = ( ! empty( $new_instance['wise_about_phone'] ) ) ? strip_tags( $new_instance['wise_about_phone'] ) : '';
 return $instance;
 }
 }

@@ -163,6 +163,10 @@
 	background: none;
 }
 
+.widget .nav-pills li:hover {
+	padding-left: 0;
+}
+
 .nav-pills > li > a {
 	border-radius: 0;
 	color: #707070;

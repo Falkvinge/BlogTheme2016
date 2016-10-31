@@ -20,7 +20,7 @@ $dash_notice_login = apply_filters( 'widget_dash_notice_login', @$instance['dash
 $dash_notice_logout = apply_filters( 'widget_dash_notice_logout', @$instance['dash_notice_logout'] );
 
 // Before and after the widget
-echo $args['before_widget'];
+echo wp_kses_post($args['before_widget']);
 
 // The Output
 ?>
@@ -31,10 +31,10 @@ echo $args['before_widget'];
 	<?php if (is_user_logged_in()) { ?>
 		<div class="dash-tools">
 			<a href="<?php echo esc_url( home_url('/') . 'wp-admin/'); ?>"><?php esc_html_e( 'Dashboard', 'wise-blog' ); ?></a>
-			<?php if(function_exists('is_woocommerce') && is_woocommerce() ) : echo '<a class="dash-home" href="' . wc_customer_edit_account_url() . '">' . esc_html__( 'Edit Account', 'wise-blog') . '</a>';
+			<?php if(function_exists('is_woocommerce') && is_woocommerce() ) : echo '<a class="dash-home" href="' . esc_url(wc_customer_edit_account_url()) . '">' . esc_html__( 'Edit Account', 'wise-blog') . '</a>';
 				else : echo '<a class="dash-home" href="' . esc_url( home_url('/') . 'wp-admin/profile.php') . '">' . esc_html__( 'Edit Account', 'wise-blog') . '</a>'; endif; ?>
 		</div>
-		<a class="dash-out" href="<?php echo wp_logout_url( home_url('/') ); ?>"><?php esc_html_e( 'Log out', 'wise-blog' ); ?></a>
+		<a class="dash-out" href="<?php echo esc_url( wp_logout_url(home_url('/')) ); ?>"><?php esc_html_e( 'Log out', 'wise-blog' ); ?></a>
 		<span class="dash-notice"><i><?php echo esc_attr($dash_notice_login); ?></i></span>
 	<?php } else { ?>
 		<div class="dash-tools">
@@ -46,7 +46,7 @@ echo $args['before_widget'];
 </div>
 <?php
 
-echo $args['after_widget'];
+echo wp_kses_post($args['after_widget']);
 }
 		
 // Backend

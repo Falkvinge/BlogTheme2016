@@ -75,7 +75,7 @@ query_posts( array( 'category_name' => $wise_post_categ, 'post_type' => 'post', 
 		</div>
 	<?php if( $wise_post_layout == 'grid' ) { echo '</div>'; } ?>
 	
-	<?php if( $wise_lpost_pagination == 'paginate' ) :  wise_paging_nav(); endif; wp_reset_query(); ?>
+	<?php if( $wise_lpost_pagination == 'paginate' ) : wise_paging_nav(); endif; wp_reset_query(); ?>
 
 <?php else : ?>
 

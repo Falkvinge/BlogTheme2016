@@ -6,7 +6,7 @@
 get_header(); ?>
 <div class="content-wrapper-outer">
 	<div class="content-wrapper" data-sticky_parent>
-	
+		<?php get_sidebar('docs_top'); ?>
 		<div id="primary" class="content-area">
 			<?php get_sidebar('left'); ?>
 			<main id="main" class="site-main">
@@ -24,7 +24,6 @@ get_header(); ?>
 					} // End conditionals ?>
 			</main><!-- End of #main -->
 		</div><!-- End of #primary -->
-		
 		<?php get_sidebar('page'); ?>
 	</div><!-- End of #content-wrapper -->
 </div><!-- End of #content-wrapper-outer -->

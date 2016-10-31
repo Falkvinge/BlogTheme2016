@@ -3,10 +3,21 @@
 *
 */
 
-.button-2 button,
-.button-2 input[type="button"],
-.button-2 input[type="reset"],
-.button-2 input[type="submit"] {
+.wise_wrap .clear:before,
+.wise_wrap .clear:after {
+	content: "";
+	display: table;
+}
+
+.wise_wrap .clear:after {
+	clear: both;
+}
+
+
+.wise_wrap .button-2 button,
+.wise_wrap .button-2 input[type="button"],
+.wise_wrap .button-2 input[type="reset"],
+.wise_wrap .button-2 input[type="submit"] {
 	padding: 11px 20px;
 	font-size: 15px;
 	font-family: 'Open Sans', sans-serif;
@@ -22,24 +33,42 @@
     transition: all 0.7s ease-out 0s;
 }
 
-.button-2 button:hover,
-.button-2 input[type="button"]:hover,
-.button-2 input[type="reset"]:hover,
-.button-2 input[type="submit"]:hover {
+.wise_wrap .button-2 button:hover,
+.wise_wrap .button-2 input[type="button"]:hover,
+.wise_wrap .button-2 input[type="reset"]:hover,
+.wise_wrap .button-2 input[type="submit"]:hover {
 	color: #222;
 	border: 2px solid #222;
 	background: #ffd700;
 }
 
-button:focus,
-input[type="button"]:focus,
-input[type="reset"]:focus,
-input[type="submit"]:focus,
-button:active,
-input[type="button"]:active,
-input[type="reset"]:active,
-input[type="submit"]:active {
+.wise_wrap button:focus,
+.wise_wrap input[type="button"]:focus,
+.wise_wrap input[type="reset"]:focus,
+.wise_wrap input[type="submit"]:focus,
+.wise_wrap button:active,
+.wise_wrap input[type="button"]:active,
+.wise_wrap input[type="reset"]:active,
+.wise_wrap input[type="submit"]:active {
     outline: none !important;
+}
+
+.wise_wrap select {
+	border: 2px solid #ccc !important;
+	padding: .3em !important;
+	cursor: pointer;
+}
+
+.wise_wrap option {
+	cursor: pointer !important;
+}
+
+.wise_wrap input:focus,
+.wise_wrap textarea:focus,
+.wise_wrap option:focus,
+.wise_wrap select:focus {
+ 	outline: none !important;
+	box-shadow: none !important;
 }
 
 .wise_wrap { 
@@ -52,7 +81,7 @@ input[type="submit"]:active {
 
 .wise_wrap h2 {
 	color: #ffffff;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: "Ubuntu", sans-serif !important;
 	padding: 2em 1.2em 1.2em !important;
 	font-weight: 500;
 	text-transform: uppercase;
@@ -103,11 +132,13 @@ input[type="submit"]:active {
 	display: inline;
 	width: auto;
 	color: #999;
-	padding-right: 20px;
+	padding-left: 20px;
+	line-height: 3em;
 }
 
 .wise_opts small.th-color {
 	vertical-align: 50%;
+	line-height: 2em;
 }
 
 .wise_opts input[type="text"],
@@ -118,11 +149,24 @@ input[type="submit"]:active {
     color: #333;
     line-height: 1em;
     background: #ffffff;
+	border: 2px solid #ccc;
+}
+
+.wise_opts input[type="number"] {
+    width: 50%;
+    font-size: 12px;
+    padding: 19px;
+    color: #333;
+    line-height: 1em;
+    background: #ffffff;
+	border: 2px solid #ccc;
 }
 
 .wise_input input:focus,
-.wise_input textarea:focus {
+.wise_input textarea:focus,
+.wise_input select:focus {
 	background: #fff;
+	border: 2px solid #555 !important;
 }
 
 .wise_input textarea {
@@ -133,6 +177,7 @@ input[type="submit"]:active {
 	color: #333;
 	line-height: 1.5em;
 	background: #ffffff;
+	border: 2px solid #ccc;
 }
 
 .wise_input select {
@@ -150,6 +195,7 @@ input[type="submit"]:active {
 }
 
 .wise_title h3 {
+	font-family: "Open Sans", sans-serif;
 	cursor: pointer;
 	font-size: 1.2em;
 	margin: 0 0 0 6px;
@@ -280,4 +326,58 @@ input[type="submit"]:active {
     top: 50%;
     margin: -32px 0 0 -32px;
     background-size: 100%;
+}
+
+/* Wise On/Off Switch */
+.wise-switch {
+	display: block;
+	float: left;
+    position: relative;
+	width: 53px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+
+.wise-switch-checkbox {
+    display: none !important;
+}
+.wise-switch-label {
+    display: block;
+	overflow: hidden;
+	cursor: pointer;
+    height: 25px;
+	padding: 0;
+	line-height: 25px;
+    border: 2px solid #ccc;
+	border-radius: 25px;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease-in;
+	float: none !important;
+	width: auto !important;
+}
+
+.wise-switch-label:before {
+    content: "";
+    display: block;
+	width: 25px;
+	margin: 0;
+    background: #ffffff;
+    position: absolute;
+	top: 0;
+	bottom: 0;
+    right: 24px;
+    border: 2px solid #ccc;
+	border-radius: 25px;
+    transition: all 0.3s ease-in 0s; 
+}
+
+.wise-switch-checkbox:checked + .wise-switch-label {
+    background-color: #555555;
+}
+
+.wise-switch-checkbox:checked + .wise-switch-label, .wise-switch-checkbox:checked + .wise-switch-label:before {
+   border-color: #555555;
+}
+
+.wise-switch-checkbox:checked + .wise-switch-label:before {
+    right: 0; 
 }

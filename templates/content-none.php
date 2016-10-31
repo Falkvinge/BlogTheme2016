@@ -18,21 +18,21 @@
 	<div class="page-content">
 		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
-			<p><?php printf( wp_kses_post( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'wise-blog' ) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
+			<div class="wise-error-message"><p><?php printf( wp_kses_post( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'wise-blog' ) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p></div>
 			
 		<?php elseif ( is_404() ) : ?>
 
-			<p><?php esc_html_e( 'The article you requested has either been removed or doesn&rsquo;t exist in our site. Check out the articles below or try searching.', 'wise-blog' ); ?></p>
+			<div class="wise-error-message"><p><?php esc_html_e( 'The article you requested has either been removed or doesn&rsquo;t exist in our site. Check out the articles below or try searching.', 'wise-blog' ); ?></p></div>
 			<?php get_search_form(); ?>
 		
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Check out the articles below or try again with some different keywords.', 'wise-blog' ); ?></p>
+			<div class="wise-error-message"><p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Check out the articles below or try again with some different keywords.', 'wise-blog' ); ?></p></div>
 			<?php get_search_form(); ?>
 
 		<?php else : ?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'wise-blog' ); ?></p>
+			<div class="wise-error-message"><p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'wise-blog' ); ?></p></div>
 			<?php get_search_form(); ?>
 
 		<?php endif; ?>

@@ -16,18 +16,19 @@ parent::__construct( 'w_script_widget', esc_html__( '#Wise Script', 'wise-blog' 
 
 // Frontend
 public function widget( $args, $instance ) {
+global $w_script;
 $title = apply_filters( 'widget_title', @$instance['title'] );
 $w_script = apply_filters( 'w_script', @$instance['w_script'] );
 
 // Before and after the widget
-echo $args['before_widget'];
+echo wp_kses_post($args['before_widget']);
 if ( ! empty( $title ) )
-echo $args['before_title'] . esc_html($title) . $args['after_title'];
+echo wp_kses_post($args['before_title']) . esc_html($title) . wp_kses_post($args['after_title']);
 
 // The Output
-echo $w_script; // only login users can add script based on instance below, else content is filtered
+echo wise_script_widget();
 
-echo $args['after_widget'];
+echo wp_kses_post($args['after_widget']);
 }
 		
 // Backend
@@ -72,6 +73,11 @@ else
 $instance['filter'] = isset($new_instance['filter']);
 return $instance;
 }
+}
+
+function wise_script_widget() {
+	global $w_script;
+	return $w_script;
 }
 
 // Register and load widget

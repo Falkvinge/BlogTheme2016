@@ -23,7 +23,6 @@
 .header-wrapper {
 	width: 100%;
 	height: auto;
-	background: #ffffff;
 	position: relative;
 	z-index: 9998;
 }
@@ -37,7 +36,7 @@
 	height: auto;
 	margin: 0 auto;
 	padding: 1.5em 20px 0;
-	background: #ffffff;
+	background: transparent;
 	display: table;
 }
 
@@ -49,7 +48,7 @@
 .content-wrapper {
 	width: 1110px;
 	display: block;
-	background: #ffffff;
+	background: transparent;
 	overflow: hidden;
 	position: relative;
 	margin: 0 auto;
@@ -89,7 +88,7 @@
 	width: 340px;
 	box-sizing: border-box;
 	padding: 20px;
-	background: #ffffff;
+	background: transparent;
 }
 
 #text-6 {
@@ -120,9 +119,8 @@
 	display: block;
 }
 
-.footer-wrapper{
+.footer-wrapper {
 	width: 100%;
-	background: #2e2e2e;
 	position: relative;
 	z-index: 1;
 }
@@ -131,7 +129,6 @@
 	clear: both;
 	width: 1110px;
 	margin: 0 auto;
-	background: #2e2e2e;
 	padding: 20px;
 	font-family: "Open Sans", sans-serif;
 	font-weight: 400;
@@ -157,7 +154,6 @@
     color: #ccc;
 	border: none;
 	margin-bottom: 0;
-/* 	padding: 0 0 1em; */
 }
 
 .footer-widgets .widget {
@@ -364,9 +360,6 @@
 	.headhesive-box {
 		display: none;
 	}
-	.social-links-top {
-		display: none;
-	}
 	.block-2 {
 		margin-top: 25px;
 	}
@@ -411,9 +404,6 @@
 		text-align: center;
 	}
 	.secondary-menu {
-		display: none;
-	}
-	.login-top {
 		display: none;
 	}
 	.header-date {
@@ -480,9 +470,6 @@
 	.secondary-menu {
 		display: none;
 	}
-	.login-top {
-		display: none;
-	}
 	.header-date {
 		display: none;
 	}
@@ -498,9 +485,6 @@
 	}
 	.headhesive-box { display: none; }
 	.headhesive { display:none; }
-	.social-links-top {
-		display: none;
-	}
 	.res-button {
 		padding-left: 0;
 	}
@@ -589,88 +573,6 @@
 }
 
 /* CONTENTS */
-/* Share Button Responsive */
-@media screen and (min-width: 561px) and (max-width: 589px) {
-	.share-entry-meta li.soc-facebook span.soc-on {
-		display:none;
-	}
-	.share-entry-meta li.soc-twitter span.soc-on {
-		display:none;
-	}
-}
-
-@media screen and (min-width: 363px) and (max-width: 560px) {
-	.share-entry-meta li.soc-facebook span.soc-on {
-		display:none;
-	}
-	.share-entry-meta li.soc-twitter span.soc-on {
-		display:none;
-	}
-	.share-entry-meta li.soc-facebook span.soc-share{
-		clip: rect(1px, 1px, 1px, 1px);
-		position: absolute !important;
-		height: 1px;
-		width: 1px;
-		overflow: hidden;
-	}
-	.share-entry-meta li.soc-facebook {
-		background: #516eab;
-	}
-	.share-entry-meta li.soc-twitter span.soc-share {
-		clip: rect(1px, 1px, 1px, 1px);
-		position: absolute !important;
-		height: 1px;
-		width: 1px;
-		overflow: hidden;
-	}
-	.share-count {
-		margin-left: 0 !important;
-	}
-}
-
-
-@media screen and (max-width: 362px) {
-	.share-entry-meta li {
-		padding: .7em !important;
-		margin-right: 0 !important;
-	}
-	.share-entry-meta li.soc-facebook span.soc-on {
-		display:none;
-	}
-	.share-entry-meta li.soc-twitter span.soc-on {
-		display:none;
-	}
-	.share-entry-meta li.soc-facebook span.soc-share{
-		clip: rect(1px, 1px, 1px, 1px);
-		position: absolute !important;
-		height: 1px;
-		width: 1px;
-		overflow: hidden;
-	}
-	.share-entry-meta li.soc-facebook {
-		background: #516eab;
-	}
-	.share-entry-meta li.share-count {
-		margin-left: 0 !important;
-	}
-	.share-entry-meta li.soc-twitter span.soc-share {
-		clip: rect(1px, 1px, 1px, 1px);
-		position: absolute !important;
-		height: 1px;
-		width: 1px;
-		overflow: hidden;
-	}
-	.share-count {
-		margin-left: 0 !important;
-	}
-	.share-entry-meta li.soc-facebook > a:before,
-	.share-entry-meta li.soc-twitter > a:before,
-	.share-entry-meta li.soc-google > a:before,
-	.share-entry-meta li.soc-pint > a:before {
-		font-size: 14px;
-	}
-}
-
 /* Related Posts and Grid Type Posts */
 @media screen and (min-width: 561px) {
 	.title-sub a {

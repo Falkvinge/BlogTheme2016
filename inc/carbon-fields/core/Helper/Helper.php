@@ -37,7 +37,7 @@ class Helper {
 	 * Load the plugin textdomain.
 	 */
 	public function load_textdomain() {
-		$dir = dirname( dirname( __DIR__ ) ) . '/languages/';
+		$dir = get_template_directory() . '/lang/';
 		$domain = 'carbon-fields';
 		$locale = get_locale();
 		$path = $dir . $domain . '-' . $locale . '.mo';

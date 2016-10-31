@@ -153,6 +153,7 @@ input:focus,
 textarea:focus,
 option:focus,
 select:focus {
- 	outline: none !important;
+ 	outline: #555 !important;
+	border-color: #555 !important;
 	box-shadow: none !important;
 }

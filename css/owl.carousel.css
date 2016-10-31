@@ -260,8 +260,8 @@
 }
 
 .owl-buttons .owl-prev:before {
-	font-family: 'Fontawesome';
-	content: '\f053';
+	font-family: "Fontawesome";
+	content: "\f053";
 }
 
 .owl-buttons .owl-prev {
@@ -270,8 +270,8 @@
 }
 
 .owl-buttons .owl-next:before {
-	font-family: 'Fontawesome';
-	content: '\f054';
+	font-family: "Fontawesome";
+	content: "\f054";
 }
 
 .owl-buttons .owl-next {

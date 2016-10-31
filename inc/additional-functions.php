@@ -36,10 +36,10 @@
 	22.3 Custom Demo Store Notice (Display only in shop)
 	22.4 Add Share Buttons
 	22.5 Woocommerce Parent Category and Link
-	22.6 Custom Post Type Labels
-	22.7 Customize Breadcrumbs
-	22.8 Revert Default Lost Password Form
-	22.9 No. of Related Products to Display
+	22.6 Customize Breadcrumbs
+	22.7 Revert Default Lost Password Form
+	22.8 No. of Related Products to Display
+	22.9 Shopping Icon
 23. Remove Default bbPress Style
 24. Remove WordPress Unecessary Tags and Function
 25. Google reCAPTCHA
@@ -164,33 +164,34 @@ endif;
 		function wise_posted_on() {
 			if( get_option('wise_disable_post_date') == false) { // If true, disables date on posts
 				
-				$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-				
-				$time_string = sprintf( $time_string,
-					esc_attr( get_the_date( 'c' ) ),
-					esc_html( get_the_date() ),
-					esc_attr( get_the_modified_date( 'c' ) ),
-					esc_html( get_the_modified_date() )
-				);
+				if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+					$time_string = is_single() ? '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s"> &bull; ' . esc_html('Updated', 'wise-blog') . ' %4$s</time>' : '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+				} else {
+					$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+				}
 				
 				if(get_option('wise_date_format') == 'human readable') {
-					
-					$wise_times = get_the_time( 'U' );
-					
-					$posted_on = sprintf(
-						human_time_diff( $wise_times, current_time('timestamp') ) . ' ago ',
-						esc_html_x( '%s', 'post date', 'wise-blog' ),
-						'<a href="' . esc_url( esc_url(get_permalink()) ) . '" rel="bookmark">' . $time_string . '</a>'
+					$time_string = sprintf( $time_string,
+						esc_attr( get_the_date( 'c' ) ),
+						esc_html( human_time_diff( get_the_date('U'), current_time('timestamp') ) . esc_attr(' ago', 'wise-blog') ),
+						esc_attr( get_the_modified_date( 'c' ) ),
+						esc_html( human_time_diff( get_the_modified_date('U'), current_time('timestamp') ) )
 					);
 				} else {
-					$posted_on = sprintf(
-						esc_html_x( '%s ', 'post date', 'wise-blog' ), $time_string );
+					$time_string = sprintf( $time_string,
+						esc_attr( get_the_date( 'c' ) ),
+						esc_html( get_the_date() ),
+						esc_attr( get_the_modified_date( 'c' ) ),
+						esc_html( get_the_modified_date() )
+					);
 				}
-
-				echo '<span class="posted-on updated">' . wp_kses_post(@$posted_on) . '</span>'; // WPCS: XSS OK.
+				
+				printf( '<span class="posted-on"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+					esc_html_x( 'Posted on', 'Used before publish date.', 'wise-blog' ),
+					$time_string
+				);
 			
 			} else { null; }
-
 		}
 	endif;
 
@@ -297,7 +298,7 @@ endif;
 --------------------------------------------------------------*/
 if ( ! function_exists( 'wise_custom_excerpt_length' ) ) :
 	function wise_custom_excerpt_length( $length ) {
-		return 20;
+		return 24;
 	}
 	add_filter( 'excerpt_length', 'wise_custom_excerpt_length', 999 );
 endif;
@@ -799,52 +800,47 @@ function wise_minify($wiseminify) {
 /*--------------------------------------------------------------
 20. Custom Code
 --------------------------------------------------------------*/
-function wise_code_before_head() {
+function wise_before_head() {
 	$wise_before_head = get_option('wise_code_before_head');
-	
-	if($wise_before_head != null) :
-		echo $wise_before_head; // no need for escape, it is filtered in wise panel like WordPress text widget
+	if( $wise_before_head != null ) :
+		return $wise_before_head;
 	endif;
 }
 
-function wise_code_after_body() {
+function wise_after_body() {
 	$wise_after_body = get_option('wise_code_after_body');
-	
-	if($wise_after_body != null) :
-		echo $wise_after_body; // no need for escape, it is filtered in wise panel like WordPress text widget
+	if( $wise_after_body != null ) :
+		return $wise_after_body;
 	endif;
 }
 
-function wise_code_before_body() {
+function wise_before_body() {
 	$wise_before_body = get_option('wise_code_before_body');
-	
-	if($wise_before_body != null) :
-		echo $wise_before_body; // no need for escape, it is filtered in wise panel like WordPress text widget
+	if( $wise_before_body != null ) :
+		return $wise_before_body;
 	endif;
 }
 
 /*--------------------------------------------------------------
 21. Remove Version Query String
 --------------------------------------------------------------*/
-if ( get_option('wise_minify_optimize') == true ) {
-	if ( ! function_exists( 'wise_remove_script_version' ) ) :
-		function wise_remove_script_version( $src ){
-			$parts = explode( '&ver', $src );
-			return $parts[0];
-		}
-		add_filter( 'script_loader_src', 'wise_remove_script_version', 15, 1 );
-		add_filter( 'style_loader_src', 'wise_remove_script_version', 15, 1 );
-	endif;
+if ( ! function_exists( 'wise_remove_script_version' ) ) :
+	function wise_remove_script_version( $src ){
+		$parts = explode( '&ver', $src );
+		return $parts[0];
+	}
+	add_filter( 'script_loader_src', 'wise_remove_script_version', 15, 1 );
+	add_filter( 'style_loader_src', 'wise_remove_script_version', 15, 1 );
+endif;
 
-	if ( ! function_exists( 'wise_remove_script_version1' ) ) :
-		function wise_remove_script_version1( $src ){
-			$parts = explode( '?ver', $src );
-			return $parts[0];
-		}
-		add_filter( 'script_loader_src', 'wise_remove_script_version1', 15, 1 );
-		add_filter( 'style_loader_src', 'wise_remove_script_version1', 15, 1 );
-	endif;
-}
+if ( ! function_exists( 'wise_remove_script_version1' ) ) :
+	function wise_remove_script_version1( $src ){
+		$parts = explode( '?ver', $src );
+		return $parts[0];
+	}
+	add_filter( 'script_loader_src', 'wise_remove_script_version1', 15, 1 );
+	add_filter( 'style_loader_src', 'wise_remove_script_version1', 15, 1 );
+endif;
 
 /*--------------------------------------------------------------
 22. WooCommerce Functions
@@ -889,9 +885,7 @@ if ( get_option('wise_minify_optimize') == true ) {
 	--------------------------------------------------------------*/
 	if ( ! function_exists( 'wise_wooshare' ) ) :
 		function wise_wooshare() {
-			echo '<div class="share-entry-meta">';
 			echo get_template_part('templates/custom-social');
-			echo '</div><!-- Custom Social -->';
 		}
 		add_action('woocommerce_share','wise_wooshare');
 	endif;
@@ -915,49 +909,7 @@ if ( get_option('wise_minify_optimize') == true ) {
 	endif;
 
 	/*--------------------------------------------------------------
-	22.6 Custom Post Type Labels
-	--------------------------------------------------------------*/
-	if ( ! function_exists( 'wise_woo_custom_post_type' ) ) :
-		function wise_woo_custom_post_type( $args ){
-			if(get_option('wise_custom_woo_shop_links') == true) {
-				$custom_woo_shop_links = get_option( 'wise_custom_woo_shop_links' ); 
-			}
-			else {
-				$custom_woo_shop_links = 'product';
-			}
-			$product_permalink = empty( $permalinks['product_base'] ) ? esc_attr( $custom_woo_shop_links, 'slug', 'wise-blog' ) : $permalinks['product_base'];
-			$custom_woo_name = get_option( 'wise_woo_shop_title' );
-			$labels = array(
-			'name' 					=> esc_attr( $custom_woo_name, 'wise-blog' ),
-			'singular_name'         => esc_attr__( 'Product', 'wise-blog' ),
-			'menu_name'             => esc_attr_x( 'Products', 'Admin menu name', 'wise-blog' ),
-			'add_new'               => esc_attr__( 'Add Product', 'wise-blog' ),
-			'add_new_item'          => esc_attr__( 'Add New Product', 'wise-blog' ),
-			'edit'                  => esc_attr__( 'Edit', 'wise-blog' ),
-			'edit_item'             => esc_attr__( 'Edit Product', 'wise-blog' ),
-			'new_item'              => esc_attr__( 'New Product', 'wise-blog' ),
-			'view'                  => esc_attr__( 'View Product', 'wise-blog' ),
-			'view_item'             => esc_attr__( 'View Product', 'wise-blog' ),
-			'search_items'          => esc_attr__( 'Search Products', 'wise-blog' ),
-			'not_found'             => esc_attr__( 'No Products found', 'wise-blog' ),
-			'not_found_in_trash'    => esc_attr__( 'No Products found in trash', 'wise-blog' ),
-			'parent'                => esc_attr__( 'Parent Product', 'wise-blog' ),
-			'featured_image'        => esc_attr__( 'Product Image', 'wise-blog' ),
-			'set_featured_image'    => esc_attr__( 'Set product image', 'wise-blog' ),
-			'remove_featured_image' => esc_attr__( 'Remove product image', 'wise-blog' ),
-			'use_featured_image'    => esc_attr__( 'Use as product image', 'wise-blog' ),
-			);
-			 
-			$args['labels'] = $labels;
-			$args['description'] = esc_html__( 'This is where you can add new products to your store.', 'wise-blog' );
-			$args['rewrite'] = $product_permalink ? array( 'slug' => untrailingslashit( $product_permalink ), 'with_front' => false, 'feeds' => true ) : false;
-			return $args;
-		}
-		add_filter( 'woocommerce_register_post_type_product', 'wise_woo_custom_post_type' );
-	endif;
-
-	/*--------------------------------------------------------------
-	22.7 Customize Breadcrumbs
+	22.6 Customize Breadcrumbs
 	--------------------------------------------------------------*/
 	if ( ! function_exists( 'wise_woo_breadcrumbs' ) ) :
 		function wise_woo_breadcrumbs() {
@@ -974,7 +926,7 @@ if ( get_option('wise_minify_optimize') == true ) {
 	endif;
 	
 	/*--------------------------------------------------------------
-	22.8 Revert Default Lost Password Form
+	22.7 Revert Default Lost Password Form
 	--------------------------------------------------------------*/
 	if ( !function_exists('is_woocommerce') ) :
 		function wise_revert_lost_url() {
@@ -985,7 +937,7 @@ if ( get_option('wise_minify_optimize') == true ) {
 	endif;
 	
 	/*--------------------------------------------------------------
-	22.9 No. of Related Products to Display
+	22.8 No. of Related Products to Display
 	--------------------------------------------------------------*/
 	if ( !function_exists('wise_related_products_limit') ) :
 		function wise_related_products_limit() {
@@ -1002,6 +954,26 @@ if ( get_option('wise_minify_optimize') == true ) {
 			return $args;
 		}
 		add_filter( 'woocommerce_output_related_products_args', 'wise_related_products_args' );
+	endif;
+
+	/*--------------------------------------------------------------
+	22.9 Shopping Icon
+	--------------------------------------------------------------*/
+	if ( !function_exists('wise_woo_icon') ) :
+		function wise_woo_icon() {
+			global $woocommerce;
+			$wise_qnty = $woocommerce->cart->get_cart_contents_count();
+			$wise_total = $woocommerce->cart->get_cart_total();
+			$wise_curl = $woocommerce->cart->get_cart_url();
+
+			if( $wise_qnty > 1 ) {
+				echo '<a href="' . esc_url($wise_curl) . '"><span class="wise-shop-icon"><span class="wnumber">' . esc_html($wise_qnty) . '</span><span class="wtotal">' . wp_kses_post($wise_total) . '</span></span></a>';
+			} elseif( $wise_qnty == 1 ) {
+				echo '<a href="' . esc_url($wise_curl) . '"><span class="wise-shop-icon"><span class="wnumber">1</span><span class="wtotal">' . wp_kses_post($wise_total) . '</span></span></a>';
+			} else {
+				echo '<a href="' . esc_url($wise_curl) . '"><span class="wise-shop-icon"><span class="wnumber">0</span><span class="wtotal">' . wp_kses_post($wise_total) . '</span></span></a>';
+			}
+		}
 	endif;
 
 /*--------------------------------------------------------------
@@ -1218,23 +1190,26 @@ function wise_comment_settings($comment, $args, $depth) {
 	<div class="comment-author vcard">
 	<?php if ( $args['avatar_size'] != 0 ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
 	<?php echo '<b class="fn">' . get_comment_author_link() . '</b>' ?>
+	<div class="comment-meta comment-metadata">
+		<?php printf( '<time>%1$s</time>', get_comment_date(),  get_comment_time() ); ?></a><br><?php /* translators: 1: date, 2: time, add this to get time: %2$s */ ?>
+	</div>
 	</div>
 	<?php if ( $comment->comment_approved == '0' ) : ?>
 		<em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'wise-blog' ); ?></em>
 		<br >
 	<?php endif; ?>
 
-	<div class="comment-meta comment-metadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
-		<?php printf( '<time>%1$s</time>', get_comment_date(),  get_comment_time() ); ?></a><br><?php edit_comment_link( esc_html__( 'Edit', 'wise-blog' ), '  ', '' ); /* translators: 1: date, 2: time, add this to get time: %2$s */ ?>
-	</div>
-
 	<div class="comment-content">
 	<p><?php comment_text(); ?></p>
+	<?php edit_comment_link( esc_html__( 'Edit', 'wise-blog' ), '  ', '' ); ?>
 	</div>
 
+	<?php if ( $depth < $args['max_depth'] ) : ?>
 	<div class="reply">
-	<?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+	<?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
 	</div>
+	<?php endif; ?>
+	
 	<?php if ( 'div' != $args['style'] ) : ?>
 	</div>
 	<?php endif; ?>
@@ -1246,14 +1221,14 @@ function wise_comment_settings($comment, $args, $depth) {
 --------------------------------------------------------------*/
 function wise_panel_fields() { ?>
 	<div class="wise-footer-functions">
-		<?php $author_url = 'http://www.probewise.com'; $wise_version = '1.1.3'; $wise_name = 'Wise Blog'; $wise_author = 'Probewise'; ?>
+		<?php $author_url = 'http://www.probewise.com'; $wise_version = '1.6'; $wise_name = 'Wise Blog'; $wise_author = 'Probewise'; ?>
 		<div class="wise-help-functions"><p><?php echo esc_html_e( 'Need help? Documentations or support forum may help you.', 'wise-blog' ); ?></p>
 			<p><?php esc_html_e( 'Visit our documentation page here:', 'wise-blog' ); ?> <a href="<?php echo esc_url($author_url . '/docs/wise-blog/'); ?>"><?php esc_html_e( 'Wise Blog Documentation', 'wise-blog' ); ?></a></p>
-			<p><?php esc_html_e( 'Or post questions here:', 'wise-blog' ); ?> <a href="<?php echo esc_url($author_url . '/support/forum/themes/wise-blog/'); ?>"><?php esc_html_e( 'Probewise Support Forum', 'wise-blog' ); ?></a></p>
+			<p><?php esc_html_e( 'Or post questions here:', 'wise-blog' ); ?> <a href="<?php echo esc_url($author_url . '/themes/wise-blog/#tab-support'); ?>"><?php esc_html_e( 'Probewise Support', 'wise-blog' ); ?></a></p>
 		</div>
 		<div class="wise-theme-info">
-			<p><?php esc_html_e( 'Theme Name:', 'wise-blog' ); ?><?php echo '&nbsp;' . esc_html($wise_name); ?></p>
-			<p><?php esc_html_e( 'Version:', 'wise-blog' ); ?> <?php echo esc_html($wise_version); ?></p>
+			<p><?php esc_html_e( 'Theme Name:', 'wise-blog' ); ?><?php echo ' <a href="' . esc_url($author_url . '/themes/wise-blog/') . '">' . esc_html($wise_name) . '</a>'; ?></p>
+			<p><?php esc_html_e( 'Version:', 'wise-blog' ); ?> <?php echo '<a href="' . esc_url($author_url . '/themes/wise-blog/#tab-changelog') . '">' . esc_html($wise_version) . '</a>'; ?></p>
 			<p><?php esc_html_e( 'Author:', 'wise-blog' ); ?> <a href="<?php echo esc_url($author_url); ?>"><?php echo esc_html($wise_author); ?></a></p>
 		</div>
 	</div>
@@ -1367,7 +1342,7 @@ endif;
 	if ( ! function_exists( 'ads_top_post' ) ) :
 		function ads_top_post() {
 			if (get_option('wise_top_post') && !is_404() && !is_search() && !is_attachment() ) :
-					echo '<div class="ads-layout_top">' . get_option('wise_top_post') . '</div>'; // no need for escape, it is filtered in wise panel like WordPress text widget
+					echo '<div class="ads-layout_bottom">' . get_option('wise_top_post') . '</div>'; // no need for escape, it is filtered in wise panel like WordPress text widget
 			endif;
 		}
 	endif;
@@ -1411,8 +1386,7 @@ endif;
 	/*--------------------------------------------------------------
 	30.3 Single Content with Ads
 	--------------------------------------------------------------*/
-	function wise_cont_ads() {
-		global $post; $disable_ads = get_post_meta($post->ID, 'wise_ads_post', true);
+	function wise_ads_cont($wise_conts) {
 		$get_cont = get_the_content();
 		$wise_content = apply_filters('the_content', $get_cont);
 		
@@ -1423,9 +1397,20 @@ endif;
 		$first_cont = implode(' ', array_slice($wise_content, 0, $fragments));
 		$second_cont = implode(' ', array_slice($wise_content, $fragments));
 		
-		echo $first_cont . ''; // no need for escape, it uses WordPress core function
+		if( $wise_conts == 'first_cont' ) :
+			return $first_cont . '';
+		endif;
+
+		if( $wise_conts == 'second_cont' ) :
+			return $second_cont;
+		endif;
+	}
+	
+	function wise_cont_ads() {
+		global $post; $disable_ads = get_post_meta($post->ID, 'wise_ads_post', true);
+		echo wise_ads_cont($wise_conts = 'first_cont');
 		if($disable_ads == false) : echo ads_middle_post(); endif;
-		echo $second_cont; // no need for escape, it uses WordPress core function
+		echo wise_ads_cont($wise_conts = 'second_cont');
 	}
 
 /*--------------------------------------------------------------
@@ -1934,6 +1919,11 @@ function wise_customization() {
 				font-family: <?php if( $descfonts != null ) { echo esc_attr($descfonts); } else { echo '"Raleway", sans-serif'; } ?>;
 				font-weight: <?php if( $descweight != null ) { echo esc_attr($descweight); } else { echo '400'; } ?>;
 			}
+
+			.wise-error-message {
+				font-family: <?php if( $descfonts != null ) { echo esc_attr($descfonts); } else { echo '"Raleway", sans-serif'; } ?>;
+				font-weight: <?php if( $descweight != null ) { echo esc_attr($descweight); } else { echo '400'; } ?>;
+			}
 		<?php endif; // End Font Settings ?>
 		
 		<?php if( ( $headlinecolor || $buttoncolor || $textcolor || $linecolor ) != null ) : // Color Settings ?>
@@ -2234,6 +2224,10 @@ function wise_customization() {
 			div#schat-widget .schat-links a:hover {
 				color: <?php if( $textcolor != null ) { echo esc_attr($textcolor); } else { echo '#3a90fd'; } ?> !important;
 			}
+			
+			#bbpress-forums div.bbp-reply-content a {
+				color: <?php if( $textcolor != null ) { echo esc_attr($textcolor); } else { echo '#3a90fd'; } ?>;
+			}
 
 			/*--------------------------------------------------------------
 			4. Lines, Borders and Objects
@@ -2266,13 +2260,6 @@ function wise_customization() {
 				background-color: <?php if( $linecolor != null ) { echo esc_attr($linecolor); } else { echo '#3a90fd'; } ?>;
 			}
 		
-		<?php endif; ?>
-	
-		<?php if (get_option('wise_minify_optimize') == true) : // Fix for images ?>
-
-			.feat-title-content-index-carousel {
-				background: url(<?php echo get_template_directory_uri() . '/img/bg-slider.png'; ?>) repeat;
-			}
 		<?php endif; // End Color Settings ?>
 		
 		<?php if( $wise_dis_back == false ) : // For Background ?>
@@ -2286,6 +2273,661 @@ function wise_customization() {
 				}
 			}
 		<?php endif; ?>
+		
+		/* Preloader */
+		<?php $wise_def_color = get_option('wise_def_preload_color'); $wise_pre_preload = get_option('wise_pre_preload'); // Predefined Preloader ?>
+
+		<?php if($wise_pre_preload == 'rotating-plane') { ?>
+			.sk-rotating-plane {
+			  width: 50px;
+			  height: 50px;
+			  background-color: <?php if($wise_def_color != null) { echo esc_attr($wise_def_color); } else { echo '#3a90fd'; } ?>;
+			  margin: -25px 0 0 -25px;
+			  -webkit-animation: sk-rotatePlane 1.2s infinite ease-in-out;
+					  animation: sk-rotatePlane 1.2s infinite ease-in-out; }
+
+			@-webkit-keyframes sk-rotatePlane {
+			  0% {
+				-webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+						transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+			  50% {
+				-webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+						transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
+			  100% {
+				-webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+						transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
+
+			@keyframes sk-rotatePlane {
+			  0% {
+				-webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+						transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+			  50% {
+				-webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+						transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
+			  100% {
+				-webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+						transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
+						
+		<?php } elseif($wise_pre_preload == 'double-bounce') { ?>
+			.sk-double-bounce {
+			  width: 50px;
+			  height: 50px;
+			  margin: -25px 0 0 -25px; }
+			  .sk-double-bounce .sk-child {
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				background-color: <?php if($wise_def_color != null) { echo esc_attr($wise_def_color); } else { echo '#3a90fd'; } ?>;
+				opacity: 0.6;
+				position: absolute;
+				top: 0;
+				left: 0;
+				-webkit-animation: sk-doubleBounce 2s infinite ease-in-out;
+						animation: sk-doubleBounce 2s infinite ease-in-out; }
+			  .sk-double-bounce .sk-double-bounce2 {
+				-webkit-animation-delay: -1.0s;
+						animation-delay: -1.0s; }
+
+			@-webkit-keyframes sk-doubleBounce {
+			  0%, 100% {
+				-webkit-transform: scale(0);
+						transform: scale(0); }
+			  50% {
+				-webkit-transform: scale(1);
+						transform: scale(1); } }
+
+			@keyframes sk-doubleBounce {
+			  0%, 100% {
+				-webkit-transform: scale(0);
+						transform: scale(0); }
+			  50% {
+				-webkit-transform: scale(1);
+						transform: scale(1); } }
+						
+		<?php } elseif($wise_pre_preload == 'wave') { ?>
+			.sk-wave {
+			  margin: -35px 0 0 -30px;
+			  width: 70px;
+			  height: 60px;
+			  text-align: center;
+			  font-size: 10px; }
+			  .sk-wave .sk-rect {
+				background-color: <?php if($wise_def_color != null) { echo esc_attr($wise_def_color); } else { echo '#3a90fd'; } ?>;
+				height: 100%;
+				width: 8px;
+				display: inline-block;
+				-webkit-animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
+						animation: sk-waveStretchDelay 1.2s infinite ease-in-out; }
+			  .sk-wave .sk-rect1 {
+				-webkit-animation-delay: -1.2s;
+						animation-delay: -1.2s; }
+			  .sk-wave .sk-rect2 {
+				-webkit-animation-delay: -1.1s;
+						animation-delay: -1.1s; }
+			  .sk-wave .sk-rect3 {
+				-webkit-animation-delay: -1s;
+						animation-delay: -1s; }
+			  .sk-wave .sk-rect4 {
+				-webkit-animation-delay: -0.9s;
+						animation-delay: -0.9s; }
+			  .sk-wave .sk-rect5 {
+				-webkit-animation-delay: -0.8s;
+						animation-delay: -0.8s; }
+
+			@-webkit-keyframes sk-waveStretchDelay {
+			  0%, 40%, 100% {
+				-webkit-transform: scaleY(0.4);
+						transform: scaleY(0.4); }
+			  20% {
+				-webkit-transform: scaleY(1);
+						transform: scaleY(1); } }
+
+			@keyframes sk-waveStretchDelay {
+			  0%, 40%, 100% {
+				-webkit-transform: scaleY(0.4);
+						transform: scaleY(0.4); }
+			  20% {
+				-webkit-transform: scaleY(1);
+						transform: scaleY(1); } }
+
+		<?php } elseif($wise_pre_preload == 'wandering-cubes') { ?>
+			.sk-wandering-cubes {
+			  margin: -25px 0 0 -25px;
+			  width: 50px;
+			  height: 50px; }
+			  .sk-wandering-cubes .sk-cube {
+				background-color: <?php if($wise_def_color != null) { echo esc_attr($wise_def_color); } else { echo '#3a90fd'; } ?>;
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				-webkit-animation: sk-wanderingCube 1.8s ease-in-out -1.8s infinite both;
+						animation: sk-wanderingCube 1.8s ease-in-out -1.8s infinite both; }
+			  .sk-wandering-cubes .sk-cube2 {
+				-webkit-animation-delay: -0.9s;
+						animation-delay: -0.9s; }
+
+			@-webkit-keyframes sk-wanderingCube {
+			  0% {
+				-webkit-transform: rotate(0deg);
+						transform: rotate(0deg); }
+			  25% {
+				-webkit-transform: translateX(30px) rotate(-90deg) scale(0.5);
+						transform: translateX(30px) rotate(-90deg) scale(0.5); }
+			  50% {
+				/* Hack to make FF rotate in the right direction */
+				-webkit-transform: translateX(30px) translateY(30px) rotate(-179deg);
+						transform: translateX(30px) translateY(30px) rotate(-179deg); }
+			  50.1% {
+				-webkit-transform: translateX(30px) translateY(30px) rotate(-180deg);
+						transform: translateX(30px) translateY(30px) rotate(-180deg); }
+			  75% {
+				-webkit-transform: translateX(0) translateY(30px) rotate(-270deg) scale(0.5);
+						transform: translateX(0) translateY(30px) rotate(-270deg) scale(0.5); }
+			  100% {
+				-webkit-transform: rotate(-360deg);
+						transform: rotate(-360deg); } }
+
+			@keyframes sk-wanderingCube {
+			  0% {
+				-webkit-transform: rotate(0deg);
+						transform: rotate(0deg); }
+			  25% {
+				-webkit-transform: translateX(30px) rotate(-90deg) scale(0.5);
+						transform: translateX(30px) rotate(-90deg) scale(0.5); }
+			  50% {
+				/* Hack to make FF rotate in the right direction */
+				-webkit-transform: translateX(30px) translateY(30px) rotate(-179deg);
+						transform: translateX(30px) translateY(30px) rotate(-179deg); }
+			  50.1% {
+				-webkit-transform: translateX(30px) translateY(30px) rotate(-180deg);
+						transform: translateX(30px) translateY(30px) rotate(-180deg); }
+			  75% {
+				-webkit-transform: translateX(0) translateY(30px) rotate(-270deg) scale(0.5);
+						transform: translateX(0) translateY(30px) rotate(-270deg) scale(0.5); }
+			  100% {
+				-webkit-transform: rotate(-360deg);
+						transform: rotate(-360deg); } }
+
+		<?php } elseif($wise_pre_preload == 'pulse') { ?>
+			.sk-spinner-pulse {
+			  width: 60px;
+			  height: 60px;
+			  margin: -30px 0 0 -30px;
+			  background-color: <?php if($wise_def_color != null) { echo esc_attr($wise_def_color); } else { echo '#3a90fd'; } ?>;
+			  border-radius: 100%;
+			  -webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
+					  animation: sk-pulseScaleOut 1s infinite ease-in-out; }
+
+			@-webkit-keyframes sk-pulseScaleOut {
+			  0% {
+				-webkit-transform: scale(0);
+						transform: scale(0); }
+			  100% {
+				-webkit-transform: scale(1);
+						transform: scale(1);
+				opacity: 0; } }
+
+			@keyframes sk-pulseScaleOut {
+			  0% {
+				-webkit-transform: scale(0);
+						transform: scale(0); }
+			  100% {
+				-webkit-transform: scale(1);
+						transform: scale(1);
+				opacity: 0; } }
+
+		<?php } elseif($wise_pre_preload == 'chasing-dots') { ?>
+			.sk-chasing-dots {
+			  margin: -30px 0 0 -30px;
+			  width: 60px;
+			  height: 60px;
+			  text-align: center;
+			  -webkit-animation: sk-chasingDotsRotate 2s infinite linear;
+					  animation: sk-chasingDotsRotate 2s infinite linear; }
+			  .sk-chasing-dots .sk-child {
+				width: 60%;
+				height: 60%;
+				display: inline-block;
+				position: absolute;
+				top: 0;
+				background-color: <?php if($wise_def_color != null) { echo esc_attr($wise_def_color); } else { echo '#3a90fd'; } ?>;
+				border-radius: 100%;
+				-webkit-animation: sk-chasingDotsBounce 2s infinite ease-in-out;
+						animation: sk-chasingDotsBounce 2s infinite ease-in-out; }
+			  .sk-chasing-dots .sk-dot2 {
+				top: auto;
+				bottom: 0;
+				-webkit-animation-delay: -1s;
+						animation-delay: -1s; }
+
+			@-webkit-keyframes sk-chasingDotsRotate {
+			  100% {
+				-webkit-transform: rotate(360deg);
+						transform: rotate(360deg); } }
+
+			@keyframes sk-chasingDotsRotate {
+			  100% {
+				-webkit-transform: rotate(360deg);
+						transform: rotate(360deg); } }
+
+			@-webkit-keyframes sk-chasingDotsBounce {
+			  0%, 100% {
+				-webkit-transform: scale(0);
+						transform: scale(0); }
+			  50% {
+				-webkit-transform: scale(1);
+						transform: scale(1); } }
+
+			@keyframes sk-chasingDotsBounce {
+			  0%, 100% {
+				-webkit-transform: scale(0);
+						transform: scale(0); }
+			  50% {
+				-webkit-transform: scale(1);
+						transform: scale(1); } }
+
+		<?php } elseif($wise_pre_preload == 'three-bounce') { ?>
+			.sk-three-bounce {
+			  margin: -35px 0 0 -35px;
+			  width: 70px;
+			  text-align: center; }
+			  .sk-three-bounce .sk-child {
+				width: 20px;
+				height: 20px;
+				background-color: <?php if($wise_def_color != null) { echo esc_attr($wise_def_color); } else { echo '#3a90fd'; } ?>;
+				border-radius: 100%;
+				display: inline-block;
+				-webkit-animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
+						animation: sk-three-bounce 1.4s ease-in-out 0s infinite both; }
+			  .sk-three-bounce .sk-bounce1 {
+				-webkit-animation-delay: -0.32s;
+						animation-delay: -0.32s; }
+			  .sk-three-bounce .sk-bounce2 {
+				-webkit-animation-delay: -0.16s;
+						animation-delay: -0.16s; }
+
+			@-webkit-keyframes sk-three-bounce {
+			  0%, 80%, 100% {
+				-webkit-transform: scale(0);
+						transform: scale(0); }
+			  40% {
+				-webkit-transform: scale(1);
+						transform: scale(1); } }
+
+			@keyframes sk-three-bounce {
+			  0%, 80%, 100% {
+				-webkit-transform: scale(0);
+						transform: scale(0); }
+			  40% {
+				-webkit-transform: scale(1);
+						transform: scale(1); } }
+
+		<?php } elseif($wise_pre_preload == 'circle') { ?>
+			.sk-circle {
+			  margin: -30px 0 0 -30px;
+			  width: 60px;
+			  height: 60px; }
+			  .sk-circle .sk-child {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0; }
+			  .sk-circle .sk-child:before {
+				content: '';
+				display: block;
+				margin: 0 auto;
+				width: 15%;
+				height: 15%;
+				background-color: <?php if($wise_def_color != null) { echo esc_attr($wise_def_color); } else { echo '#3a90fd'; } ?>;
+				border-radius: 100%;
+				-webkit-animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
+						animation: sk-circleBounceDelay 1.2s infinite ease-in-out both; }
+			  .sk-circle .sk-circle2 {
+				-webkit-transform: rotate(30deg);
+					-ms-transform: rotate(30deg);
+						transform: rotate(30deg); }
+			  .sk-circle .sk-circle3 {
+				-webkit-transform: rotate(60deg);
+					-ms-transform: rotate(60deg);
+						transform: rotate(60deg); }
+			  .sk-circle .sk-circle4 {
+				-webkit-transform: rotate(90deg);
+					-ms-transform: rotate(90deg);
+						transform: rotate(90deg); }
+			  .sk-circle .sk-circle5 {
+				-webkit-transform: rotate(120deg);
+					-ms-transform: rotate(120deg);
+						transform: rotate(120deg); }
+			  .sk-circle .sk-circle6 {
+				-webkit-transform: rotate(150deg);
+					-ms-transform: rotate(150deg);
+						transform: rotate(150deg); }
+			  .sk-circle .sk-circle7 {
+				-webkit-transform: rotate(180deg);
+					-ms-transform: rotate(180deg);
+						transform: rotate(180deg); }
+			  .sk-circle .sk-circle8 {
+				-webkit-transform: rotate(210deg);
+					-ms-transform: rotate(210deg);
+						transform: rotate(210deg); }
+			  .sk-circle .sk-circle9 {
+				-webkit-transform: rotate(240deg);
+					-ms-transform: rotate(240deg);
+						transform: rotate(240deg); }
+			  .sk-circle .sk-circle10 {
+				-webkit-transform: rotate(270deg);
+					-ms-transform: rotate(270deg);
+						transform: rotate(270deg); }
+			  .sk-circle .sk-circle11 {
+				-webkit-transform: rotate(300deg);
+					-ms-transform: rotate(300deg);
+						transform: rotate(300deg); }
+			  .sk-circle .sk-circle12 {
+				-webkit-transform: rotate(330deg);
+					-ms-transform: rotate(330deg);
+						transform: rotate(330deg); }
+			  .sk-circle .sk-circle2:before {
+				-webkit-animation-delay: -1.1s;
+						animation-delay: -1.1s; }
+			  .sk-circle .sk-circle3:before {
+				-webkit-animation-delay: -1s;
+						animation-delay: -1s; }
+			  .sk-circle .sk-circle4:before {
+				-webkit-animation-delay: -0.9s;
+						animation-delay: -0.9s; }
+			  .sk-circle .sk-circle5:before {
+				-webkit-animation-delay: -0.8s;
+						animation-delay: -0.8s; }
+			  .sk-circle .sk-circle6:before {
+				-webkit-animation-delay: -0.7s;
+						animation-delay: -0.7s; }
+			  .sk-circle .sk-circle7:before {
+				-webkit-animation-delay: -0.6s;
+						animation-delay: -0.6s; }
+			  .sk-circle .sk-circle8:before {
+				-webkit-animation-delay: -0.5s;
+						animation-delay: -0.5s; }
+			  .sk-circle .sk-circle9:before {
+				-webkit-animation-delay: -0.4s;
+						animation-delay: -0.4s; }
+			  .sk-circle .sk-circle10:before {
+				-webkit-animation-delay: -0.3s;
+						animation-delay: -0.3s; }
+			  .sk-circle .sk-circle11:before {
+				-webkit-animation-delay: -0.2s;
+						animation-delay: -0.2s; }
+			  .sk-circle .sk-circle12:before {
+				-webkit-animation-delay: -0.1s;
+						animation-delay: -0.1s; }
+
+			@-webkit-keyframes sk-circleBounceDelay {
+			  0%, 80%, 100% {
+				-webkit-transform: scale(0);
+						transform: scale(0); }
+			  40% {
+				-webkit-transform: scale(1);
+						transform: scale(1); } }
+
+			@keyframes sk-circleBounceDelay {
+			  0%, 80%, 100% {
+				-webkit-transform: scale(0);
+						transform: scale(0); }
+			  40% {
+				-webkit-transform: scale(1);
+						transform: scale(1); } }
+
+		<?php } elseif($wise_pre_preload == 'cube-grid') { ?>
+			.sk-cube-grid {
+			  width: 60px;
+			  height: 60px;
+			  margin: -30px 0 0 -30px;
+			  /*
+			   * Spinner positions
+			   * 1 2 3
+			   * 4 5 6
+			   * 7 8 9
+			   */ }
+			  .sk-cube-grid .sk-cube {
+				width: 33.33%;
+				height: 33.33%;
+				background-color: <?php if($wise_def_color != null) { echo esc_attr($wise_def_color); } else { echo '#3a90fd'; } ?>;
+				float: left;
+				-webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+						animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; }
+			  .sk-cube-grid .sk-cube1 {
+				-webkit-animation-delay: 0.2s;
+						animation-delay: 0.2s; }
+			  .sk-cube-grid .sk-cube2 {
+				-webkit-animation-delay: 0.3s;
+						animation-delay: 0.3s; }
+			  .sk-cube-grid .sk-cube3 {
+				-webkit-animation-delay: 0.4s;
+						animation-delay: 0.4s; }
+			  .sk-cube-grid .sk-cube4 {
+				-webkit-animation-delay: 0.1s;
+						animation-delay: 0.1s; }
+			  .sk-cube-grid .sk-cube5 {
+				-webkit-animation-delay: 0.2s;
+						animation-delay: 0.2s; }
+			  .sk-cube-grid .sk-cube6 {
+				-webkit-animation-delay: 0.3s;
+						animation-delay: 0.3s; }
+			  .sk-cube-grid .sk-cube7 {
+				-webkit-animation-delay: 0.0s;
+						animation-delay: 0.0s; }
+			  .sk-cube-grid .sk-cube8 {
+				-webkit-animation-delay: 0.1s;
+						animation-delay: 0.1s; }
+			  .sk-cube-grid .sk-cube9 {
+				-webkit-animation-delay: 0.2s;
+						animation-delay: 0.2s; }
+
+			@-webkit-keyframes sk-cubeGridScaleDelay {
+			  0%, 70%, 100% {
+				-webkit-transform: scale3D(1, 1, 1);
+						transform: scale3D(1, 1, 1); }
+			  35% {
+				-webkit-transform: scale3D(0, 0, 1);
+						transform: scale3D(0, 0, 1); } }
+
+			@keyframes sk-cubeGridScaleDelay {
+			  0%, 70%, 100% {
+				-webkit-transform: scale3D(1, 1, 1);
+						transform: scale3D(1, 1, 1); }
+			  35% {
+				-webkit-transform: scale3D(0, 0, 1);
+						transform: scale3D(0, 0, 1); } }
+
+		<?php } elseif($wise_pre_preload == 'fading-circle') { ?>
+			.sk-fading-circle {
+			  margin: -30px 0 0 -30px;
+			  width: 60px;
+			  height: 60px; }
+			  .sk-fading-circle .sk-circle {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0; }
+			  .sk-fading-circle .sk-circle:before {
+				content: '';
+				display: block;
+				margin: 0 auto;
+				width: 15%;
+				height: 15%;
+				background-color: <?php if($wise_def_color != null) { echo esc_attr($wise_def_color); } else { echo '#3a90fd'; } ?>;
+				border-radius: 100%;
+				-webkit-animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+						animation: sk-circleFadeDelay 1.2s infinite ease-in-out both; }
+			  .sk-fading-circle .sk-circle2 {
+				-webkit-transform: rotate(30deg);
+					-ms-transform: rotate(30deg);
+						transform: rotate(30deg); }
+			  .sk-fading-circle .sk-circle3 {
+				-webkit-transform: rotate(60deg);
+					-ms-transform: rotate(60deg);
+						transform: rotate(60deg); }
+			  .sk-fading-circle .sk-circle4 {
+				-webkit-transform: rotate(90deg);
+					-ms-transform: rotate(90deg);
+						transform: rotate(90deg); }
+			  .sk-fading-circle .sk-circle5 {
+				-webkit-transform: rotate(120deg);
+					-ms-transform: rotate(120deg);
+						transform: rotate(120deg); }
+			  .sk-fading-circle .sk-circle6 {
+				-webkit-transform: rotate(150deg);
+					-ms-transform: rotate(150deg);
+						transform: rotate(150deg); }
+			  .sk-fading-circle .sk-circle7 {
+				-webkit-transform: rotate(180deg);
+					-ms-transform: rotate(180deg);
+						transform: rotate(180deg); }
+			  .sk-fading-circle .sk-circle8 {
+				-webkit-transform: rotate(210deg);
+					-ms-transform: rotate(210deg);
+						transform: rotate(210deg); }
+			  .sk-fading-circle .sk-circle9 {
+				-webkit-transform: rotate(240deg);
+					-ms-transform: rotate(240deg);
+						transform: rotate(240deg); }
+			  .sk-fading-circle .sk-circle10 {
+				-webkit-transform: rotate(270deg);
+					-ms-transform: rotate(270deg);
+						transform: rotate(270deg); }
+			  .sk-fading-circle .sk-circle11 {
+				-webkit-transform: rotate(300deg);
+					-ms-transform: rotate(300deg);
+						transform: rotate(300deg); }
+			  .sk-fading-circle .sk-circle12 {
+				-webkit-transform: rotate(330deg);
+					-ms-transform: rotate(330deg);
+						transform: rotate(330deg); }
+			  .sk-fading-circle .sk-circle2:before {
+				-webkit-animation-delay: -1.1s;
+						animation-delay: -1.1s; }
+			  .sk-fading-circle .sk-circle3:before {
+				-webkit-animation-delay: -1s;
+						animation-delay: -1s; }
+			  .sk-fading-circle .sk-circle4:before {
+				-webkit-animation-delay: -0.9s;
+						animation-delay: -0.9s; }
+			  .sk-fading-circle .sk-circle5:before {
+				-webkit-animation-delay: -0.8s;
+						animation-delay: -0.8s; }
+			  .sk-fading-circle .sk-circle6:before {
+				-webkit-animation-delay: -0.7s;
+						animation-delay: -0.7s; }
+			  .sk-fading-circle .sk-circle7:before {
+				-webkit-animation-delay: -0.6s;
+						animation-delay: -0.6s; }
+			  .sk-fading-circle .sk-circle8:before {
+				-webkit-animation-delay: -0.5s;
+						animation-delay: -0.5s; }
+			  .sk-fading-circle .sk-circle9:before {
+				-webkit-animation-delay: -0.4s;
+						animation-delay: -0.4s; }
+			  .sk-fading-circle .sk-circle10:before {
+				-webkit-animation-delay: -0.3s;
+						animation-delay: -0.3s; }
+			  .sk-fading-circle .sk-circle11:before {
+				-webkit-animation-delay: -0.2s;
+						animation-delay: -0.2s; }
+			  .sk-fading-circle .sk-circle12:before {
+				-webkit-animation-delay: -0.1s;
+						animation-delay: -0.1s; }
+
+			@-webkit-keyframes sk-circleFadeDelay {
+			  0%, 39%, 100% {
+				opacity: 0; }
+			  40% {
+				opacity: 1; } }
+
+			@keyframes sk-circleFadeDelay {
+			  0%, 39%, 100% {
+				opacity: 0; }
+			  40% {
+				opacity: 1; } }
+
+		<?php } elseif($wise_pre_preload == 'folding-cube') { ?>
+			.sk-folding-cube {
+			  margin: -25px 0 0 -25px;
+			  width: 50px;
+			  height: 50px;
+			  -webkit-transform: rotateZ(45deg);
+					  transform: rotateZ(45deg); }
+			  .sk-folding-cube .sk-cube {
+				float: left;
+				width: 50%;
+				height: 50%;
+				position: relative;
+				-webkit-transform: scale(1.1);
+					-ms-transform: scale(1.1);
+						transform: scale(1.1); }
+			  .sk-folding-cube .sk-cube:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: <?php if($wise_def_color != null) { echo esc_attr($wise_def_color); } else { echo '#3a90fd'; } ?>;
+				-webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+						animation: sk-foldCubeAngle 2.4s infinite linear both;
+				-webkit-transform-origin: 100% 100%;
+					-ms-transform-origin: 100% 100%;
+						transform-origin: 100% 100%; }
+			  .sk-folding-cube .sk-cube2 {
+				-webkit-transform: scale(1.1) rotateZ(90deg);
+						transform: scale(1.1) rotateZ(90deg); }
+			  .sk-folding-cube .sk-cube3 {
+				-webkit-transform: scale(1.1) rotateZ(180deg);
+						transform: scale(1.1) rotateZ(180deg); }
+			  .sk-folding-cube .sk-cube4 {
+				-webkit-transform: scale(1.1) rotateZ(270deg);
+						transform: scale(1.1) rotateZ(270deg); }
+			  .sk-folding-cube .sk-cube2:before {
+				-webkit-animation-delay: 0.3s;
+						animation-delay: 0.3s; }
+			  .sk-folding-cube .sk-cube3:before {
+				-webkit-animation-delay: 0.6s;
+						animation-delay: 0.6s; }
+			  .sk-folding-cube .sk-cube4:before {
+				-webkit-animation-delay: 0.9s;
+						animation-delay: 0.9s; }
+
+			@-webkit-keyframes sk-foldCubeAngle {
+			  0%, 10% {
+				-webkit-transform: perspective(140px) rotateX(-180deg);
+						transform: perspective(140px) rotateX(-180deg);
+				opacity: 0; }
+			  25%, 75% {
+				-webkit-transform: perspective(140px) rotateX(0deg);
+						transform: perspective(140px) rotateX(0deg);
+				opacity: 1; }
+			  90%, 100% {
+				-webkit-transform: perspective(140px) rotateY(180deg);
+						transform: perspective(140px) rotateY(180deg);
+				opacity: 0; } }
+
+			@keyframes sk-foldCubeAngle {
+			  0%, 10% {
+				-webkit-transform: perspective(140px) rotateX(-180deg);
+						transform: perspective(140px) rotateX(-180deg);
+				opacity: 0; }
+			  25%, 75% {
+				-webkit-transform: perspective(140px) rotateX(0deg);
+						transform: perspective(140px) rotateX(0deg);
+				opacity: 1; }
+			  90%, 100% {
+				-webkit-transform: perspective(140px) rotateY(180deg);
+						transform: perspective(140px) rotateY(180deg);
+				opacity: 0; } }
+
+		<?php } else { null; } ?>
 		
 	</style>
 	<?php
@@ -2595,56 +3237,55 @@ endif;
 	function wise_headhesive_social_menu() { ?>
 		<div class="social-like-wrapper">
 			<div class="social-like-headhesive" id="share-top">
-			  <ul class="social-links-headhesive">
+			  <ul class="social-links-headhesive clear">
 			  
 				<?php
-					if (get_option('wise_soc_rss_links', true)) { 
+					if (get_option('wise_soc_rss_links') != null) { 
 						echo '<li><a href="';
 						echo esc_url(get_option('wise_soc_rss_links'));
-						echo '" target="_blank"><i class="fa fa-rss"></i></a></li>';
+						echo '" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
 					}
-					else  {
-						echo'';
-					}
-				?>
-				<?php
-					if (get_option('wise_soc_fb_links', true)) { 
+
+					if (get_option('wise_soc_fb_links') != null) { 
 						echo '<li><a href="';
 						echo esc_url(get_option('wise_soc_fb_links'));
-						echo '" target="_blank"><i class="fa fa-facebook"></i></a></li>';
+						echo '" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
 					}
-					else  {
-						echo'';
-					}
-				?>
-				<?php
-					if (get_option('wise_soc_twitter_links', true)) { 
+
+					if (get_option('wise_soc_twitter_links') != null) { 
 						echo '<li><a href="';
 						echo esc_url(get_option('wise_soc_twitter_links'));
-						echo '" target="_blank"><i class="fa fa-twitter"></i></a></li>';
+						echo '" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
 					}
-					else  {
-						echo'';
-					}
-				?>
-				<?php
-					if (get_option('wise_soc_gplus_links', true)) { 
+
+					if (get_option('wise_soc_gplus_links') != null) { 
 						echo '<li><a href="';
 						echo esc_url(get_option('wise_soc_gplus_links'));
-						echo '" target="_blank"><i class="fa fa-google-plus"></i></a></li>';
+						echo '" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
 					}
-					else  {
-						echo'';
-					}
-				?>
-				<?php
-					if (get_option('wise_soc_yt_links', true)) { 
+
+					if (get_option('wise_soc_yt_links') != null) { 
 						echo '<li><a href="';
 						echo esc_url(get_option('wise_soc_yt_links'));
-						echo '" target="_blank"><i class="fa fa-youtube"></i></a></li>';
+						echo '" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
 					}
-					else  {
-						echo'';
+					
+					if (get_option('wise_soc_in_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_in_links'));
+						echo '" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
 					}
 				?>
 
@@ -2658,56 +3299,55 @@ endif;
 	--------------------------------------------------------------*/
 	function wise_main_social_menu() { ?>
 		<div class="social-top">
-		  <ul class='social-links-top'>
+		  <ul class="social-links-top clear">
 			
 			<?php
-				if (get_option('wise_soc_rss_links', true)) { 
+				if (get_option('wise_soc_rss_links') != null) { 
 					echo '<li><a href="';
 					echo esc_url(get_option('wise_soc_rss_links'));
-					echo '" target="_blank"><i class="fa fa-rss"></i></a></li>';
+					echo '" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></li>';
+				} else {
+					echo '';
 				}
-				else  {
-					echo'';
-				}
-			?>
-			<?php
-				if (get_option('wise_soc_fb_links', true)) { 
+
+				if (get_option('wise_soc_fb_links') != null) { 
 					echo '<li><a href="';
 					echo esc_url(get_option('wise_soc_fb_links'));
-					echo '" target="_blank"><i class="fa fa-facebook"></i></a></li>';
+					echo '" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>';
+				} else {
+					null;
 				}
-				else  {
-					echo'';
-				}
-			?>
-			<?php
-				if (get_option('wise_soc_twitter_links', true)) { 
+
+				if (get_option('wise_soc_twitter_links') != null) { 
 					echo '<li><a href="';
 					echo esc_url(get_option('wise_soc_twitter_links'));
-					echo '" target="_blank"><i class="fa fa-twitter"></i></a></li>';
+					echo '" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>';
+				} else {
+					null;
 				}
-				else  {
-					echo'';
-				}
-			?>
-			<?php
-				if (get_option('wise_soc_gplus_links', true)) { 
+
+				if (get_option('wise_soc_gplus_links') != null) { 
 					echo '<li><a href="';
 					echo esc_url(get_option('wise_soc_gplus_links'));
-					echo '" target="_blank"><i class="fa fa-google-plus"></i></a></li>';
+					echo '" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>';
+				} else {
+					null;
 				}
-				else  {
-					echo'';
-				}
-			?>
-			<?php
-				if (get_option('wise_soc_yt_links', true)) { 
+
+				if (get_option('wise_soc_yt_links') != null) { 
 					echo '<li><a href="';
 					echo esc_url(get_option('wise_soc_yt_links'));
-					echo '" target="_blank"><i class="fa fa-youtube"></i></a></li>';
+					echo '" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>';
+				} else {
+					null;
 				}
-				else  {
-					echo'';
+
+				if (get_option('wise_soc_in_links') != null) { 
+					echo '<li><a href="';
+					echo esc_url(get_option('wise_soc_in_links'));
+					echo '" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>';
+				} else {
+					null;
 				}
 			?>
 
@@ -2719,53 +3359,56 @@ endif;
 	38.3 Footer Social Menu
 	--------------------------------------------------------------*/
 	function wise_footer_social_menu() { ?>
-		<div class="social-cover-footer">
+		<div class="social-cover-footer clear">
 			<?php
 				echo '<ul class="social-links-footer">';
 
-				if (get_option('wise_soc_rss_links', true)) { 
+				if (get_option('wise_soc_rss_links') != null) { 
 					echo '<li><a href="';
 					echo esc_url(get_option('wise_soc_rss_links'));
-					echo '" target="_blank"><i class="fa fa-rss"></i></a></li>';
-				}
-				else  {
-					echo'';
+					echo '" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></li>';
+				} else {
+					null;
 				}
 
-				if (get_option('wise_soc_fb_links', true)) { 
+				if (get_option('wise_soc_fb_links') != null) { 
 					echo '<li><a href="';
 					echo esc_url(get_option('wise_soc_fb_links'));
-					echo '" target="_blank"><i class="fa fa-facebook"></i></a></li>';
-				}
-				else  {
-					echo'';
+					echo '" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>';
+				} else {
+					null;
 				}
 
-				if (get_option('wise_soc_twitter_links', true)) { 
+				if (get_option('wise_soc_twitter_links') != null) { 
 					echo '<li><a href="';
 					echo esc_url(get_option('wise_soc_twitter_links'));
-					echo '" target="_blank"><i class="fa fa-twitter"></i></a></li>';
-				}
-				else  {
-					echo'';
+					echo '" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>';
+				} else {
+					null;
 				}
 
-				if (get_option('wise_soc_gplus_links', true)) { 
+				if (get_option('wise_soc_gplus_links') != null) { 
 					echo '<li><a href="';
 					echo esc_url(get_option('wise_soc_gplus_links'));
-					echo '" target="_blank"><i class="fa fa-google-plus"></i></a></li>';
-				}
-				else  {
-					echo'';
+					echo '" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>';
+				} else {
+					null;
 				}
 
-				if (get_option('wise_soc_yt_links', true)) { 
+				if (get_option('wise_soc_yt_links') != null) { 
 					echo '<li><a href="';
 					echo esc_url(get_option('wise_soc_yt_links'));
-					echo '" target="_blank"><i class="fa fa-youtube"></i></a></li>';
+					echo '" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>';
+				} else {
+					null;
 				}
-				else  {
-					echo'';
+				
+				if (get_option('wise_soc_in_links') != null) { 
+					echo '<li><a href="';
+					echo esc_url(get_option('wise_soc_in_links'));
+					echo '" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>';
+				} else {
+					null;
 				}
 
 			echo '</ul>';
@@ -2780,21 +3423,105 @@ endif;
 **	@Compatible with Retina Display
 --------------------------------------------------------------*/
 function wise_preloader() {
+	$wise_pre_preload = get_option('wise_pre_preload');
 	if( get_option('wise_disable_preloader') == false ) : ?>
 		<div id="wiseload">
-			<?php 	$pre_default = get_template_directory_uri() . '/img/header_img@2x.png'; // For Preloader
-					$pre_upload = get_option( 'wise_preload' );					
+			<?php 	$wise_preloader = get_option( 'wise_preload' );
 					
-					if( $pre_upload != null ) {
-						$wise_preloader = $pre_upload;
-					} else {
-						$wise_preloader = $pre_default;
-					}					
-					list($width) = getimagesize($wise_preloader);
-					$wise_chunks = explode('.', $wise_preloader); 
-					$wise_ext = end($wise_chunks); // Get the image extension
+					if($wise_preloader != null) : // If preloader is not empty
+						list($width) = getimagesize($wise_preloader);
+						$wise_chunks = explode('.', $wise_preloader); 
+						$wise_ext = end($wise_chunks); // Get the image extension
+					endif;
 			?>
-			<div id="stats" <?php if($wise_ext != 'gif') : echo 'class="animated bounce infinite"'; endif; ?> style="background: url('<?php echo esc_url($wise_preloader); ?>') no-repeat center; <?php if($width > 200) : echo 'background-size: 100% !important;'; endif; ?>"></div>
+			<?php if($wise_preloader == null) { ?>
+				<?php if($wise_pre_preload == 'rotating-plane') { ?>
+					<div class="sk-rotating-plane wise-preloader-centered"></div>
+				<?php } elseif($wise_pre_preload == 'double-bounce') { ?>
+					<div class="sk-double-bounce wise-preloader-centered">
+						<div class="sk-child sk-double-bounce1"></div>
+						<div class="sk-child sk-double-bounce2"></div>
+					</div>
+				<?php } elseif($wise_pre_preload == 'wave') { ?>
+					<div class="sk-wave wise-preloader-centered">
+						<div class="sk-rect sk-rect1"></div>
+						<div class="sk-rect sk-rect2"></div>
+						<div class="sk-rect sk-rect3"></div>
+						<div class="sk-rect sk-rect4"></div>
+						<div class="sk-rect sk-rect5"></div>
+					</div>
+				<?php } elseif($wise_pre_preload == 'wandering-cubes') { ?>
+					<div class="sk-wandering-cubes wise-preloader-centered">
+						<div class="sk-cube sk-cube1"></div>
+						<div class="sk-cube sk-cube2"></div>
+					</div>
+				<?php } elseif($wise_pre_preload == 'pulse') { ?>
+					<div class="sk-spinner sk-spinner-pulse wise-preloader-centered"></div>
+				<?php } elseif($wise_pre_preload == 'chasing-dots') { ?>
+					<div class="sk-chasing-dots wise-preloader-centered">
+						<div class="sk-child sk-dot1"></div>
+						<div class="sk-child sk-dot2"></div>
+					</div>
+				<?php } elseif($wise_pre_preload == 'three-bounce') { ?>
+					<div class="sk-three-bounce wise-preloader-centered">
+						<div class="sk-child sk-bounce1"></div>
+						<div class="sk-child sk-bounce2"></div>
+						<div class="sk-child sk-bounce3"></div>
+					</div>
+				<?php } elseif($wise_pre_preload == 'circle') { ?>
+					<div class="sk-circle wise-preloader-centered">
+						<div class="sk-circle1 sk-child"></div>
+						<div class="sk-circle2 sk-child"></div>
+						<div class="sk-circle3 sk-child"></div>
+						<div class="sk-circle4 sk-child"></div>
+						<div class="sk-circle5 sk-child"></div>
+						<div class="sk-circle6 sk-child"></div>
+						<div class="sk-circle7 sk-child"></div>
+						<div class="sk-circle8 sk-child"></div>
+						<div class="sk-circle9 sk-child"></div>
+						<div class="sk-circle10 sk-child"></div>
+						<div class="sk-circle11 sk-child"></div>
+						<div class="sk-circle12 sk-child"></div>
+					</div>
+				<?php } elseif($wise_pre_preload == 'cube-grid') { ?>
+					<div class="sk-cube-grid wise-preloader-centered">
+						<div class="sk-cube sk-cube1"></div>
+						<div class="sk-cube sk-cube2"></div>
+						<div class="sk-cube sk-cube3"></div>
+						<div class="sk-cube sk-cube4"></div>
+						<div class="sk-cube sk-cube5"></div>
+						<div class="sk-cube sk-cube6"></div>
+						<div class="sk-cube sk-cube7"></div>
+						<div class="sk-cube sk-cube8"></div>
+						<div class="sk-cube sk-cube9"></div>
+					</div>
+				<?php } elseif($wise_pre_preload == 'fading-circle') { ?>
+					<div class="sk-fading-circle wise-preloader-centered">
+						<div class="sk-circle1 sk-circle"></div>
+						<div class="sk-circle2 sk-circle"></div>
+						<div class="sk-circle3 sk-circle"></div>
+						<div class="sk-circle4 sk-circle"></div>
+						<div class="sk-circle5 sk-circle"></div>
+						<div class="sk-circle6 sk-circle"></div>
+						<div class="sk-circle7 sk-circle"></div>
+						<div class="sk-circle8 sk-circle"></div>
+						<div class="sk-circle9 sk-circle"></div>
+						<div class="sk-circle10 sk-circle"></div>
+						<div class="sk-circle11 sk-circle"></div>
+						<div class="sk-circle12 sk-circle"></div>
+					</div>
+				<?php } elseif($wise_pre_preload == 'folding-cube') { ?>
+					<div class="sk-folding-cube wise-preloader-centered">
+						<div class="sk-cube1 sk-cube"></div>
+						<div class="sk-cube2 sk-cube"></div>
+						<div class="sk-cube4 sk-cube"></div>
+						<div class="sk-cube3 sk-cube"></div>
+					</div>
+				<?php } else { null; ?>
+				<?php } ?>
+			<?php } else { ?>
+				<div id="stats" <?php if($wise_ext != 'gif') : echo 'class="animated bounce infinite"'; endif; ?> style="background: url('<?php echo esc_url($wise_preloader); ?>') no-repeat center; <?php if($width > 200) : echo 'background-size: 100% !important;'; endif; ?>"></div>
+			<?php } ?>
 		</div>
 	<?php endif; ?><?php
 }

@@ -79,7 +79,7 @@ get_header( 'shop' ); ?>
 			
 			<?php $product_layout = get_option('wise_prod_layout'); ?>
 			<?php if($product_layout == 'grid') { echo '<div class="index-wrapper-outer">'; }  ?>
-			<div id="index-lists<?php if ($product_layout) { echo '-' . esc_attr($product_layout); } ?>" class="index-wrapper">
+			<div id="index-lists<?php if ($product_layout) { echo '-' . esc_attr($product_layout); } ?>" class="index-wrapper<?php if ($product_layout) { echo '-' . esc_attr($product_layout); } ?>">
 			
 				<?php while ( have_posts() ) : the_post(); ?>
 

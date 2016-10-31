@@ -11,7 +11,7 @@ class Number_Field extends Field {
 	 */
 	public function template() {
 		?>
-		<input id="{{{ id }}}" type="number" step="1" min="1" size="3" name="{{{ name }}}" value="{{ value }}" class="tiny-text" />
+		<input id="{{{ id }}}" type="number" step="1" min="1" size="3" name="{{{ name }}}" value="{{ value }}" class="maximum-text" />
 		<?php
 	}
 }

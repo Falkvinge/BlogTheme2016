@@ -24,9 +24,9 @@ $monthly = apply_filters( 'widget_monthly', @$instance['monthly'] );
 $yearly = apply_filters( 'widget_yearly', @$instance['yearly'] );
 
 // Before and after the widget
-echo $args['before_widget'];
+echo wp_kses_post($args['before_widget']);
 if ( ! empty( $title ) )
-echo $args['before_title'] . esc_html($title) . $args['after_title'];
+echo wp_kses_post($args['before_title']) . esc_html($title) . wp_kses_post($args['after_title']);
 
 // The Output
 	echo '<div class="custom-posts"><ul>';
@@ -48,7 +48,7 @@ echo $args['before_title'] . esc_html($title) . $args['after_title'];
 			echo '</span>';
 		} else { null; }
 		
-		echo '<div class="url-popular"><h4>' . get_the_title() . '</h4><span class="entry-meta-popular">';
+		echo '<div class="url-popular"><h4>' . esc_html(get_the_title()) . '</h4><span class="entry-meta-popular">';
 		echo wise_posted_on() . '</span></div></a></li>';
 
 	endwhile;
@@ -56,7 +56,7 @@ echo $args['before_title'] . esc_html($title) . $args['after_title'];
 	
 	echo '</ul></div><!-- End Popular Posts -->';
 
-echo $args['after_widget'];
+echo wp_kses_post($args['after_widget']);
 }
 		
 // Backend
@@ -122,7 +122,7 @@ else {
  <?php 
   $categories = get_categories('hide_empty=0&orderby=name'); 
   foreach ( $categories as $category ) {
-  	echo '<option value="' . $category->cat_ID . '"';
+  	echo '<option value="' . esc_attr($category->cat_ID) . '"';
 	if(get_cat_name($categ) == $category->cat_name) { echo 'selected'; }
 	echo '>';
 	echo esc_html($category->cat_name);

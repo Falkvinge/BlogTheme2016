@@ -122,13 +122,13 @@ abstract class Widget extends \WP_Widget implements Datastore_Interface {
 
 		// output
 		if ( $this->print_wrappers ) {
-			echo esc_attr($args['before_widget']);
+			echo esc_attr(esc_attr($args['before_widget']));
 		}
 
 		$this->front_end( $args, $instance );
 
 		if ( $this->print_wrappers ) {
-			echo esc_attr($args['after_widget']);
+			echo esc_attr(esc_attr($args['after_widget']));
 		}
 	}
 

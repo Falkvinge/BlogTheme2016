@@ -2,15 +2,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wise Blog\n"
-"POT-Creation-Date: 2016-08-12 21:24+0800\n"
+"POT-Creation-Date: 2016-10-31 23:59+0800\n"
 "PO-Revision-Date: 2016-06-30 16:54+0800\n"
 "Last-Translator: \n"
-"Language-Team: Probewise <probewise@gmail.com>\n"
+"Language-Team: Probewise <steve.probewise@gmail.com>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.8.9\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -19,95 +19,99 @@ msgstr ""
 "esc_html_x;_c;_nc\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: comments.php:18
-msgid "Discussion"
-msgstr ""
-
-#: comments.php:23 comments.php:46
-msgid "Comment navigation"
-msgstr ""
-
-#: comments.php:26 comments.php:49
-msgid "Older Comments"
-msgstr ""
-
-#: comments.php:27 comments.php:50
-msgid "Newer Comments"
-msgstr ""
-
-#: comments.php:62
-msgid "Comments are closed."
-msgstr ""
-
-#: comments.php:72
+#: comments.php:23
 msgid "Join the Discussion"
 msgstr ""
 
-#: comments.php:73
+#: comments.php:24
 msgid "Leave a Reply to"
 msgstr ""
 
-#: comments.php:74
+#: comments.php:25
 msgid "Cancel Reply"
 msgstr ""
 
-#: comments.php:75
+#: comments.php:26
 msgid "Post Comment"
 msgstr ""
 
-#: functions.php:137
+#: comments.php:58
+msgid "Discussion"
+msgstr ""
+
+#: comments.php:63 comments.php:86
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:66 comments.php:89
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:67 comments.php:90
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:102
+msgid "Comments are closed."
+msgstr ""
+
+#: functions.php:136
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:138
+#: functions.php:137
 msgid "Secondary Menu"
 msgstr ""
 
-#: functions.php:139
+#: functions.php:138
 msgid "Sitelinks First Column"
 msgstr ""
 
-#: functions.php:140
+#: functions.php:139
 msgid "Sitelinks Second Column"
 msgstr ""
 
-#: functions.php:141
+#: functions.php:140
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:142
+#: functions.php:141
 msgid "bbPress Menu"
 msgstr ""
 
-#: functions.php:143
+#: functions.php:142
 msgid "WooCommerce Menu"
 msgstr ""
 
-#: functions.php:187
+#: functions.php:186
 msgid "Sidebar Right"
 msgstr ""
 
-#: functions.php:197
+#: functions.php:196
 msgid "Sidebar Left"
 msgstr ""
 
-#: functions.php:207
+#: functions.php:206
 msgid "Footer Column"
 msgstr ""
 
-#: functions.php:217
+#: functions.php:216
 msgid "Sidebar Forum"
 msgstr ""
 
-#: functions.php:227
+#: functions.php:226
 msgid "Sidebar Shop"
 msgstr ""
 
-#: functions.php:237
+#: functions.php:236
 msgid "Top Ads"
 msgstr ""
 
-#: functions.php:243
+#: functions.php:242
+msgid "Top Document"
+msgstr ""
+
+#: functions.php:248
 msgid "Bottom Ads"
 msgstr ""
 
@@ -159,32 +163,25 @@ msgstr ""
 msgid "Next Post"
 msgstr ""
 
-#: inc/additional-functions.php:182
-#, php-format
-msgid "%s"
+#: inc/additional-functions.php:190
+msgid "Posted on"
 msgstr ""
 
-#: inc/additional-functions.php:187
-#, php-format
-msgid "%s "
-msgstr ""
-
-#: inc/additional-functions.php:204
+#: inc/additional-functions.php:205
 #, php-format
 msgid "by %s"
 msgstr ""
 
-#: inc/additional-functions.php:270 inc/additional-functions.php:287
+#: inc/additional-functions.php:271 inc/additional-functions.php:288
 #, php-format
 msgid "%1$s"
 msgstr ""
 
-#: inc/additional-functions.php:291 inc/additional-functions.php:936
-#: inc/additional-functions.php:1228
+#: inc/additional-functions.php:292 inc/additional-functions.php:1204
 #: inc/carbon-fields/core/Field/Association_Field.php:371
-#: inc/carbon-fields/core/Field/Relationship_Field.php:265 page-full.php:44
-#: page-single.php:49 templates/content-defaults.php:59
-#: templates/content-page.php:36 templates/content-search.php:47
+#: inc/carbon-fields/core/Field/Relationship_Field.php:265 page-eighty.php:49
+#: page-full.php:49 page-single.php:49 templates/content-defaults.php:59
+#: templates/content-page.php:34 templates/content-search.php:47
 #: templates/content.php:47
 #: templates/custom_templates/content-complex-def-1.php:32
 #: templates/custom_templates/content-complex-def-2.php:31
@@ -194,163 +191,99 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: inc/additional-functions.php:371
+#: inc/additional-functions.php:372
 msgid "Next page"
 msgstr ""
 
-#: inc/additional-functions.php:372
+#: inc/additional-functions.php:373
 msgid "Previous page"
 msgstr ""
 
-#: inc/additional-functions.php:446
+#: inc/additional-functions.php:447
 msgid "To view this protected post, enter the password below"
 msgstr ""
 
-#: inc/additional-functions.php:447
+#: inc/additional-functions.php:448
 msgid "Enter Password"
 msgstr ""
 
-#: inc/additional-functions.php:447
+#: inc/additional-functions.php:448
 msgid "Submit"
 msgstr ""
 
-#: inc/additional-functions.php:576
+#: inc/additional-functions.php:577
 msgid "Search results for: "
 msgstr ""
 
-#: inc/additional-functions.php:579
+#: inc/additional-functions.php:580
 msgid "Error 404"
 msgstr ""
 
-#: inc/additional-functions.php:932
-msgid "Product"
-msgstr ""
-
-#: inc/additional-functions.php:933
-msgid "Products"
-msgstr ""
-
-#: inc/additional-functions.php:934
-msgid "Add Product"
-msgstr ""
-
-#: inc/additional-functions.php:935
-msgid "Add New Product"
-msgstr ""
-
-#: inc/additional-functions.php:937
-msgid "Edit Product"
-msgstr ""
-
-#: inc/additional-functions.php:938
-msgid "New Product"
-msgstr ""
-
-#: inc/additional-functions.php:939 inc/additional-functions.php:940
-msgid "View Product"
-msgstr ""
-
-#: inc/additional-functions.php:941
-msgid "Search Products"
-msgstr ""
-
-#: inc/additional-functions.php:942
-msgid "No Products found"
-msgstr ""
-
-#: inc/additional-functions.php:943
-msgid "No Products found in trash"
-msgstr ""
-
-#: inc/additional-functions.php:944
-msgid "Parent Product"
-msgstr ""
-
-#: inc/additional-functions.php:945
-msgid "Product Image"
-msgstr ""
-
-#: inc/additional-functions.php:946
-msgid "Set product image"
-msgstr ""
-
-#: inc/additional-functions.php:947
-msgid "Remove product image"
-msgstr ""
-
-#: inc/additional-functions.php:948
-msgid "Use as product image"
-msgstr ""
-
-#: inc/additional-functions.php:952
-msgid "This is where you can add new products to your store."
-msgstr ""
-
-#: inc/additional-functions.php:970
+#: inc/additional-functions.php:922
 msgid "Home"
 msgstr ""
 
-#: inc/additional-functions.php:1195
+#: inc/additional-functions.php:1167
 msgid "ago"
 msgstr ""
 
-#: inc/additional-functions.php:1223
+#: inc/additional-functions.php:1198
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/additional-functions.php:1250
+#: inc/additional-functions.php:1225
 msgid "Need help? Documentations or support forum may help you."
 msgstr ""
 
-#: inc/additional-functions.php:1251
+#: inc/additional-functions.php:1226
 msgid "Visit our documentation page here:"
 msgstr ""
 
-#: inc/additional-functions.php:1251
+#: inc/additional-functions.php:1226
 msgid "Wise Blog Documentation"
 msgstr ""
 
-#: inc/additional-functions.php:1252
+#: inc/additional-functions.php:1227
 msgid "Or post questions here:"
 msgstr ""
 
-#: inc/additional-functions.php:1252
-msgid "Probewise Support Forum"
+#: inc/additional-functions.php:1227
+msgid "Probewise Support"
 msgstr ""
 
-#: inc/additional-functions.php:1255
+#: inc/additional-functions.php:1230
 msgid "Theme Name:"
 msgstr ""
 
-#: inc/additional-functions.php:1256
+#: inc/additional-functions.php:1231
 msgid "Version:"
 msgstr ""
 
-#: inc/additional-functions.php:1257
+#: inc/additional-functions.php:1232
 msgid "Author:"
 msgstr ""
 
-#: inc/additional-functions.php:1277 inc/additional-functions.php:1293
+#: inc/additional-functions.php:1252 inc/additional-functions.php:1268
 msgid "Close Menu"
 msgstr ""
 
-#: inc/additional-functions.php:1303
+#: inc/additional-functions.php:1278
 msgid "Please add a menu."
 msgstr ""
 
-#: inc/additional-functions.php:1336
+#: inc/additional-functions.php:1311
 msgid "Disable Ads"
 msgstr ""
 
-#: inc/additional-functions.php:2397
+#: inc/additional-functions.php:3039
 msgid "on"
 msgstr ""
 
-#: inc/additional-functions.php:2434
+#: inc/additional-functions.php:3076
 msgid "Enable Affiliates Disclaimer"
 msgstr ""
 
-#: inc/additional-functions.php:2487 inc/additional-functions.php:2814
+#: inc/additional-functions.php:3129 inc/additional-functions.php:3541
 msgid "Set as Featured"
 msgstr ""
 
@@ -597,271 +530,279 @@ msgstr ""
 msgid "No options are available for this widget."
 msgstr ""
 
-#: inc/wise-panel/panel-back.php:101
+#: inc/wise-panel/panel-back.php:17
 msgid "Wise Panel"
 msgstr ""
 
-#: inc/wise-panel/panel-back.php:101
+#: inc/wise-panel/panel-back.php:17
 msgid "Theme Settings"
 msgstr ""
 
-#: inc/wise-panel/panel-back.php:176
+#: inc/wise-panel/panel-back.php:104
 msgid "Upload"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:44
-msgid ""
-"Upload or enter your favicon URL here (32x32px). Leave blank to display "
-"default image."
 msgstr ""
 
 #: inc/wise-panel/panel-opt.php:50
 msgid ""
-"Upload or enter preloader URL here (.gif, .png or .jpeg). Maximum of 372x152 "
-"pixels."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:56
-msgid "Check this to disable site preloader."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:62
-msgid ""
-"Upload or enter background URL here (1460x876px). Leave blank to display "
+"Upload or add your favicon URL here (32x32px). Leave blank to display "
 "default image."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:68
-msgid "Check this to disable site image background."
+#: inc/wise-panel/panel-opt.php:56
+msgid ""
+"Upload or add preloader URL here (.gif, .png or .jpeg). Maximum of 372x152 "
+"pixels."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:74
-msgid "Select Layout Column"
+#: inc/wise-panel/panel-opt.php:62
+msgid "Select preloader (Leave blank for defaults)"
+msgstr ""
+
+#: inc/wise-panel/panel-opt.php:69
+msgid "Pick a color for the default preloader."
+msgstr ""
+
+#: inc/wise-panel/panel-opt.php:75
+msgid "Turn on to disable site preloader."
 msgstr ""
 
 #: inc/wise-panel/panel-opt.php:81
-msgid "Check this to disable sticky sidebar."
+msgid ""
+"Upload or add background URL here (1460x876px). Leave blank to display "
+"default image."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:94 inc/wise-panel/panel-opt.php:108
-#: inc/wise-panel/panel-opt.php:122 inc/wise-panel/panel-opt.php:136
-#: inc/wise-panel/panel-opt.php:150 inc/wise-panel/panel-opt.php:164
+#: inc/wise-panel/panel-opt.php:87
+msgid "Turn on to disable site image background."
+msgstr ""
+
+#: inc/wise-panel/panel-opt.php:93
+msgid "Select Layout Column"
+msgstr ""
+
+#: inc/wise-panel/panel-opt.php:100
+msgid "Turn on to disable sticky sidebar."
+msgstr ""
+
+#: inc/wise-panel/panel-opt.php:113 inc/wise-panel/panel-opt.php:127
+#: inc/wise-panel/panel-opt.php:141 inc/wise-panel/panel-opt.php:155
+#: inc/wise-panel/panel-opt.php:169 inc/wise-panel/panel-opt.php:183
 msgid "Select fonts from the list (Leave blank for defaults)"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:101 inc/wise-panel/panel-opt.php:115
-#: inc/wise-panel/panel-opt.php:129 inc/wise-panel/panel-opt.php:143
-#: inc/wise-panel/panel-opt.php:157 inc/wise-panel/panel-opt.php:171
+#: inc/wise-panel/panel-opt.php:120 inc/wise-panel/panel-opt.php:134
+#: inc/wise-panel/panel-opt.php:148 inc/wise-panel/panel-opt.php:162
+#: inc/wise-panel/panel-opt.php:176 inc/wise-panel/panel-opt.php:190
 msgid "Select font weight from the list"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:185
+#: inc/wise-panel/panel-opt.php:204
 msgid "Select color scheme from the list (Leave blank for defaults)"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:192
+#: inc/wise-panel/panel-opt.php:211
 msgid "Pick a color for header lines color."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:198
+#: inc/wise-panel/panel-opt.php:217
 msgid "Pick a color for buttons and tabs."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:204
+#: inc/wise-panel/panel-opt.php:223
 msgid "Pick a color for text and links."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:210
+#: inc/wise-panel/panel-opt.php:229
 msgid "Pick a color for lines, borders and objects."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:223 inc/wise-panel/panel-opt.php:229
-#: inc/wise-panel/panel-opt.php:235
+#: inc/wise-panel/panel-opt.php:242 inc/wise-panel/panel-opt.php:248
+#: inc/wise-panel/panel-opt.php:254
 msgid "Add custom code here."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:241
-msgid "Check this to optimize site speed to its maximum performance."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:254
+#: inc/wise-panel/panel-opt.php:267
 msgid "Add header logo here (186x76px). Leave blank to display default image."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:260
+#: inc/wise-panel/panel-opt.php:273
 msgid "Add header logo here (372x152px). Add @2x at its name: mylogo@2x.png"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:266
+#: inc/wise-panel/panel-opt.php:279
 msgid ""
 "Add headhesive logo here (100x41px). Leave blank to display default image."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:272
+#: inc/wise-panel/panel-opt.php:285
 msgid "Add header logo here (200x82px). Add @2x at its name: mylogo@2x.png"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:278
-msgid "Enter your header tag lines title."
+#: inc/wise-panel/panel-opt.php:291
+msgid "Add your header tag lines title."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:284
-msgid "Enter your header tag lines span."
+#: inc/wise-panel/panel-opt.php:297
+msgid "Add your header tag lines span."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:290
-msgid "Enter your header tag lines links."
+#: inc/wise-panel/panel-opt.php:303
+msgid "Add your header tag lines links."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:296
+#: inc/wise-panel/panel-opt.php:309
 msgid ""
 "Add custom login form logo here, from 186x76px. Leave blank to display "
 "default image."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:302
-msgid "Check this to disable the entire top header."
+#: inc/wise-panel/panel-opt.php:315
+msgid "Turn on to disable the entire top header."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:308
-msgid "Check this to remove the secondary header from top header."
+#: inc/wise-panel/panel-opt.php:321
+msgid "Turn on to remove the secondary header from top header."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:314
-msgid "Check this to remove the login or register links from top header."
+#: inc/wise-panel/panel-opt.php:327
+msgid "Turn on to remove the login or register links from top header."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:320
-msgid "Check this to remove header date from top header."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:326
-msgid "Check this to disable headhesive menu."
+#: inc/wise-panel/panel-opt.php:333
+msgid "Turn on to remove header date from top header."
 msgstr ""
 
 #: inc/wise-panel/panel-opt.php:339
+msgid "Turn on to disable headhesive menu."
+msgstr ""
+
+#: inc/wise-panel/panel-opt.php:345 inc/wise-panel/panel-opt.php:352
+#: inc/wise-panel/panel-opt.php:615
+msgid "Adjust opacity (Leave blank for defaults)"
+msgstr ""
+
+#: inc/wise-panel/panel-opt.php:366
 msgid "Select Posts Layout Type (Leave blank for defaults)"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:346
+#: inc/wise-panel/panel-opt.php:373
 msgid "Select Time Format"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:353
-msgid "Check this to disable date on posts."
+#: inc/wise-panel/panel-opt.php:380
+msgid "Turn on to disable date on posts."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:359
-msgid "Check this to disable Author Biography for single posts."
+#: inc/wise-panel/panel-opt.php:386
+msgid "Turn on to disable built-in share buttons."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:365
-msgid "Enter your affiliate disclaimer here."
+#: inc/wise-panel/panel-opt.php:392
+msgid "Turn on to disable Author Biography for single posts."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:371
+#: inc/wise-panel/panel-opt.php:398
+msgid "Add your affiliate disclaimer here."
+msgstr ""
+
+#: inc/wise-panel/panel-opt.php:404
 msgid ""
-"Check this to enable affiliates disclaimer to top post. If uncheck it will "
-"show at the bottom of post."
+"Turn on to enable affiliates disclaimer to top post. If uncheck it will show "
+"at the bottom of post."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:384 inc/wise-panel/panel-opt.php:390
-#: inc/wise-panel/panel-opt.php:396 inc/wise-panel/panel-opt.php:402
-#: inc/wise-panel/panel-opt.php:408
-msgid "Enter your Ads code here."
+#: inc/wise-panel/panel-opt.php:417 inc/wise-panel/panel-opt.php:423
+#: inc/wise-panel/panel-opt.php:429 inc/wise-panel/panel-opt.php:435
+#: inc/wise-panel/panel-opt.php:441
+msgid "Add your Ads code here."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:420
-msgid "Enter RSS URL."
+#: inc/wise-panel/panel-opt.php:453
+msgid "Add RSS URL."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:426 inc/wise-panel/panel-opt.php:444
-msgid "Enter Facebook URL."
+#: inc/wise-panel/panel-opt.php:459 inc/wise-panel/panel-opt.php:477
+msgid "Add Facebook URL."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:432
-msgid "Enter Twitter URL."
+#: inc/wise-panel/panel-opt.php:465
+msgid "Add Twitter URL."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:438
-msgid "Enter Twitter Account Name."
+#: inc/wise-panel/panel-opt.php:471
+msgid "Add Twitter Account Name."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:450
-msgid "Enter Youtube URL."
+#: inc/wise-panel/panel-opt.php:483
+msgid "Add Youtube URL."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:464
-msgid "Check this to display error details in login form."
+#: inc/wise-panel/panel-opt.php:489
+msgid "Add LinkedIn URL."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:470
-msgid "Check this to enable Google reCAPTCHA in login form."
+#: inc/wise-panel/panel-opt.php:503
+msgid "Turn on to disable error details in login form."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:475
-msgid "Check this to enable Google reCAPTCHA in registration form."
+#: inc/wise-panel/panel-opt.php:509
+msgid "Turn on to enable Google reCAPTCHA in login form."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:481
-msgid "Check this to enable Google reCAPTCHA in comment form."
+#: inc/wise-panel/panel-opt.php:514
+msgid "Turn on to enable Google reCAPTCHA in registration form."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:488
-msgid "Enter your Google reCAPTCHA site key."
+#: inc/wise-panel/panel-opt.php:520
+msgid "Turn on to enable Google reCAPTCHA in comment form."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:494
-msgid "Enter your Google reCAPTCHA secret key."
+#: inc/wise-panel/panel-opt.php:527
+msgid "Add your Google reCAPTCHA site key."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:506
-msgid "Change your shop site title."
+#: inc/wise-panel/panel-opt.php:533
+msgid "Add your Google reCAPTCHA secret key."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:512
-msgid ""
-"Please change your permalinks to /%category%/%postname%/ or /%postname%/"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:518
+#: inc/wise-panel/panel-opt.php:545
 msgid "Set the number of products to display on product archive."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:526
+#: inc/wise-panel/panel-opt.php:553
 msgid "Select Product Layout Type (Leave blank to disable it)"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:540
+#: inc/wise-panel/panel-opt.php:567
 msgid "Select Footer Style"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:546
-msgid "Check this to disable footer social icons."
+#: inc/wise-panel/panel-opt.php:573
+msgid "Turn on to disable footer social icons."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:552
-msgid "Check this to disable footer menu."
+#: inc/wise-panel/panel-opt.php:579
+msgid "Turn on to disable footer menu."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:558
-msgid "Check this to disable footer logo from about widget."
+#: inc/wise-panel/panel-opt.php:585
+msgid "Turn on to disable footer logo from about widget."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:564
-msgid "Check this to disable footer logo."
+#: inc/wise-panel/panel-opt.php:591
+msgid "Turn on to disable footer logo."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:569
+#: inc/wise-panel/panel-opt.php:596
 msgid ""
 "Add footer logo URL here (49x20px). Leave blank to display default image."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:575
+#: inc/wise-panel/panel-opt.php:602
 msgid "Add footer logo here (98x40px). Add @2x at its name: mylogo@2x.png"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:581
+#: inc/wise-panel/panel-opt.php:608
 msgid "Add your footer text here."
 msgstr ""
 
@@ -881,14 +822,26 @@ msgstr ""
 msgid "#Wise About"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:51
+#: inc/wise-widgets/wise-about.php:44
+msgid "Location"
+msgstr ""
+
+#: inc/wise-widgets/wise-about.php:45
+msgid "Email"
+msgstr ""
+
+#: inc/wise-widgets/wise-about.php:46
+msgid "Phone"
+msgstr ""
+
+#: inc/wise-widgets/wise-about.php:115
 msgid "About"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:78
+#: inc/wise-widgets/wise-about.php:170
 #: inc/wise-widgets/wise-popular-posts.php:108
 #: inc/wise-widgets/wise-recent-posts.php:94
-#: inc/wise-widgets/wise-script.php:52 inc/wise-widgets/wise-sitelinks.php:60
+#: inc/wise-widgets/wise-script.php:53 inc/wise-widgets/wise-sitelinks.php:60
 #: inc/wise-widgets/wise-subscribe-footer.php:54
 #: inc/wise-widgets/wise-subscribe-sidebar.php:63
 #: inc/wise-widgets/wise-tab-popular-recent.php:188
@@ -896,16 +849,32 @@ msgstr ""
 msgid "Title:"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:83
+#: inc/wise-widgets/wise-about.php:175
 msgid "Logo URL:"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:88 inc/wise-widgets/wise-text-alert.php:44
+#: inc/wise-widgets/wise-about.php:180 inc/wise-widgets/wise-text-alert.php:44
 msgid "Content:"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:93
+#: inc/wise-widgets/wise-about.php:185
+msgid "Location:"
+msgstr ""
+
+#: inc/wise-widgets/wise-about.php:190
+msgid "Email:"
+msgstr ""
+
+#: inc/wise-widgets/wise-about.php:195
+msgid "Phone:"
+msgstr ""
+
+#: inc/wise-widgets/wise-about.php:200
 msgid "URL (Please input complete URL address):"
+msgstr ""
+
+#: inc/wise-widgets/wise-about.php:206
+msgid "Enable Social Buttons"
 msgstr ""
 
 #: inc/wise-widgets/wise-dashboard-user.php:11
@@ -1055,7 +1024,7 @@ msgstr ""
 msgid "#Wise Script"
 msgstr ""
 
-#: inc/wise-widgets/wise-script.php:57
+#: inc/wise-widgets/wise-script.php:58
 msgid "Enter your custom script here:"
 msgstr ""
 
@@ -1079,7 +1048,7 @@ msgstr ""
 msgid "#Wise Social Media Footer"
 msgstr ""
 
-#: inc/wise-widgets/wise-social-media-footer.php:83
+#: inc/wise-widgets/wise-social-media-footer.php:86
 msgid "This is a widget to display social media for footer."
 msgstr ""
 
@@ -1211,31 +1180,35 @@ msgstr ""
 msgid "Read More"
 msgstr ""
 
-#: templates/content-single.php:82
+#: templates/content-single.php:79
 msgid "Related Posts"
 msgstr ""
 
-#: templates/custom-social.php:16
+#: templates/custom-social.php:18
 msgid "Share"
 msgstr ""
 
-#: templates/custom-social.php:16
+#: templates/custom-social.php:18
 msgid "on Facebook"
 msgstr ""
 
-#: templates/custom-social.php:17
+#: templates/custom-social.php:19
 msgid "Tweet"
 msgstr ""
 
-#: templates/custom-social.php:17
+#: templates/custom-social.php:19
 msgid "on Twitter"
 msgstr ""
 
-#: templates/custom-social.php:18
+#: templates/custom-social.php:20
 msgid "Google+"
 msgstr ""
 
-#: templates/custom-social.php:19
+#: templates/custom-social.php:21
+msgid "LinkedIn"
+msgstr ""
+
+#: templates/custom-social.php:22
 msgid "Pinterest"
 msgstr ""
 
@@ -1248,6 +1221,6 @@ msgstr ""
 msgid "Category:"
 msgstr ""
 
-#: woocommerce/content-product.php:97
+#: woocommerce/content-product.php:98
 msgid "Details "
 msgstr ""

@@ -87,7 +87,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		// Category
 		global $wise_allowed_html;
 		$size = sizeof( get_the_terms( $post->ID, 'product_cat' ) );
-		echo $product->get_categories( ', ', '<p>' . wp_kses( _n( 'Category:', 'Categories:', $size, 'wise-blog' ), $wise_allowed_html ) . ' ', ' </p>' );
+		$cat_products = $product->get_categories( ', ', '<p>' . _n( 'Category:', 'Categories:', $size, 'wise-blog' ) . ' ', ' </p>' );
+		echo wp_kses_post($cat_products);
 		
 		// Excerpt
 		echo apply_filters( 'woocommerce_short_description', $post->post_excerpt );
