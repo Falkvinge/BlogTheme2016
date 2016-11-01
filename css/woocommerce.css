@@ -67,7 +67,7 @@
 .woocommerce .quantity .qty {
     width: 3.631em;
     text-align: center;
-    padding: 6px;
+    padding: 8px;
 	border: 1px solid #ddd;
 }
 
@@ -193,7 +193,7 @@ label[for=payment_method_paypal_express] img {
 .payment_method_paypal:after,
 .payment_method_paypal_express:after,
 .payment_method_ppec_paypal:after {
-	content: url('../img/paypal-payment.png');
+	content: url("../img/paypal-payment.png");
 }
 
 .paypal-button.paypal-style-checkout.paypal-size-medium {
@@ -206,6 +206,11 @@ label[for=payment_method_paypal_express] img {
 		float: right;
 		margin-right: 0;
 	}
+}
+
+.wc_payment_method label {
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .woocommerce div.product p.price, .woocommerce div.product span.price,
@@ -230,6 +235,10 @@ label[for=payment_method_paypal_express] img {
 	height: .3em;
 }
 
+.woocommerce .woocommerce-product-rating {
+	margin-bottom: 10px !important;
+}
+
 .woocommerce ul.cart_list li img, .woocommerce ul.product_list_widget li img {
 	float:right;
 	width: 88px;
@@ -252,7 +261,11 @@ label[for=payment_method_paypal_express] img {
 }
 
 .entry-content .stars a {
-	color: #555 !important;
+	color: #fec42d !important;
+}
+
+.woocommerce .star-rating span {
+	color: #fec42d !important;
 }
 
 .woocommerce ul.cart_list li a, .woocommerce ul.product_list_widget li a {
@@ -275,7 +288,7 @@ label[for=payment_method_paypal_express] img {
 .woocommerce .woocommerce-message {
     border-top-color: #555;
 	margin-top: 10px !important;
-	line-height: 2.5em;
+	line-height: 1.5em;
 }
 
 .woocommerce .woocommerce-message:before {
@@ -336,7 +349,7 @@ label[for=payment_method_paypal_express] img {
 .product_list_widget .amount {
 	font-style: italic;
     display: table;
-    float: right;
+    float: left;
     padding-left: 5px;
 }
 
@@ -444,7 +457,7 @@ label[for=payment_method_paypal_express] img {
 }
 
 .woocommerce span.onsale:after {
-    content: '';
+    content: "";
     border-top: 20px solid transparent;
     border-left: 14px solid #3a90fd;
     border-bottom: 22px solid transparent;
@@ -476,7 +489,7 @@ label[for=payment_method_paypal_express] img {
 	}
 
 	.woocommerce span.onsale:after {
-		content: '';
+		content: "";
 		border-top: 15px solid transparent;
 		border-bottom: 17px solid transparent;
 		width: 0;
@@ -952,4 +965,48 @@ position: absolute;
     font-weight: 400;
     font-size: 18px;
 	margin-top: -.5em;
+}
+
+/* Shop Icon */
+.wise-shop-icon {
+	margin-left: 10px;
+	padding-left: 10px;
+	border-left: 1px solid #eee;
+	display: inline;
+	position: relative;
+}
+
+.wise-shop-icon:before {
+	font-family: "Fontawesome";
+	content: "\f07a";
+	padding-right: 5px;
+}
+
+.wtotal {
+	font-weight: normal;
+}
+
+.wnumber {
+	color: #ffffff;
+    background: #777;
+    border-radius: 0.7em;
+    padding: 0 .5em;
+    margin-right: .3em;
+    font-size: 11px;
+}
+
+.wnumber:hover {
+	background: #000;
+}
+
+/* Cart Empty */
+.cart-empty,
+.return-to-shop {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.woocommerce .woocommerce-message .wc-forward {
+	margin-left: 1em;
 }

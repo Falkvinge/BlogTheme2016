@@ -519,3 +519,8 @@ input[type="submit"] {
     font-family: "Raleway", sans-serif;
     font-weight: 400;
 }
+
+.wise-error-message {
+	font-family: "Raleway", sans-serif;
+	font-weight: 400;
+}

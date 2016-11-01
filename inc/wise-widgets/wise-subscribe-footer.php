@@ -20,16 +20,16 @@ $title = apply_filters( 'widget_title', @$instance['title'] );
 $subsfooter_url = apply_filters( 'widget_title', @$instance['subsfooter_url'] );
 
 // Before and after the widget
-echo $args['before_widget'];
+echo wp_kses_post($args['before_widget']);
 if ( ! empty( $title ) )
-echo $args['before_title'] . esc_html($title) . $args['after_title'];
+echo wp_kses_post($args['before_title']) . esc_html($title) . wp_kses_post($args['after_title']);
 
 // The Output
 echo '<form class="subscribe-footer" action="' . esc_url($subsfooter_url) . '" method="post" id="mc-embedded-subscribe-form-footer" name="mc-embedded-subscribe-form" target="_blank" novalidate>';
 echo '<input type="email" value="" name="EMAIL"  id="mce-EMAIL-footer" placeholder="' . esc_attr__('Enter Email Address', 'wise-blog') . '">';
 echo '<button type="submit" class="newsletter-submit" value="' . esc_attr('Subscribe','wise-blog') . '" name="subscribe" id="mc-embedded-subscribe-footer">' . esc_html('Subscribe','wise-blog') . '</button></form>';
 
-echo $args['after_widget'];
+echo wp_kses_post($args['after_widget']);
 }
 		
 // Backend

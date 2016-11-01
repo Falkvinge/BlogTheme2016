@@ -16,12 +16,11 @@
 			<?php echo wise_entry_header(); ?><br>
 			<?php wise_posted_on(); ?><?php wise_posted_by(); ?><?php echo '<span class="post-views"> ' . wise_get_post_views(get_the_ID()) . '</span>'; ?><?php wise_comments(); ?>
 		</div><!-- End of .entry-meta -->
-		<!--<div class="share-entry-meta">-->
-			<?php /* get_template_part('templates/custom-social'); --commented out; no other way to disable pre-article social buttons */ ?>
-		<!--</div>--><!-- End of Custom Social -->
+		<?php /* get_template_part('templates/custom-social'); --commented out; no other way to disable pre-article social buttons */ ?>
 	</header><!-- End of .entry-header -->
 	
-	<?php if( has_post_thumbnail() ) :
+	<?php global $page;
+		if( has_post_thumbnail() && ($page == 1) ) :
 			echo '<div class="single-post-thumb">';
 			echo the_post_thumbnail('wise-post-thumb');
 			echo '</div>'; endif; ?>
@@ -44,9 +43,7 @@
 	
 	<?php if($disable_ads == false) : echo ads_bottom_post_1(); endif; ?>
 		
-	<div class="share-entry-meta">
-		<?php get_template_part('templates/custom-social'); ?>
-	</div><!-- Custom Social -->
+	<?php get_template_part('templates/custom-social'); ?>
 
 	<?php if( get_option('wise_disable_author_posts') == false ) { ?>
 	<!-- About The Author -->

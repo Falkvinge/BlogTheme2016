@@ -33,7 +33,7 @@
 					
 					<?php if ( 'post' == get_post_type() ) : ?>
 					<div class="entry-meta-index">
-						<?php wise_posted_on(); ?><?php wise_posted_by(); ?><?php wise_comments(); ?>
+						<?php wise_posted_on(); ?><?php wise_posted_by(); ?><?php echo '<span class="post-views"> ' . wise_get_post_views(get_the_ID()) . '</span>'; ?><?php wise_comments(); ?>
 						<?php edit_post_link( esc_html__( 'Edit', 'wise-blog' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-meta -->
 					<?php endif; ?>
@@ -72,7 +72,7 @@
 								
 								<?php if ( 'post' == get_post_type() ) : ?>
 								<div class="entry-meta-index">
-									<?php wise_posted_on(); ?><?php wise_comments(); ?>
+									<?php wise_posted_on(); ?><?php echo '<span class="post-views"> ' . wise_get_post_views(get_the_ID()) . '</span>'; ?><?php wise_comments(); ?>
 									<?php edit_post_link( esc_html__( 'Edit', 'wise-blog' ), '<span class="edit-link">', '</span>' ); ?>
 								</div><!-- .entry-meta -->
 								<?php endif; ?>

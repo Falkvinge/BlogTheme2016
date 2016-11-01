@@ -19,12 +19,12 @@ public function widget( $args, $instance ) {
 $text_alert = apply_filters( 'text_alert', @$instance['text_alert'] );
 
 // Before and after the widget
-echo $args['before_widget'];
+echo wp_kses_post($args['before_widget']);
 
 // The Output	
-echo '<div class="widget_text_alert">' . esc_attr($text_alert) . '</div>';
+echo '<div class="widget_text_alert">' . wp_kses_post($text_alert) . '</div>';
 
-echo $args['after_widget'];
+echo wp_kses_post($args['after_widget']);
 }
 		
 // Backend

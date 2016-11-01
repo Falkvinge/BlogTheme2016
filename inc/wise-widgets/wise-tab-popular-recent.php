@@ -59,7 +59,7 @@ $order_crp = apply_filters( 'widget_order_crp', @$instance['order_crp'] );
 						echo '</span>';
 					} else { null; }
 					
-					echo '<div class="url-popular"><h4>' . get_the_title() . '</h4><span class="entry-meta-popular">';
+					echo '<div class="url-popular"><h4>' . esc_html(get_the_title()) . '</h4><span class="entry-meta-popular">';
 					echo wise_posted_on() . '</span></div></a></li>';
 
 				endwhile;
@@ -91,7 +91,7 @@ $order_crp = apply_filters( 'widget_order_crp', @$instance['order_crp'] );
 						echo '</span>';
 					} else { null; }
 					
-					echo '<div class="url-popular"><h4>' . get_the_title() . '</h4><span class="entry-meta-popular">';
+					echo '<div class="url-popular"><h4>' . esc_html(get_the_title()) . '</h4><span class="entry-meta-popular">';
 					echo wise_posted_on() . '</span></div></a></li>';
 					
 				endwhile;

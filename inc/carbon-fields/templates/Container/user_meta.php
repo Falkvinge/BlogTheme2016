@@ -4,7 +4,7 @@
 		<th></th>
 		<td>
 			<div id="<?php echo esc_attr($this->id); ?>" class="container-holder carbon-user-container container-<?php echo esc_attr($this->id); ?> <?php echo esc_attr($this->is_tabbed()) ? '' : 'carbon-fields-collection' ?>" data-profile-role="<?php echo esc_attr($profile_role); ?>"></div>
-			<?php echo $this->get_nonce_field(); ?>
+			<?php printf( $this->get_nonce_field() ); ?>
 		</td>
 	</tr>
 </table>

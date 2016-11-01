@@ -48,12 +48,13 @@
 					<?php endif; ?>
 				
 				</footer><!-- End of #colophon -->
-		</div><!-- End of .footer wrapper -->
+		</div><!-- End of .footer wrapper --><div class="clear"></div>
+		<div class="footer-wraps"  <?php $wise_footer_opacity = get_option('wise_footer_opacity'); if( !empty($wise_footer_opacity) ) { echo 'style="opacity:' . $wise_footer_opacity . ';"'; } else { echo 'style="opacity:.95;"'; } ?>></div>
 	</div><!-- End of .footer-wrapper-outer -->
 
 	<a href="#0" class="cd-top"><img src="<?php echo esc_url(get_template_directory_uri() . '/img/arrowtop.png'); ?>" alt="arrow"></a>
 </div><!-- End of .#page -->
+<?php echo wise_before_body(); ?>
 <?php wp_footer(); ?>
-<?php wise_code_before_body(); ?>
 </body>
 </html>

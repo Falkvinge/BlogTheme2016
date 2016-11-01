@@ -29,7 +29,7 @@
 	<p>Your site seems to be slightly misconfigured. <p><a href="#" class="carbon-errors-expand">Tell me more</a></p> 
 
 	<div class="carbon-errors-more">
-		<p>Carbon Fields library encountered errors that may prevent your custom fields or theme options to work properly. Here's a quick summary of the issue<?php echo $plural ?>: </p>
+		<p>Carbon Fields library encountered errors that may prevent your custom fields or theme options to work properly. Here's a quick summary of the issue<?php echo wp_kses_post($plural); ?>: </p>
 
 		<ol>
 			<?php foreach ( $errors as $error ) :  ?>
@@ -37,6 +37,6 @@
 			<?php endforeach ?>	
 		</ol>
 
-		<p>You might want to get in touch with a developer regarding the issue<?php echo $plural ?>. If you feel adventurous, try enabling <code>WP_DEBUG</code> in your wp-config.php. </p>
+		<p>You might want to get in touch with a developer regarding the issue<?php echo wp_kses_post($plural); ?>. If you feel adventurous, try enabling <code>WP_DEBUG</code> in your wp-config.php. </p>
 	</div>
 </div>

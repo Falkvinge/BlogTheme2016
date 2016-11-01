@@ -43,31 +43,55 @@ jQuery(document).ready(function($){
 
 	/*--------------------------------------------------------------
 	2. OWL CAROUSEL SETTINGS
-	--------------------------------------------------------------*/ 
-	$(".owl-carousel").owlCarousel({
+	--------------------------------------------------------------*/
+	$('.owl-wrapper-outer').toggleClass('animated fadeIn show');
+	$("#wise-defaults").owlCarousel({
 	  navigation : true,
 	  slideSpeed : 300,
 	  paginationSpeed : 400,
-	  singleItem:true,
-	  autoPlay: true,
+	  singleItem: true,
+	  autoPlay: 4000,
 	  navigationText : false,
 	  pagination: true
+	});
+	
+	$('.wise-ticker').toggleClass('animated fadeIn show');
+	$("#wise-ticker").owlCarousel({
+	  navigation : true,
+	  slideSpeed : 300,
+	  singleItem: true,
+	  autoPlay: 3000,
+	  navigationText : false,
+	  pagination: false,
+	  transitionStyle: "fade"
 	});
 
 	/*--------------------------------------------------------------
 	3. SMOOTH SCROLLING SETTINGS
 	--------------------------------------------------------------*/
+	/* Initialize smooth scroll */
 	smoothScroll.init({
 		selector: '[data-scroll]', /* Selector for links (must be a valid CSS selector) */
 		selectorHeader: '[data-scroll-header]', /* Selector for fixed headers (must be a valid CSS selector) */
-		speed: 1024, /* Integer. How fast to complete the scroll in milliseconds */
+		speed: 1000, /* Integer. How fast to complete the scroll in milliseconds */
 		easing: 'easeInOutCubic', /* Easing pattern to use */
 		offset: 54, /* Integer. How far to offset the scrolling anchor location in pixels */
 		updateURL: false, /* Boolean. If true, update the URL hash on scroll */
 		callback: function ( anchor, toggle ) {} /* Function to run after scrolling */
 	});
 	
+	/* Animate to other page */
+    if ( window.location.hash ) {
+        var hash = smoothScroll.escapeCharacters( window.location.hash ); /* Escape the hash */
+        var toggle = document.querySelector( 'a[href*="' + hash + '"]' ); /* Get the toggle (if one exists) */
+        var options = { offset: 167 }; /* Any custom options you want to use would go here */
+        smoothScroll.animateScroll( hash, toggle, options );
+    }
+	
+	/* WooCommerce Tabs */
 	$('.woocommerce-product-rating a').attr('data-scroll',''); /* for WooCommerce review */
+	$(".woocommerce-tabs ul li a[href^='#']").attr('data-scroll',''); /* for WooCommerce tabs */
+	$(".woocommerce-tabs ul li a[href^='#']").attr('data-options','{"offset": 157}'); /* tab offset */
 
 	/*--------------------------------------------------------------
 	4. SKIP LINKS
@@ -93,10 +117,11 @@ jQuery(document).ready(function($){
 	7. RETINA SETTINGS
 	--------------------------------------------------------------*/
 	$('.home-index-thumb img').attr('data-no-retina','');
+	$('.home-index-thumb-grid img').attr('data-no-retina','');
+	$('.feat-home-index-thumb-cover img').attr('data-no-retina','');
 	$('.widget img').attr('data-no-retina','');
 	$('.site-main img').attr('data-no-retina','');
 	$('#stats img').attr('data-no-retina','');
-	$('.woocommerce-product-rating a').attr('data-scroll','');
 	
 	/* Enable retina for ads and about logo */
 	$('.ads-layout_top img').removeAttr('data-no-retina');

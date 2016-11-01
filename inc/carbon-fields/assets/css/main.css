@@ -509,3 +509,8 @@ body.comment-php #poststuff .postbox-container .inside { margin: 0; padding: 0; 
 	.carbon-Relationship .relationship-left,
 	.carbon-Relationship .relationship-right { float: none; display: block; width: auto; padding: 0 0 10px; }
 }
+
+/* Number Field */
+.maximum-text {
+	width: 50%;
+}

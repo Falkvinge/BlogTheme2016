@@ -21,9 +21,9 @@ $subs_head = apply_filters( 'widget_subs_head', @$instance['subs_head'] );
 $subs_url = apply_filters( 'widget_subs_url', @$instance['subs_url'] );
 
 // Before and after the widget
-echo $args['before_widget'];
+echo wp_kses_post($args['before_widget']);
 if ( ! empty( $title ) )
-echo $args['before_title'] . esc_html($title) . $args['after_title'];
+echo wp_kses_post($args['before_title']) . esc_html($title) . wp_kses_post($args['after_title']);
 
 // The Output
 echo '<div class="subscribe-box"><span>' . esc_html($subs_head) . '</span>';
@@ -31,7 +31,7 @@ echo '<form class="subscribe-sidebar" action="' . esc_url($subs_url) . '" method
 echo '<input type="email" value="" name="EMAIL"  id="mce-EMAIL" placeholder="' . esc_attr__('Enter Email Address', 'wise-blog') . '">';
 echo '<button type="submit" class="newsletter-submit" value="' . esc_attr('Subscribe','wise-blog') . '" name="subscribe" id="mc-embedded-subscribe">' . esc_html('Subscribe','wise-blog') . '</button></form></div>';
 
-echo $args['after_widget'];
+echo wp_kses_post($args['after_widget']);
 }
 		
 // Backend

@@ -128,13 +128,13 @@ div#schat-widget .schat-popup a.schat-button:hover {
 	background: #C75EA3 !important;
 }
 
-a.next,
-span.next {
+.page-numbers a.next,
+.page-numbers span.next {
 	background: #C75EA3;
 }
 
-a.next:after,
-span.next:after {
+.page-numbers a.next:after,
+.page-numbers span.next:after {
 	border-left: 11px solid #C75EA3;
 }
 
@@ -304,6 +304,10 @@ a.default-url:hover {
 
 div#schat-widget .schat-links a:hover {
 	color: #C75EA3 !important;
+}
+
+#bbpress-forums div.bbp-reply-content a {
+	color: #C75EA3;
 }
 
 /*--------------------------------------------------------------

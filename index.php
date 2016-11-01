@@ -10,7 +10,7 @@ get_header(); ?>
 		
 			<div id="primary" class="content-area">	
 				<?php get_sidebar('left'); ?>
-				<main id="main" class="site-main">
+				<main id="main" class="site-main<?php if( !have_posts() ) : echo ' single-page'; endif; ?>">
 					
 					<?php
 						if ( get_query_var('paged') ) { $paged = get_query_var('paged'); }

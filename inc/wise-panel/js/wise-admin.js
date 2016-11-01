@@ -8,10 +8,12 @@ jQuery(document).ready(function($){
 	
 	/* Color Picker */  
 	$(function() {
-	$('#wise_hline_color').wpColorPicker();
-	$('#wise_button_color').wpColorPicker();
-	$('#wise_text_color').wpColorPicker();
-	$('#wise_line_color').wpColorPicker(); });
+		$('#wise_hline_color').wpColorPicker();
+		$('#wise_button_color').wpColorPicker();
+		$('#wise_text_color').wpColorPicker();
+		$('#wise_line_color').wpColorPicker();
+		$('#wise_def_preload_color').wpColorPicker();
+	});
 
 	/* Drop Accordion */
 	$('.wise_options').slideUp();        

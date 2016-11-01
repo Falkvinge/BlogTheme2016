@@ -18,6 +18,46 @@
 
 <div id="comments" class="comments-area">
 
+	<?php
+		$comment_args = array(
+		'id_form'           => 'commentform',
+		'class_form'      	=> 'comment-form',
+		'id_submit'         => 'submit',
+		'class_submit'      => 'submit',
+		'name_submit'       => 'submit',
+		'title_reply'       => esc_attr__( 'Join the Discussion', 'wise-blog' ),
+		'title_reply_to'    => esc_attr__( 'Leave a Reply to', 'wise-blog' ) . ' %s',
+		'cancel_reply_link' => esc_attr__( 'Cancel Reply', 'wise-blog' ),
+		'label_submit'      => esc_attr__( 'Post Comment', 'wise-blog' ),
+		'format'            => 'xhtml',
+		
+		'comment_field' =>  '<p class="comment-form-comment">' .
+		'<textarea id="comment" name="comment" placeholder="What do you think of this? Is somebody wrong on the Internet? Tell them what you think here!" cols="45" rows="8" aria-required="true">' .
+			'</textarea></p>',
+			
+		$fields =  array(
+		  'author' =>
+			'<p class="comment-form-author">' .
+			( $req ? '' : '' ) .
+			'<input id="author" name="author" type="text" placeholder="Your name, maybe" value="' . esc_attr( $commenter['comment_author']) .
+			'" size="30"></p>',
+
+		  'email' =>
+			'<p class="comment-form-email">' .
+			( $req ? '' : '' ) .
+			'<input id="email" name="email" type="text" placeholder="Mail, totally optional" value="' . esc_attr( $commenter['comment_author_email']) .
+			'" size="30"></p>',
+
+		  'url' =>
+			'<p class="comment-form-url">' .
+			'<input id="url" name="url" type="text" placeholder="Link, if relevant" value="' . esc_url( $commenter['comment_author_url']) .
+			'" size="30"></p>',
+		),
+			
+		'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+	);
+	comment_form($comment_args); ?>
+
 	<?php if ( have_comments() ) : ?>
 		<h2 class="page-title">
 			<?php esc_html_e( 'Discussion', 'wise-blog'); ?>
@@ -66,45 +106,5 @@
 	?>
 		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'wise-blog' ); ?></p>
 	<?php endif; ?>
-
-	<?php
-		$comment_args = array(
-		'id_form'           => 'commentform',
-		'class_form'      	=> 'comment-form',
-		'id_submit'         => 'submit',
-		'class_submit'      => 'submit',
-		'name_submit'       => 'submit',
-		'title_reply'       => esc_attr__( 'Join the Discussion', 'wise-blog' ),
-		'title_reply_to'    => esc_attr__( 'Leave a Reply to', 'wise-blog' ) . ' %s',
-		'cancel_reply_link' => esc_attr__( 'Cancel Reply', 'wise-blog' ),
-		'label_submit'      => esc_attr__( 'Post Comment', 'wise-blog' ),
-		'format'            => 'xhtml',
-		
-		'comment_field' =>  '<p class="comment-form-comment">' .
-		'<textarea id="comment" name="comment" placeholder="What do you think of this? Is somebody wrong on the Internet? Type the right answer here!" cols="45" rows="8" aria-required="true">' .
-			'</textarea></p>',
-			
-		$fields =  array(
-		  'author' =>
-			'<p class="comment-form-author">' .
-			( $req ? '' : '' ) .
-			'<input id="author" name="author" type="text" placeholder="Your name, maybe" value="' . esc_attr( $commenter['comment_author']) .
-			'" size="30"></p>',
-
-		  'email' =>
-			'<p class="comment-form-email">' .
-			( $req ? '' : '' ) .
-			'<input id="email" name="email" type="text" placeholder="Mail, totally optional" value="' . esc_attr( $commenter['comment_author_email']) .
-			'" size="30"></p>',
-
-		  'url' =>
-			'<p class="comment-form-url">' .
-			'<input id="url" name="url" type="text" placeholder="Link, if relevant" value="' . esc_url( $commenter['comment_author_url']) .
-			'" size="30"></p>',
-		),
-			
-		'fields' => apply_filters( 'comment_form_default_fields', $fields ),
-	);
-	comment_form($comment_args); ?>
 
 </div><!-- End of #comments -->
