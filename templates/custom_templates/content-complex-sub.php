@@ -13,7 +13,7 @@
 			echo '<a href="';
 			echo esc_url(get_permalink());
 			echo ' ">';
-			echo the_post_thumbnail('wise-side-thumb');
+			the_post_thumbnail('wise-side-thumb');
 			echo '</a></div>';
 		} else { null; } // If there's no image then nothing will display
 		?>
@@ -22,7 +22,7 @@
 			<header class="entry-header-index-compsub">				
 				<?php
 					echo '<h5 class="entry-title-index-compsub">';
-					echo '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . get_the_title() . '</a></h5>';
+					echo '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . esc_html( get_the_title() ) . '</a></h5>';
 				?>
 			</header><!-- .entry-header -->
 

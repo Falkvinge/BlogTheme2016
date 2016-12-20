@@ -36,25 +36,25 @@
 							<div class="img-footer">
 							<a href="<?php echo esc_url( home_url('/') ); ?>">
 							<?php if (get_option('wise_footer_logo_url')) { ?>
-								<img src="<?php echo esc_url(get_option('wise_footer_logo_url')); ?>" alt="<?php echo bloginfo('name'); ?>">
+								<img src="<?php echo esc_url(get_option('wise_footer_logo_url')); ?>" alt="<?php echo esc_attr( bloginfo('name') ); ?>">
 							<?php } else { ?>
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/img/footer_img.png'); ?>" alt="<?php echo bloginfo('name'); ?>">
+								<img src="<?php echo esc_url( get_template_directory_uri() . '/img/footer_img.png'); ?>" alt="<?php echo esc_attr( bloginfo('name') ); ?>">
 							<?php } ?>
 							</a>
 							</div>
 						<?php endif; ?>
-							<div class="text-footer"><?php echo wp_kses(get_option('wise_footer_text'), $wise_allowed_html); ?><?php echo wise_panel_fields_footer(); ?></div>
+							<div class="text-footer"><?php echo wp_kses(get_option('wise_footer_text'), $wise_allowed_html); ?><?php wise_panel_fields_footer(); ?></div>
 						</div><!-- End of .site-info -->
 					<?php endif; ?>
 				
 				</footer><!-- End of #colophon -->
 		</div><!-- End of .footer wrapper --><div class="clear"></div>
-		<div class="footer-wraps"  <?php $wise_footer_opacity = get_option('wise_footer_opacity'); if( !empty($wise_footer_opacity) ) { echo 'style="opacity:' . $wise_footer_opacity . ';"'; } else { echo 'style="opacity:.95;"'; } ?>></div>
+		<div class="footer-wraps"></div>
 	</div><!-- End of .footer-wrapper-outer -->
 
-	<a href="#0" class="cd-top"><img src="<?php echo esc_url(get_template_directory_uri() . '/img/arrowtop.png'); ?>" alt="arrow"></a>
+	<a href="#0" class="cd-top"><img src="<?php echo esc_url(get_template_directory_uri() . '/img/arrowtop.png'); ?>" alt="<?php echo esc_html__( 'arrow', 'wise-blog' ); ?>"></a>
 </div><!-- End of .#page -->
-<?php echo wise_before_body(); ?>
+<?php wise_before_body(); ?>
 <?php wp_footer(); ?>
 </body>
 </html>

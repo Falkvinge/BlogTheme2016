@@ -33,74 +33,24 @@ echo wp_kses_post($args['before_title']) . esc_html($title) . wp_kses_post($args
 // The Output
 if(get_option('wise_footer_about_logo')==false) {
 	$def_footer_url = get_template_directory_uri() . '/img/footer_logo.png';
-	echo '<div class="about-logo"><a href="' . esc_url( home_url('/') ) . '">';
+	
 	if ($about_img == true) {
+		echo '<div class="about-logo"><a href="' . esc_url( home_url('/') ) . '">';
 		echo '<img src="' . esc_url($about_img) . '" alt="' . esc_attr(get_the_title()) . '"></a></div>'; }
 	else {
-		echo '<img src="' . esc_url($def_footer_url) . '" alt="' . esc_attr(get_the_title()) . '"></a></div>'; }
+		null; }
 }
 
-echo '<div class="about-text">' . esc_html($about_content);
+echo '<div class="about-text"><p>' . esc_html($about_content);
 if($wise_about_location != null) : echo '<p><strong>' . esc_html__('Location', 'wise-blog') . '</strong>: ' . esc_html($wise_about_location); endif;
 if($wise_about_email != null) : echo '<br><strong>' . esc_html__('Email', 'wise-blog') . '</strong>: <a href="mailto:' . esc_html($wise_about_email) . '">' . esc_html($wise_about_email) . '</a>'; endif;
 if($wise_about_phone != null) : echo '<br><strong>' . esc_html__('Phone', 'wise-blog') . '</strong>: ' . esc_html($wise_about_phone); endif;
 echo '</p></div>';
 
-if($enable_social == 'true') {
-	// Social Media Footer
-	echo '<ul class="social-links-footer">';
-
-		if (get_option('wise_soc_rss_links') != null) { 
-			echo '<li><a href="';
-			echo esc_url(get_option('wise_soc_rss_links'));
-			echo '" target="_blank"><i class="fa fa-rss"></i></a></li>';
-		} else  {
-			null;
-		}
-
-		if (get_option('wise_soc_fb_links') != null) { 
-			echo '<li><a href="';
-			echo esc_url(get_option('wise_soc_fb_links'));
-			echo '" target="_blank"><i class="fa fa-facebook"></i></a></li>';
-		} else  {
-			null;
-		}
-
-		if (get_option('wise_soc_twitter_links') != null) { 
-			echo '<li><a href="';
-			echo esc_url(get_option('wise_soc_twitter_links'));
-			echo '" target="_blank"><i class="fa fa-twitter"></i></a></li>';
-		} else  {
-			null;
-		}
-
-		if (get_option('wise_soc_gplus_links') != null) { 
-			echo '<li><a href="';
-			echo esc_url(get_option('wise_soc_gplus_links'));
-			echo '" target="_blank"><i class="fa fa-google-plus"></i></a></li>';
-		} else  {
-			null;
-		}
-
-		if (get_option('wise_soc_yt_links') != null) { 
-			echo '<li><a href="';
-			echo esc_url(get_option('wise_soc_yt_links'));
-			echo '" target="_blank"><i class="fa fa-youtube"></i></a></li>';
-		} else  {
-			null;
-		}
-		
-		if (get_option('wise_soc_in_links') != null) { 
-			echo '<li><a href="';
-			echo esc_url(get_option('wise_soc_in_links'));
-			echo '" target="_blank"><i class="fa fa-linkedin"></i></a></li>';
-		} else  {
-			null;
-		}
-
-	echo '</ul>';
+if($enable_social == 'true') {	
+	wise_footer_social_menu(); // Social Media Footer
 } else { // If enable social is false
-	echo '<span class="nolinehover"><a href="' . esc_url($about_url) . '">Read More</a></span>';
+	echo '<span class="nolinehover"><a href="' . esc_url($about_url) . '">' . esc_html__( 'Read More', 'wise-blog' ) . '</a></span>';
 }
 
 echo wp_kses_post($args['after_widget']);

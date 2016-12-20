@@ -50,7 +50,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	echo '">';
 	if ( $price != 0 && $price != null && !$ex_product ) {
 		echo '<div class="index-cart"><a href="' . esc_url(get_permalink()) . '?add-to-cart=' . esc_attr($postid) . '">';
-		echo '<i class="fa fa-shopping-cart"></i> Add to Cart</a></div>';
+		echo '<i class="fa fa-shopping-cart"></i> ' . esc_html__( 'Add to Cart', 'wise-blog' ) . '</a></div>';
 	}
 	else {
 		null;
@@ -70,7 +70,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	echo '<h3 class="entry-title-index';
 	if($product_layout == 'grid') { echo '-grid title-sub'; }
 	echo '">';
-	echo '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . get_the_title() . '</a></h3>';
+	echo '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . esc_html( get_the_title() ) . '</a></h3>';
 
 	/** price and ratings
 	 * woocommerce_after_shop_loop_item_title hook.
@@ -95,7 +95,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		// After Excerpt
 		do_action('woocommerce_after_short_description');
 		// View Details
-		echo '<a class="read-more" href="' . esc_url(get_permalink()) . '" title="' . esc_attr__('Details ', 'wise-blog') . get_the_title() . '" rel="bookmark">' . esc_html__('Details ', 'wise-blog') . '</a>';
+		echo '<a class="read-more" href="' . esc_url(get_permalink()) . '" title="' . esc_attr__('Details ', 'wise-blog') . esc_attr( get_the_title() ) . '" rel="bookmark">' . esc_html__('More Details ', 'wise-blog') . '</a>';
 	endif;
 
 	/** cart button

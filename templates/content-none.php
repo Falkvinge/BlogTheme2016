@@ -4,7 +4,7 @@
 *
 */
 ?>
-<section class="<?php if (is_404 ()) { echo 'no-results'; } else { echo 'error-404'; } ?> not found page-singles">
+<section class="<?php if (is_404 ()) { echo 'no-results'; } else { echo 'error-404'; } ?> not found">
 	<header class="page-header">
 		<h1 class="page-title-archive">
 			<?php 
@@ -40,7 +40,7 @@
 	
 	<?php if ( is_404() || is_search() ) : ?>
 	
-		<?php query_posts( array('post_type' => array( 'post', 'ctc_sermon', 'ctc_event' ), 'post_status' => 'publish', 'orderby' => 'rand' ) ); ?>
+		<?php query_posts( array('post_type' => 'post', 'post_status' => 'publish', 'orderby' => 'rand' ) ); ?>
 		<?php if ( have_posts() ) : ?>
 		<?php if(get_option('wise_def_name')) { echo '<header class="page-header"><h1 class="page-title">' . esc_html__('Consider These Articles','wise-blog') . '</h1></header>'; } ?>
 			

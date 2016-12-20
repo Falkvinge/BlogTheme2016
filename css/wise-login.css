@@ -27,6 +27,7 @@ body.login {
 	font-size: 15px;
 	font-weight: 600;
 	color: #555;
+	line-height: 2em;
 }
 
 .login input[type="text"],
@@ -42,7 +43,7 @@ p#backtoblog {
 }
 
 .login form {
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 0;
     padding: 30px 40px;
     background: #fff;
@@ -156,4 +157,16 @@ select:focus {
  	outline: #555 !important;
 	border-color: #555 !important;
 	box-shadow: none !important;
+}
+
+.login form .forgetmenot {
+    font-weight: 400;
+    float: left;
+    margin-top: .5em;
+    margin-bottom: 0;
+}
+
+.login .g-recaptcha div {
+	margin: 0 auto 1em;
+    text-align: center;
 }

@@ -4,7 +4,8 @@
 *
 */
 if( get_option('wise_disable_share_buttons') == false ) {
-	echo '<div class="share-entry-meta"><ul>';
+	$page_share = is_page() ? ' page-share-entry-meta' : '';
+	echo '<div class="share-entry-meta' . esc_attr($page_share) . '"><ul>';
 	$share_title = str_replace( ' ', '%20', get_the_title() );
 	$share_url = esc_url(esc_url(get_the_permalink()));
 	$share_img = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );

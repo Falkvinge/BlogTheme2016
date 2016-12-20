@@ -41,26 +41,32 @@ if ( ! function_exists( 'carbon_get_comment_meta' ) ) {
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-Container::make('post_meta', 'Homepage & Sidebar Selector')
+Container::make('post_meta', esc_attr__( 'Homepage & Sidebar Selector', 'wise-blog') )
     ->show_on_post_type('page')
     ->add_fields(array(
-		Field::make("radio", "wise_page_feat", 'Featured Image')
+		Field::make("select", "wise_page_title_align", esc_attr__( 'Title Alignment', 'wise-blog' ) )
 			->add_options(array(
-				'disable' => 'Disabled',
-				'enable' => 'Enabled',
-			))->set_default_value('disable'),
-		Field::make("radio", "wise_page_share", 'Share Buttons')
+				'left' => esc_attr__( 'Left', 'wise-blog' ),
+				'center' => esc_attr__( 'Center', 'wise-blog' ),
+				'right' => esc_attr__( 'Right', 'wise-blog' ),
+			))->set_default_value('left'),
+		Field::make("radio", "wise_page_feat", esc_attr__( 'Featured Image', 'wise-blog' ) )
 			->add_options(array(
-				'disable' => 'Disabled',
-				'enable' => 'Enabled',
+				'disable' => esc_attr__( 'Disabled', 'wise-blog' ),
+				'enable' => esc_attr__( 'Enabled', 'wise-blog' ),
 			))->set_default_value('disable'),
-		Field::make("radio", "wise_endis_homepage", 'Custom Homepage')
+		Field::make("radio", "wise_page_share", esc_attr__( 'Share Buttons', 'wise-blog' ) )
 			->add_options(array(
-				'disable' => 'Disabled',
-				'enable' => 'Enabled',
+				'disable' => esc_attr__( 'Disabled', 'wise-blog' ),
+				'enable' => esc_attr__( 'Enabled', 'wise-blog' ),
 			))->set_default_value('disable'),
-		Field::make('sidebar', 'wise_custom_homepage', 'Select Homepage'),
-        Field::make('sidebar', 'wise_custom_sidebar', 'Select Sidebar'),
+		Field::make("radio", "wise_endis_homepage", esc_attr__( 'Custom Homepage', 'wise-blog' ) )
+			->add_options(array(
+				'disable' => esc_attr__( 'Disabled', 'wise-blog' ),
+				'enable' => esc_attr__( 'Enabled', 'wise-blog' ),
+			))->set_default_value('disable'),
+		Field::make('sidebar', 'wise_custom_homepage', esc_attr__( 'Select Homepage', 'wise-blog' ) ),
+        Field::make('sidebar', 'wise_custom_sidebar', esc_attr__( 'Select Sidebar', 'wise-blog' ) ),
     ));
 
 function wise_dynamic_sidebar($index = 1, $options = array()) {

@@ -27,7 +27,7 @@ echo wp_kses_post($args['before_title']) . esc_html($title) . wp_kses_post($args
 // The Output
 echo '<form class="subscribe-footer" action="' . esc_url($subsfooter_url) . '" method="post" id="mc-embedded-subscribe-form-footer" name="mc-embedded-subscribe-form" target="_blank" novalidate>';
 echo '<input type="email" value="" name="EMAIL"  id="mce-EMAIL-footer" placeholder="' . esc_attr__('Enter Email Address', 'wise-blog') . '">';
-echo '<button type="submit" class="newsletter-submit" value="' . esc_attr('Subscribe','wise-blog') . '" name="subscribe" id="mc-embedded-subscribe-footer">' . esc_html('Subscribe','wise-blog') . '</button></form>';
+echo '<button type="submit" class="newsletter-submit" value="' . esc_attr__('Subscribe','wise-blog') . '" name="subscribe" id="mc-embedded-subscribe-footer">' . esc_html__('Subscribe','wise-blog') . '</button></form>';
 
 echo wp_kses_post($args['after_widget']);
 }

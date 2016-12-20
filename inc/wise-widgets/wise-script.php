@@ -26,7 +26,7 @@ if ( ! empty( $title ) )
 echo wp_kses_post($args['before_title']) . esc_html($title) . wp_kses_post($args['after_title']);
 
 // The Output
-echo wise_script_widget();
+wise_script_widget();
 
 echo wp_kses_post($args['after_widget']);
 }
@@ -77,7 +77,7 @@ return $instance;
 
 function wise_script_widget() {
 	global $w_script;
-	return $w_script;
+	printf( $w_script );
 }
 
 // Register and load widget
