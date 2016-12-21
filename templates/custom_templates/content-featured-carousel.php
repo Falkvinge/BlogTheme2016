@@ -21,12 +21,12 @@
 			<?php if ( has_post_thumbnail() ) {
 				echo '<div class="feat-home-index-thumb">';
 				echo '<div class="index-cat">';
-				if (has_category()) { echo wise_parent_cat(); }
+				if (has_category()) { wise_parent_cat(); }
 				echo '</div>';
 				echo '<a href="';
 				echo esc_url(get_permalink());
 				echo ' ">';
-				echo the_post_thumbnail('wise-post-thumb');
+				the_post_thumbnail('wise-post-thumb');
 				echo '</a></div>';
 			} else { null; } // If there's no image then nothing will display
 			?>

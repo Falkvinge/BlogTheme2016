@@ -33,6 +33,7 @@
 		
 		'comment_field' =>  '<p class="comment-form-comment">' .
 		'<textarea id="comment" name="comment" placeholder="What do you think of this? Is somebody wrong on the Internet? Tell them what you think here!" cols="45" rows="8" aria-required="true">' .
+
 			'</textarea></p>',
 			
 		$fields =  array(
@@ -60,20 +61,8 @@
 
 	<?php if ( have_comments() ) : ?>
 		<h2 class="page-title">
-			<?php esc_html_e( 'Discussion', 'wise-blog'); ?>
+			<?php esc_html_e( 'Discussion', 'wise-blog' ); ?>
 		</h2>
-
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-		<nav id="comment-nav-above" class="navigation comment-navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'wise-blog' ); ?></h2>
-			<div class="nav-links">
-
-				<div class="nav-previous"><i class="fa fa-arrow-left"></i><?php previous_comments_link( esc_html__( 'Older Comments', 'wise-blog' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'wise-blog' ) ); ?><i class="fa fa-arrow-right"></i></div>
-
-			</div><!-- End of .nav-links -->
-		</nav><!-- End of #comment-nav-above -->
-		<?php endif; // Check for comment navigation. ?>
 
 		<ol class="comment-list">
 			<?php
@@ -91,8 +80,8 @@
 			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'wise-blog' ); ?></h2>
 			<div class="nav-links">
 
-				<div class="nav-previous"><?php echo '<i class="fa fa-arrow-left"></i>'; previous_comments_link( esc_html__( 'Older Comments', 'wise-blog' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'wise-blog' ) ); echo '<i class="fa fa-arrow-right"></i>'; ?></div>
+				<div class="nav-previous"><?php previous_comments_link( wp_kses_post( __( '<i class="fa fa-arrow-left"></i> Older Comments', 'wise-blog' ) ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( wp_kses_post( __( 'Newer Comments <i class="fa fa-arrow-right"></i>', 'wise-blog' ) ) ); ?></div>
 
 			</div><!-- End of .nav-links -->
 		</nav><!-- End of #comment-nav-below -->
@@ -105,6 +94,12 @@
 		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
 		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'wise-blog' ); ?></p>
+		<script>
+			(function($) { // Remove reply link when there is no comment or comments are closed
+				"use strict";
+				$('.comments-area .reply').remove();
+			 })(jQuery);
+		</script>
 	<?php endif; ?>
 
 </div><!-- End of #comments -->

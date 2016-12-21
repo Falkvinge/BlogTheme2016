@@ -47,8 +47,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	echo '<div class="title-content-index zero">';
 	echo '<h3 class="entry-title-index">';
-	echo '<a href="'. get_term_link( $category->slug, 'product_cat' ) . '">';
-	echo  $category->name . '</a>';
+	echo '<a href="'. esc_url( get_term_link( $category->slug, 'product_cat' ) ) . '">';
+	echo  esc_html( $category->name ) . '</a>';
 	echo '</h3>';
 	
 

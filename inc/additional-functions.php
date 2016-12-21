@@ -46,7 +46,7 @@
 26. Custom Comment List, Date Format
 27. Panel Fields
 28. Add Items to Menus
-29. Redirect Attachment URL to Parent Post
+29. Empty Function
 30. Ads Functionalities
 	30.1 Enable or Disable Ads on Specific Post or Page
 	30.2 Ads Conditionals
@@ -74,6 +74,9 @@
 	38.3 Footer Social Menu
 39. Preloader
 40. Featured Homepage Posts
+41. Custom Inline Styles
+42. Sticky Sidebar Settings and Fix
+43. Main Background Fix
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -145,7 +148,7 @@ if ( ! function_exists( 'wise_single_post_nav' ) ) :
 				<div class="nav-links">
 					<?php
 						previous_post_link( '<div class="nav-previous"><div class="nav-indicator">' . esc_html__( 'Previous Post', 'wise-blog' ) . '</div><h4>%link</h4></div>', '%title' );
-						next_post_link(     '<div class="nav-next"><div class="nav-indicator">' . esc_html__( 'Next Post', 'wise-blog' ) . '</div><h4>%link</h4></div>', '%title' );
+						next_post_link( '<div class="nav-next"><div class="nav-indicator">' . esc_html__( 'Next Post', 'wise-blog' ) . '</div><h4>%link</h4></div>', '%title' );
 					?>
 				</div><!-- .nav-links -->
 			</div>
@@ -165,7 +168,7 @@ endif;
 			if( get_option('wise_disable_post_date') == false) { // If true, disables date on posts
 				
 				if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-					$time_string = is_single() ? '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s"> &bull; ' . esc_html('Updated', 'wise-blog') . ' %4$s</time>' : '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+					$time_string = is_single() ? '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s"> &bull; ' . esc_html__('Updated', 'wise-blog') . ' %4$s</time>' : '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 				} else {
 					$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 				}
@@ -173,7 +176,7 @@ endif;
 				if(get_option('wise_date_format') == 'human readable') {
 					$time_string = sprintf( $time_string,
 						esc_attr( get_the_date( 'c' ) ),
-						esc_html( human_time_diff( get_the_date('U'), current_time('timestamp') ) . esc_attr(' ago', 'wise-blog') ),
+						esc_html( human_time_diff( get_the_date('U'), current_time('timestamp') ) . esc_attr__(' ago', 'wise-blog') ),
 						esc_attr( get_the_modified_date( 'c' ) ),
 						esc_html( human_time_diff( get_the_modified_date('U'), current_time('timestamp') ) )
 					);
@@ -285,7 +288,7 @@ if ( ! function_exists( 'wise_entry_footer' ) ) :
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '<ul class="tag-list"><li>', '</li><li>', '</li></ul>' );
 			if ( $tags_list ) {
-				printf( '<div class="tags-links">' . esc_html__( '%1$s', 'wise-blog' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+				printf( '<footer class="entry-footer"><div class="tags-links">' . esc_html__( '%1$s', 'wise-blog' ) . '</div></footer><div class="clear"></div>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 
@@ -462,10 +465,10 @@ if ( ! function_exists( 'wise_breadcrumbs' ) ) :
 		}
 		// Set default arguments
 		$defaults = array(
-			'separator_icon'      => '<i class="fa fa-angle-right"></i>',
+			'separator_icon'      => '&rsaquo;',
 			'breadcrumbs_id'      => 'breadcrumbs',
 			'breadcrumbs_classes' => 'breadcrumb-trail breadcrumbs',
-			'home_title'          => 'Home'
+			'home_title'          => esc_attr__('Home', 'wise-blog')
 		);
 		// Parse any arguments added
 		$args = apply_filters( 'wise_breadcrumbs_args', wp_parse_args( $args, $defaults ) );
@@ -477,7 +480,7 @@ if ( ! function_exists( 'wise_breadcrumbs' ) ) :
 		// Open the breadcrumbs
 		$html = '<div id="' . esc_attr( $args['breadcrumbs_id'] ) . '" class="' . esc_attr( $args['breadcrumbs_classes']) . '">';
 		// Add Homepage link & separator (always present)
-		$html .= '<span class="item-home"><a class="bread-link bread-home" href="' . get_home_url('/') . '" title="' . esc_attr( $args['home_title'] ) . '">' . esc_attr( $args['home_title'] ) . '</a></span>';
+		$html .= '<span class="item-home"><a class="bread-link bread-home" href="' . esc_url( get_home_url('/') ) . '" title="' . esc_attr( $args['home_title'] ) . '">' . esc_attr( $args['home_title'] ) . '</a></span>';
 		$html .= $separator;
 		// Post
 		if ( is_singular( 'post' ) ) {
@@ -654,7 +657,7 @@ if ( ! function_exists( 'wise_admin_login_redirect' ) ) :
 			if( in_array( "administrator", $user->roles ) ) {
 				return $redirect_to;
 			} else {
-				return home_url('/'); }
+				return esc_url( home_url('/') ); }
 		}
 		else {
 		return $redirect_to; }
@@ -803,21 +806,21 @@ function wise_minify($wiseminify) {
 function wise_before_head() {
 	$wise_before_head = get_option('wise_code_before_head');
 	if( $wise_before_head != null ) :
-		return $wise_before_head;
+		printf($wise_before_head);
 	endif;
 }
 
 function wise_after_body() {
 	$wise_after_body = get_option('wise_code_after_body');
 	if( $wise_after_body != null ) :
-		return $wise_after_body;
+		printf($wise_after_body);
 	endif;
 }
 
 function wise_before_body() {
 	$wise_before_body = get_option('wise_code_before_body');
 	if( $wise_before_body != null ) :
-		return $wise_before_body;
+		printf($wise_before_body);
 	endif;
 }
 
@@ -885,7 +888,7 @@ endif;
 	--------------------------------------------------------------*/
 	if ( ! function_exists( 'wise_wooshare' ) ) :
 		function wise_wooshare() {
-			echo get_template_part('templates/custom-social');
+			get_template_part('templates/custom-social');
 		}
 		add_action('woocommerce_share','wise_wooshare');
 	endif;
@@ -930,8 +933,8 @@ endif;
 	--------------------------------------------------------------*/
 	if ( !function_exists('is_woocommerce') ) :
 		function wise_revert_lost_url() {
-			$homeURL = esc_url( home_url('/') );
-			return $homeURL . "wp-login.php?action=lostpassword";
+			$homeURL = home_url('/');
+			return esc_url( $homeURL . "wp-login.php?action=lostpassword" );
 		}
 		add_filter( 'lostpassword_url',  'wise_revert_lost_url', 11, 0 );
 	endif;
@@ -1020,19 +1023,164 @@ $captcomment = get_option('wise_enable_comment_reCAPTCHA');
 if(($captlogin || $captregister || $captcomment)==true ) :
 	// Add reCAPTCHA script
 	function wise_reCAPTCHA_script() {
+		// Automatic Language switcher
+		$locale = get_locale();
+		if($locale == 'ar') { // Arabic
+			$r_lang = 'ar';
+		} elseif($locale == 'af') { // Afrikaans
+			$r_lang = 'af';
+		} elseif($locale == 'am') { // Amharic
+			$r_lang = 'am';
+		} elseif($locale == 'hy') { // Armenian
+			$r_lang = 'hy';
+		} elseif($locale == 'az') { // Azerbaijani
+			$r_lang = 'az';
+		} elseif($locale == 'eu') { // Basque
+			$r_lang = 'eu';
+		} elseif($locale == 'bn_BD') { // Bengali
+			$r_lang = 'bn';
+		} elseif($locale == 'bg_BG') { // Bulgarian
+			$r_lang = 'bg';
+		} elseif($locale == 'ca') { // Catalan
+			$r_lang = 'ca';
+		} elseif($locale == 'zh-HK') { // Chinese (Hong Kong)
+			$r_lang = 'zh-HK';
+		} elseif($locale == 'zh-CN') { // Chinese (Simplified)
+			$r_lang = 'zh-CN';
+		} elseif($locale == 'zh-TW') { // Chinese (Traditional)
+			$r_lang = 'zh-TW';
+		} elseif($locale == 'hr') { // Croatian
+			$r_lang = 'hr';
+		} elseif($locale == 'cs_CZ') { // Czech
+			$r_lang = 'cs';
+		} elseif($locale == 'da_DK') { // Danish
+			$r_lang = 'da';
+		} elseif($locale == 'nl_NL') { // Dutch
+			$r_lang = 'nl';
+		} elseif($locale == 'en-GB') { // English (UK)
+			$r_lang = 'en-GB';
+		} elseif($locale == 'et') { // Estonian
+			$r_lang = 'et';
+		} elseif($locale == 'tl') { // Filipino
+			$r_lang = 'fil';
+		} elseif($locale == 'fi') { // Finnish
+			$r_lang = 'fi';
+		} elseif($locale == 'fr_FR') { // French
+			$r_lang = 'fr';
+		} elseif($locale == 'fr-CA') { // French (Canadian)
+			$r_lang = 'fr-CA';
+		} elseif($locale == 'gl_ES') { // Galician
+			$r_lang = 'gl';
+		} elseif($locale == 'ka_GE') { // Georgian
+			$r_lang = 'ka';
+		} elseif($locale == 'de_DE') { // German
+			$r_lang = 'de';
+		} elseif($locale == 'de-AT') { // German (Austria)
+			$r_lang = 'de-AT';
+		} elseif($locale == 'de_CH') { // German (Switzerland)
+			$r_lang = 'de-CH';
+		} elseif($locale == 'el') { // Greek
+			$r_lang = 'el';
+		} elseif($locale == 'gu') { // Gujarati
+			$r_lang = 'gu';
+		} elseif($locale == 'he_IL') { // Hebrew
+			$r_lang = 'iw';
+		} elseif($locale == 'hi_IN') { // Hindi
+			$r_lang = 'hi';
+		} elseif($locale == 'hu_HU') { // Hungarian
+			$r_lang = 'hu';
+		} elseif($locale == 'is_IS') { // Icelandic
+			$r_lang = 'is';
+		} elseif($locale == 'id_ID') { // Indonesian
+			$r_lang = 'id';
+		} elseif($locale == 'it_IT') { // Italian
+			$r_lang = 'it';
+		} elseif($locale == 'ja') { // Japanese
+			$r_lang = 'ja';
+		} elseif($locale == 'kn') { // Kannada
+			$r_lang = 'kn';
+		} elseif($locale == 'ko_KR') { // Korean
+			$r_lang = 'ko';
+		} elseif($locale == 'lo') { // Laothian
+			$r_lang = 'lo';
+		} elseif($locale == 'lv') { // Latvian
+			$r_lang = 'lv';
+		} elseif($locale == 'lt_LT') { // Lithuanian
+			$r_lang = 'lt';
+		} elseif($locale == 'ms_MY') { // Malay
+			$r_lang = 'ms';
+		} elseif($locale == 'ml_IN') { // Malayalam
+			$r_lang = 'ml';
+		} elseif($locale == 'mr') { // Marathi
+			$r_lang = 'mr';
+		} elseif($locale == 'mn') { // Mongolian
+			$r_lang = 'mn';
+		} elseif($locale == 'nb_NO') { // Norwegian
+			$r_lang = 'no';
+		} elseif($locale == 'fa_IR') { // Persian
+			$r_lang = 'fa';
+		} elseif($locale == 'pl_PL') { // Polish
+			$r_lang = 'pl';
+		} elseif($locale == 'pt') { // Portuguese
+			$r_lang = 'pt';
+		} elseif($locale == 'pt_BR') { // Portuguese (Brazil)
+			$r_lang = 'pt-BR';
+		} elseif($locale == 'pt-PT') { // Portuguese (Portugal)
+			$r_lang = 'pt-PT';
+		} elseif($locale == 'ro_RO') { // Romanian
+			$r_lang = 'ro';
+		} elseif($locale == 'ru_RU') { // Russian
+			$r_lang = 'ru';
+		} elseif($locale == 'sr_RS') { // Serbian
+			$r_lang = 'sr';
+		} elseif($locale == 'si') { // Sinhalese
+			$r_lang = 'si';
+		} elseif($locale == 'sk_SK') { // Slovak
+			$r_lang = 'sk';
+		} elseif($locale == 'sl_SI') { // Slovenian
+			$r_lang = 'sl';
+		} elseif($locale == 'es_ES') { // Spanish
+			$r_lang = 'es';
+		} elseif($locale == ( 'es_AR' | 'es_CL' | 'es_CO' | 'es_GT' | 'es_MX' | 'es_PE' | 'es_PR' | 'es_VE' ) ) { // Spanish (Latin America)
+			$r_lang = 'es-419';
+		} elseif($locale == 'sw') { // Swahili
+			$r_lang = 'sw';
+		} elseif($locale == 'sv_SE') { // Swedish
+			$r_lang = 'sv';
+		} elseif($locale == 'ta_IN') { // Tamil
+			$r_lang = 'ta';
+		} elseif($locale == 'te') { // Telugu
+			$r_lang = 'te';
+		} elseif($locale == 'th') { // Thai
+			$r_lang = 'th';
+		} elseif($locale == 'tr_TR') { // Turkish
+			$r_lang = 'tr';
+		} elseif($locale == 'uk') { // Ukrainian
+			$r_lang = 'uk';
+		} elseif($locale == 'ur') { // Urdu
+			$r_lang = 'ur';
+		} elseif($locale == 'vi') { // Vietnamese
+			$r_lang = 'vi';
+		} elseif($locale == 'zu') { // Zulu
+			$r_lang = 'zu';
+		} else {
+			$r_lang = 'en';
+		}
 		$google_api_url = 'https://www.google.com/recaptcha/api.js';
+		$google_api_url .= !empty($r_lang) ? '?hl=' . $r_lang : '';
 		echo '<script src="' . esc_url($google_api_url) . '" async defer></script>';
 	}
 	// to header of login page
 	add_action( 'login_enqueue_scripts', 'wise_reCAPTCHA_script' );
 
 	// to header of the main page
-	add_action( 'wp_head', 'wise_reCAPTCHA_script' );
+	add_action( 'wp_head', 'wise_reCAPTCHA_script', 1 );
 
 	// Output form
-	function show_captcha() {
+	function wise_show_captcha() {
+		$captcha_theme = 'light';
 		$data_sitekey = get_option('wise_captcha_sitekey');
-		echo '<div class="g-recaptcha" style="display:table; margin: auto;" data-sitekey="' . esc_attr($data_sitekey) . '"></div>';
+		echo '<div class="g-recaptcha" data-sitekey="' . esc_attr($data_sitekey) . '" data-theme="' . esc_attr($captcha_theme) . '"></div>';
 	}
 
 	/**
@@ -1061,7 +1209,7 @@ endif; // End reCAPTCHA initialization
 
 if($captlogin==true) :
 	// reCAPTCHA for login form
-	add_action( 'login_form', 'show_captcha' );
+	add_action( 'login_form', 'wise_show_captcha' );
 
 	// reCAPTCHA authentication for login form
 	add_action( 'wp_authenticate_user', 'wise_validate_captcha', 10, 2 );
@@ -1084,7 +1232,7 @@ endif; // End login form
 
 if($captregister==true) :
 	// reCAPTCHA for registration form
-	add_action( 'register_form', 'show_captcha' );
+	add_action( 'register_form', 'wise_show_captcha' );
 
 	// reCAPTCHA authentication for registration form
 	add_action( 'registration_errors', 'wise_validate_captcha_registration_field', 10, 3 );
@@ -1108,7 +1256,7 @@ endif; // End registration form
 
 if($captcomment==true) :
 	// reCAPTCHA for comment form
-	add_action( 'comment_form', 'show_captcha' );
+	add_action( 'comment_form', 'wise_show_captcha' );
 
 	// reCAPTCHA authentication for comment form
 	add_filter( 'preprocess_comment', 'wise_validate_captcha_comment_field');
@@ -1146,7 +1294,7 @@ if($captcomment==true) :
 			// delete failed comment, set to true: to delete completely, set to false: to move only to trash
 			wp_delete_comment( absint( $comment->comment_ID ), true );
 
-			// add failed query string for @parent::show_captcha to display error message
+			// add failed query string for @parent::wise_show_captcha to display error message
 			$location = add_query_arg( 'captcha', 'failed', $location );
 			
 			// remove the obnoxious comment string i.e comment-15
@@ -1188,8 +1336,8 @@ function wise_comment_settings($comment, $args, $depth) {
 	<div id="div-comment-<?php comment_ID() ?>" class="comment-body clear">
 	<?php endif; ?>
 	<div class="comment-author vcard">
-	<?php if ( $args['avatar_size'] != 0 ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
-	<?php echo '<b class="fn">' . get_comment_author_link() . '</b>' ?>
+	<?php if ( $args['avatar_size'] != 0 ) : printf( get_avatar( $comment, $args['avatar_size'] ) ); endif; ?>
+	<?php printf( '<b class="fn">%s</b>', get_comment_author_link() ); ?>
 	<div class="comment-meta comment-metadata">
 		<?php printf( '<time>%1$s</time>', get_comment_date(),  get_comment_time() ); ?></a><br><?php /* translators: 1: date, 2: time, add this to get time: %2$s */ ?>
 	</div>
@@ -1221,15 +1369,15 @@ function wise_comment_settings($comment, $args, $depth) {
 --------------------------------------------------------------*/
 function wise_panel_fields() { ?>
 	<div class="wise-footer-functions">
-		<?php $author_url = 'http://www.probewise.com'; $wise_version = '1.6'; $wise_name = 'Wise Blog'; $wise_author = 'Probewise'; ?>
+		<?php $author_url = 'http://www.probewise.com'; $wise_version = '1.7.5'; $wise_name = 'Wise Blog'; $wise_author = 'Probewise'; ?>
 		<div class="wise-help-functions"><p><?php echo esc_html_e( 'Need help? Documentations or support forum may help you.', 'wise-blog' ); ?></p>
-			<p><?php esc_html_e( 'Visit our documentation page here:', 'wise-blog' ); ?> <a href="<?php echo esc_url($author_url . '/docs/wise-blog/'); ?>"><?php esc_html_e( 'Wise Blog Documentation', 'wise-blog' ); ?></a></p>
-			<p><?php esc_html_e( 'Or post questions here:', 'wise-blog' ); ?> <a href="<?php echo esc_url($author_url . '/themes/wise-blog/#tab-support'); ?>"><?php esc_html_e( 'Probewise Support', 'wise-blog' ); ?></a></p>
+			<p><?php esc_html__( 'Visit our documentation page here:', 'wise-blog' ); ?> <a href="<?php echo esc_url($author_url . '/docs/wise-blog/'); ?>"><?php esc_html_e( 'Wise Blog Documentation', 'wise-blog' ); ?></a></p>
+			<p><?php esc_html__( 'Or post questions here:', 'wise-blog' ); ?> <a href="<?php echo esc_url($author_url . '/themes/wise-blog/#tab-support'); ?>"><?php esc_html_e( 'Probewise Support', 'wise-blog' ); ?></a></p>
 		</div>
 		<div class="wise-theme-info">
-			<p><?php esc_html_e( 'Theme Name:', 'wise-blog' ); ?><?php echo ' <a href="' . esc_url($author_url . '/themes/wise-blog/') . '">' . esc_html($wise_name) . '</a>'; ?></p>
-			<p><?php esc_html_e( 'Version:', 'wise-blog' ); ?> <?php echo '<a href="' . esc_url($author_url . '/themes/wise-blog/#tab-changelog') . '">' . esc_html($wise_version) . '</a>'; ?></p>
-			<p><?php esc_html_e( 'Author:', 'wise-blog' ); ?> <a href="<?php echo esc_url($author_url); ?>"><?php echo esc_html($wise_author); ?></a></p>
+			<p><?php echo esc_html__( 'Theme Name:', 'wise-blog' ); ?><?php echo ' <a href="' . esc_url($author_url . '/themes/wise-blog/') . '">' . esc_html($wise_name) . '</a>'; ?></p>
+			<p><?php echo esc_html__( 'Version:', 'wise-blog' ); ?> <?php echo '<a href="' . esc_url($author_url . '/themes/wise-blog/#tab-changelog') . '">' . esc_html($wise_version) . '</a>'; ?></p>
+			<p><?php echo esc_html__( 'Author:', 'wise-blog' ); ?> <a href="<?php echo esc_url($author_url); ?>"><?php echo esc_html($wise_author); ?></a></p>
 		</div>
 	</div>
 <?php }
@@ -1238,7 +1386,7 @@ if( !function_exists('wise_panel_fields_footer') ) :
 	function wise_panel_fields_footer() {
 		$author_link = 'http://www.probewise.com';
 		$author_name = 'Probewise';
-		echo '&nbsp;Powered by ' . '<a href="' . esc_url($author_link) . '">' . esc_html($author_name) . '</a>.';
+		echo ' ' . esc_html__( 'Powered by', 'wise-blog' ) . ' <a href="' . esc_url($author_link) . '">' . esc_html($author_name) . '</a>.';
 	}
 endif;
 
@@ -1275,24 +1423,13 @@ add_filter( 'wp_nav_menu_items', 'wise_secondary_menu_item', 10, 2 );
 // Fallback for Menu
 function wise_menu_message() {
 	?><ul>                  
-		<li><a href="<?php echo admin_url('nav-menus.php'); ?>"><?php esc_html_e( 'Please add a menu.', 'wise-blog' ); ?></a></li>
+		<li><a href="<?php echo esc_url( admin_url('nav-menus.php') ); ?>"><?php esc_html_e( 'Please add a menu.', 'wise-blog' ); ?></a></li>
 	</ul><?php
 }
 	
 /*--------------------------------------------------------------
-29. Redirect Attachment URL to Parent Post
+29. Empty Function
 --------------------------------------------------------------*/
-if ( ! function_exists( 'wise_attachment_redirect' ) ) :
-	function wise_attachment_redirect(){
-		global $post;
-		if ( is_attachment() ) :
-			wp_redirect( get_permalink( $post->post_parent ), 301 );
-			exit();
-		endif;
-	}
-	add_action( 'template_redirect', 'wise_attachment_redirect' );
-endif;
-
 /*--------------------------------------------------------------
 30. Ads Functionalities
 --------------------------------------------------------------*/
@@ -1342,7 +1479,7 @@ endif;
 	if ( ! function_exists( 'ads_top_post' ) ) :
 		function ads_top_post() {
 			if (get_option('wise_top_post') && !is_404() && !is_search() && !is_attachment() ) :
-					echo '<div class="ads-layout_bottom">' . get_option('wise_top_post') . '</div>'; // no need for escape, it is filtered in wise panel like WordPress text widget
+					printf( '<div class="ads-layout_both">' . get_option('wise_top_post') . '</div>' );
 			endif;
 		}
 	endif;
@@ -1351,7 +1488,7 @@ endif;
 	if ( ! function_exists( 'ads_middle_post' ) ) :
 		function ads_middle_post() {
 			if (get_option('wise_middle_post') && !is_404() && !is_search() && !is_attachment() ) :
-				echo '<div class="ads-layout_bottom">' . get_option('wise_middle_post') . '</div>'; // no need for escape, it is filtered in wise panel like WordPress text widget
+				printf( '<div class="ads-layout_both">' . get_option('wise_middle_post') . '</div>' );
 			endif;
 		}
 	endif;
@@ -1360,7 +1497,7 @@ endif;
 	if ( ! function_exists( 'ads_bottom_post_1' ) ) :
 		function ads_bottom_post_1() {
 			if (get_option('wise_bottom_post_1') && !is_404() && !is_search() && !is_attachment() ) :
-				echo '<div class="ads-layout_bottom">' . get_option('wise_bottom_post_1') . '</div>'; // no need for escape, it is filtered in wise panel like WordPress text widget
+				printf( '<div class="ads-layout_both">' . get_option('wise_bottom_post_1') . '</div>' );
 			endif;
 		}
 	endif;
@@ -1369,7 +1506,7 @@ endif;
 	if ( ! function_exists( 'ads_bottom_post_2' ) ) :
 		function ads_bottom_post_2() {
 			if (get_option('wise_bottom_post_2') && !is_404() && !is_search() && !is_attachment() ) :
-				echo '<div class="ads-layout_bottom">' . get_option('wise_bottom_post_2') . '</div>'; // no need for escape, it is filtered in wise panel like WordPress text widget
+				printf( '<div class="ads-layout_bottom">' . get_option('wise_bottom_post_2') . '</div>' );
 			endif;
 		}
 	endif;
@@ -1378,7 +1515,7 @@ endif;
 	if ( ! function_exists( 'ads_bottom_post_3' ) ) :
 		function ads_bottom_post_3() {
 			if (get_option('wise_bottom_post_3') && !is_404() && !is_search() && !is_attachment() ) :
-				echo '<div class="ads-layout_bottom">' . get_option('wise_bottom_post_3') . '</div>'; // no need for escape, it is filtered in wise panel like WordPress text widget
+				printf( '<div class="ads-layout_bottom">' . get_option('wise_bottom_post_3') . '</div>' );
 			endif;
 		}
 	endif;
@@ -1409,7 +1546,7 @@ endif;
 	function wise_cont_ads() {
 		global $post; $disable_ads = get_post_meta($post->ID, 'wise_ads_post', true);
 		echo wise_ads_cont($wise_conts = 'first_cont');
-		if($disable_ads == false) : echo ads_middle_post(); endif;
+		if($disable_ads == false) : ads_middle_post(); endif;
 		echo wise_ads_cont($wise_conts = 'second_cont');
 	}
 
@@ -2261,18 +2398,6 @@ function wise_customization() {
 			}
 		
 		<?php endif; // End Color Settings ?>
-		
-		<?php if( $wise_dis_back == false ) : // For Background ?>
-			@media screen and (min-width: 437px) {
-				body {
-					background: url(<?php $wise_def_back = get_template_directory_uri() . '/img/background.jpg'; if($wise_main_back) { echo esc_url($wise_main_back); } else { echo esc_url($wise_def_back); } ?>) no-repeat center center fixed; 
-					-webkit-background-size: cover;
-					-moz-background-size: cover;
-					-o-background-size: cover;
-					background-size: cover;
-				}
-			}
-		<?php endif; ?>
 		
 		/* Preloader */
 		<?php $wise_def_color = get_option('wise_def_preload_color'); $wise_pre_preload = get_option('wise_pre_preload'); // Predefined Preloader ?>
@@ -3234,12 +3359,204 @@ endif;
 	/*--------------------------------------------------------------
 	38.1 Headhesive Social Menu
 	--------------------------------------------------------------*/
-	function wise_headhesive_social_menu() { ?>
-		<div class="social-like-wrapper">
-			<div class="social-like-headhesive" id="share-top">
-			  <ul class="social-links-headhesive clear">
-			  
+	if( !function_exists('wise_headhesive_social_menu') ) :
+		function wise_headhesive_social_menu() { ?>
+			<div class="social-like-wrapper">
+				<div class="social-like-headhesive" id="share-top">
+				  <ul class="social-links-headhesive clear">
+				  
+					<?php
+						if (get_option('wise_soc_rss_links') != null) { 
+							echo '<li><a href="';
+							echo esc_url(get_option('wise_soc_rss_links'));
+							echo '" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></li>';
+						} else {
+							null;
+						}
+
+						if (get_option('wise_soc_fb_links') != null) { 
+							echo '<li><a href="';
+							echo esc_url(get_option('wise_soc_fb_links'));
+							echo '" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>';
+						} else {
+							null;
+						}
+
+						if (get_option('wise_soc_twitter_links') != null) { 
+							echo '<li><a href="';
+							echo esc_url(get_option('wise_soc_twitter_links'));
+							echo '" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>';
+						} else {
+							null;
+						}
+
+						if (get_option('wise_soc_gplus_links') != null) { 
+							echo '<li><a href="';
+							echo esc_url(get_option('wise_soc_gplus_links'));
+							echo '" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>';
+						} else {
+							null;
+						}
+
+						if (get_option('wise_soc_yt_links') != null) { 
+							echo '<li><a href="';
+							echo esc_url(get_option('wise_soc_yt_links'));
+							echo '" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>';
+						} else {
+							null;
+						}
+						
+						if (get_option('wise_soc_vim_links') != null) { 
+							echo '<li><a href="';
+							echo esc_url(get_option('wise_soc_vim_links'));
+							echo '" target="_blank"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>';
+						} else {
+							null;
+						}
+						
+						if (get_option('wise_soc_in_links') != null) { 
+							echo '<li><a href="';
+							echo esc_url(get_option('wise_soc_in_links'));
+							echo '" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>';
+						} else {
+							null;
+						}
+						
+						if (get_option('wise_soc_ins_links') != null) { 
+							echo '<li><a href="';
+							echo esc_url(get_option('wise_soc_ins_links'));
+							echo '" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>';
+						} else {
+							null;
+						}
+						
+						if (get_option('wise_soc_pin_links') != null) { 
+							echo '<li><a href="';
+							echo esc_url(get_option('wise_soc_pin_links'));
+							echo '" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>';
+						} else {
+							null;
+						}
+						
+						if (get_option('wise_soc_vk_links') != null) { 
+							echo '<li><a href="';
+							echo esc_url(get_option('wise_soc_vk_links'));
+							echo '" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a></li>';
+						} else {
+							null;
+						}
+					?>
+
+				  </ul>
+				</div><!--End Social Links Headhesive-->
+			</div><!--End Social Like Wrapper Headhesive--><?php
+		}
+	endif;
+
+	/*--------------------------------------------------------------
+	38.2 Main Social Menu
+	--------------------------------------------------------------*/
+	if( !function_exists('wise_main_social_menu') ) :
+		function wise_main_social_menu() { ?>
+			<div class="social-top">
+			  <ul class="social-links-top clear">
+				
 				<?php
+					if (get_option('wise_soc_rss_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_rss_links'));
+						echo '" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></li>';
+					} else {
+						echo '';
+					}
+
+					if (get_option('wise_soc_fb_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_fb_links'));
+						echo '" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
+					}
+
+					if (get_option('wise_soc_twitter_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_twitter_links'));
+						echo '" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
+					}
+
+					if (get_option('wise_soc_gplus_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_gplus_links'));
+						echo '" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
+					}
+
+					if (get_option('wise_soc_yt_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_yt_links'));
+						echo '" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
+					}
+					
+					if (get_option('wise_soc_vim_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_vim_links'));
+						echo '" target="_blank"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
+					}
+
+					if (get_option('wise_soc_in_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_in_links'));
+						echo '" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
+					}
+					
+					if (get_option('wise_soc_ins_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_ins_links'));
+						echo '" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
+					}
+					
+					if (get_option('wise_soc_pin_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_pin_links'));
+						echo '" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
+					}
+					
+					if (get_option('wise_soc_vk_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_vk_links'));
+						echo '" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
+					}
+				?>
+
+			  </ul>
+			</div><!-- End Social-Top --><?php
+		}
+	endif;
+
+	/*--------------------------------------------------------------
+	38.3 Footer Social Menu
+	--------------------------------------------------------------*/
+	if( !function_exists('wise_footer_social_menu') ) :
+		function wise_footer_social_menu() { ?>
+			<div class="<?php if( get_option( 'wise_footer_style' ) == 'single' ) { echo 'social-cover-footer '; } else { echo ''; } ?>clear">
+				<?php
+					echo '<ul class="social-links-footer">';
+
 					if (get_option('wise_soc_rss_links') != null) { 
 						echo '<li><a href="';
 						echo esc_url(get_option('wise_soc_rss_links'));
@@ -3280,6 +3597,14 @@ endif;
 						null;
 					}
 					
+					if (get_option('wise_soc_vim_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_vim_links'));
+						echo '" target="_blank"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
+					}
+					
 					if (get_option('wise_soc_in_links') != null) { 
 						echo '<li><a href="';
 						echo esc_url(get_option('wise_soc_in_links'));
@@ -3287,134 +3612,36 @@ endif;
 					} else {
 						null;
 					}
+					
+					if (get_option('wise_soc_ins_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_ins_links'));
+						echo '" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
+					}
+					
+					if (get_option('wise_soc_pin_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_pin_links'));
+						echo '" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
+					}
+					
+					if (get_option('wise_soc_vk_links') != null) { 
+						echo '<li><a href="';
+						echo esc_url(get_option('wise_soc_vk_links'));
+						echo '" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a></li>';
+					} else {
+						null;
+					}
+
+				echo '</ul>';
 				?>
-
-			  </ul>
-			</div><!--End Social Links Headhesive-->
-		</div><!--End Social Like Wrapper Headhesive--><?php
-	}
-
-	/*--------------------------------------------------------------
-	38.2 Main Social Menu
-	--------------------------------------------------------------*/
-	function wise_main_social_menu() { ?>
-		<div class="social-top">
-		  <ul class="social-links-top clear">
-			
-			<?php
-				if (get_option('wise_soc_rss_links') != null) { 
-					echo '<li><a href="';
-					echo esc_url(get_option('wise_soc_rss_links'));
-					echo '" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></li>';
-				} else {
-					echo '';
-				}
-
-				if (get_option('wise_soc_fb_links') != null) { 
-					echo '<li><a href="';
-					echo esc_url(get_option('wise_soc_fb_links'));
-					echo '" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>';
-				} else {
-					null;
-				}
-
-				if (get_option('wise_soc_twitter_links') != null) { 
-					echo '<li><a href="';
-					echo esc_url(get_option('wise_soc_twitter_links'));
-					echo '" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>';
-				} else {
-					null;
-				}
-
-				if (get_option('wise_soc_gplus_links') != null) { 
-					echo '<li><a href="';
-					echo esc_url(get_option('wise_soc_gplus_links'));
-					echo '" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>';
-				} else {
-					null;
-				}
-
-				if (get_option('wise_soc_yt_links') != null) { 
-					echo '<li><a href="';
-					echo esc_url(get_option('wise_soc_yt_links'));
-					echo '" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>';
-				} else {
-					null;
-				}
-
-				if (get_option('wise_soc_in_links') != null) { 
-					echo '<li><a href="';
-					echo esc_url(get_option('wise_soc_in_links'));
-					echo '" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>';
-				} else {
-					null;
-				}
-			?>
-
-		  </ul>
-		</div><!-- End Social-Top --><?php
-	}
-
-	/*--------------------------------------------------------------
-	38.3 Footer Social Menu
-	--------------------------------------------------------------*/
-	function wise_footer_social_menu() { ?>
-		<div class="social-cover-footer clear">
-			<?php
-				echo '<ul class="social-links-footer">';
-
-				if (get_option('wise_soc_rss_links') != null) { 
-					echo '<li><a href="';
-					echo esc_url(get_option('wise_soc_rss_links'));
-					echo '" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></li>';
-				} else {
-					null;
-				}
-
-				if (get_option('wise_soc_fb_links') != null) { 
-					echo '<li><a href="';
-					echo esc_url(get_option('wise_soc_fb_links'));
-					echo '" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>';
-				} else {
-					null;
-				}
-
-				if (get_option('wise_soc_twitter_links') != null) { 
-					echo '<li><a href="';
-					echo esc_url(get_option('wise_soc_twitter_links'));
-					echo '" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>';
-				} else {
-					null;
-				}
-
-				if (get_option('wise_soc_gplus_links') != null) { 
-					echo '<li><a href="';
-					echo esc_url(get_option('wise_soc_gplus_links'));
-					echo '" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>';
-				} else {
-					null;
-				}
-
-				if (get_option('wise_soc_yt_links') != null) { 
-					echo '<li><a href="';
-					echo esc_url(get_option('wise_soc_yt_links'));
-					echo '" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>';
-				} else {
-					null;
-				}
-				
-				if (get_option('wise_soc_in_links') != null) { 
-					echo '<li><a href="';
-					echo esc_url(get_option('wise_soc_in_links'));
-					echo '" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>';
-				} else {
-					null;
-				}
-
-			echo '</ul>';
-			?>
-		</div><?php
-	}
+			</div><?php
+		}
+	endif;
 	
 /*--------------------------------------------------------------
 39. Preloader
@@ -3424,11 +3651,10 @@ endif;
 --------------------------------------------------------------*/
 function wise_preloader() {
 	$wise_pre_preload = get_option('wise_pre_preload');
-	if( get_option('wise_disable_preloader') == false ) : ?>
+	$wise_preloader = get_option( 'wise_preload' );
+	if( $wise_pre_preload != null || $wise_preloader != null ) : ?>
 		<div id="wiseload">
-			<?php 	$wise_preloader = get_option( 'wise_preload' );
-					
-					if($wise_preloader != null) : // If preloader is not empty
+			<?php 	if($wise_preloader != null) : // If preloader is not empty
 						list($width) = getimagesize($wise_preloader);
 						$wise_chunks = explode('.', $wise_preloader); 
 						$wise_ext = end($wise_chunks); // Get the image extension
@@ -3564,3 +3790,97 @@ if ( ! function_exists( 'wise_save_featured' ) ) :
 	}
 	add_action( 'save_post', 'wise_save_featured');
 endif;
+
+/*--------------------------------------------------------------
+41. Custom Inline Styles
+--------------------------------------------------------------*/
+function wise_inline_styles() {
+        $headhesive_opacity = get_option('wise_headhesive_opacity');
+		$head_opacity = get_option('wise_head_opacity');
+		$footer_opacity = get_option('wise_footer_opacity');
+		
+		if( !empty($headhesive_opacity) || !empty($head_opacity) || !empty($wise_inline_css) ) :
+			$wise_inline_css = "
+				.headhesive-wraps {
+					opacity: {$headhesive_opacity};
+				}
+				.header-wraps {
+					opacity: {$head_opacity};
+				}
+				.footer-wraps {
+					opacity: {$footer_opacity};
+				}
+				";		
+			wp_add_inline_style( 'wise-style', $wise_inline_css );
+		endif;		
+}
+add_action( 'wp_enqueue_scripts', 'wise_inline_styles' );
+
+/*--------------------------------------------------------------
+42. Sticky Sidebar Settings and Fix
+--------------------------------------------------------------*/
+if( get_option('wise_disable_sticky') == false ) :
+	function wise_sticky_kit() {
+		$wise_headhesive = get_option('wise_headhesive');
+		if( $wise_headhesive == true ) { // sticky menu disabled
+			$wise_stick_offset = '0';
+		} else { // sticky menu enabled
+			$wise_stick_offset = '54';
+		}
+	?>
+		<script type="text/javascript">
+			jQuery(document).ready(function($){
+				"use strict";
+				var breakpoint = 946;
+				
+				if($(window).width() > breakpoint){
+					$('.widget-area-right').attr('data-sticky_column','');
+					wiseSticky();		
+				} else {
+					$('.widget-area-right').removeAttr('data-sticky_column');
+				}
+				
+				$(window).resize(function() {
+					var breakpoint = 946;
+					if($(window).width() > breakpoint){
+						$('.widget-area-right').attr('data-sticky_column','');
+						wiseSticky();			
+					} else {
+						$('.widget-area-right').removeAttr('data-sticky_column');
+					}
+				});
+
+				function wiseSticky() {
+					$("[data-sticky_column]").stick_in_parent({
+					parent: "[data-sticky_parent]",
+					offset_top: <?php echo esc_js($wise_stick_offset); ?>,
+					spacer: ".sidebar-wrapper-outer"
+					});
+				}
+				
+			}); /* End jQuery */
+		</script>
+	<?php }
+	add_action('wp_footer', 'wise_sticky_kit');
+endif;
+
+/*--------------------------------------------------------------
+43. Main Background Fix
+--------------------------------------------------------------*/
+if( get_option('wise_disable_back') == false ) :
+	function wise_main_background() {
+		// Background
+		$wise_main_back = get_option('wise_mainback');
+		$wise_def_back = get_template_directory_uri() . '/img/background.jpg';
+		$wise_body_back = !empty($wise_main_back) ? $wise_main_back : $wise_def_back;
+		
+		?><script type="text/javascript">
+			jQuery(document).ready(function($){
+				"use strict";
+				$('body').css({"background":"url(<?php echo esc_js($wise_body_back); ?>) no-repeat center center fixed"});
+			});
+		</script><?php	
+	}
+	add_action('wp_footer', 'wise_main_background');
+endif;
+

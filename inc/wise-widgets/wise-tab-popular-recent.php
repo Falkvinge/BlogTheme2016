@@ -51,16 +51,17 @@ $order_crp = apply_filters( 'widget_order_crp', @$instance['order_crp'] );
 				$popularpost_ppl = new WP_Query( array( 'year' => $yearly_ppl, 'monthnum' => $monthly_ppl, 'w' => $weekly_ppl, 'posts_per_page' => $number_ppl, 'post_type'=>"post", 'category_name' => $categ_slug_ppl, 'meta_key' => 'wise_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC', 'ignore_sticky_posts' => 1 ) );
 				while ( $popularpost_ppl->have_posts() ) : $popularpost_ppl->the_post();
 
-					echo '<li>' . '<a href="' . esc_url(esc_url(get_the_permalink())) . ' "> ';
+					echo '<li>' . '<a href="' . esc_url( get_the_permalink() ) . ' "> ';
 					
 					if ( has_post_thumbnail() ) {
 						echo '<span class="alignleft-side">';
-						echo the_post_thumbnail('wise-side-thumb');
+						the_post_thumbnail('wise-side-thumb');
 						echo '</span>';
 					} else { null; }
 					
 					echo '<div class="url-popular"><h4>' . esc_html(get_the_title()) . '</h4><span class="entry-meta-popular">';
-					echo wise_posted_on() . '</span></div></a></li>';
+					wise_posted_on();
+					echo '</span></div></a></li>';
 
 				endwhile;
 				wp_reset_postdata();
@@ -83,16 +84,17 @@ $order_crp = apply_filters( 'widget_order_crp', @$instance['order_crp'] );
 
 				while ($the_query_crp -> have_posts()) : $the_query_crp -> the_post();
 				
-					echo '<li>' . '<a href="' . esc_url(esc_url(get_the_permalink())) . ' "> ';
+					echo '<li>' . '<a href="' . esc_url( get_the_permalink() ) . ' "> ';
 					
 					if ( has_post_thumbnail() ) {
 						echo '<span class="alignleft-side">';
-						echo the_post_thumbnail('wise-side-thumb');
+						the_post_thumbnail('wise-side-thumb');
 						echo '</span>';
 					} else { null; }
 					
 					echo '<div class="url-popular"><h4>' . esc_html(get_the_title()) . '</h4><span class="entry-meta-popular">';
-					echo wise_posted_on() . '</span></div></a></li>';
+					wise_posted_on();
+					echo '</span></div></a></li>';
 					
 				endwhile;
 				wp_reset_postdata();
@@ -213,9 +215,9 @@ else {
 </p>
 
 <?php 	
-	$week_ppl = date( 'W' );
-	$month_ppl = date( 'm' );
-	$year_ppl = date( 'Y' ); ?>
+	$week_ppl = date_i18n( 'W' );
+	$month_ppl = date_i18n( 'm' );
+	$year_ppl = date_i18n( 'Y' ); ?>
 
 <p>
 <label for="<?php echo esc_attr($this->get_field_id( '' )); ?>"><?php esc_html_e( 'Choose how your popular posts will be displayed:', 'wise-blog' ); ?></label>

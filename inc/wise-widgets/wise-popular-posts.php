@@ -44,15 +44,16 @@ echo wp_kses_post($args['before_title']) . esc_html($title) . wp_kses_post($args
 		
 		if ( has_post_thumbnail() ) {
 			echo '<span class="alignleft-side">';
-			echo the_post_thumbnail('wise-side-thumb');
+			the_post_thumbnail('wise-side-thumb');
 			echo '</span>';
 		} else { null; }
 		
 		echo '<div class="url-popular"><h4>' . esc_html(get_the_title()) . '</h4><span class="entry-meta-popular">';
-		echo wise_posted_on() . '</span></div></a></li>';
+		wise_posted_on();
+		echo '</span></div></a></li>';
 
 	endwhile;
-	wp_reset_query();
+	wp_reset_postdata();
 	
 	echo '</ul></div><!-- End Popular Posts -->';
 
@@ -133,9 +134,9 @@ else {
 </p>
 
 <?php 	
-	$week = date( 'W' );
-	$month = date( 'm' );
-	$year = date( 'Y' ); ?>
+	$week = date_i18n( 'W' );
+	$month = date_i18n( 'm' );
+	$year = date_i18n( 'Y' ); ?>
 
 <p>
 <label for="<?php echo esc_attr($this->get_field_id( '' )); ?>"><?php esc_html_e( 'Choose how your popular posts will be displayed:', 'wise-blog' ); ?></label>

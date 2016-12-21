@@ -12,7 +12,10 @@ get_header(); ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 				 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
-					<header class="page-header">			 
+					<header class="page-header">
+						<div class="top-meta-2">
+							<?php bbp_breadcrumb(); ?><div class="clear"></div>
+						</div><!-- End of .top-meta -->							
 						<h2 class="page-title-archive"><?php the_title(); ?></h2>			 
 					</header>			 
 					<div class="entry-content">

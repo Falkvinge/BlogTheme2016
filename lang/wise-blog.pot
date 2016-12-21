@@ -2,15 +2,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wise Blog\n"
-"POT-Creation-Date: 2016-10-31 23:59+0800\n"
+"POT-Creation-Date: 2016-12-20 17:36+0800\n"
 "PO-Revision-Date: 2016-06-30 16:54+0800\n"
 "Last-Translator: \n"
-"Language-Team: Probewise <steve.probewise@gmail.com>\n"
+"Language-Team: Probewise <probewise@gmail.com>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -35,84 +35,136 @@ msgstr ""
 msgid "Post Comment"
 msgstr ""
 
+#: comments.php:30
+msgid "Your comment here"
+msgstr ""
+
+#: comments.php:37
+msgid "Your name here"
+msgstr ""
+
+#: comments.php:43
+msgid "Your email here"
+msgstr ""
+
+#: comments.php:48
+msgid "Your website here"
+msgstr ""
+
 #: comments.php:58
 msgid "Discussion"
 msgstr ""
 
-#: comments.php:63 comments.php:86
+#: comments.php:74
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:66 comments.php:89
-msgid "Older Comments"
+#: comments.php:77
+msgid "<i class=\"fa fa-arrow-left\"></i> Older Comments"
 msgstr ""
 
-#: comments.php:67 comments.php:90
-msgid "Newer Comments"
+#: comments.php:78
+msgid "Newer Comments <i class=\"fa fa-arrow-right\"></i>"
 msgstr ""
 
-#: comments.php:102
+#: comments.php:90
 msgid "Comments are closed."
 msgstr ""
 
-#: functions.php:136
+#: footer.php:55
+msgid "arrow"
+msgstr ""
+
+#: functions.php:125
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:137
+#: functions.php:126
 msgid "Secondary Menu"
 msgstr ""
 
-#: functions.php:138
+#: functions.php:127
 msgid "Sitelinks First Column"
 msgstr ""
 
-#: functions.php:139
+#: functions.php:128
 msgid "Sitelinks Second Column"
 msgstr ""
 
-#: functions.php:140
+#: functions.php:129
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:141
+#: functions.php:130
 msgid "bbPress Menu"
 msgstr ""
 
-#: functions.php:142
+#: functions.php:131
 msgid "WooCommerce Menu"
 msgstr ""
 
-#: functions.php:186
+#: functions.php:174
 msgid "Sidebar Right"
 msgstr ""
 
-#: functions.php:196
+#: functions.php:176
+msgid "Add widgets to be displayed at the right side of the post."
+msgstr ""
+
+#: functions.php:184
 msgid "Sidebar Left"
 msgstr ""
 
-#: functions.php:206
+#: functions.php:186
+msgid "Add widgets to be displayed at the left side of the post."
+msgstr ""
+
+#: functions.php:194
 msgid "Footer Column"
 msgstr ""
 
-#: functions.php:216
+#: functions.php:196
+msgid "Add widgets to be displayed at the footer."
+msgstr ""
+
+#: functions.php:204
 msgid "Sidebar Forum"
 msgstr ""
 
-#: functions.php:226
+#: functions.php:206
+msgid "Add widgets to be displayed at the forum page."
+msgstr ""
+
+#: functions.php:214
 msgid "Sidebar Shop"
 msgstr ""
 
-#: functions.php:236
+#: functions.php:216
+msgid "Add widgets to be displayed at the shop page."
+msgstr ""
+
+#: functions.php:224
 msgid "Top Ads"
 msgstr ""
 
-#: functions.php:242
+#: functions.php:226
+msgid "Add widgets to be displayed at the bottom of header."
+msgstr ""
+
+#: functions.php:230
 msgid "Top Document"
 msgstr ""
 
-#: functions.php:248
+#: functions.php:232
+msgid "Add widgets to the top of page before header."
+msgstr ""
+
+#: functions.php:236
 msgid "Bottom Ads"
+msgstr ""
+
+#: functions.php:238
+msgid "Add widgets to be displayed at the top of footer."
 msgstr ""
 
 #: header.php:26
@@ -139,49 +191,57 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: inc/additional-functions.php:112
+#: inc/additional-functions.php:115 woocommerce/loop/pagination.php:36
 msgid "Previous"
 msgstr ""
 
-#: inc/additional-functions.php:113
+#: inc/additional-functions.php:116 woocommerce/loop/pagination.php:37
 msgid "Next"
 msgstr ""
 
-#: inc/additional-functions.php:121
+#: inc/additional-functions.php:124
 msgid "Posts navigation"
 msgstr ""
 
-#: inc/additional-functions.php:144
+#: inc/additional-functions.php:147
 msgid "Post navigation"
 msgstr ""
 
-#: inc/additional-functions.php:147
+#: inc/additional-functions.php:150
 msgid "Previous Post"
 msgstr ""
 
-#: inc/additional-functions.php:148
+#: inc/additional-functions.php:151
 msgid "Next Post"
 msgstr ""
 
-#: inc/additional-functions.php:190
+#: inc/additional-functions.php:171
+msgid "Updated"
+msgstr ""
+
+#: inc/additional-functions.php:179
+msgid " ago"
+msgstr ""
+
+#: inc/additional-functions.php:193
 msgid "Posted on"
 msgstr ""
 
-#: inc/additional-functions.php:205
+#: inc/additional-functions.php:208
 #, php-format
 msgid "by %s"
 msgstr ""
 
-#: inc/additional-functions.php:271 inc/additional-functions.php:288
+#: inc/additional-functions.php:274 inc/additional-functions.php:291
 #, php-format
 msgid "%1$s"
 msgstr ""
 
-#: inc/additional-functions.php:292 inc/additional-functions.php:1204
+#: inc/additional-functions.php:295 inc/additional-functions.php:1352
 #: inc/carbon-fields/core/Field/Association_Field.php:371
-#: inc/carbon-fields/core/Field/Relationship_Field.php:265 page-eighty.php:49
-#: page-full.php:49 page-single.php:49 templates/content-defaults.php:59
-#: templates/content-page.php:34 templates/content-search.php:47
+#: inc/carbon-fields/core/Field/Relationship_Field.php:265 page-eighty.php:65
+#: page-full.php:65 page-single.php:65 templates/content-defaults.php:59
+#: templates/content-page.php:51 templates/content-search.php:47
 #: templates/content.php:47
 #: templates/custom_templates/content-complex-def-1.php:32
 #: templates/custom_templates/content-complex-def-2.php:31
@@ -191,99 +251,103 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: inc/additional-functions.php:372
+#: inc/additional-functions.php:375
 msgid "Next page"
 msgstr ""
 
-#: inc/additional-functions.php:373
+#: inc/additional-functions.php:376
 msgid "Previous page"
 msgstr ""
 
-#: inc/additional-functions.php:447
+#: inc/additional-functions.php:450
 msgid "To view this protected post, enter the password below"
 msgstr ""
 
-#: inc/additional-functions.php:448
+#: inc/additional-functions.php:451
 msgid "Enter Password"
 msgstr ""
 
-#: inc/additional-functions.php:448
+#: inc/additional-functions.php:451
 msgid "Submit"
 msgstr ""
 
-#: inc/additional-functions.php:577
-msgid "Search results for: "
-msgstr ""
-
-#: inc/additional-functions.php:580
-msgid "Error 404"
-msgstr ""
-
-#: inc/additional-functions.php:922
+#: inc/additional-functions.php:471 inc/additional-functions.php:925
 msgid "Home"
 msgstr ""
 
-#: inc/additional-functions.php:1167
+#: inc/additional-functions.php:580
+msgid "Search results for: "
+msgstr ""
+
+#: inc/additional-functions.php:583
+msgid "Error 404"
+msgstr ""
+
+#: inc/additional-functions.php:1315
 msgid "ago"
 msgstr ""
 
-#: inc/additional-functions.php:1198
+#: inc/additional-functions.php:1346
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/additional-functions.php:1225
+#: inc/additional-functions.php:1373
 msgid "Need help? Documentations or support forum may help you."
 msgstr ""
 
-#: inc/additional-functions.php:1226
+#: inc/additional-functions.php:1374
 msgid "Visit our documentation page here:"
 msgstr ""
 
-#: inc/additional-functions.php:1226
+#: inc/additional-functions.php:1374
 msgid "Wise Blog Documentation"
 msgstr ""
 
-#: inc/additional-functions.php:1227
+#: inc/additional-functions.php:1375
 msgid "Or post questions here:"
 msgstr ""
 
-#: inc/additional-functions.php:1227
+#: inc/additional-functions.php:1375
 msgid "Probewise Support"
 msgstr ""
 
-#: inc/additional-functions.php:1230
+#: inc/additional-functions.php:1378
 msgid "Theme Name:"
 msgstr ""
 
-#: inc/additional-functions.php:1231
+#: inc/additional-functions.php:1379
 msgid "Version:"
 msgstr ""
 
-#: inc/additional-functions.php:1232
+#: inc/additional-functions.php:1380
 msgid "Author:"
 msgstr ""
 
-#: inc/additional-functions.php:1252 inc/additional-functions.php:1268
+#: inc/additional-functions.php:1389
+msgid "Powered by"
+msgstr ""
+
+#: inc/additional-functions.php:1400 inc/additional-functions.php:1416
 msgid "Close Menu"
 msgstr ""
 
-#: inc/additional-functions.php:1278
+#: inc/additional-functions.php:1426
 msgid "Please add a menu."
 msgstr ""
 
-#: inc/additional-functions.php:1311
+#: inc/additional-functions.php:1448
 msgid "Disable Ads"
 msgstr ""
 
-#: inc/additional-functions.php:3039
+#: inc/additional-functions.php:3164
 msgid "on"
 msgstr ""
 
-#: inc/additional-functions.php:3076
+#: inc/additional-functions.php:3201
 msgid "Enable Affiliates Disclaimer"
 msgstr ""
 
-#: inc/additional-functions.php:3129 inc/additional-functions.php:3541
+#: inc/additional-functions.php:3254 inc/additional-functions.php:3767
 msgid "Set as Featured"
 msgstr ""
 
@@ -311,10 +375,12 @@ msgstr ""
 msgid "Select a Color"
 msgstr ""
 
+#: inc/carbon-fields/core/Field/Complex_Field.php:29
 #: inc/carbon-fields/core/Field/Complex_Field.php:38
 msgid "Entry"
 msgstr ""
 
+#: inc/carbon-fields/core/Field/Complex_Field.php:30
 #: inc/carbon-fields/core/Field/Complex_Field.php:39
 msgid "Entries"
 msgstr ""
@@ -342,8 +408,8 @@ msgid ""
 msgstr ""
 
 #: inc/carbon-fields/core/Field/Date_Field.php:39
-#: inc/wise-widgets/wise-recent-posts.php:124
-#: inc/wise-widgets/wise-tab-popular-recent.php:283
+#: inc/wise-widgets/wise-recent-posts.php:125
+#: inc/wise-widgets/wise-tab-popular-recent.php:285
 msgid "Date"
 msgstr ""
 
@@ -530,6 +596,58 @@ msgstr ""
 msgid "No options are available for this widget."
 msgstr ""
 
+#: inc/page-fields.php:44
+msgid "Homepage & Sidebar Selector"
+msgstr ""
+
+#: inc/page-fields.php:47
+msgid "Title Alignment"
+msgstr ""
+
+#: inc/page-fields.php:49
+msgid "Left"
+msgstr ""
+
+#: inc/page-fields.php:50
+msgid "Center"
+msgstr ""
+
+#: inc/page-fields.php:51
+msgid "Right"
+msgstr ""
+
+#: inc/page-fields.php:53
+msgid "Featured Image"
+msgstr ""
+
+#: inc/page-fields.php:55 inc/page-fields.php:60 inc/page-fields.php:65
+msgid "Disabled"
+msgstr ""
+
+#: inc/page-fields.php:56 inc/page-fields.php:61 inc/page-fields.php:66
+msgid "Enabled"
+msgstr ""
+
+#: inc/page-fields.php:58
+msgid "Share Buttons"
+msgstr ""
+
+#: inc/page-fields.php:63
+msgid "Custom Homepage"
+msgstr ""
+
+#: inc/page-fields.php:68
+msgid "Select Homepage"
+msgstr ""
+
+#: inc/page-fields.php:69
+msgid "Select Sidebar"
+msgstr ""
+
+#: inc/wise-panel/panel-back.php:17
+msgid "Wise"
+msgstr ""
+
 #: inc/wise-panel/panel-back.php:17
 msgid "Wise Panel"
 msgstr ""
@@ -563,246 +681,258 @@ msgid "Pick a color for the default preloader."
 msgstr ""
 
 #: inc/wise-panel/panel-opt.php:75
-msgid "Turn on to disable site preloader."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:81
 msgid ""
 "Upload or add background URL here (1460x876px). Leave blank to display "
 "default image."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:87
+#: inc/wise-panel/panel-opt.php:81
 msgid "Turn on to disable site image background."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:93
+#: inc/wise-panel/panel-opt.php:87
 msgid "Select Layout Column"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:100
+#: inc/wise-panel/panel-opt.php:94
 msgid "Turn on to disable sticky sidebar."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:113 inc/wise-panel/panel-opt.php:127
-#: inc/wise-panel/panel-opt.php:141 inc/wise-panel/panel-opt.php:155
-#: inc/wise-panel/panel-opt.php:169 inc/wise-panel/panel-opt.php:183
+#: inc/wise-panel/panel-opt.php:107 inc/wise-panel/panel-opt.php:121
+#: inc/wise-panel/panel-opt.php:135 inc/wise-panel/panel-opt.php:149
+#: inc/wise-panel/panel-opt.php:163 inc/wise-panel/panel-opt.php:177
 msgid "Select fonts from the list (Leave blank for defaults)"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:120 inc/wise-panel/panel-opt.php:134
-#: inc/wise-panel/panel-opt.php:148 inc/wise-panel/panel-opt.php:162
-#: inc/wise-panel/panel-opt.php:176 inc/wise-panel/panel-opt.php:190
+#: inc/wise-panel/panel-opt.php:114 inc/wise-panel/panel-opt.php:128
+#: inc/wise-panel/panel-opt.php:142 inc/wise-panel/panel-opt.php:156
+#: inc/wise-panel/panel-opt.php:170 inc/wise-panel/panel-opt.php:184
 msgid "Select font weight from the list"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:204
+#: inc/wise-panel/panel-opt.php:198
 msgid "Select color scheme from the list (Leave blank for defaults)"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:211
+#: inc/wise-panel/panel-opt.php:205
 msgid "Pick a color for header lines color."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:217
+#: inc/wise-panel/panel-opt.php:211
 msgid "Pick a color for buttons and tabs."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:223
+#: inc/wise-panel/panel-opt.php:217
 msgid "Pick a color for text and links."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:229
+#: inc/wise-panel/panel-opt.php:223
 msgid "Pick a color for lines, borders and objects."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:242 inc/wise-panel/panel-opt.php:248
-#: inc/wise-panel/panel-opt.php:254
+#: inc/wise-panel/panel-opt.php:236 inc/wise-panel/panel-opt.php:242
+#: inc/wise-panel/panel-opt.php:248
 msgid "Add custom code here."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:267
+#: inc/wise-panel/panel-opt.php:261
 msgid "Add header logo here (186x76px). Leave blank to display default image."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:273
+#: inc/wise-panel/panel-opt.php:267
 msgid "Add header logo here (372x152px). Add @2x at its name: mylogo@2x.png"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:279
+#: inc/wise-panel/panel-opt.php:273
 msgid ""
 "Add headhesive logo here (100x41px). Leave blank to display default image."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:285
+#: inc/wise-panel/panel-opt.php:279
 msgid "Add header logo here (200x82px). Add @2x at its name: mylogo@2x.png"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:291
+#: inc/wise-panel/panel-opt.php:285
 msgid "Add your header tag lines title."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:297
+#: inc/wise-panel/panel-opt.php:291
 msgid "Add your header tag lines span."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:303
+#: inc/wise-panel/panel-opt.php:297
 msgid "Add your header tag lines links."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:309
+#: inc/wise-panel/panel-opt.php:303
 msgid ""
 "Add custom login form logo here, from 186x76px. Leave blank to display "
 "default image."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:315
+#: inc/wise-panel/panel-opt.php:309
 msgid "Turn on to disable the entire top header."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:321
+#: inc/wise-panel/panel-opt.php:315
 msgid "Turn on to remove the secondary header from top header."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:327
+#: inc/wise-panel/panel-opt.php:321
 msgid "Turn on to remove the login or register links from top header."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:333
+#: inc/wise-panel/panel-opt.php:327
 msgid "Turn on to remove header date from top header."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:339
+#: inc/wise-panel/panel-opt.php:333
 msgid "Turn on to disable headhesive menu."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:345 inc/wise-panel/panel-opt.php:352
-#: inc/wise-panel/panel-opt.php:615
+#: inc/wise-panel/panel-opt.php:339 inc/wise-panel/panel-opt.php:346
+#: inc/wise-panel/panel-opt.php:633
 msgid "Adjust opacity (Leave blank for defaults)"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:366
+#: inc/wise-panel/panel-opt.php:360
 msgid "Select Posts Layout Type (Leave blank for defaults)"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:373
+#: inc/wise-panel/panel-opt.php:367
 msgid "Select Time Format"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:380
+#: inc/wise-panel/panel-opt.php:374
 msgid "Turn on to disable date on posts."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:386
+#: inc/wise-panel/panel-opt.php:380
 msgid "Turn on to disable built-in share buttons."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:392
+#: inc/wise-panel/panel-opt.php:386
 msgid "Turn on to disable Author Biography for single posts."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:398
+#: inc/wise-panel/panel-opt.php:392
 msgid "Add your affiliate disclaimer here."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:404
+#: inc/wise-panel/panel-opt.php:398
 msgid ""
 "Turn on to enable affiliates disclaimer to top post. If uncheck it will show "
 "at the bottom of post."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:417 inc/wise-panel/panel-opt.php:423
-#: inc/wise-panel/panel-opt.php:429 inc/wise-panel/panel-opt.php:435
-#: inc/wise-panel/panel-opt.php:441
+#: inc/wise-panel/panel-opt.php:411 inc/wise-panel/panel-opt.php:417
+#: inc/wise-panel/panel-opt.php:423 inc/wise-panel/panel-opt.php:429
+#: inc/wise-panel/panel-opt.php:435
 msgid "Add your Ads code here."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:453
+#: inc/wise-panel/panel-opt.php:447
 msgid "Add RSS URL."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:459 inc/wise-panel/panel-opt.php:477
+#: inc/wise-panel/panel-opt.php:453 inc/wise-panel/panel-opt.php:471
 msgid "Add Facebook URL."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:465
+#: inc/wise-panel/panel-opt.php:459
 msgid "Add Twitter URL."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:471
+#: inc/wise-panel/panel-opt.php:465
 msgid "Add Twitter Account Name."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:483
+#: inc/wise-panel/panel-opt.php:477
 msgid "Add Youtube URL."
+msgstr ""
+
+#: inc/wise-panel/panel-opt.php:483
+msgid "Add Vimeo URL."
 msgstr ""
 
 #: inc/wise-panel/panel-opt.php:489
 msgid "Add LinkedIn URL."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:503
+#: inc/wise-panel/panel-opt.php:495
+msgid "Add Instagram URL."
+msgstr ""
+
+#: inc/wise-panel/panel-opt.php:501
+msgid "Add Pinterest URL."
+msgstr ""
+
+#: inc/wise-panel/panel-opt.php:507
+msgid "Add VK URL."
+msgstr ""
+
+#: inc/wise-panel/panel-opt.php:521
 msgid "Turn on to disable error details in login form."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:509
+#: inc/wise-panel/panel-opt.php:527
 msgid "Turn on to enable Google reCAPTCHA in login form."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:514
+#: inc/wise-panel/panel-opt.php:532
 msgid "Turn on to enable Google reCAPTCHA in registration form."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:520
+#: inc/wise-panel/panel-opt.php:538
 msgid "Turn on to enable Google reCAPTCHA in comment form."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:527
+#: inc/wise-panel/panel-opt.php:545
 msgid "Add your Google reCAPTCHA site key."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:533
+#: inc/wise-panel/panel-opt.php:551
 msgid "Add your Google reCAPTCHA secret key."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:545
+#: inc/wise-panel/panel-opt.php:563
 msgid "Set the number of products to display on product archive."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:553
+#: inc/wise-panel/panel-opt.php:571
 msgid "Select Product Layout Type (Leave blank to disable it)"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:567
+#: inc/wise-panel/panel-opt.php:585
 msgid "Select Footer Style"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:573
+#: inc/wise-panel/panel-opt.php:591
 msgid "Turn on to disable footer social icons."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:579
+#: inc/wise-panel/panel-opt.php:597
 msgid "Turn on to disable footer menu."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:585
+#: inc/wise-panel/panel-opt.php:603
 msgid "Turn on to disable footer logo from about widget."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:591
+#: inc/wise-panel/panel-opt.php:609
 msgid "Turn on to disable footer logo."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:596
+#: inc/wise-panel/panel-opt.php:614
 msgid ""
 "Add footer logo URL here (49x20px). Leave blank to display default image."
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:602
+#: inc/wise-panel/panel-opt.php:620
 msgid "Add footer logo here (98x40px). Add @2x at its name: mylogo@2x.png"
 msgstr ""
 
-#: inc/wise-panel/panel-opt.php:608
+#: inc/wise-panel/panel-opt.php:626
 msgid "Add your footer text here."
 msgstr ""
 
@@ -810,8 +940,214 @@ msgstr ""
 msgid "Panel"
 msgstr ""
 
-#: inc/wise-panel/wise-panel.php:82
+#: inc/wise-panel/wise-panel.php:88
 msgid "Insert Now"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:15
+msgid "#Home - Wise Ticker"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:15
+msgid "Displays trending/news ticker."
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:16
+msgid "Wise Ticker Label"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:16
+msgid "Trending Now"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:17
+msgid "Type of Posts to Show"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:19
+msgid "Trending Posts"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:20 inc/wise-widgets/home-widgets.php:128
+msgid "Latest Posts"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:22 inc/wise-widgets/home-widgets.php:141
+#: inc/wise-widgets/home-widgets.php:211 inc/wise-widgets/home-widgets.php:270
+#: inc/wise-widgets/home-widgets.php:282 inc/wise-widgets/home-widgets.php:370
+#: inc/wise-widgets/home-widgets.php:427
+msgid "No. of Posts"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:23 inc/wise-widgets/wise-ads.php:27
+msgid "Disable on Homepage"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:25 inc/wise-widgets/wise-ads.php:29
+msgid "Disable on Archive"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:27 inc/wise-widgets/wise-ads.php:31
+msgid "Disable on Posts"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:29 inc/wise-widgets/wise-ads.php:33
+msgid "Disable on Pages"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:91
+msgid "#Home - Featured Contents"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:91
+msgid "Displays home slider in grid or carousel format."
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:92
+msgid "Posts ID (separate by comma: 1, 2, 3; leave blank to automate)"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:93
+msgid "Block Type"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:95
+msgid "Grid Type"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:96
+msgid "Carousel Type"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:98 inc/wise-widgets/home-widgets.php:139
+#: inc/wise-widgets/home-widgets.php:209 inc/wise-widgets/home-widgets.php:268
+#: inc/wise-widgets/home-widgets.php:280 inc/wise-widgets/home-widgets.php:368
+#: inc/wise-widgets/home-widgets.php:425
+msgid "Post Categories"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:100
+msgid "No. of Featured Posts"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:127
+msgid "#Home - Defaults Block"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:127
+msgid "Displays latest posts."
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:128
+msgid "Latest Posts Title"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:129 inc/wise-widgets/home-widgets.php:204
+#: inc/wise-widgets/home-widgets.php:263 inc/wise-widgets/home-widgets.php:275
+#: inc/wise-widgets/home-widgets.php:363 inc/wise-widgets/home-widgets.php:420
+msgid "Title Design"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:131 inc/wise-widgets/home-widgets.php:207
+#: inc/wise-widgets/home-widgets.php:266 inc/wise-widgets/home-widgets.php:278
+#: inc/wise-widgets/home-widgets.php:366 inc/wise-widgets/home-widgets.php:423
+msgid "Light"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:132 inc/wise-widgets/home-widgets.php:206
+#: inc/wise-widgets/home-widgets.php:265 inc/wise-widgets/home-widgets.php:277
+#: inc/wise-widgets/home-widgets.php:365 inc/wise-widgets/home-widgets.php:422
+msgid "Background"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:134
+msgid "Post Layout"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:136
+msgid "Default Block"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:137
+msgid "Grid Block"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:142
+msgid "Pagination"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:144
+msgid "Not Paginated"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:145
+msgid "Paginated"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:202
+msgid "#Home - Complex 1 Block"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:202
+msgid "Displays complex 1 posts block."
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:203 inc/wise-widgets/home-widgets.php:262
+#: inc/wise-widgets/home-widgets.php:274 inc/wise-widgets/home-widgets.php:362
+#: inc/wise-widgets/home-widgets.php:419
+msgid "Posts Title"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:203
+msgid "Complex 1 Title"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:259
+msgid "#Home - Complex 2 Block"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:259
+msgid "Displays complex 2 posts block."
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:261
+msgid "Complex 2-1"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:262
+msgid "Complex 2-1 Title"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:273
+msgid "Complex 2-2"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:274
+msgid "Complex 2-2 Title"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:361
+msgid "#Home - Complex 3 Block"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:361
+msgid "Displays complex 3 posts block."
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:362
+msgid "Complex 3 Title"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:418
+msgid "#Home - Complex 4 Block"
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:418
+msgid "Displays complex 4 posts block."
+msgstr ""
+
+#: inc/wise-widgets/home-widgets.php:419
+msgid "Complex 4 Title"
 msgstr ""
 
 #: inc/wise-widgets/wise-about.php:11
@@ -822,59 +1158,99 @@ msgstr ""
 msgid "#Wise About"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:44
+#: inc/wise-widgets/wise-about.php:45
 msgid "Location"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:45
+#: inc/wise-widgets/wise-about.php:46
 msgid "Email"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:46
+#: inc/wise-widgets/wise-about.php:47
 msgid "Phone"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:115
+#: inc/wise-widgets/wise-about.php:53 templates/content-search.php:54
+msgid "Read More"
+msgstr ""
+
+#: inc/wise-widgets/wise-about.php:65
 msgid "About"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:170
-#: inc/wise-widgets/wise-popular-posts.php:108
-#: inc/wise-widgets/wise-recent-posts.php:94
+#: inc/wise-widgets/wise-about.php:120
+#: inc/wise-widgets/wise-popular-posts.php:109
+#: inc/wise-widgets/wise-recent-posts.php:95
 #: inc/wise-widgets/wise-script.php:53 inc/wise-widgets/wise-sitelinks.php:60
 #: inc/wise-widgets/wise-subscribe-footer.php:54
 #: inc/wise-widgets/wise-subscribe-sidebar.php:63
-#: inc/wise-widgets/wise-tab-popular-recent.php:188
-#: inc/wise-widgets/wise-tab-popular-recent.php:252
+#: inc/wise-widgets/wise-tab-popular-recent.php:190
+#: inc/wise-widgets/wise-tab-popular-recent.php:254
 msgid "Title:"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:175
+#: inc/wise-widgets/wise-about.php:125
 msgid "Logo URL:"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:180 inc/wise-widgets/wise-text-alert.php:44
+#: inc/wise-widgets/wise-about.php:130 inc/wise-widgets/wise-text-alert.php:44
 msgid "Content:"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:185
+#: inc/wise-widgets/wise-about.php:135
 msgid "Location:"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:190
+#: inc/wise-widgets/wise-about.php:140
 msgid "Email:"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:195
+#: inc/wise-widgets/wise-about.php:145
 msgid "Phone:"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:200
+#: inc/wise-widgets/wise-about.php:150
 msgid "URL (Please input complete URL address):"
 msgstr ""
 
-#: inc/wise-widgets/wise-about.php:206
+#: inc/wise-widgets/wise-about.php:156
 msgid "Enable Social Buttons"
+msgstr ""
+
+#: inc/wise-widgets/wise-ads.php:14
+msgid "#Wise Ads"
+msgstr ""
+
+#: inc/wise-widgets/wise-ads.php:14
+msgid "Displays advertisement dynamically."
+msgstr ""
+
+#: inc/wise-widgets/wise-ads.php:15
+msgid "Enter Ads code here."
+msgstr ""
+
+#: inc/wise-widgets/wise-ads.php:16
+msgid "Check if Used in Top/Bottom Ads"
+msgstr ""
+
+#: inc/wise-widgets/wise-ads.php:18
+msgid "Enable/Disable Background for Top/Bottom Ads"
+msgstr ""
+
+#: inc/wise-widgets/wise-ads.php:20
+msgid "With Background"
+msgstr ""
+
+#: inc/wise-widgets/wise-ads.php:21
+msgid "No Background"
+msgstr ""
+
+#: inc/wise-widgets/wise-ads.php:23
+msgid "Check if Used in Sidebar"
+msgstr ""
+
+#: inc/wise-widgets/wise-ads.php:25
+msgid "Disable if Paginated"
 msgstr ""
 
 #: inc/wise-widgets/wise-dashboard-user.php:11
@@ -926,52 +1302,52 @@ msgstr ""
 msgid "#Wise Popular Posts"
 msgstr ""
 
-#: inc/wise-widgets/wise-popular-posts.php:68
-#: inc/wise-widgets/wise-tab-popular-recent.php:115
+#: inc/wise-widgets/wise-popular-posts.php:69
+#: inc/wise-widgets/wise-tab-popular-recent.php:117
 msgid "Popular Posts"
 msgstr ""
 
-#: inc/wise-widgets/wise-popular-posts.php:113
-#: inc/wise-widgets/wise-recent-posts.php:99
-#: inc/wise-widgets/wise-tab-popular-recent.php:193
-#: inc/wise-widgets/wise-tab-popular-recent.php:257
+#: inc/wise-widgets/wise-popular-posts.php:114
+#: inc/wise-widgets/wise-recent-posts.php:100
+#: inc/wise-widgets/wise-tab-popular-recent.php:195
+#: inc/wise-widgets/wise-tab-popular-recent.php:259
 msgid "Number of posts to show:"
 msgstr ""
 
-#: inc/wise-widgets/wise-popular-posts.php:118
-#: inc/wise-widgets/wise-tab-popular-recent.php:198
+#: inc/wise-widgets/wise-popular-posts.php:119
+#: inc/wise-widgets/wise-tab-popular-recent.php:200
 msgid "Leave this blank to show posts from all category:"
 msgstr ""
 
-#: inc/wise-widgets/wise-popular-posts.php:121
-#: inc/wise-widgets/wise-recent-posts.php:107
-#: inc/wise-widgets/wise-tab-popular-recent.php:201
-#: inc/wise-widgets/wise-tab-popular-recent.php:266
+#: inc/wise-widgets/wise-popular-posts.php:122
+#: inc/wise-widgets/wise-recent-posts.php:108
+#: inc/wise-widgets/wise-tab-popular-recent.php:203
+#: inc/wise-widgets/wise-tab-popular-recent.php:268
 msgid "&mdash; Select Category &mdash;"
 msgstr ""
 
-#: inc/wise-widgets/wise-popular-posts.php:141
-#: inc/wise-widgets/wise-tab-popular-recent.php:221
+#: inc/wise-widgets/wise-popular-posts.php:142
+#: inc/wise-widgets/wise-tab-popular-recent.php:223
 msgid "Choose how your popular posts will be displayed:"
 msgstr ""
 
-#: inc/wise-widgets/wise-popular-posts.php:147
-#: inc/wise-widgets/wise-tab-popular-recent.php:227
+#: inc/wise-widgets/wise-popular-posts.php:148
+#: inc/wise-widgets/wise-tab-popular-recent.php:229
 msgid "This Week Popular Posts"
 msgstr ""
 
-#: inc/wise-widgets/wise-popular-posts.php:153
-#: inc/wise-widgets/wise-tab-popular-recent.php:233
+#: inc/wise-widgets/wise-popular-posts.php:154
+#: inc/wise-widgets/wise-tab-popular-recent.php:235
 msgid "This Month Popular Posts"
 msgstr ""
 
-#: inc/wise-widgets/wise-popular-posts.php:159
-#: inc/wise-widgets/wise-tab-popular-recent.php:239
+#: inc/wise-widgets/wise-popular-posts.php:160
+#: inc/wise-widgets/wise-tab-popular-recent.php:241
 msgid "This Year Popular Posts"
 msgstr ""
 
-#: inc/wise-widgets/wise-popular-posts.php:163
-#: inc/wise-widgets/wise-tab-popular-recent.php:243
+#: inc/wise-widgets/wise-popular-posts.php:164
+#: inc/wise-widgets/wise-tab-popular-recent.php:245
 msgid ""
 "<i>*Please make sure week starts on Monday in your Settings tab.</"
 "i><br>Settings=>General=>Week Starts On=><strong>Monday</strong><br><i>*If "
@@ -986,33 +1362,33 @@ msgstr ""
 msgid "#Wise Recent Posts"
 msgstr ""
 
-#: inc/wise-widgets/wise-recent-posts.php:67
-#: inc/wise-widgets/wise-tab-popular-recent.php:157
+#: inc/wise-widgets/wise-recent-posts.php:68
+#: inc/wise-widgets/wise-tab-popular-recent.php:159
 msgid "Recent Posts"
 msgstr ""
 
-#: inc/wise-widgets/wise-recent-posts.php:104
-#: inc/wise-widgets/wise-tab-popular-recent.php:263
+#: inc/wise-widgets/wise-recent-posts.php:105
+#: inc/wise-widgets/wise-tab-popular-recent.php:265
 msgid "Leave this blank to show recent posts:"
 msgstr ""
 
-#: inc/wise-widgets/wise-recent-posts.php:122
-#: inc/wise-widgets/wise-tab-popular-recent.php:281
+#: inc/wise-widgets/wise-recent-posts.php:123
+#: inc/wise-widgets/wise-tab-popular-recent.php:283
 msgid "Choose how post will be ordered:"
 msgstr ""
 
-#: inc/wise-widgets/wise-recent-posts.php:125
-#: inc/wise-widgets/wise-tab-popular-recent.php:284
+#: inc/wise-widgets/wise-recent-posts.php:126
+#: inc/wise-widgets/wise-tab-popular-recent.php:286
 msgid "Random"
 msgstr ""
 
-#: inc/wise-widgets/wise-recent-posts.php:126
-#: inc/wise-widgets/wise-tab-popular-recent.php:285
+#: inc/wise-widgets/wise-recent-posts.php:127
+#: inc/wise-widgets/wise-tab-popular-recent.php:287
 msgid "Title"
 msgstr ""
 
-#: inc/wise-widgets/wise-recent-posts.php:127
-#: inc/wise-widgets/wise-tab-popular-recent.php:286
+#: inc/wise-widgets/wise-recent-posts.php:128
+#: inc/wise-widgets/wise-tab-popular-recent.php:288
 msgid "Comment"
 msgstr ""
 
@@ -1048,7 +1424,7 @@ msgstr ""
 msgid "#Wise Social Media Footer"
 msgstr ""
 
-#: inc/wise-widgets/wise-social-media-footer.php:86
+#: inc/wise-widgets/wise-social-media-footer.php:35
 msgid "This is a widget to display social media for footer."
 msgstr ""
 
@@ -1063,6 +1439,11 @@ msgstr ""
 #: inc/wise-widgets/wise-subscribe-footer.php:29
 #: inc/wise-widgets/wise-subscribe-sidebar.php:31
 msgid "Enter Email Address"
+msgstr ""
+
+#: inc/wise-widgets/wise-subscribe-footer.php:30
+#: inc/wise-widgets/wise-subscribe-sidebar.php:32
+msgid "Subscribe"
 msgstr ""
 
 #: inc/wise-widgets/wise-subscribe-footer.php:41
@@ -1083,7 +1464,7 @@ msgid "#Wise Subscribe Sidebar"
 msgstr ""
 
 #: inc/wise-widgets/wise-subscribe-sidebar.php:43
-msgid "Subscribe to Wise Blog"
+msgid "Subscribe to Wise Mag"
 msgstr ""
 
 #: inc/wise-widgets/wise-subscribe-sidebar.php:50
@@ -1102,11 +1483,11 @@ msgstr ""
 msgid "#Wise Tab Posts"
 msgstr ""
 
-#: inc/wise-widgets/wise-tab-popular-recent.php:184
+#: inc/wise-widgets/wise-tab-popular-recent.php:186
 msgid "Popular Posts Configuration"
 msgstr ""
 
-#: inc/wise-widgets/wise-tab-popular-recent.php:248
+#: inc/wise-widgets/wise-tab-popular-recent.php:250
 msgid "Recent Posts Configuration"
 msgstr ""
 
@@ -1118,7 +1499,7 @@ msgstr ""
 msgid "#Wise Text Alert"
 msgstr ""
 
-#: search.php:19
+#: search.php:16
 #, php-format
 msgid "Search Results for: %s"
 msgstr ""
@@ -1131,8 +1512,8 @@ msgstr ""
 msgid "What are you looking for?"
 msgstr ""
 
-#: templates/content-defaults.php:67 templates/content-search.php:55
-#: templates/content.php:55
+#: templates/content-defaults.php:66 templates/content-search.php:54
+#: templates/content.php:54
 msgid "Read More "
 msgstr ""
 
@@ -1176,39 +1557,35 @@ msgstr ""
 msgid "Consider These Articles"
 msgstr ""
 
-#: templates/content-search.php:55
-msgid "Read More"
-msgstr ""
-
 #: templates/content-single.php:79
 msgid "Related Posts"
 msgstr ""
 
-#: templates/custom-social.php:18
+#: templates/custom-social.php:19
 msgid "Share"
 msgstr ""
 
-#: templates/custom-social.php:18
+#: templates/custom-social.php:19
 msgid "on Facebook"
 msgstr ""
 
-#: templates/custom-social.php:19
+#: templates/custom-social.php:20
 msgid "Tweet"
 msgstr ""
 
-#: templates/custom-social.php:19
+#: templates/custom-social.php:20
 msgid "on Twitter"
 msgstr ""
 
-#: templates/custom-social.php:20
+#: templates/custom-social.php:21
 msgid "Google+"
 msgstr ""
 
-#: templates/custom-social.php:21
+#: templates/custom-social.php:22
 msgid "LinkedIn"
 msgstr ""
 
-#: templates/custom-social.php:22
+#: templates/custom-social.php:23
 msgid "Pinterest"
 msgstr ""
 
@@ -1217,10 +1594,18 @@ msgstr ""
 msgid "Featured"
 msgstr ""
 
+#: woocommerce/content-product.php:53
+msgid "Add to Cart"
+msgstr ""
+
 #: woocommerce/content-product.php:90
 msgid "Category:"
 msgstr ""
 
 #: woocommerce/content-product.php:98
 msgid "Details "
+msgstr ""
+
+#: woocommerce/content-product.php:98
+msgid "More Details "
 msgstr ""
