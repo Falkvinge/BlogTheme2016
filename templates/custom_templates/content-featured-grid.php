@@ -6,16 +6,16 @@
 ?>
 <?php if (!is_paged()): ?>
 	<?php
-		global $wise_feat_num, $wise_slider_categ, $wise_feat_id;
+		global $wise_feat_num, $wise_slider_categ, $wise_feat_id, $do_not_duplicate;
 		$number_featured = $wise_feat_num - 1;
 		$feat_id = explode(',', $wise_feat_id);
 		if( $wise_feat_id == true ) {
 			query_posts( array ( 'post__in' => $feat_id, 'category_name' => $wise_slider_categ, 'offset' => 0, 'orderby' => 'post__in', 'posts_per_page' => 1, 'ignore_sticky_posts' => 1 ) );
 		} else {
-			query_posts( array ( 'meta_key' => 'wise_featured_post', 'category_name' => $wise_slider_categ, 'offset' => 0, 'orderby' => 'date', 'posts_per_page' => 1, 'ignore_sticky_posts' => 1 ) );
+			query_posts( array ( 'meta_key' => 'wise_featured_post', 'category_name' => $wise_slider_categ, 'offset' => 0, 'orderby' => 'date', 'posts_per_page' => 1, 'ignore_sticky_posts' => 1, 'post__not_in' => $do_not_duplicate ) );
 		}
 		?>
-	<?php while ( have_posts() ) : the_post(); ?>
+	<?php while ( have_posts() ) : the_post(); $do_not_duplicate[] = get_the_ID(); ?>
 		<div class="feat-index-divider">
 			<?php if ( has_post_thumbnail() ) {
 				echo '<div class="feat-home-index-thumb">';
@@ -52,7 +52,7 @@
 		} ?>
 	<div class="index-wrapper-outer">
 		<div class="index-wrapper-grid">
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : the_post(); $do_not_duplicate[] = get_the_ID(); ?>
 				<div class="index-divider-grid">
 					<article <?php post_class(); ?>>
 
