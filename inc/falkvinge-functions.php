@@ -657,7 +657,7 @@ function falkvinge_format_rss_post_header($content)
 
 		// Image
 
-		$header = $header . get_the_post_thumbnail($post->ID, 'wpnv-colnarrow');
+		$header = $header . get_the_post_thumbnail($post->ID, array(232,120)); // The array is pixel size for the thumbnail
 
 		// Everything except the thumbnail was stripped out as it looked absolutely AWFUL in Google Reader which is the primary
 		// target -- Google Reader strips _all_ positioning instructions in DIVs
