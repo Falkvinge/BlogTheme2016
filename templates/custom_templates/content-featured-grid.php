@@ -19,11 +19,11 @@
 		<div class="feat-index-divider">
 			<?php if ( has_post_thumbnail() ) {
 				echo '<div class="feat-home-index-thumb">';
-				echo '<div class="index-cat"><a href="' . esc_url(esc_url(get_the_permalink())) . '">' . esc_html__( 'Featured', 'wise-blog' ) . '</a></div>';
+				echo '<div class="index-cat"><a href="' . esc_url( get_the_permalink() ) . '">' . esc_html__( 'Featured', 'wise-blog' ) . '</a></div>';
 				echo '<a href="';
 				echo esc_url(get_permalink());
 				echo ' ">';
-				echo the_post_thumbnail('wise-post-thumb');
+				the_post_thumbnail('wise-post-thumb');
 				echo '</a></div>';
 			} else { null; } // If there's no image then nothing will display
 			?>
@@ -33,7 +33,7 @@
 					
 					<?php if ( 'post' == get_post_type() ) : ?>
 					<div class="entry-meta-index">
-						<?php wise_posted_on(); ?><?php wise_posted_by(); ?><?php echo '<span class="post-views"> ' . wise_get_post_views(get_the_ID()) . '</span>'; ?><?php wise_comments(); ?>
+						<?php wise_posted_on(); ?><?php wise_posted_by(); ?><?php printf( '<span class="post-views"> %d</span>', wise_get_post_views( get_the_ID() ) ); ?><?php wise_comments(); ?>
 						<?php edit_post_link( esc_html__( 'Edit', 'wise-blog' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-meta -->
 					<?php endif; ?>
@@ -58,11 +58,11 @@
 
 					<?php if ( has_post_thumbnail() ) {
 						echo '<div class="feat-home-index-thumb">';
-						echo '<div class="index-cat"><a href="' . esc_url(esc_url(get_the_permalink())) . '">' . esc_html__( 'Featured', 'wise-blog' ) . '</a></div>';
+						echo '<div class="index-cat"><a href="' . esc_url( get_the_permalink() ) . '">' . esc_html__( 'Featured', 'wise-blog' ) . '</a></div>';
 						echo '<a href="';
 						echo esc_url(get_permalink());
 						echo ' ">';
-						echo the_post_thumbnail('wise-home-thumb');
+						the_post_thumbnail('wise-home-thumb');
 						echo '</a></div>';
 					} else { null; } // If there's no image then nothing will display
 					?>						
@@ -72,7 +72,7 @@
 								
 								<?php if ( 'post' == get_post_type() ) : ?>
 								<div class="entry-meta-index">
-									<?php wise_posted_on(); ?><?php echo '<span class="post-views"> ' . wise_get_post_views(get_the_ID()) . '</span>'; ?><?php wise_comments(); ?>
+									<?php wise_posted_on(); ?><?php printf( '<span class="post-views"> %d</span>', wise_get_post_views( get_the_ID() ) ); ?><?php wise_comments(); ?>
 									<?php edit_post_link( esc_html__( 'Edit', 'wise-blog' ), '<span class="edit-link">', '</span>' ); ?>
 								</div><!-- .entry-meta -->
 								<?php endif; ?>

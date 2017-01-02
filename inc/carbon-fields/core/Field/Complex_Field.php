@@ -26,8 +26,8 @@ class Complex_Field extends Field {
 	protected $values_max = -1;
 
 	public $labels = array(
-		'singular_name' => 'Entry',
-		'plural_name' => 'Entries',
+		'singular_name' => esc_attr__( 'Entry', 'wise-blog' ),
+		'plural_name' => esc_attr__( 'Entries', 'wise-blog' ),
 	);
 
 	/**

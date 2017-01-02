@@ -10,17 +10,17 @@
 <?php if ( have_posts() ) : while( have_posts() ) : the_post(); endwhile; endif; ?>
 <?php if ( !function_exists( 'has_site_icon' ) || !has_site_icon() ) : /* Backwards compatible site icon < 4.3 */
 	if( get_option( 'wise_favicon' ) ) {
-		echo '<link rel="shortcut icon" href="' . get_option( 'wise_favicon' ) . '">';
+		echo '<link rel="shortcut icon" href="' . esc_url( get_option( 'wise_favicon' ) ) . '">';
 	} else {
 		echo '<link rel="shortcut icon" href="' . esc_url( get_template_directory_uri() . '/img/favicon.ico') . '">'; }	
 	endif;
 ?>
-<?php echo wise_before_head(); ?>
+<?php wise_before_head(); ?>
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<?php echo wise_after_body(); ?>
+<?php wise_after_body(); ?>
 <?php wise_preloader(); ?>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wise-blog' ); ?></a>
@@ -30,9 +30,9 @@
 				<div class="headhesive-one">
 					<a href="<?php echo esc_url( home_url('/') ); ?>">
 					<?php if (get_option('wise_headhesive_logo')) { ?>
-						<img src="<?php echo esc_url(get_option('wise_headhesive_logo')); ?>" alt="<?php echo bloginfo('name'); ?>">
+						<img src="<?php echo esc_url(get_option('wise_headhesive_logo')); ?>" alt="<?php echo esc_attr( bloginfo('name') ); ?>">
 					<?php } else { ?>
-						<img src="<?php echo esc_url( get_template_directory_uri() . '/img/headhesive_img.png'); ?>" alt="<?php echo bloginfo('name'); ?>">
+						<img src="<?php echo esc_url( get_template_directory_uri() . '/img/headhesive_img.png'); ?>" alt="<?php echo esc_attr( bloginfo('name') ); ?>">
 					<?php } ?>
 					</a>
 					
@@ -49,7 +49,7 @@
 					<div class="search-iconhead"><a href="#search-conthead"><i class="fa fa-search"></i></a></div>
 					<div class="search-formhead" id="search-conthead"><?php get_search_form(); ?></div>
 				<?php wise_headhesive_social_menu(); ?>
-			</div><div class="headhesive-wraps" <?php $wise_headhesive_opacity = get_option('wise_headhesive_opacity'); if( !empty($wise_headhesive_opacity) ) { echo 'style="opacity:' . $wise_headhesive_opacity . ';"'; } else { echo 'style="opacity:.95;"'; } ?>></div>
+			</div><div class="headhesive-wraps"></div>
 		</div><!-- End Headhesive -->
 	<?php } ?>
 	
@@ -67,7 +67,7 @@
 					<?php } ?>
 					
 					<?php if ( get_option( 'wise_date_header' ) == false ) { ?>
-						<div class="header-date <?php if ( get_option( 'wise_secondary_menu' ) == false ) : echo 'border-right-1'; endif; ?>"><?php echo current_time( 'l, F j, Y'); ?></div>
+						<div class="header-date <?php if ( get_option( 'wise_secondary_menu' ) == false ) : echo 'border-right-1'; endif; ?>"><?php echo date_i18n( 'l, F j, Y'); ?></div>
 					<?php } ?>
 					
 					<?php if (get_option('wise_secondary_menu') == false) { ?>
@@ -94,9 +94,9 @@
 					<h1 class="site-title">
 						<a href="<?php echo esc_url( home_url('/') ); ?>" rel="home">
 						<?php if (get_option('wise_header_logo')) { ?>
-							<img src="<?php echo esc_url(get_option('wise_header_logo')); ?>" alt="<?php echo bloginfo('name'); ?>">
+							<img src="<?php echo esc_url(get_option('wise_header_logo')); ?>" alt="<?php echo esc_attr( bloginfo('name') ); ?>">
 						<?php } else { ?>
-							<img src="<?php echo esc_url( get_template_directory_uri() . '/img/header_img.png' ); ?>" alt="<?php echo bloginfo('name'); ?>">
+							<img src="<?php echo esc_url( get_template_directory_uri() . '/img/header_img.png' ); ?>" alt="<?php echo esc_attr( bloginfo('name') ); ?>">
 						<?php } ?>
 						</a>
 					</h1>
@@ -118,10 +118,10 @@
 					<div class="search-top"><a href="#search-cont"><i class='fa fa-search'></i></a></div>
 				</div><!-- End Block-2 -->
 			</header><!-- End Header -->
-		<div class="header-wraps" <?php $wise_head_opacity = get_option('wise_head_opacity'); if( !empty($wise_head_opacity) ) { echo 'style="opacity:' . $wise_head_opacity . ';"'; } else { echo 'style="opacity:.95;"'; } ?>></div>
+		<div class="header-wraps"></div>
 	</div>
 		
-	<div id="search-cont" class="search-form-wrapper centre" <?php $wise_head_opacity = get_option('wise_head_opacity'); if( !empty($wise_head_opacity) ) { echo 'style="opacity:' . $wise_head_opacity . ';"'; } else { echo 'style="opacity:.95;"'; } ?>">
+	<div id="search-cont" class="search-form-wrapper centre" <?php $wise_head_opacity = get_option('wise_head_opacity'); if( !empty($wise_head_opacity) ) { echo 'style="opacity:' . esc_attr( $wise_head_opacity ) . ';"'; } else { echo 'style="opacity:.95;"'; } ?>">
 		<div class="search-form-top centre">
 			<?php get_search_form(); ?>
 		</div>				

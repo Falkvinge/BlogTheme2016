@@ -14,7 +14,7 @@ function wise_admin() {
 		echo '<div id="message" class="updated fade"><p><strong>' . esc_html($themename) . ' settings saved.</strong></p></div>'; endif; 
 ?>
 	<div class="wrap wise_wrap">
-	<h2><img class="logo" src="<?php echo esc_url(get_template_directory_uri() . '/inc/wise-panel/img/wise-panel.png'); ?>" alt="Wise"><?php esc_html_e( 'Wise Panel', 'wise-blog' ); ?> <?php echo '&#124 '; esc_html_e( 'Theme Settings', 'wise-blog' ); ?></h2>
+	<h2><img class="logo" src="<?php echo esc_url(get_template_directory_uri() . '/inc/wise-panel/img/wise-panel.png'); ?>" alt="<?php echo esc_html__( 'Wise', 'wise-blog' ); ?>"><?php esc_html_e( 'Wise Panel', 'wise-blog' ); ?> <?php echo '&#124 '; esc_html_e( 'Theme Settings', 'wise-blog' ); ?></h2>
 		<div class="wise_opts">
 			<form method="post">
 				<?php foreach ($options as $value) {

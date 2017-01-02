@@ -10,11 +10,12 @@ get_header(); ?>
 	<div class="content-wrapper" data-sticky_parent>
 	
 		<div id="primary" class="content-area">
+
 			<main id="main" class="site-main single-page">
 				<?php $wise_endis_home = carbon_get_post_meta(get_the_ID(), 'wise_endis_homepage');
 					if( $wise_endis_home == 'enable' ) {
 						echo '<div class="page-full">';
-						echo get_sidebar('home');
+						get_sidebar('home');
 						echo '</div>';
 					} else { 
 						while ( have_posts() ) : the_post(); ?>
@@ -25,18 +26,33 @@ get_header(); ?>
 										<?php wise_breadcrumbs(); ?>
 									</div><!-- End of .top-meta -->
 									
-									<?php the_title( '<h2 class="entry-title center">', '</h2>' ); ?>
-									<?php if( $wise_page_share == 'enable' ) : ?>
-										<div class="center">
-											<?php get_template_part('templates/custom-social'); ?>
-										</div><!-- End of Custom Social -->
-									<?php endif; ?>
+									<?php $wise_title_align = carbon_get_post_meta(get_the_ID(), 'wise_page_title_align'); ?>
+									<?php 	if($wise_title_align == 'center') {
+												the_title( '<h2 class="entry-title center">', '</h2>' );
+												if( $wise_page_share == 'enable' ) : ?>
+													<div class="center">
+														<?php get_template_part('templates/custom-social'); ?>
+													</div><!-- End of Custom Social -->
+												<?php endif;
+											} elseif($wise_title_align == 'right') {
+												the_title( '<h2 class="entry-title tright">', '</h2>' );
+												if( $wise_page_share == 'enable' ) : ?>
+													<div class="tright">
+														<?php get_template_part('templates/custom-social'); ?>
+													</div>
+												<?php endif;
+											} else {
+												the_title( '<h2 class="entry-title">', '</h2>' );
+												if( $wise_page_share == 'enable' ) : ?>
+													<?php get_template_part('templates/custom-social'); ?>
+												<?php endif;
+											} ?>
 								</header><!-- End of .entry-header -->
 								
 								<?php if( $wise_page_feat == 'enable' ) : ?>
 									<?php if( has_post_thumbnail() ) :
 											echo '<div class="single-post-thumb">';
-											echo the_post_thumbnail('wise-post-thumb');
+											the_post_thumbnail('wise-post-thumb');
 											echo '</div>'; endif; ?>
 								<?php endif; ?>
 

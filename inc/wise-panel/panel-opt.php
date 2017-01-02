@@ -32,7 +32,7 @@ $fontweight = array("","100","200","300","400","500","600","700","800","900");
 $wise_opacity = array("", "1", ".9", ".8", ".7", ".6", ".5", ".4", ".3", ".2", ".1");
 
 /* Preloader */
-$wise_prel = array("", "rotating-plane", "double-bounce", "wave", "wandering-cubes", "pulse", "chasing-dots", "three-bounce", "circle", "cube-grid", "fading-circle", "folding-cube" );
+$wise_prel = array("", "blank-smooth", "rotating-plane", "double-bounce", "wave", "wandering-cubes", "pulse", "chasing-dots", "three-bounce", "circle", "cube-grid", "fading-circle", "folding-cube" );
 
 /* Options Starts Here */
 $options = array (
@@ -68,12 +68,6 @@ array( "name" => "Predefined Preloader Color",
 	"id" => $shortname."_def_preload_color",
 	"placeholder" => esc_attr__( 'Pick a color for the default preloader.', 'wise-blog' ),
 	"type" => "color",
-	"def" => ""),
-	
-array( "name" => "Disable Preloader",
-	"id" => $shortname."_disable_preloader",
-	"placeholder" => esc_attr__( 'Turn on to disable site preloader.', 'wise-blog' ),
-	"type" => "checkbox",
 	"def" => ""),
 	
 array( "name" => "Background URL",
@@ -485,9 +479,33 @@ array( "name" => "YouTube Link",
 	"type" => "text",
 	"def" => ""),
 	
+array( "name" => "Vimeo Link",
+	"placeholder" => esc_attr__( 'Add Vimeo URL.', 'wise-blog' ),
+	"id" => $shortname."_soc_vim_links",
+	"type" => "text",
+	"def" => ""),
+	
 array( "name" => "LinkedIn Link",
 	"placeholder" => esc_attr__( 'Add LinkedIn URL.', 'wise-blog' ),
 	"id" => $shortname."_soc_in_links",
+	"type" => "text",
+	"def" => ""),
+	
+array( "name" => "Instagram Link",
+	"placeholder" => esc_attr__( 'Add Instagram URL.', 'wise-blog' ),
+	"id" => $shortname."_soc_ins_links",
+	"type" => "text",
+	"def" => ""),
+	
+array( "name" => "Pinterest Link",
+	"placeholder" => esc_attr__( 'Add Pinterest URL.', 'wise-blog' ),
+	"id" => $shortname."_soc_pin_links",
+	"type" => "text",
+	"def" => ""),
+	
+array( "name" => "VK Link",
+	"placeholder" => esc_attr__( 'Add VK URL.', 'wise-blog' ),
+	"id" => $shortname."_soc_vk_links",
 	"type" => "text",
 	"def" => ""),
 	
