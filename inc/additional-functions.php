@@ -178,7 +178,7 @@ endif;
 						esc_attr( get_the_date( 'c' ) ),
 						esc_html( human_time_diff( get_the_date('U'), current_time('timestamp') ) . esc_attr__(' ago', 'wise-blog') ),
 						esc_attr( get_the_modified_date( 'c' ) ),
-						esc_html( human_time_diff( get_the_modified_date('U'), current_time('timestamp') ) )
+						esc_html( human_time_diff( get_the_modified_date('U'), current_time('timestamp') ) . esc_attr (' ago', 'wise-blog') )
 					);
 				} else {
 					$time_string = sprintf( $time_string,
@@ -209,7 +209,7 @@ endif;
 				'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 			);
 
-			echo '<span class="byline">' . ' &mdash;' . wp_kses_post($byline) . '</span>'; // WPCS: XSS OK.
+			echo '<span class="byline">' . ' &bull; ' . wp_kses_post($byline) . '</span>'; // WPCS: XSS OK.
 
 		}
 	endif;
