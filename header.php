@@ -17,6 +17,14 @@
 ?>
 <?php wise_before_head(); ?>
 <?php wp_head(); ?>
+<noscript>
+  <!-- if the reader has NoScript or similar activated, disable the preloader -->
+  <style>
+    div#wiseload {
+      display: none !important;
+    }
+  </style>
+</noscript>
 </head>
 
 <body <?php body_class(); ?>>
