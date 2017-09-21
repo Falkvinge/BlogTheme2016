@@ -347,6 +347,25 @@ function falkvinge_formatted_post()
 		$content = '<p class="intro">' . substr ($content, 3);
 	}
 
+	// Check for syndication
+
+	$syndicatedLinks = get_post_custom_values ('falkvinge_syndicated_link', $post->ID);
+	$syndicatedNames = get_post_custom_values ('falkvinge_syndicated_outlet_name', $post->ID);
+
+	if (count ($syndicatedLinks) > 0)
+	{
+		$syndicationDisplay = '<div class="redbox"><span class="header">Syndicated Article"</span><br/>This article was <a href="' . $syndicatedLinks[0] . '">previously</a> published ';
+		if (count ($syndicatedNames) > 0)
+		{
+			$syndicationDisplay = $syndicationDisplay . 'at ' . $syndicatedNames[0] . '.</div>';
+		}
+		else
+		{
+			$syndicationDisplay = $syndicationDisplay . 'elsewhere';
+		}
+		$syndicationDisplay = $syndicationDisplay . '.</div>';
+	}
+
 	/* -- THIS PART WAS A DISASTER -- SAVE THE CODE FOR RSS, THOUGH
 
 	$catauthor = falkvinge_get_primary_category (get_the_ID());
@@ -366,6 +385,12 @@ function falkvinge_formatted_post()
 	*/
 
 	echo $content;
+
+	if (strlen ($syndicationDisplay) > 1)
+	{
+		echo ('<p>' . $syndicationDisplay . '</p'>);
+	}
+
 }
 
 function falkvinge_stripfirst ($text, $patternStart, $patternEnd)
