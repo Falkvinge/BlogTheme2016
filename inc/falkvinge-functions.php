@@ -354,16 +354,16 @@ function falkvinge_formatted_post()
 
 	if (count ($syndicatedLinks) > 0)
 	{
-		$syndicationDisplay = '\r\n\r\n<div class="redbox"><span class="header">Syndicated Article</span><br/>\r\nThis article was <a href="' . $syndicatedLinks[0] . '">previously</a> published ';
+		$syndicationDisplay = '<div class="redbox"><span class="header">Syndicated Article</span><br/>This article was <a href="' . $syndicatedLinks[0] . '">previously</a> published ';
 		if (count ($syndicatedNames) > 0)
 		{
-			$syndicationDisplay = $syndicationDisplay . 'at ' . $syndicatedNames[0] . '.</div>';
+			$syndicationDisplay = $syndicationDisplay . 'at ' . $syndicatedNames[0] . '.';
 		}
 		else
 		{
 			$syndicationDisplay = $syndicationDisplay . 'elsewhere';
 		}
-		$syndicationDisplay = $syndicationDisplay . '.</div>\r\n\r\n';
+		$syndicationDisplay = $syndicationDisplay . '.</div>';
 
 		$content = $content . $syndicationDisplay;
 	}
