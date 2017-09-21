@@ -388,7 +388,7 @@ function falkvinge_formatted_post()
 
 	if (strlen ($syndicationDisplay) > 1)
 	{
-		echo ('<p>' . $syndicationDisplay . '</p'>);
+		echo ('<p>' . $syndicationDisplay . '</p>');
 	}
 
 }
