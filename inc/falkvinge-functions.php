@@ -364,6 +364,8 @@ function falkvinge_formatted_post()
 			$syndicationDisplay = $syndicationDisplay . 'elsewhere';
 		}
 		$syndicationDisplay = $syndicationDisplay . '.</div>';
+
+		$content = $content . $syndicationDisplay;
 	}
 
 	/* -- THIS PART WAS A DISASTER -- SAVE THE CODE FOR RSS, THOUGH
@@ -385,12 +387,6 @@ function falkvinge_formatted_post()
 	*/
 
 	echo $content;
-
-	if (strlen ($syndicationDisplay) > 1)
-	{
-		echo $syndicationDisplay;
-	}
-
 }
 
 function falkvinge_stripfirst ($text, $patternStart, $patternEnd)
