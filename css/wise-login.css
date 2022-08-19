@@ -25,8 +25,9 @@ body.login {
 
 .login label {
 	font-size: 15px;
-	font-weight: 600;
+	font-weight: bold;
 	color: #555;
+	line-height: 2em;
 }
 
 .login input[type="text"],
@@ -42,7 +43,7 @@ p#backtoblog {
 }
 
 .login form {
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 0;
     padding: 30px 40px;
     background: #fff;
@@ -60,8 +61,6 @@ p#backtoblog {
 .wp-core-ui .button-primary {	
 	font-size: 15px;
 	font-size: 0.9375rem;
-    font-family: "Open Sans", sans-serif;
-	font-weight: 400;
     line-height: 1.1;
     color: #ffffff;
     background: #434343;
@@ -78,17 +77,8 @@ p#backtoblog {
     text-shadow: none;
 }
 
-.wp-core-ui .button-primary.focus, .wp-core-ui .button-primary.hover, .wp-core-ui .button-primary:focus, .wp-core-ui .button-primary:hover {
-	background: #3a90fd;
-	border-color: transparent;
-}
-
 .login #nav {
 	margin: 2em 0 2em;
-}
-
-.login #backtoblog a:hover, .login #nav a:hover, .login h1 a:hover {
-	color: #3a90fd;
 }
 
 .wp-core-ui .button, .wp-core-ui .button-primary, .wp-core-ui .button-secondary {
@@ -142,13 +132,6 @@ input[type=checkbox]:checked:before {
     color: #000;
 }
 
-input,
-select,
-textarea {
-	font-family: "Ubuntu", sans-serif !important;
-	font-weight: 400;
-}
-
 input:focus,
 textarea:focus,
 option:focus,
@@ -156,4 +139,16 @@ select:focus {
  	outline: #555 !important;
 	border-color: #555 !important;
 	box-shadow: none !important;
+}
+
+.login form .forgetmenot {
+    font-weight: normal;
+    float: left;
+    margin-top: .5em;
+    margin-bottom: 0;
+}
+
+.login .g-recaptcha div {
+	margin: 0 auto 1em;
+    text-align: center;
 }

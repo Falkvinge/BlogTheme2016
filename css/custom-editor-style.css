@@ -42,7 +42,7 @@ img {
 
 a {
 	text-decoration: none;
-	color: #3a90fd;
+	color: #222;
 }
 
 a:hover {
@@ -210,15 +210,15 @@ blockquote {
 	box-sizing: border-box;
 }
 
-blockquote p:before{
+blockquote p:before {
 	content: "\f10d";
 	font-family: "Fontawesome";
 	font-size: 24px;
 	font-size: 1.5rem;
-	display: inline;
+	display: inline-block;
 	margin-left: -1.2em;
 	margin-top: -.2em;
-	color: #3a90fd;
+	color: #222;
 	position: absolute;
 }
 
@@ -240,13 +240,13 @@ blockquote cite {
 	margin-right: 1em;
 }
 
-blockquote.alignleft{
+blockquote.alignleft {
     width: 50%;
     float: left;
     padding: 0 1em 0 2.8em;
     margin-right: 1.5em;
 	margin-bottom: 0;
-	display: inline;
+	display: block;
 }
 
 blockquote.alignright {
@@ -254,7 +254,7 @@ blockquote.alignright {
     float: right;
     padding: 0 1em 0 2.8em;
     margin-left: 1.5em;
-	display: inline;
+	display: block;
 }
 
 /*--------------------------------------------------------------
@@ -300,7 +300,7 @@ Image
 }
 
 .gallery-item {
-	display: inline-block;
+	display: block;
 	position: relative;
 	margin: 0;
 	float: left;
@@ -383,7 +383,7 @@ a.default-url {
 }
 
 a.default-url:hover {
-	color: #3a90fd;
+	color: #222;
 }
 
 .right {
@@ -517,7 +517,7 @@ a.button-2:hover,
 a.button-2:active,
 a.button-2:focus {
 	color: #ffffff;
-	background: #3a90fd;
+	background: #222;
 }
 
 a.button-orig {
@@ -542,7 +542,7 @@ a.button-orig:hover,
 a.button-orig:active,
 a.button-orig:focus {
 	color: #ffffff;
-	background: #3a90fd;
+	background: #222;
 }
 
 button,
@@ -570,7 +570,7 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-    background: #3a90fd;
+    background: #222;
 }
 
 button:focus,
@@ -621,7 +621,7 @@ input[type="search"] {
 Alignments
 --------------------------------------------------------------*/
 .alignleft {
-	display: inline;
+	display: block;
 	float: left;
 	margin-right: 1.5em;
 	margin-bottom: .5em;
@@ -629,7 +629,7 @@ Alignments
 }
 
 .alignright {
-	display: inline;
+	display: block;
 	float: right;
 	margin-left: 1.5em;
 	margin-bottom: .5em;

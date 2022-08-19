@@ -8,11 +8,13 @@ get_header(); ?>
 	<div class="content-wrapper" data-sticky_parent>
 	
 		<div id="primary" class="content-area">
-			<main id="main" class="site-main single-page">
+			<?php get_sidebar('pageleft'); ?>
+			<main id="main" class="site-main">
 				<?php get_template_part( 'templates/content', 'none' ); ?>
 			</main><!-- End of #main -->
 		</div><!-- End of #primary -->
 		
+		<?php get_sidebar(); ?>	
 	</div><!-- End of #content-wrapper -->
 </div><!-- End of #content-wrapper-outer -->
 <?php get_footer(); ?>

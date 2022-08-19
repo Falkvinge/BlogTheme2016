@@ -3,9 +3,8 @@
 * Template to Display Shop Sidebar
 *
 */
-?>
-<?php
-if ( ! is_active_sidebar( 'sidebar-5' ) ) {
+
+if( !is_active_sidebar( 'sidebar-5' ) ) {
 	return;
 }
 ?>

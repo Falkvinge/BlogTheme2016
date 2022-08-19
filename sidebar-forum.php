@@ -3,9 +3,8 @@
 * Template to Display Forum Sidebar
 *
 */
-?>
-<?php
-if ( ! is_active_sidebar( 'sidebar-4' ) ) {
+
+if( !is_active_sidebar( 'sidebar-4' ) ) {
 	return;
 }
 ?>

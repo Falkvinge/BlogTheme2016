@@ -9,9 +9,10 @@
 -----TABLE OF CONTENTS------------------------------------------
 ----------------------------------------------------------------
 1. Header Lines
-2. Buttons and Tabs
-3. Text and Links
-4. Lines, Borders and Objects
+2. Buttons
+3. Tabs
+4. Text and Links
+5. Lines, Borders and Objects
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -26,7 +27,7 @@
 }
 
 /*--------------------------------------------------------------
-2. Buttons and Tabs
+2. Buttons
 --------------------------------------------------------------*/
 a.button-2:hover,
 a.button-2:active,
@@ -81,12 +82,6 @@ input[type="submit"]:hover {
 	color: #3a90fd;
 }
 
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:focus {
-	color: #3a90fd;
-}
-
 .woocommerce #respond input#submit:hover, 
 .woocommerce a.button:hover, 
 .woocommerce button.button:hover, 
@@ -122,6 +117,10 @@ input[type="submit"]:hover {
 	color: #3a90fd;
 }
 
+.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover {
+	color: #3a90fd;
+}
+
 div#schat-widget .schat-button.schat-primary:hover {
     background-color: #3a90fd !important;
 }
@@ -137,7 +136,11 @@ div#schat-widget .schat-popup a.schat-button:hover {
 
 .page-numbers a.next:after,
 .page-numbers span.next:after {
-	border-left: 11px solid #3a90fd;
+	border-left: 10px solid #3a90fd;
+}
+
+a.next:hover:after {
+	border-left: 10px solid #555;
 }
 
 .paging-navigation .current {
@@ -153,8 +156,49 @@ div#schat-widget .schat-popup a.schat-button:hover {
 	background: #3a90fd;
 }
 
+.search-top a:hover, 
+.search-top a.active {
+	background: #3a90fd;
+}
+
 /*--------------------------------------------------------------
-3. Text and Links
+3. Tabs
+--------------------------------------------------------------*/
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+	color: #3a90fd;
+}
+
+.nav-pills > li > a:hover {
+	color: #3a90fd;
+}
+
+/* jQuery UI Tabs */
+.wise-tabs .ui-state-active a,
+.wise-tabs .ui-state-active a:link,
+.wise-tabs .ui-state-active a:visited {
+    color: #3a90fd;
+}
+
+.wise-tabs .ui-state-active,
+.wise-tabs .ui-widget-content .ui-state-active,
+.wise-tabs .ui-widget-header .ui-state-active,
+.wise-tabs a.ui-button:active,
+.wise-tabs .ui-button:active,
+.wise-tabs .ui-button.ui-state-active:hover {
+    border: 4px solid #3a90fd;
+    color: #3a90fd;
+}
+
+.wise-tabs ul li a:hover,
+.wise-tabs .tab-sermon ul li a:hover,
+.wise-tabs .tab-sermon .ctc-home-tabs > li.active > a:hover {
+	color: #3a90fd;
+}
+
+/*--------------------------------------------------------------
+4. Text and Links
 --------------------------------------------------------------*/
 .login-top a:hover {
 	color: #3a90fd;
@@ -162,11 +206,6 @@ div#schat-widget .schat-popup a.schat-button:hover {
 
 .tag-span {
 	color:#3a90fd;
-}
-
-.search-top a:hover, 
-.search-top a.active {
-	background: #3a90fd;
 }
 
 .headhesive-menu li:hover > a,
@@ -185,7 +224,6 @@ div#schat-widget .schat-popup a.schat-button:hover {
 }
 
 .headhesive-social a:hover,
-.headhesive-social a .fa-caret-down:hover,
 .headhesive-social a.active {
 	color: #3a90fd;
 }
@@ -257,6 +295,7 @@ a:active {
 
 .post-pagination a,
 .post-pagination span {
+	color: #ffffff;
 	background: #3a90fd;
 }
 
@@ -313,7 +352,7 @@ div#schat-widget .schat-links a:hover {
 }
 
 /*--------------------------------------------------------------
-4. Lines, Borders and Objects
+5. Lines, Borders and Objects
 --------------------------------------------------------------*/
 .widget-title:after {
     background: #3a90fd;
@@ -325,10 +364,6 @@ div#schat-widget .schat-links a:hover {
 
 .page-title-archive:after {
 	background: #3a90fd;
-}
-
-.comment-awaiting-moderation {
-    background: #3a90fd;
 }
 
 .titles-cover {

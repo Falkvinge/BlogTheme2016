@@ -2,21 +2,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wise Blog\n"
-"POT-Creation-Date: 2016-10-31 23:59+0800\n"
+"POT-Creation-Date: 2022-06-18 20:55+0800\n"
 "PO-Revision-Date: 2016-06-30 16:54+0800\n"
 "Last-Translator: \n"
-"Language-Team: Probewise <steve.probewise@gmail.com>\n"
+"Language-Team: Probewise <probewise@gmail.com>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.9\n"
-"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext;_n;__ngettext_noop;_n_noop;_x;_nx;"
-"_nx_noop;_ex;esc_attr__;esc_attr_e;esc_attr_x;esc_html__;esc_html_e;"
-"esc_html_x;_c;_nc\n"
+"X-Poedit-KeywordsList: __;_e;_x;esc_attr__;esc_attr_e;esc_attr_x;esc_html__;"
+"esc_html_e;esc_html_x;date_i18n\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: comments.php:23
@@ -35,1092 +34,1869 @@ msgstr ""
 msgid "Post Comment"
 msgstr ""
 
+#: comments.php:30
+msgid "Your comment here"
+msgstr ""
+
+#: comments.php:37
+msgid "Your name here"
+msgstr ""
+
+#: comments.php:43
+msgid "Your email here"
+msgstr ""
+
+#: comments.php:48
+msgid "Your website here"
+msgstr ""
+
 #: comments.php:58
 msgid "Discussion"
 msgstr ""
 
-#: comments.php:63 comments.php:86
+#: comments.php:74
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:66 comments.php:89
-msgid "Older Comments"
+#: comments.php:77
+msgid "<i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i>Older Comments"
 msgstr ""
 
-#: comments.php:67 comments.php:90
-msgid "Newer Comments"
+#: comments.php:78
+msgid ""
+"Newer Comments<i class=\"fa fa-chevron-right\" aria-hidden=\"true\"></i>"
 msgstr ""
 
-#: comments.php:102
+#: comments.php:90
 msgid "Comments are closed."
 msgstr ""
 
-#: functions.php:136
+#: footer.php:34 footer.php:60
+#, php-format
+msgid "Copyright &copy; %d. All rights reserved."
+msgstr ""
+
+#: footer.php:71
+msgid "Back to top"
+msgstr ""
+
+#: functions.php:147
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:137
+#: functions.php:148
 msgid "Secondary Menu"
 msgstr ""
 
-#: functions.php:138
+#: functions.php:149
 msgid "Sitelinks First Column"
 msgstr ""
 
-#: functions.php:139
+#: functions.php:150
 msgid "Sitelinks Second Column"
 msgstr ""
 
-#: functions.php:140
+#: functions.php:151
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:141
+#: functions.php:152
 msgid "bbPress Menu"
 msgstr ""
 
-#: functions.php:142
+#: functions.php:153
 msgid "WooCommerce Menu"
 msgstr ""
 
-#: functions.php:186
+#: functions.php:196
 msgid "Sidebar Right"
 msgstr ""
 
-#: functions.php:196
-msgid "Sidebar Left"
+#: functions.php:198
+msgid "Add widgets to be displayed at the right side of the post."
 msgstr ""
 
 #: functions.php:206
-msgid "Footer Column"
+msgid "Sidebar Left"
+msgstr ""
+
+#: functions.php:208
+msgid "Add widgets to be displayed at the left side of the post."
 msgstr ""
 
 #: functions.php:216
-msgid "Sidebar Forum"
+msgid "Footer Column"
+msgstr ""
+
+#: functions.php:218
+msgid "Add widgets to be displayed at the footer."
 msgstr ""
 
 #: functions.php:226
-msgid "Sidebar Shop"
+msgid "Sidebar Forum"
+msgstr ""
+
+#: functions.php:228
+msgid "Add widgets to be displayed at the forum page."
 msgstr ""
 
 #: functions.php:236
+msgid "Sidebar Shop"
+msgstr ""
+
+#: functions.php:238
+msgid "Add widgets to be displayed at the shop page."
+msgstr ""
+
+#: functions.php:246
 msgid "Top Ads"
 msgstr ""
 
-#: functions.php:242
+#: functions.php:248
+msgid "Add widgets to be displayed at the bottom of header."
+msgstr ""
+
+#: functions.php:252
 msgid "Top Document"
 msgstr ""
 
-#: functions.php:248
+#: functions.php:254
+msgid "Add widgets to the top of page before header."
+msgstr ""
+
+#: functions.php:258
 msgid "Bottom Ads"
 msgstr ""
 
-#: header.php:26
+#: functions.php:260
+msgid "Add widgets to be displayed at the top of footer."
+msgstr ""
+
+#: header-default.php:50 header-simple.php:43
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:47
+#: header-default.php:81 header-default.php:178
+#: inc/additional-functions.php:892
+msgid "Get this theme?"
+msgstr ""
+
+#: header-default.php:89 header-simple.php:61
 msgid "Follow"
 msgstr ""
 
-#: header.php:80 inc/wise-widgets/wise-dashboard-user.php:33
-msgid "Dashboard"
+#: header-default.php:116 header-simple.php:88
+msgid "l, F j, Y"
 msgstr ""
 
-#: header.php:80
-msgid "Logout"
-msgstr ""
-
-#: header.php:82 inc/wise-widgets/wise-dashboard-user.php:41
+#: header-default.php:126 header-simple.php:98 inc/additional-functions.php:917
 msgid "Login"
 msgstr ""
 
-#: header.php:82 inc/wise-widgets/wise-dashboard-user.php:42
+#: header-default.php:126 header-simple.php:98 inc/additional-functions.php:918
 msgid "Register"
 msgstr ""
 
-#: inc/additional-functions.php:112
+#: header-default.php:186
+msgid "Buy Now."
+msgstr ""
+
+#: inc/additional-functions.php:102 woocommerce/loop/pagination.php:37
 msgid "Previous"
 msgstr ""
 
-#: inc/additional-functions.php:113
+#: inc/additional-functions.php:103 woocommerce/loop/pagination.php:38
 msgid "Next"
 msgstr ""
 
-#: inc/additional-functions.php:121
+#: inc/additional-functions.php:111
 msgid "Posts navigation"
 msgstr ""
 
-#: inc/additional-functions.php:144
+#: inc/additional-functions.php:134
 msgid "Post navigation"
 msgstr ""
 
-#: inc/additional-functions.php:147
+#: inc/additional-functions.php:137
 msgid "Previous Post"
 msgstr ""
 
-#: inc/additional-functions.php:148
+#: inc/additional-functions.php:138
 msgid "Next Post"
 msgstr ""
 
-#: inc/additional-functions.php:190
+#: inc/additional-functions.php:158
+msgid "Updated"
+msgstr ""
+
+#: inc/additional-functions.php:166 inc/additional-functions.php:168
+msgid " ago"
+msgstr ""
+
+#: inc/additional-functions.php:180
 msgid "Posted on"
 msgstr ""
 
-#: inc/additional-functions.php:205
+#: inc/additional-functions.php:195
 #, php-format
 msgid "by %s"
 msgstr ""
 
-#: inc/additional-functions.php:271 inc/additional-functions.php:288
+#: inc/additional-functions.php:261 inc/additional-functions.php:278
 #, php-format
 msgid "%1$s"
 msgstr ""
 
-#: inc/additional-functions.php:292 inc/additional-functions.php:1204
-#: inc/carbon-fields/core/Field/Association_Field.php:371
-#: inc/carbon-fields/core/Field/Relationship_Field.php:265 page-eighty.php:49
-#: page-full.php:49 page-single.php:49 templates/content-defaults.php:59
-#: templates/content-page.php:34 templates/content-search.php:47
-#: templates/content.php:47
+#: inc/additional-functions.php:282 inc/additional-functions.php:862
+#: page-eighty.php:61 page-full.php:61 page-single.php:61
+#: templates/content-defaults.php:59 templates/content-page.php:53
+#: templates/content-search.php:47 templates/content.php:47
 #: templates/custom_templates/content-complex-def-1.php:32
 #: templates/custom_templates/content-complex-def-2.php:31
-#: templates/custom_templates/content-featured-carousel.php:39
-#: templates/custom_templates/content-featured-grid.php:37
-#: templates/custom_templates/content-featured-grid.php:76
+#: templates/custom_templates/content-featured-carousel.php:47
+#: templates/custom_templates/content-featured-grid.php:47
+#: templates/custom_templates/content-featured-grid.php:106
 msgid "Edit"
 msgstr ""
 
-#: inc/additional-functions.php:372
+#: inc/additional-functions.php:314
 msgid "Next page"
 msgstr ""
 
-#: inc/additional-functions.php:373
+#: inc/additional-functions.php:315
 msgid "Previous page"
 msgstr ""
 
-#: inc/additional-functions.php:447
+#: inc/additional-functions.php:389
 msgid "To view this protected post, enter the password below"
 msgstr ""
 
-#: inc/additional-functions.php:448
+#: inc/additional-functions.php:390
 msgid "Enter Password"
 msgstr ""
 
-#: inc/additional-functions.php:448
+#: inc/additional-functions.php:390
 msgid "Submit"
 msgstr ""
 
-#: inc/additional-functions.php:577
-msgid "Search results for: "
-msgstr ""
-
-#: inc/additional-functions.php:580
-msgid "Error 404"
-msgstr ""
-
-#: inc/additional-functions.php:922
+#: inc/additional-functions.php:731
 msgid "Home"
 msgstr ""
 
-#: inc/additional-functions.php:1167
+#: inc/additional-functions.php:825
 msgid "ago"
 msgstr ""
 
-#: inc/additional-functions.php:1198
+#: inc/additional-functions.php:856
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/additional-functions.php:1225
-msgid "Need help? Documentations or support forum may help you."
-msgstr ""
-
-#: inc/additional-functions.php:1226
-msgid "Visit our documentation page here:"
-msgstr ""
-
-#: inc/additional-functions.php:1226
-msgid "Wise Blog Documentation"
-msgstr ""
-
-#: inc/additional-functions.php:1227
-msgid "Or post questions here:"
-msgstr ""
-
-#: inc/additional-functions.php:1227
-msgid "Probewise Support"
-msgstr ""
-
-#: inc/additional-functions.php:1230
-msgid "Theme Name:"
-msgstr ""
-
-#: inc/additional-functions.php:1231
-msgid "Version:"
-msgstr ""
-
-#: inc/additional-functions.php:1232
-msgid "Author:"
-msgstr ""
-
-#: inc/additional-functions.php:1252 inc/additional-functions.php:1268
+#: inc/additional-functions.php:895 inc/additional-functions.php:915
 msgid "Close Menu"
 msgstr ""
 
-#: inc/additional-functions.php:1278
+#: inc/additional-functions.php:917
+msgid "Logout"
+msgstr ""
+
+#: inc/additional-functions.php:929
 msgid "Please add a menu."
 msgstr ""
 
-#: inc/additional-functions.php:1311
-msgid "Disable Ads"
+#: inc/additional-functions.php:1386
+msgid "Need help? Documentation or support forum may help you."
 msgstr ""
 
-#: inc/additional-functions.php:3039
-msgid "on"
+#: inc/additional-functions.php:1387
+msgid "Documentation"
 msgstr ""
 
-#: inc/additional-functions.php:3076
-msgid "Enable Affiliates Disclaimer"
+#: inc/additional-functions.php:1388
+msgid "Support"
 msgstr ""
 
-#: inc/additional-functions.php:3129 inc/additional-functions.php:3541
+#: inc/additional-functions.php:1391
+msgid "Theme Name:"
+msgstr ""
+
+#: inc/additional-functions.php:1392
+msgid "Version:"
+msgstr ""
+
+#: inc/additional-functions.php:1393
+msgid "Author:"
+msgstr ""
+
+#: inc/additional-functions.php:1404
+msgid "Powered by"
+msgstr ""
+
+#: inc/additional-functions.php:1415
+msgid ""
+"<i><strong>Note:</strong> This is a preview image only. To see the actual "
+"preview, click <strong>Preview</strong> button. Click the <i class=\"fa fa-"
+"eye-slash\" aria-hidden=\"true\"></i> icon to disable image preview mode.</i>"
+msgstr ""
+
+#: inc/additional-functions.php:1422
+msgid "Preview"
+msgstr ""
+
+#: inc/page-fields.php:6
+msgid "Page Settings"
+msgstr ""
+
+#: inc/page-fields.php:9 inc/post-fields.php:16
+msgid "Disable AD"
+msgstr ""
+
+#: inc/page-fields.php:11
+msgid "Enable Featured Image"
+msgstr ""
+
+#: inc/page-fields.php:13
+msgid "Enable Share Buttons"
+msgstr ""
+
+#: inc/page-fields.php:15
+msgid "Select Right Sidebar"
+msgstr ""
+
+#: inc/page-fields.php:17
+msgid "Select Left Sidebar"
+msgstr ""
+
+#: inc/page-fields.php:19
+msgid "Title Alignment"
+msgstr ""
+
+#: inc/page-fields.php:21
+msgid "Left"
+msgstr ""
+
+#: inc/page-fields.php:22
+msgid "Center"
+msgstr ""
+
+#: inc/page-fields.php:23
+msgid "Right"
+msgstr ""
+
+#: inc/post-fields.php:6
+msgid "Additional Settings"
+msgstr ""
+
+#: inc/post-fields.php:10
 msgid "Set as Featured"
 msgstr ""
 
-#: inc/carbon-fields/core/Container/Container.php:554
-msgid "General"
+#: inc/post-fields.php:14
+msgid "Enable Affiliates Disclaimer"
 msgstr ""
 
-#: inc/carbon-fields/core/Container/Container.php:740
-msgid "Please fill out all required fields highlighted below."
+#: inc/tgmpa/class-tgm-plugin-activation.php:340
+msgid "Install Required Plugins"
 msgstr ""
 
-#: inc/carbon-fields/core/Container/Container.php:741
-msgid "The changes you made will be lost if you navigate away from this page."
+#: inc/tgmpa/class-tgm-plugin-activation.php:341
+msgid "Install Plugins"
 msgstr ""
 
-#: inc/carbon-fields/core/Container/Theme_Options_Container.php:149
-msgid "Settings saved."
+#: inc/tgmpa/class-tgm-plugin-activation.php:343
+#, php-format
+msgid "Installing Plugin: %s"
 msgstr ""
 
-#: inc/carbon-fields/core/Field/Broken_Field.php:11
-msgid "This field is misconfigured"
+#: inc/tgmpa/class-tgm-plugin-activation.php:345
+#, php-format
+msgid "Updating Plugin: %s"
 msgstr ""
 
-#: inc/carbon-fields/core/Field/Color_Field.php:17
-msgid "Select a Color"
+#: inc/tgmpa/class-tgm-plugin-activation.php:346
+msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: inc/carbon-fields/core/Field/Complex_Field.php:38
-msgid "Entry"
+#: inc/tgmpa/class-tgm-plugin-activation.php:398
+msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: inc/carbon-fields/core/Field/Complex_Field.php:39
-msgid "Entries"
+#: inc/tgmpa/class-tgm-plugin-activation.php:399
+msgid "Return to the Dashboard"
 msgstr ""
 
-#: inc/carbon-fields/core/Field/Complex_Field.php:495
-#: inc/carbon-fields/core/Field/Complex_Field.php:496
-msgid "Collapse/Expand"
+#: inc/tgmpa/class-tgm-plugin-activation.php:400
+#: inc/tgmpa/class-tgm-plugin-activation.php:3311
+msgid "Plugin activated successfully."
 msgstr ""
 
-#: inc/carbon-fields/core/Field/Complex_Field.php:499
-#: inc/carbon-fields/core/Field/Complex_Field.php:500
-msgid "Clone"
+#: inc/tgmpa/class-tgm-plugin-activation.php:401
+msgid "The following plugin was activated successfully:"
 msgstr ""
 
-#: inc/carbon-fields/core/Field/Complex_Field.php:503
-#: inc/carbon-fields/core/Field/Complex_Field.php:504
-msgid "Remove"
+#: inc/tgmpa/class-tgm-plugin-activation.php:403
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
 msgstr ""
 
-#: inc/carbon-fields/core/Field/Complex_Field.php:565
+#: inc/tgmpa/class-tgm-plugin-activation.php:405
 #, php-format
 msgid ""
-"Complex field <code>%s</code> layout is deprecated&#44; please use "
-"<code>set_width()</code> instead."
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
 msgstr ""
 
-#: inc/carbon-fields/core/Field/Date_Field.php:39
-#: inc/wise-widgets/wise-recent-posts.php:124
-#: inc/wise-widgets/wise-tab-popular-recent.php:283
+#: inc/tgmpa/class-tgm-plugin-activation.php:407
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:408
+msgid "Dismiss this notice"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:409
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:410
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:616
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:617
+msgid "Update Required"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:735
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:1042
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:1042
+#: inc/tgmpa/class-tgm-plugin-activation.php:1052
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:1052
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:1243
+#: inc/tgmpa/class-tgm-plugin-activation.php:3099
+msgid "and"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2112
+#, php-format
+msgid "TGMPA v%s"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2421
+msgid "Required"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2424
+msgid "Recommended"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2440
+msgid "WordPress Repository"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2443
+msgid "External Source"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2446
+msgid "Pre-Packaged"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2463
+msgid "Not Installed"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2467
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2469
+msgid "Active"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2475
+msgid "Required Update not Available"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2478
+msgid "Requires Update"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2481
+msgid "Update recommended"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2490
+#, php-format
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2630
+msgid "unknown"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2638
+msgid "Installed version:"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2646
+msgid "Minimum required version:"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2658
+msgid "Available version:"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2681
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2695
+msgid "Plugin"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2696
+msgid "Source"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2697
+msgid "Type"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2701
+msgid "Version"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2702
+msgid "Status"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2751
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2756
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2762
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2834
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2867
+msgid "Install"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2873
+msgid "Update"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2876
+msgid "Activate"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2907
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2909
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2950
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:2952
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3059
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3085
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3310
+msgid "Plugin activation failed."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3655
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3658
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3660
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3664
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3666
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3667
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3669
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3672
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3674
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3675
+msgid "All installations have been completed."
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3677
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3682
+msgid "Show Details"
+msgstr ""
+
+#: inc/tgmpa/class-tgm-plugin-activation.php:3682
+msgid "Hide Details"
+msgstr ""
+
+#: inc/wise-blocks/wise-ads-block.php:7 inc/wise-blocks/wise-ads-block.php:10
+msgid "Wise Ads Block"
+msgstr ""
+
+#: inc/wise-blocks/wise-ads-block.php:11
+msgid "Enter Ads code here."
+msgstr ""
+
+#: inc/wise-blocks/wise-ads-block.php:12
+msgid "Disable if Paginated"
+msgstr ""
+
+#: inc/wise-blocks/wise-ads-block.php:14
+msgid "Disable if has tag: wise-noads"
+msgstr ""
+
+#: inc/wise-blocks/wise-ads-block.php:17
+msgid "Displays ads block."
+msgstr ""
+
+#: inc/wise-blocks/wise-ads-block.php:19
+#: inc/wise-blocks/wise-complex-four-block.php:25
+#: inc/wise-blocks/wise-complex-one-block.php:25
+#: inc/wise-blocks/wise-complex-three-block.php:25
+#: inc/wise-blocks/wise-complex-two-block.php:36
+#: inc/wise-blocks/wise-defaults-block.php:36
+#: inc/wise-blocks/wise-slider-block.php:34
+#: inc/wise-blocks/wise-ticker-block.php:27
+msgid "Wise Blocks"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-four-block.php:7
+#: inc/wise-blocks/wise-complex-four-block.php:10
+msgid "Wise Complex 4 Block"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-four-block.php:11
+#: inc/wise-blocks/wise-complex-one-block.php:11
+#: inc/wise-blocks/wise-complex-three-block.php:11
+#: inc/wise-blocks/wise-complex-two-block.php:18
+#: inc/wise-blocks/wise-complex-two-block.php:27
+msgid "Posts Title"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-four-block.php:12
+#: inc/wise-blocks/wise-complex-one-block.php:12
+#: inc/wise-blocks/wise-complex-three-block.php:12
+#: inc/wise-blocks/wise-complex-two-block.php:19
+#: inc/wise-blocks/wise-complex-two-block.php:28
+msgid "Disable Posts Title"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-four-block.php:13
+#: inc/wise-blocks/wise-complex-one-block.php:13
+#: inc/wise-blocks/wise-complex-three-block.php:13
+#: inc/wise-blocks/wise-complex-two-block.php:11
+#: inc/wise-blocks/wise-defaults-block.php:14
+msgid "Title Design"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-four-block.php:15
+#: inc/wise-blocks/wise-complex-one-block.php:15
+#: inc/wise-blocks/wise-complex-three-block.php:15
+#: inc/wise-blocks/wise-complex-two-block.php:13
+#: inc/wise-blocks/wise-defaults-block.php:17
+msgid "Background"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-four-block.php:16
+#: inc/wise-blocks/wise-complex-one-block.php:16
+#: inc/wise-blocks/wise-complex-three-block.php:16
+#: inc/wise-blocks/wise-complex-two-block.php:14
+#: inc/wise-blocks/wise-defaults-block.php:16
+msgid "Light"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-four-block.php:18
+#: inc/wise-blocks/wise-complex-one-block.php:18
+#: inc/wise-blocks/wise-complex-three-block.php:18
+#: inc/wise-blocks/wise-complex-two-block.php:20
+#: inc/wise-blocks/wise-complex-two-block.php:29
+#: inc/wise-blocks/wise-defaults-block.php:24
+#: inc/wise-blocks/wise-slider-block.php:18
+#: inc/wise-blocks/wise-ticker-block.php:19
+msgid "Post Categories"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-four-block.php:20
+#: inc/wise-blocks/wise-complex-one-block.php:20
+#: inc/wise-blocks/wise-complex-three-block.php:20
+#: inc/wise-blocks/wise-complex-two-block.php:22
+#: inc/wise-blocks/wise-complex-two-block.php:31
+#: inc/wise-blocks/wise-defaults-block.php:26
+#: inc/wise-blocks/wise-ticker-block.php:21
+msgid "No. of Posts"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-four-block.php:23
+msgid "Displays complex 4 posts block."
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-four-block.php:63
+#: inc/wise-blocks/wise-complex-four-block.php:69
+#: inc/wise-blocks/wise-complex-four-block.php:77
+#: inc/wise-blocks/wise-complex-four-block.php:83
+msgid "Complex-4"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-one-block.php:7
+#: inc/wise-blocks/wise-complex-one-block.php:10
+msgid "Wise Complex 1 Block"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-one-block.php:23
+msgid "Displays complex 1 posts block."
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-one-block.php:61
+#: inc/wise-blocks/wise-complex-one-block.php:67
+#: inc/wise-blocks/wise-complex-one-block.php:75
+#: inc/wise-blocks/wise-complex-one-block.php:81
+msgid "Complex-1"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-three-block.php:7
+#: inc/wise-blocks/wise-complex-three-block.php:10
+msgid "Wise Complex 3 Block"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-three-block.php:23
+msgid "Displays complex 3 posts block."
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-three-block.php:61
+#: inc/wise-blocks/wise-complex-three-block.php:67
+#: inc/wise-blocks/wise-complex-three-block.php:75
+#: inc/wise-blocks/wise-complex-three-block.php:81
+msgid "Complex-3"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-two-block.php:7
+#: inc/wise-blocks/wise-complex-two-block.php:10
+msgid "Wise Complex 2 Block"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-two-block.php:17
+msgid "Complex 2-1"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-two-block.php:26
+msgid "Complex 2-2"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-two-block.php:34
+msgid "Displays complex 2 posts block."
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-two-block.php:79
+#: inc/wise-blocks/wise-complex-two-block.php:85
+#: inc/wise-blocks/wise-complex-two-block.php:93
+#: inc/wise-blocks/wise-complex-two-block.php:99
+msgid "Complex-2-1"
+msgstr ""
+
+#: inc/wise-blocks/wise-complex-two-block.php:122
+#: inc/wise-blocks/wise-complex-two-block.php:128
+#: inc/wise-blocks/wise-complex-two-block.php:136
+#: inc/wise-blocks/wise-complex-two-block.php:142
+msgid "Complex-2-2"
+msgstr ""
+
+#: inc/wise-blocks/wise-content-sidebar-layout.php:7
+msgid "Wise Content Sidebar Layout"
+msgstr ""
+
+#: inc/wise-blocks/wise-content-sidebar-layout.php:10
+msgid "WISE CONTENT SIDEBAR LAYOUT"
+msgstr ""
+
+#: inc/wise-blocks/wise-content-sidebar-layout.php:17
+msgid "A parent block with layout content and right sidebar"
+msgstr ""
+
+#: inc/wise-blocks/wise-content-sidebar-layout.php:23
+msgid ""
+"<div class=\"wise-contside-notice components-notice is-warning"
+"\"><i><strong>Note:</strong> To enable editing mode inside this block, click "
+"the <i class=\"fa fa-eye-slash\" aria-hidden=\"true\"></i> icon (Hide "
+"preview mode) on the top toolbar.</i></div>"
+msgstr ""
+
+#: inc/wise-blocks/wise-defaults-block.php:7
+#: inc/wise-blocks/wise-defaults-block.php:10
+msgid "Wise Defaults Block"
+msgstr ""
+
+#: inc/wise-blocks/wise-defaults-block.php:11
+msgid "Latest Posts Title"
+msgstr ""
+
+#: inc/wise-blocks/wise-defaults-block.php:12
+msgid "Disable Latest Posts Title"
+msgstr ""
+
+#: inc/wise-blocks/wise-defaults-block.php:19
+msgid "Post Layout"
+msgstr ""
+
+#: inc/wise-blocks/wise-defaults-block.php:21
+msgid "Default Block"
+msgstr ""
+
+#: inc/wise-blocks/wise-defaults-block.php:22
+msgid "Grid Block"
+msgstr ""
+
+#: inc/wise-blocks/wise-defaults-block.php:28
+msgid "Pagination"
+msgstr ""
+
+#: inc/wise-blocks/wise-defaults-block.php:30
+msgid "Not Paginated"
+msgstr ""
+
+#: inc/wise-blocks/wise-defaults-block.php:31
+msgid "Paginated"
+msgstr ""
+
+#: inc/wise-blocks/wise-defaults-block.php:34
+msgid "Displays defaults block."
+msgstr ""
+
+#: inc/wise-blocks/wise-defaults-block.php:82
+#: inc/wise-blocks/wise-defaults-block.php:90
+#: inc/wise-blocks/wise-defaults-block.php:100
+#: inc/wise-blocks/wise-defaults-block.php:108
+#: inc/wise-blocks/wise-ticker-block.php:17
+msgid "Latest Posts"
+msgstr ""
+
+#: inc/wise-blocks/wise-slider-block.php:7
+#: inc/wise-blocks/wise-slider-block.php:10
+msgid "Wise Featured Contents Block"
+msgstr ""
+
+#: inc/wise-blocks/wise-slider-block.php:11
+msgid "Posts ID (separate by comma: 1, 2, 3; leave blank to automate)"
+msgstr ""
+
+#: inc/wise-blocks/wise-slider-block.php:12
+msgid "Block Type"
+msgstr ""
+
+#: inc/wise-blocks/wise-slider-block.php:14
+msgid "Grid Type"
+msgstr ""
+
+#: inc/wise-blocks/wise-slider-block.php:15
+msgid "Carousel Type"
+msgstr ""
+
+#: inc/wise-blocks/wise-slider-block.php:20
+msgid "Order by"
+msgstr ""
+
+#: inc/wise-blocks/wise-slider-block.php:23
 msgid "Date"
 msgstr ""
 
-#: inc/carbon-fields/core/Field/Field.php:816
-#: inc/carbon-fields/core/Field/File_Field.php:28
-msgid "Files"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Field.php:817
-msgid "The address could not be found. "
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Field.php:818
-msgid "Geocode was not successful for the following reason: "
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Field.php:819
-#, php-format
-msgid "Maximum number of items reached (%s items)"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Field.php:820
-#, php-format
-msgid "Maximum number of rows reached (%s rows)"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Field.php:821
-#, php-format
-msgid "Cannot create more than %s rows"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Field.php:822
-msgid "Please enter the name of the new sidebar:"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Field.php:823
-msgid "Are you sure you wish to remove this sidebar?"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Field.php:824
-msgid "Add Widget Column"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Field.php:825
-#, php-format
-msgid "There are no %s yet. Click <a href=\"#\">here</a> to add one."
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Field.php:826
-#, php-format
-msgid "Add %s"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Field.php:827
-#, php-format
-msgid "Minimum number of rows not reached (%d %s)"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Field.php:828
-msgid "Please fill out all fields correctly. "
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Field.php:829
-msgid "This field is required. "
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Field.php:830
-msgid "Please choose an option. "
-msgstr ""
-
-#: inc/carbon-fields/core/Field/File_Field.php:26
-#: inc/carbon-fields/core/Field/File_Field.php:27
-msgid "Select File"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Footer_Scripts_Field.php:14
-msgid ""
-"If you need to add scripts to your footer (like Google Analytics tracking "
-"code), you should enter them in this box."
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Gravity_Form_Field.php:45
-msgid "No form"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Gravity_Form_Field.php:80
-msgid "Please install Gravity Forms plugin"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Gravity_Form_Field.php:86
-msgid "No Gravity Forms have been found."
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Header_Scripts_Field.php:14
-msgid "If you need to add scripts to your header, you should enter them here."
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Image_Field.php:18
-#: inc/carbon-fields/core/Field/Image_Field.php:19
-msgid "Select Image"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Image_Field.php:20
-msgid "Images"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Map_Field.php:102
-msgid "Locate Address on the map"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Map_Field.php:107
-msgid "Find"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Radio_Field.php:15
-#: inc/carbon-fields/core/Field/Select_Field.php:33
-#: inc/carbon-fields/core/Field/Set_Field.php:73
-msgid "no options"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Relationship_Field.php:211
-msgid "selected item"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Relationship_Field.php:211
-#: inc/carbon-fields/core/Field/Relationship_Field.php:212
-msgid "selected items"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Relationship_Field.php:219
-msgid "out of"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Relationship_Field.php:226 searchform.php:16
-msgid "Search"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Relationship_Field.php:239
-msgid "Associated:"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Rich_Text_Field.php:31
-#: inc/carbon-fields/core/Field/Rich_Text_Field.php:32
-msgid "Add Media"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Rich_Text_Field.php:43
-msgid "Visual"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Rich_Text_Field.php:46
-msgid "Text"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Set_Field.php:92
-msgid "Show All Options"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Sidebar_Field.php:35
-msgid "Add New"
-msgstr ""
-
-#: inc/carbon-fields/core/Field/Time_Field.php:75
-msgid "Timepicker"
-msgstr ""
-
-#: inc/carbon-fields/core/Manager/Sidebar_Manager.php:104
-msgid "Sidebar with the same ID is already registered."
-msgstr ""
-
-#: inc/carbon-fields/core/Manager/Sidebar_Manager.php:131
-msgid "Sidebar not found."
-msgstr ""
-
-#: inc/carbon-fields/templates/Container/theme_options.php:31
-msgid "Actions"
-msgstr ""
-
-#: inc/carbon-fields/templates/Container/theme_options.php:40
-msgid "Save Changes"
-msgstr ""
-
-#: inc/carbon-fields/templates/Container/widget.php:5
-msgid "No options are available for this widget."
-msgstr ""
-
-#: inc/wise-panel/panel-back.php:17
-msgid "Wise Panel"
-msgstr ""
-
-#: inc/wise-panel/panel-back.php:17
-msgid "Theme Settings"
-msgstr ""
-
-#: inc/wise-panel/panel-back.php:104
-msgid "Upload"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:50
-msgid ""
-"Upload or add your favicon URL here (32x32px). Leave blank to display "
-"default image."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:56
-msgid ""
-"Upload or add preloader URL here (.gif, .png or .jpeg). Maximum of 372x152 "
-"pixels."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:62
-msgid "Select preloader (Leave blank for defaults)"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:69
-msgid "Pick a color for the default preloader."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:75
-msgid "Turn on to disable site preloader."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:81
-msgid ""
-"Upload or add background URL here (1460x876px). Leave blank to display "
-"default image."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:87
-msgid "Turn on to disable site image background."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:93
-msgid "Select Layout Column"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:100
-msgid "Turn on to disable sticky sidebar."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:113 inc/wise-panel/panel-opt.php:127
-#: inc/wise-panel/panel-opt.php:141 inc/wise-panel/panel-opt.php:155
-#: inc/wise-panel/panel-opt.php:169 inc/wise-panel/panel-opt.php:183
-msgid "Select fonts from the list (Leave blank for defaults)"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:120 inc/wise-panel/panel-opt.php:134
-#: inc/wise-panel/panel-opt.php:148 inc/wise-panel/panel-opt.php:162
-#: inc/wise-panel/panel-opt.php:176 inc/wise-panel/panel-opt.php:190
-msgid "Select font weight from the list"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:204
-msgid "Select color scheme from the list (Leave blank for defaults)"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:211
-msgid "Pick a color for header lines color."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:217
-msgid "Pick a color for buttons and tabs."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:223
-msgid "Pick a color for text and links."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:229
-msgid "Pick a color for lines, borders and objects."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:242 inc/wise-panel/panel-opt.php:248
-#: inc/wise-panel/panel-opt.php:254
-msgid "Add custom code here."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:267
-msgid "Add header logo here (186x76px). Leave blank to display default image."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:273
-msgid "Add header logo here (372x152px). Add @2x at its name: mylogo@2x.png"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:279
-msgid ""
-"Add headhesive logo here (100x41px). Leave blank to display default image."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:285
-msgid "Add header logo here (200x82px). Add @2x at its name: mylogo@2x.png"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:291
-msgid "Add your header tag lines title."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:297
-msgid "Add your header tag lines span."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:303
-msgid "Add your header tag lines links."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:309
-msgid ""
-"Add custom login form logo here, from 186x76px. Leave blank to display "
-"default image."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:315
-msgid "Turn on to disable the entire top header."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:321
-msgid "Turn on to remove the secondary header from top header."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:327
-msgid "Turn on to remove the login or register links from top header."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:333
-msgid "Turn on to remove header date from top header."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:339
-msgid "Turn on to disable headhesive menu."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:345 inc/wise-panel/panel-opt.php:352
-#: inc/wise-panel/panel-opt.php:615
-msgid "Adjust opacity (Leave blank for defaults)"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:366
-msgid "Select Posts Layout Type (Leave blank for defaults)"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:373
-msgid "Select Time Format"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:380
-msgid "Turn on to disable date on posts."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:386
-msgid "Turn on to disable built-in share buttons."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:392
-msgid "Turn on to disable Author Biography for single posts."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:398
-msgid "Add your affiliate disclaimer here."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:404
-msgid ""
-"Turn on to enable affiliates disclaimer to top post. If uncheck it will show "
-"at the bottom of post."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:417 inc/wise-panel/panel-opt.php:423
-#: inc/wise-panel/panel-opt.php:429 inc/wise-panel/panel-opt.php:435
-#: inc/wise-panel/panel-opt.php:441
-msgid "Add your Ads code here."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:453
-msgid "Add RSS URL."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:459 inc/wise-panel/panel-opt.php:477
-msgid "Add Facebook URL."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:465
-msgid "Add Twitter URL."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:471
-msgid "Add Twitter Account Name."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:483
-msgid "Add Youtube URL."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:489
-msgid "Add LinkedIn URL."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:503
-msgid "Turn on to disable error details in login form."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:509
-msgid "Turn on to enable Google reCAPTCHA in login form."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:514
-msgid "Turn on to enable Google reCAPTCHA in registration form."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:520
-msgid "Turn on to enable Google reCAPTCHA in comment form."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:527
-msgid "Add your Google reCAPTCHA site key."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:533
-msgid "Add your Google reCAPTCHA secret key."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:545
-msgid "Set the number of products to display on product archive."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:553
-msgid "Select Product Layout Type (Leave blank to disable it)"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:567
-msgid "Select Footer Style"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:573
-msgid "Turn on to disable footer social icons."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:579
-msgid "Turn on to disable footer menu."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:585
-msgid "Turn on to disable footer logo from about widget."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:591
-msgid "Turn on to disable footer logo."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:596
-msgid ""
-"Add footer logo URL here (49x20px). Leave blank to display default image."
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:602
-msgid "Add footer logo here (98x40px). Add @2x at its name: mylogo@2x.png"
-msgstr ""
-
-#: inc/wise-panel/panel-opt.php:608
-msgid "Add your footer text here."
-msgstr ""
-
-#: inc/wise-panel/wise-panel.php:46
-msgid "Panel"
-msgstr ""
-
-#: inc/wise-panel/wise-panel.php:82
-msgid "Insert Now"
-msgstr ""
-
-#: inc/wise-widgets/wise-about.php:11
-msgid "Displays your about widget."
-msgstr ""
-
-#: inc/wise-widgets/wise-about.php:14
-msgid "#Wise About"
-msgstr ""
-
-#: inc/wise-widgets/wise-about.php:44
-msgid "Location"
-msgstr ""
-
-#: inc/wise-widgets/wise-about.php:45
-msgid "Email"
-msgstr ""
-
-#: inc/wise-widgets/wise-about.php:46
-msgid "Phone"
-msgstr ""
-
-#: inc/wise-widgets/wise-about.php:115
-msgid "About"
-msgstr ""
-
-#: inc/wise-widgets/wise-about.php:170
-#: inc/wise-widgets/wise-popular-posts.php:108
-#: inc/wise-widgets/wise-recent-posts.php:94
-#: inc/wise-widgets/wise-script.php:53 inc/wise-widgets/wise-sitelinks.php:60
-#: inc/wise-widgets/wise-subscribe-footer.php:54
-#: inc/wise-widgets/wise-subscribe-sidebar.php:63
-#: inc/wise-widgets/wise-tab-popular-recent.php:188
-#: inc/wise-widgets/wise-tab-popular-recent.php:252
-msgid "Title:"
-msgstr ""
-
-#: inc/wise-widgets/wise-about.php:175
-msgid "Logo URL:"
-msgstr ""
-
-#: inc/wise-widgets/wise-about.php:180 inc/wise-widgets/wise-text-alert.php:44
-msgid "Content:"
-msgstr ""
-
-#: inc/wise-widgets/wise-about.php:185
-msgid "Location:"
-msgstr ""
-
-#: inc/wise-widgets/wise-about.php:190
-msgid "Email:"
-msgstr ""
-
-#: inc/wise-widgets/wise-about.php:195
-msgid "Phone:"
-msgstr ""
-
-#: inc/wise-widgets/wise-about.php:200
-msgid "URL (Please input complete URL address):"
-msgstr ""
-
-#: inc/wise-widgets/wise-about.php:206
-msgid "Enable Social Buttons"
-msgstr ""
-
-#: inc/wise-widgets/wise-dashboard-user.php:11
-msgid "Displays your dashboard user widget."
-msgstr ""
-
-#: inc/wise-widgets/wise-dashboard-user.php:14
-msgid "#Wise Dashboard User"
-msgstr ""
-
-#: inc/wise-widgets/wise-dashboard-user.php:28
-msgid "Welcome"
-msgstr ""
-
-#: inc/wise-widgets/wise-dashboard-user.php:30
-msgid "Guest"
-msgstr ""
-
-#: inc/wise-widgets/wise-dashboard-user.php:34
-#: inc/wise-widgets/wise-dashboard-user.php:35
-msgid "Edit Account"
-msgstr ""
-
-#: inc/wise-widgets/wise-dashboard-user.php:37
-msgid "Log out"
-msgstr ""
-
-#: inc/wise-widgets/wise-dashboard-user.php:59
-msgid "You are logged in."
-msgstr ""
-
-#: inc/wise-widgets/wise-dashboard-user.php:66
-msgid "You are logged out."
-msgstr ""
-
-#: inc/wise-widgets/wise-dashboard-user.php:72
-msgid "Dashboard user notice when logged in:"
-msgstr ""
-
-#: inc/wise-widgets/wise-dashboard-user.php:77
-msgid "Dashboard user notice when not logged in:"
-msgstr ""
-
-#: inc/wise-widgets/wise-popular-posts.php:11
-msgid "Displays your popular sidebar widget."
-msgstr ""
-
-#: inc/wise-widgets/wise-popular-posts.php:14
-msgid "#Wise Popular Posts"
-msgstr ""
-
-#: inc/wise-widgets/wise-popular-posts.php:68
-#: inc/wise-widgets/wise-tab-popular-recent.php:115
-msgid "Popular Posts"
-msgstr ""
-
-#: inc/wise-widgets/wise-popular-posts.php:113
-#: inc/wise-widgets/wise-recent-posts.php:99
-#: inc/wise-widgets/wise-tab-popular-recent.php:193
-#: inc/wise-widgets/wise-tab-popular-recent.php:257
-msgid "Number of posts to show:"
-msgstr ""
-
-#: inc/wise-widgets/wise-popular-posts.php:118
-#: inc/wise-widgets/wise-tab-popular-recent.php:198
-msgid "Leave this blank to show posts from all category:"
-msgstr ""
-
-#: inc/wise-widgets/wise-popular-posts.php:121
-#: inc/wise-widgets/wise-recent-posts.php:107
-#: inc/wise-widgets/wise-tab-popular-recent.php:201
-#: inc/wise-widgets/wise-tab-popular-recent.php:266
-msgid "&mdash; Select Category &mdash;"
-msgstr ""
-
-#: inc/wise-widgets/wise-popular-posts.php:141
-#: inc/wise-widgets/wise-tab-popular-recent.php:221
-msgid "Choose how your popular posts will be displayed:"
-msgstr ""
-
-#: inc/wise-widgets/wise-popular-posts.php:147
-#: inc/wise-widgets/wise-tab-popular-recent.php:227
-msgid "This Week Popular Posts"
-msgstr ""
-
-#: inc/wise-widgets/wise-popular-posts.php:153
-#: inc/wise-widgets/wise-tab-popular-recent.php:233
-msgid "This Month Popular Posts"
-msgstr ""
-
-#: inc/wise-widgets/wise-popular-posts.php:159
-#: inc/wise-widgets/wise-tab-popular-recent.php:239
-msgid "This Year Popular Posts"
-msgstr ""
-
-#: inc/wise-widgets/wise-popular-posts.php:163
-#: inc/wise-widgets/wise-tab-popular-recent.php:243
-msgid ""
-"<i>*Please make sure week starts on Monday in your Settings tab.</"
-"i><br>Settings=>General=>Week Starts On=><strong>Monday</strong><br><i>*If "
-"you want to display all-time popular posts, leave all checkbox unchecked.</i>"
-msgstr ""
-
-#: inc/wise-widgets/wise-recent-posts.php:11
-msgid "Displays your custom recent posts."
-msgstr ""
-
-#: inc/wise-widgets/wise-recent-posts.php:14
-msgid "#Wise Recent Posts"
-msgstr ""
-
-#: inc/wise-widgets/wise-recent-posts.php:67
-#: inc/wise-widgets/wise-tab-popular-recent.php:157
-msgid "Recent Posts"
-msgstr ""
-
-#: inc/wise-widgets/wise-recent-posts.php:104
-#: inc/wise-widgets/wise-tab-popular-recent.php:263
-msgid "Leave this blank to show recent posts:"
-msgstr ""
-
-#: inc/wise-widgets/wise-recent-posts.php:122
-#: inc/wise-widgets/wise-tab-popular-recent.php:281
-msgid "Choose how post will be ordered:"
-msgstr ""
-
-#: inc/wise-widgets/wise-recent-posts.php:125
-#: inc/wise-widgets/wise-tab-popular-recent.php:284
+#: inc/wise-blocks/wise-slider-block.php:24
 msgid "Random"
 msgstr ""
 
-#: inc/wise-widgets/wise-recent-posts.php:126
-#: inc/wise-widgets/wise-tab-popular-recent.php:285
+#: inc/wise-blocks/wise-slider-block.php:25
 msgid "Title"
 msgstr ""
 
-#: inc/wise-widgets/wise-recent-posts.php:127
-#: inc/wise-widgets/wise-tab-popular-recent.php:286
+#: inc/wise-blocks/wise-slider-block.php:26
 msgid "Comment"
 msgstr ""
 
-#: inc/wise-widgets/wise-script.php:11
-msgid "Let you to add script to your sidebar."
+#: inc/wise-blocks/wise-slider-block.php:28
+msgid "No. of Featured Posts"
 msgstr ""
 
-#: inc/wise-widgets/wise-script.php:14
-msgid "#Wise Script"
+#: inc/wise-blocks/wise-slider-block.php:30
+msgid "Slider Speed in Seconds"
 msgstr ""
 
-#: inc/wise-widgets/wise-script.php:58
-msgid "Enter your custom script here:"
+#: inc/wise-blocks/wise-slider-block.php:32
+msgid "Displays home slider in grid or carousel format."
 msgstr ""
 
-#: inc/wise-widgets/wise-sitelinks.php:11
-msgid "Displays your sitelinks widget for footer."
+#: inc/wise-blocks/wise-ticker-block.php:7
+#: inc/wise-blocks/wise-ticker-block.php:10
+msgid "Wise Ticker Block"
 msgstr ""
 
-#: inc/wise-widgets/wise-sitelinks.php:14
-msgid "#Wise Footer Sitelinks"
+#: inc/wise-blocks/wise-ticker-block.php:11
+msgid "Custom ID"
 msgstr ""
 
-#: inc/wise-widgets/wise-sitelinks.php:54
-msgid "Site Links"
+#: inc/wise-blocks/wise-ticker-block.php:12
+msgid "Wise Ticker Label"
 msgstr ""
 
-#: inc/wise-widgets/wise-social-media-footer.php:11
-msgid "Displays your social media footer widget."
+#: inc/wise-blocks/wise-ticker-block.php:13
+msgid "Type of Posts to Show"
 msgstr ""
 
-#: inc/wise-widgets/wise-social-media-footer.php:14
-msgid "#Wise Social Media Footer"
+#: inc/wise-blocks/wise-ticker-block.php:15
+msgid "Trending Posts by Views"
 msgstr ""
 
-#: inc/wise-widgets/wise-social-media-footer.php:86
-msgid "This is a widget to display social media for footer."
+#: inc/wise-blocks/wise-ticker-block.php:16
+msgid "Trending Posts by Comments"
 msgstr ""
 
-#: inc/wise-widgets/wise-subscribe-footer.php:11
-msgid "Displays your subscribe footer widget."
+#: inc/wise-blocks/wise-ticker-block.php:23
+msgid "Ticker Speed in Seconds"
 msgstr ""
 
-#: inc/wise-widgets/wise-subscribe-footer.php:14
-msgid "#Wise Subscribe Footer"
+#: inc/wise-blocks/wise-ticker-block.php:25
+msgid "Displays wise ticker block."
 msgstr ""
 
-#: inc/wise-widgets/wise-subscribe-footer.php:29
-#: inc/wise-widgets/wise-subscribe-sidebar.php:31
-msgid "Enter Email Address"
+#: inc/wise-blocks/wise-ticker-block.php:60
+#: inc/wise-blocks/wise-ticker-block.php:67
+#: inc/wise-blocks/wise-ticker-block.php:74
+#: inc/wise-blocks/wise-ticker-block.php:81
+msgid "Trending Now"
 msgstr ""
 
-#: inc/wise-widgets/wise-subscribe-footer.php:41
-msgid "Subscribe to our Newsletter"
+#: inc/wise-panel/wise-panel.php:232
+msgid "Wise Panel"
 msgstr ""
 
-#: inc/wise-widgets/wise-subscribe-footer.php:58
-#: inc/wise-widgets/wise-subscribe-sidebar.php:71
-msgid "Subscribe URL:"
+#: inc/wise-panel/wise-panel.php:233
+msgid "Theme settings and configurations"
 msgstr ""
 
-#: inc/wise-widgets/wise-subscribe-sidebar.php:11
-msgid "Displays your subscribe sidebar widget."
+#: inc/wise-panel/wise-panel.php:246
+msgid "General Settings"
 msgstr ""
 
-#: inc/wise-widgets/wise-subscribe-sidebar.php:14
-msgid "#Wise Subscribe Sidebar"
+#: inc/wise-panel/wise-panel.php:249
+msgid "General settings of the theme"
 msgstr ""
 
-#: inc/wise-widgets/wise-subscribe-sidebar.php:43
-msgid "Subscribe to Wise Blog"
+#: inc/wise-panel/wise-panel.php:273
+msgid "Preloader Type"
 msgstr ""
 
-#: inc/wise-widgets/wise-subscribe-sidebar.php:50
-msgid "Get updated from the latest posts straight to your mailbox!"
+#: inc/wise-panel/wise-panel.php:277
+msgid "Predefined"
 msgstr ""
 
-#: inc/wise-widgets/wise-subscribe-sidebar.php:67
-msgid "Subscribe Header:"
+#: inc/wise-panel/wise-panel.php:278
+msgid "Image"
 msgstr ""
 
-#: inc/wise-widgets/wise-tab-popular-recent.php:11
-msgid "Displays your tab popular and recent posts widget."
+#: inc/wise-panel/wise-panel.php:281
+msgid "Select preloader type."
 msgstr ""
 
-#: inc/wise-widgets/wise-tab-popular-recent.php:14
-msgid "#Wise Tab Posts"
+#: inc/wise-panel/wise-panel.php:304
+msgid "Preloader Image"
 msgstr ""
 
-#: inc/wise-widgets/wise-tab-popular-recent.php:184
-msgid "Popular Posts Configuration"
+#: inc/wise-panel/wise-panel.php:307
+msgid ""
+"Upload or choose a preloader image (.gif, .png or .jpeg). Maximum of 372x152 "
+"pixels."
 msgstr ""
 
-#: inc/wise-widgets/wise-tab-popular-recent.php:248
-msgid "Recent Posts Configuration"
+#: inc/wise-panel/wise-panel.php:334
+msgid "Predefined Preloader"
 msgstr ""
 
-#: inc/wise-widgets/wise-text-alert.php:11
-msgid "Displays your text alert widget."
+#: inc/wise-panel/wise-panel.php:339
+msgid "Choose predefined preloader."
 msgstr ""
 
-#: inc/wise-widgets/wise-text-alert.php:14
-msgid "#Wise Text Alert"
+#: inc/wise-panel/wise-panel.php:366
+msgid "Predefined Preloader Color"
 msgstr ""
 
-#: search.php:19
-#, php-format
-msgid "Search Results for: %s"
+#: inc/wise-panel/wise-panel.php:370
+msgid "Choose predefined preloader color."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:397
+msgid "Background Image"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:400
+msgid ""
+"Upload or add background image (1460x876px). Leave blank to display default "
+"image."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:427
+msgid "Disable Background Image"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:431
+msgid "Check to disable background image."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:454
+msgid "Disable Sticky Sidebar"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:458
+msgid "Check to disable sticky sidebar."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:481
+msgid "Layout Column"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:485
+msgid "Three Column"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:486
+msgid "Two Column"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:489
+msgid "Select three or two layout column style."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:500
+msgid "Color Settings"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:503
+msgid "Color settings of the theme"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:527
+msgid "Predefined Colors"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:532
+msgid ""
+"Select predefined color. Default is coolblue. Leave blank to activate custom "
+"colors."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:555
+msgid "Header Lines Color"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:559 inc/wise-panel/wise-panel.php:590
+#: inc/wise-panel/wise-panel.php:621 inc/wise-panel/wise-panel.php:652
+#: inc/wise-panel/wise-panel.php:683
+msgid "Pick a color."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:586
+msgid "Buttons Color"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:617
+msgid "Tabs Color"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:648
+msgid "Text and Links Color"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:679
+msgid "Borders and Objects Color"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:699
+msgid "Analytics Code Settings"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:702
+msgid "Analytics code settings of the theme"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:726
+msgid "Before head close tag"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:730 inc/wise-panel/wise-panel.php:757
+#: inc/wise-panel/wise-panel.php:784
+msgid "Add custom html, style or script."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:753
+msgid "After body tag"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:780
+msgid "Before body close tag"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:796
+msgid "Header Settings"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:799
+msgid "Header settings of the theme"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:823
+msgid "Header Type"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:827 inc/wise-panel/wise-panel.php:1566
+msgid "Default"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:828
+msgid "Simple"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:831
+msgid "Select header type."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:854
+msgid "Header Logo"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:857
+msgid ""
+"Add header logo here. Header Type: (Default 186x76px), (Simple 240x60px). "
+"Leave blank to display default image."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:880
+msgid "Header Logo Retina"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:883 inc/wise-panel/wise-panel.php:995
+msgid ""
+"Add header logo here. Header Type: (Default 372x152px), (Simple 480x120px). "
+"Add @2x on its file name: mylogo@2x.png"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:910
+msgid "Sticky Header Logo"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:913
+msgid ""
+"Add header logo here. Header Type: (Default 100x41px), (Simple 152x38px). "
+"Leave blank to display default image."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:936
+msgid "Sticky Header Logo Retina"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:939
+msgid ""
+"Add header logo here. Header Type: (Default 200x82px), (Simple 304x76px). "
+"Add @2x on its file name: mylogo@2x.png"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:966
+msgid "Custom Login Form Logo"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:969
+msgid ""
+"Add custom login form logo here. Header Type: (Default 186x76px), (Simple "
+"240x60px). Leave blank to display default image."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:992
+msgid "Custom Login Form Logo Retina"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1022
+msgid "Header Tag Lines Title"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1026
+msgid "Add header tag lines title."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1053
+msgid "Disable Header Tag Lines Title"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1057
+msgid "Check to disable header tag lines title."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1084
+msgid "Header Tag Lines Span"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1088
+msgid "Add header tag lines span."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1115
+msgid "Disable Header Tag Lines Span"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1119
+msgid "Check to disable tag lines span."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1146
+msgid "Header Tag Lines Link"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1150
+msgid "Add header tag lines links."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1177
+msgid "Header Tag Lines Link Target"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1181
+msgid "Same Page"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1182
+msgid "New Tab"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1185
+msgid "Choose on how the link opens."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1212
+msgid "Disable Top Header"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1216
+msgid "Check to disable the entire top header."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1240
+msgid "Disable Header Shopping Cart"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1244
+msgid "Check to disable shopping cart on header."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1273
+msgid "Disable Header Social Media"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1277
+msgid "Check to disable header social media."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1304
+msgid "Disable Sticky Header Social Media"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1308
+msgid "Check to disable sticky header social media."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1336
+msgid "Disable Secondary Menu"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1340
+msgid "Check to remove the secondary header from top header."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1367
+msgid "Disable Login/Register Links"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1371
+msgid "Check to remove the login or register links from top header."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1398
+msgid "Disable Header Date"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1402
+msgid "Check to remove header date from top header."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1429
+msgid "Disable Sticky Header"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1433
+msgid "Check to remove sticky header."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1456
+msgid "Header Opacity"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1461 inc/wise-panel/wise-panel.php:1489
+#: inc/wise-panel/wise-panel.php:2665
+msgid "Adjust opacity (Leave blank for defaults)."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1484
+msgid "Sticky Header Opacity"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1504
+msgid "Archive and Content Settings"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1507
+msgid "Archive and content settings of the theme"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1531
+msgid "Archive Posts Layout Type"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1535 inc/wise-panel/wise-panel.php:2346
+#: inc/wise-panel/wise-panel.php:2394
+msgid "Single"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1536 inc/wise-panel/wise-panel.php:2347
+msgid "Grid"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1539
+msgid "Select grid or single type for posts layout."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1562
+msgid "Time Format for Posts and Comments"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1567
+msgid "Human Readable"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1570
+msgid "Select default or human readable time format."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1594
+msgid "Disable Breadcrumbs"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1598
+msgid "Check to disable breadcrumbs on all posts and pages."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1622
+msgid "Disable Meta Date"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1626
+msgid "Check to disable meta date tags."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1650
+msgid "Disable Built-in Share Buttons"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1654
+msgid "Check to disable built-in share buttons for posts and pages."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1678
+msgid "Disable Author Info on Posts"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1682
+msgid "Check to disable Author Biography for single posts."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1705
+msgid "Disable Featured Image on Single Posts"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1709
+msgid "Check to disable featured image for all single posts."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1733
+msgid "Affiliates Auto Disclaimer"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1737
+msgid "Add affiliate disclaimer here."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1760
+msgid "Affiliates Disclaimer Position"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1764
+msgid "Top"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1765
+msgid "Bottom"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1768
+msgid ""
+"Select affiliates disclaimer position on posts. Position is top or bottom of "
+"the content."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1792
+msgid "Related Posts Number"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1796
+msgid ""
+"Set the number of related posts to show on single post. Default is 6. Type 0 "
+"to disable related posts."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1808
+msgid "AD for Posts Settings"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1811
+msgid "AD for posts settings of the theme"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1835
+msgid "Top of the Content"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1839 inc/wise-panel/wise-panel.php:1866
+#: inc/wise-panel/wise-panel.php:1893 inc/wise-panel/wise-panel.php:1920
+#: inc/wise-panel/wise-panel.php:1947
+msgid "Paste AD code here."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1862
+msgid "Middle of the Content"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1889
+msgid "After Posts Tags"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1916
+msgid "After Posts Navigation"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1943
+msgid "After Related Posts"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1960
+msgid "Social Media Settings"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1963
+msgid "Social media settings of the theme"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1987
+msgid "RSS Link"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:1991
+msgid "Add RSS URL."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2014
+msgid "Facebook Link"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2018
+msgid "Add Facebook URL."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2041
+msgid "Twitter Link"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2045
+msgid "Add Twitter URL."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2068
+msgid "Twitter Account Name for Share Buttons"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2072
+msgid "Add Twitter Account Name. Ex. probewise"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2095
+msgid "Instagram Link"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2099
+msgid "Add Instagram URL."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2122
+msgid "YouTube Link"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2126
+msgid "Add YouTube URL."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2149
+msgid "Vimeo Link"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2153
+msgid "Add Vimeo URL."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2176
+msgid "LinkedIn Link"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2180
+msgid "Add LinkedIn URL."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2203
+msgid "Pinterest Link"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2207
+msgid "Add Pinterest URL."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2230
+msgid "VK Link"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2234
+msgid "Add VK URL."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2246
+msgid "Security Settings"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2249
+msgid "Security settings of the theme"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2273
+msgid "Disable Error Details for Login Form"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2277
+msgid "Check to disable error details in login form."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2288
+msgid "WooCommerce Settings"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2291
+msgid "WooCommerce settings of the theme"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2315
+msgid "Product Archive Number"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2319
+msgid ""
+"Set the number of products to display on product archive. Leave blank or "
+"type 0 for defaults."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2342
+msgid "Product Archive Layout Type"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2350
+msgid "Select product layout type."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2362
+msgid "Footer Settings"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2365
+msgid "Footer settings of the theme"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2389
+msgid "Footer Style"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2393
+msgid "Widgetized"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2397
+msgid "Select footer style."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2421
+msgid "Disable Social Media Icons for Single Footer"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2425
+msgid "Check to disable social media icons for single footer."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2453
+msgid "Disable Footer Menu for Single Footer"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2457
+msgid "Check to disable footer menu for single footer."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2484
+msgid "Footer Logo for Widgetized Footer"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2487
+msgid ""
+"Add footer logo here. Header Type: (Default 49x20px), (Simple 80x20px). "
+"Leave blank to display default image."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2514
+msgid "Footer Logo Retina for Widgetized Footer"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2517
+msgid ""
+"Add footer logo here. Header Type: (Default 98x40px), (Simple 160x40px). Ex: "
+"mylogo@2x.png"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2544
+msgid "Disable Footer Logo for Widgetized Footer"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2548
+msgid "Check to disable footer logo for widgetized footer."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2575
+msgid "Footer Text"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2579
+msgid "Add footer text."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2606
+msgid "Disable Footer Text"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2610
+msgid "Check to disable footer text."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2633
+msgid "Disable Author Link"
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2637
+msgid "Check to disable author link."
+msgstr ""
+
+#: inc/wise-panel/wise-panel.php:2660
+msgid "Footer Opacity"
+msgstr ""
+
+#: inc/wise-typography/main.php:17774
+msgid "on"
+msgstr ""
+
+#: inc/wise-typography/options.php:72
+msgid "Wise Typography"
+msgstr ""
+
+#: inc/wise-typography/options.php:73
+msgid "Theme font settings"
+msgstr ""
+
+#: inc/wise-typography/options.php:86
+msgid "Heading Fonts"
+msgstr ""
+
+#: inc/wise-typography/options.php:89
+msgid "Typography for heading"
+msgstr ""
+
+#: inc/wise-typography/options.php:113 inc/wise-typography/options.php:240
+#: inc/wise-typography/options.php:311 inc/wise-typography/options.php:382
+#: inc/wise-typography/options.php:453 inc/wise-typography/options.php:524
+msgid "Font Family"
+msgstr ""
+
+#: inc/wise-typography/options.php:118 inc/wise-typography/options.php:245
+#: inc/wise-typography/options.php:316 inc/wise-typography/options.php:387
+#: inc/wise-typography/options.php:458 inc/wise-typography/options.php:529
+msgid "Select fonts."
+msgstr ""
+
+#: inc/wise-typography/options.php:141
+msgid "Slider and Block Font Weight"
+msgstr ""
+
+#: inc/wise-typography/options.php:146 inc/wise-typography/options.php:174
+#: inc/wise-typography/options.php:202 inc/wise-typography/options.php:273
+#: inc/wise-typography/options.php:344 inc/wise-typography/options.php:415
+#: inc/wise-typography/options.php:486 inc/wise-typography/options.php:557
+msgid "Select font weight."
+msgstr ""
+
+#: inc/wise-typography/options.php:169
+msgid "General Heading Font Weight"
+msgstr ""
+
+#: inc/wise-typography/options.php:197
+msgid "Other Heading Font Weight"
+msgstr ""
+
+#: inc/wise-typography/options.php:213
+msgid "Body Fonts"
+msgstr ""
+
+#: inc/wise-typography/options.php:216
+msgid "Typography for body contents"
+msgstr ""
+
+#: inc/wise-typography/options.php:268 inc/wise-typography/options.php:339
+#: inc/wise-typography/options.php:410 inc/wise-typography/options.php:481
+#: inc/wise-typography/options.php:552
+msgid "Font Weight"
+msgstr ""
+
+#: inc/wise-typography/options.php:284
+msgid "Input and Meta Fonts"
+msgstr ""
+
+#: inc/wise-typography/options.php:287
+msgid "Typography for input and meta"
+msgstr ""
+
+#: inc/wise-typography/options.php:355
+msgid "Button Fonts"
+msgstr ""
+
+#: inc/wise-typography/options.php:358
+msgid "Typography for buttons"
+msgstr ""
+
+#: inc/wise-typography/options.php:426
+msgid "Navigation Fonts"
+msgstr ""
+
+#: inc/wise-typography/options.php:429
+msgid "Typography for navigation including tag lines"
+msgstr ""
+
+#: inc/wise-typography/options.php:497
+msgid "Description Fonts"
+msgstr ""
+
+#: inc/wise-typography/options.php:500
+msgid "Typography for taxonomy descriptions"
+msgstr ""
+
+#: search.php:16
+msgid "Search Results for: "
 msgstr ""
 
 #: searchform.php:9 searchform.php:13
@@ -1131,96 +1907,88 @@ msgstr ""
 msgid "What are you looking for?"
 msgstr ""
 
-#: templates/content-defaults.php:67 templates/content-search.php:55
-#: templates/content.php:55
+#: searchform.php:16
+msgid "Search"
+msgstr ""
+
+#: templates/content-defaults.php:66 templates/content-search.php:54
+#: templates/content.php:54
 msgid "Read More "
 msgstr ""
 
-#: templates/content-none.php:11
+#: templates/content-none.php:12
 msgid "Sorry! Page Not Found"
 msgstr ""
 
-#: templates/content-none.php:12
+#: templates/content-none.php:14
 msgid "Nothing found for"
 msgstr ""
 
-#: templates/content-none.php:13
+#: templates/content-none.php:16
 msgid "Nothing Found"
 msgstr ""
 
-#: templates/content-none.php:21
+#: templates/content-none.php:25
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: templates/content-none.php:25
+#: templates/content-none.php:29
 msgid ""
 "The article you requested has either been removed or doesn&rsquo;t exist in "
 "our site. Check out the articles below or try searching."
 msgstr ""
 
-#: templates/content-none.php:30
+#: templates/content-none.php:34
 msgid ""
 "Sorry, but nothing matched your search terms. Check out the articles below "
 "or try again with some different keywords."
 msgstr ""
 
-#: templates/content-none.php:35
+#: templates/content-none.php:39
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
 
-#: templates/content-none.php:45
+#: templates/content-none.php:49
 msgid "Consider These Articles"
 msgstr ""
 
-#: templates/content-search.php:55
+#: templates/content-search.php:54
 msgid "Read More"
 msgstr ""
 
-#: templates/content-single.php:79
+#: templates/content-single.php:85
 msgid "Related Posts"
 msgstr ""
 
-#: templates/custom-social.php:18
-msgid "Share"
-msgstr ""
-
-#: templates/custom-social.php:18
-msgid "on Facebook"
-msgstr ""
-
-#: templates/custom-social.php:19
-msgid "Tweet"
-msgstr ""
-
-#: templates/custom-social.php:19
-msgid "on Twitter"
-msgstr ""
-
-#: templates/custom-social.php:20
-msgid "Google+"
-msgstr ""
-
-#: templates/custom-social.php:21
-msgid "LinkedIn"
-msgstr ""
-
-#: templates/custom-social.php:22
-msgid "Pinterest"
-msgstr ""
-
-#: templates/custom_templates/content-featured-grid.php:22
-#: templates/custom_templates/content-featured-grid.php:61
+#: templates/custom_templates/content-featured-grid.php:32
+#: templates/custom_templates/content-featured-grid.php:91
 msgid "Featured"
 msgstr ""
 
-#: woocommerce/content-product.php:90
-msgid "Category:"
+#: woocommerce/content-product.php:50
+msgid "Add to Cart"
 msgstr ""
 
-#: woocommerce/content-product.php:98
+#: woocommerce/content-product.php:95
 msgid "Details "
+msgstr ""
+
+#: woocommerce/content-product.php:95
+msgid "More Details "
+msgstr ""
+
+#: woocommerce/single-product/product-image.php:47
+msgid "Placeholder"
+msgstr ""
+
+#: woocommerce/single-product/review-meta.php:27
+msgid "Your review is awaiting approval"
+msgstr ""
+
+#: woocommerce/single-product/review-meta.php:37
+msgid "verified owner"
 msgstr ""

@@ -32,13 +32,13 @@ query_posts( array( 'category_name' => $wise_post_categ, 'post_type' => 'post', 
 							echo '">';
 							if ( has_category() && ( $first_cats != $single_cat_title ) ) {
 								echo '<div class="index-cat">';	
-								echo wise_parent_cat();
+								wise_parent_cat();
 								echo '</div>';
 							}
 							echo '<a href="';
 							echo esc_url(get_permalink());
 							echo ' ">';
-							echo the_post_thumbnail('wise-home-thumb');
+							the_post_thumbnail('wise-home-thumb');
 							echo '</a></div>';
 						} else { null; } // If there's no image then nothing will display
 						?>
@@ -50,21 +50,20 @@ query_posts( array( 'category_name' => $wise_post_categ, 'post_type' => 'post', 
 									echo '<h2 class="entry-title-index';
 									if( $wise_post_layout == 'grid' ) { echo '-grid title-sub'; }
 									echo '">';
-									echo '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . get_the_title() . '</a></h2>';
+									echo '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . esc_html( get_the_title() ) . '</a></h2>';
 								?>
 								
 								<?php if ( 'post' == get_post_type() ) : ?>
 								<div class="entry-meta-index">
-									<?php wise_posted_on(); ?><?php wise_posted_by(); ?><?php echo '<span class="post-views"> ' . wise_get_post_views(get_the_ID()) . '</span>'; ?><?php wise_comments(); ?>
+									<?php wise_posted_on(); ?><?php wise_posted_by(); ?><?php wise_comments(); ?>
 									<?php edit_post_link( esc_html__( 'Edit', 'wise-blog' ), '<span class="edit-link">', '</span>' ); ?>
 								</div><!-- End of .entry-meta -->
 								<?php endif; ?>
 							</header><!-- End of .entry-header -->
 
 							<div class="entry-content-index">
-								<?php 					
-									echo the_excerpt();
-									echo '<a class="read-more" href="' . esc_url(get_permalink()) . '" title="' . esc_attr__('Read More ', 'wise-blog') . get_the_title() . '" rel="bookmark">' . esc_html__('Read More ', 'wise-blog') . '</a>';
+								<?php the_excerpt();
+									echo '<a class="read-more" href="' . esc_url(get_permalink()) . '" title="' . esc_attr__('Read More ', 'wise-blog') . esc_attr( get_the_title() ) . '" rel="bookmark">' . esc_html__('Read More ', 'wise-blog') . '</a>';
 								?>
 							</div><!-- End of .entry-content -->
 						</div><!-- End of .title-content-index -->

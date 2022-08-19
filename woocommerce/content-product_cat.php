@@ -10,10 +10,10 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woothemes.com/document/template-structure/
+ * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 2.6.1
+ * @version 9.9.8
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -47,8 +47,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	echo '<div class="title-content-index zero">';
 	echo '<h3 class="entry-title-index">';
-	echo '<a href="'. get_term_link( $category->slug, 'product_cat' ) . '">';
-	echo  $category->name . '</a>';
+	echo '<a href="'. esc_url( get_term_link( $category->slug, 'product_cat' ) ) . '">';
+	echo  esc_html( $category->name ) . '</a>';
 	echo '</h3>';
 	
 

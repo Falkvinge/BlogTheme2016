@@ -3,9 +3,8 @@
 * Template to Display Footer Widgets
 *
 */
-?>
-<?php
-if ( ! is_active_sidebar( 'sidebar-3' ) ) {
+
+if( !is_active_sidebar( 'sidebar-3' ) ) {
 	return;
 }
 ?>

@@ -1,16 +1,16 @@
 === WISE BLOG WORDPRESS THEME ===
   
 === created by: Probewise
-http://www.probewise.com/
+https://www.probewise.com/
 
 === Theme URL is located here:
-http://www.probewise.com/themes/wise-blog/
+https://www.probewise.com/themes/wise-blog/
   
 === The documentation is located here:
-http://www.probewise.com/docs/wise-blog/
+https://www.probewise.com/docs/wise-blog/
 
 === Thank you for purchasing this theme, you can reach us here:
-http://www.probewise.com/themes/wise-blog/#tab-support
+https://www.probewise.com/themes/wise-blog/#cm_supp
 
 === The online version history is located here:
-http://www.probewise.com/themes/wise-blog/#tab-changelog
+https://www.probewise.com/themes/wise-blog/#cm_specs

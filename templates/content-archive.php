@@ -4,24 +4,26 @@
 *
 */
 ?>
-<?php $wise_post_layout = get_option('wise_posts_layout'); ?>
+<?php $wise_post_layout = get_theme_mod('wise_posts_layout'); ?>
 <div class="content-wrapper-outer">
 	<div class="content-wrapper" data-sticky_parent>
 		<?php get_sidebar('docs_top'); ?>
 		<div id="primary" class="content-area">
-			<?php get_sidebar('left'); ?>
+			<?php get_sidebar('pageleft'); ?>
 			<main id="main" class="site-main<?php if( !have_posts() ) : echo ' single-page'; endif; ?>">
 
 			<?php if ( have_posts() ) : ?>
 			
-				<div class="top-meta-2">
+				<?php if( function_exists('wise_breadcrumbs') && get_theme_mod('wise_dis_breadcrumbs') == null ) : ?>
+				<div class="top-meta">
 					<?php wise_breadcrumbs(); ?>
-				</div><!-- End of Breadcrumbs -->
+				</div><!-- End of .top-meta -->
+				<?php endif; ?>
 				
 				<?php if( !is_home() ) : ?>
 				<header class="page-header">
-					<?php	$wise_arch_title = sprintf( '<h2 class="page-title-archive">%s</h2>', get_the_archive_title() );
-							echo wp_kses_post( str_replace( 'Category: ', '', $wise_arch_title ) );
+					<?php	$wise_arch_title = sprintf( '<h1 class="page-title-archive">%s</h1>', get_the_archive_title() );
+							echo wp_kses_post($wise_arch_title);
 							the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
 				</header><!-- End of .page-header -->
 				<?php endif; ?>

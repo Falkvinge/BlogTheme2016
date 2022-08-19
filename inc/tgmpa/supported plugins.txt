@@ -1,0 +1,36 @@
+=== WISE BLOG WORDPRESS THEME ===
+
+=== This theme supports the following plugin:
+
+=== Required Plugins
+
+	== Wise Blog Contents
+
+	== Carbon Fields
+
+=== Recommended Plugins
+
+	== Autoptimize
+
+	== Contact Form 7
+
+	== Screets Live Chat Unlimited (included)
+
+	== bbPress
+
+	== WooCommerce
+
+	== Google XML Sitemaps
+
+	== The SEO Framework
+
+	== Stop Spammers
+
+	== Customizer Export/Import
+
+	== Widget Importer & Exporter
+
+	== One Click Demo Import
+
+=== created by: Probewise
+https://www.probewise.com/

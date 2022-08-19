@@ -63,7 +63,7 @@ jQuery(document).ready(function($){
 	   $contRight.masonry().masonry('destroy');
 	}
 	
-	$(window).resize(function() {
+	$(window).on('resize',function() {
 		var greatbreak = 947;
 		var greatless = 662;
 		var windoWidth = $(window).width();
