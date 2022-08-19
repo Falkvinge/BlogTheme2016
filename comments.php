@@ -33,7 +33,6 @@
 		
 		'comment_field' =>  '<p class="comment-form-comment">' .
 		'<textarea id="comment" name="comment" placeholder="What do you think of this? Is somebody wrong on the Internet? Tell them what you think here!" cols="45" rows="8" aria-required="true">' .
-
 			'</textarea></p>',
 			
 		$fields =  array(
@@ -80,8 +79,8 @@
 			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'wise-blog' ); ?></h2>
 			<div class="nav-links">
 
-				<div class="nav-previous"><?php previous_comments_link( wp_kses_post( __( '<i class="fa fa-arrow-left"></i> Older Comments', 'wise-blog' ) ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( wp_kses_post( __( 'Newer Comments <i class="fa fa-arrow-right"></i>', 'wise-blog' ) ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( wp_kses_post( __( '<i class="fa fa-chevron-left" aria-hidden="true"></i>Older Comments', 'wise-blog' ) ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( wp_kses_post( __( 'Newer Comments<i class="fa fa-chevron-right" aria-hidden="true"></i>', 'wise-blog' ) ) ); ?></div>
 
 			</div><!-- End of .nav-links -->
 		</nav><!-- End of #comment-nav-below -->

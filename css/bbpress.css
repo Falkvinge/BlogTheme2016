@@ -356,7 +356,7 @@ span.bbp-author-ip {
 	background-color: #f9f9f9;
 	border: 1px solid #ddd;
 	padding: 0 5px;
-	max-width: 100%;
+	max-width: 95%;
 	vertical-align: middle;
 	margin-top: -3px;
 }
@@ -406,7 +406,7 @@ div.bbp-breadcrumb {
 
 .top-meta-2 .bbp-breadcrumb {
 	float: left;
-	display: inline;
+	display: block;
 }
 
 .top-meta-2 .bbp-breadcrumb p {
@@ -576,7 +576,7 @@ td.bbp-topic-counts {
 .bbp-pagination-links {
 	float: right;
 	list-style: none;
-	display: inline;
+	display: block;
 	}
 	.bbp-pagination-links a,
 	.bbp-pagination-links span.current {
@@ -770,6 +770,7 @@ p.form-allowed-tags {
 	margin: 0;
 	padding: 0;
 	line-height: 0;
+	border: none;
 }
 
 #bbpress-forums div.bbp-the-content-wrapper td.mceStatusbar {
@@ -845,7 +846,7 @@ p.form-allowed-tags {
 	}
 	#bbpress-forums #bbp-your-profile fieldset fieldset.password {
 		width: 60%;
-		display: inline;
+		display: block;
 	}
 	#bbpress-forums #bbp-your-profile fieldset fieldset.password input,
 	#bbpress-forums #bbp-your-profile fieldset fieldset.password span {
@@ -1176,9 +1177,6 @@ body.my-account #bbpress-forums {
 
 /* =Standard Mobile Landscape
 -------------------------------------------------------------- */
-@media screen and (max-device-width: 480px), screen and (-webkit-min-device-pixel-ratio: 2) {
-	-webkit-text-size-adjust: none;
-}
 @media only screen and (max-width: 480px) {
 	#bbpress-forums div.bbp-topic-tags {
 		clear: left;
@@ -1210,7 +1208,7 @@ body.my-account #bbpress-forums {
 		font-size: 11px;
 	}
 	#bbpress-forums .bbp-body div.bbp-reply-author {
-		margin: -15px 10px 10px;
+		margin: 0;
 		min-height: 100px;
 		padding-left: 80px;
 		position: relative;
@@ -1225,7 +1223,6 @@ body.my-account #bbpress-forums {
 	}
 	#bbpress-forums div.bbp-reply-author img.avatar {
 		position: absolute;
-		top: 15px;
 		left: 0;
 		width: 60px;
 		height: auto;
@@ -1510,9 +1507,6 @@ bbPress Design
 	float: none;
 }
 
-.widget_display_stats {
-}
-
 .widget_display_stats dl dt {
 	float: right;
 	text-transform: uppercase;
@@ -1604,6 +1598,7 @@ bbPress Design
     font-size: 14px;
 	font-family: "Open Sans", sans-serif;
     font-weight: 400;
+	line-height: 1.4em;
 }
 
 /* Lists */
@@ -1653,7 +1648,7 @@ bbPress Design
 	border-bottom: 1px solid #eee;
 }
 
-.reply:before {
+#bbpress-forums .reply:before {
 	content: none;
 }
 
@@ -1749,7 +1744,6 @@ div.bbp-submit-wrapper {
 }
 
 #bbpress-forums div.bbp-forum-author, #bbpress-forums div.bbp-topic-author, #bbpress-forums div.bbp-reply-author {
-	width: auto !important;
 	line-height: 1em;
 }
 

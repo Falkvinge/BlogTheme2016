@@ -23,7 +23,6 @@
 .header-wrapper {
 	width: 100%;
 	height: auto;
-	background: transparent;
 	position: relative;
 	z-index: 9998;
 }
@@ -60,8 +59,6 @@
 	margin: 0 -340px 0 0;
 	width: 100%;
 	overflow: hidden;
-	margin-bottom: -99998px !important;
-	padding-bottom: 99999px;
 }
 
 .site-main {
@@ -70,8 +67,6 @@
 	padding-right: 20px;
 	padding-left: 20px;
 	padding-top: 40px;
-	margin-bottom: -99998px !important;
-	padding-bottom: 100024px;
 }
 
 .site-main-two-column {
@@ -80,8 +75,6 @@
 	padding-right: 20px;
 	padding-left: 20px;
 	padding-top: 40px;
-	margin-bottom: -99998px !important;
-	padding-bottom: 100024px;
 }
 
 .widget-area-right {
@@ -123,19 +116,11 @@
 	margin-bottom: 0;
 }
 
-.footer-wrapper {
-	width: 100%;
-	position: relative;
-	z-index: 1;
-}
-
 .site-footer {
 	clear: both;
 	width: 1110px;
 	margin: 0 auto;
 	padding: 20px;
-	font-family: "Open Sans", sans-serif;
-	font-weight: 400;
 	color: #a5a5a5;
 }
 
@@ -209,14 +194,14 @@
 	.footer-widgets .widget { width: 50%; }
 }
 
-@media screen and (min-width: 786px) and (max-width: 963px) {
+@media screen and (min-width: 786px) and (max-width: 970px) {
 	.title-content-index {
 		display: inline-block;
 		word-wrap: break-word;
 		width: 65%;
 	}
 	.home-index-thumb {
-		display: inline-block;
+		display: block;
 		float: left;
 		width: 30%;
 	}
@@ -259,7 +244,7 @@
 		display: none;
 	}
 	.widget-area-right{
-		display: inline-block;
+		display: block;
 		width: 748px;
 		border-left: 0;
 		float: left;
@@ -313,7 +298,7 @@
 	}
 
 	.home-index-thumb {
-		display: inline-block;
+		display: block;
 		float: left;
 		width: 30%;
 	}
@@ -355,7 +340,7 @@
 		padding-right: 20px;
 	}
 	.widget-area-right {
-		display: inline-block;
+		display: block;
 		width: 100%;
 		padding-right: 0;
 		border-left: 0;
@@ -381,7 +366,7 @@
 		width: 100%;
 	}
 	.home-index-thumb {
-		display: inline-block;
+		display: block;
 		float: left;
 		width: 100%;
 	}
@@ -417,6 +402,9 @@
 	}
 	.home-index-thumb img {
 		width: 100%;
+	}
+	.entry-title-index {
+		margin-top: -20px;
 	}
 	.site-header{
 		width: 420px;
@@ -456,7 +444,7 @@
 		display: none;
 	}
 	.widget-area-right {
-		display: inline-block;
+		display: block;
 		width: 100%;
 		padding-top: 0;
 		border-left: 0;
@@ -474,8 +462,7 @@
 	}
 	.paging-navigation li a.prev,
 	.paging-navigation li a.next {
-		display: inline !important;
-		width: auto;		
+		display: inline;	
 	}
 	.site-main .paging-navigation {
 		margin: 0 auto;
@@ -507,7 +494,7 @@
 		width: 100%;
 	}
 	.home-index-thumb {
-		display: inline-block;
+		display: block;
 		float: left;
 		width: 100%;
 	}
@@ -557,6 +544,9 @@
 	.home-index-thumb img {
 		width: 100%;
 	}
+	.entry-title-index {
+		margin-top: -20px;
+	}
 	.footer-widgets .widget {
 		width: 90%;
 	}
@@ -565,8 +555,7 @@
 	}
 	.paging-navigation li a.prev,
 	.paging-navigation li a.next {
-		display: inline !important;
-		width: auto;		
+		display: inline;
 	}
 	.site-main .paging-navigation {
 		margin: 0 auto;
@@ -651,7 +640,7 @@
 		width: 100%;
 	}
 	.entry-header-index-grid {
-		margin-top: 1em;
+		margin-top: 2em;
 		line-height: 2em;
 	}
 }
@@ -834,7 +823,7 @@
 	.mobile-size { display: none; }
 }
 
-@media screen and (max-width: 963px) {
+@media screen and (max-width: 970px) {
 	.desktop-size { display: none; }
 	.mobile-size { display: table; }
 	.sidebar-wrapper-outer {
@@ -885,7 +874,7 @@
 	.sermon-filter-inner { width: 100%; }
 }
 
-@media screen and (min-width: 769px) and (max-width: 963px) {
+@media screen and (min-width: 769px) and (max-width: 970px) {
 	.tri-description {
 		width: 100% !important;
 		max-width: 420px !important;
@@ -903,7 +892,7 @@
 	}
 }
 
-@media screen and (min-width: 768px) and (max-width: 963px) {
+@media screen and (min-width: 768px) and (max-width: 970px) {
 	.welcome-message,
 	.welcome-message-down {
 		width: 768px;

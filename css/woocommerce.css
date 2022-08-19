@@ -63,6 +63,10 @@
 	background: #ccc;
 }
 
+.paypal-button .paypal-button-text {
+    display:none;
+}
+
 /* Quantity */
 .woocommerce .quantity .qty {
     width: 3.631em;
@@ -333,7 +337,9 @@ label[for=payment_method_paypal_express] img {
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li a {
-	font-weight: 600;
+    padding: 6px 0px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li:before,
@@ -483,7 +489,7 @@ label[for=payment_method_paypal_express] img {
     top: 0;
 }
 
-@media screen and (max-width:963px) and (min-width:560px) {
+@media screen and (max-width:970px) and (min-width:560px) {
 	.woocommerce span.onsale {
 		min-height: auto;
 		min-width: auto;
@@ -536,6 +542,14 @@ label[for=payment_method_paypal_express] img {
 
 .woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register {
 	border-radius: 0;
+}
+
+.woocommerce .woocommerce-review__author {
+	font-weight: normal;
+}
+
+.woocommerce .comment-text p {
+	font-size: 14px;
 }
 
 /* Login Form */
@@ -847,7 +861,7 @@ p.demo_store a.button-2 {
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li a {
-	color: #434343;
+	color: #707070;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover {
@@ -994,7 +1008,7 @@ position: absolute;
 }
 
 .woocommerce input#ship-to-different-address-checkbox {
-	display: inline-block;
+	display: block;
     float: left;
     margin: 5px 5px 0 0;
 }
@@ -1015,9 +1029,6 @@ position: absolute;
 
 /* Shop Icon */
 .wise-shop-icon {
-	margin-left: 10px;
-	padding-left: 10px;
-	border-left: 1px solid #eee;
 	display: inline;
 	position: relative;
 }
@@ -1033,12 +1044,13 @@ position: absolute;
 }
 
 .wnumber {
-	color: #ffffff;
+    color: #ffffff;
     background: #777;
-    border-radius: 0.7em;
-    padding: 0 .5em;
-    margin-right: .3em;
+    border-radius: 7px;
+    padding: 0 4.5px;
+    margin-right: 3px;
     font-size: 11px;
+    vertical-align: .6px;
 }
 
 .wnumber:hover {
@@ -1064,7 +1076,7 @@ position: absolute;
 
 .woocommerce .widget_rating_filter ul li .star-rating {
     float: right;
-    display: inline-block;
+    display: block;
 }
 
 .woocommerce .widget_rating_filter ul li.chosen a:before {

@@ -10,10 +10,10 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woothemes.com/document/template-structure/
+ * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 2.6.1
+ * @version 9.9.8
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -27,7 +27,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<?php $product_layout = get_option('wise_prod_layout'); ?>
+<?php $product_layout = get_theme_mod('wise_prod_layout'); ?>
 <div class="index-divider<?php if ($product_layout) { echo '-' . esc_attr($product_layout) . ' custom-divider-three'; } ?>">
 	<?php
 	
@@ -39,16 +39,13 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	global $post;
 	$postid = get_the_ID();		
-	$price_html = $product->get_price_html();
-	$product = new WC_Product( get_the_ID() );
-	$price = $product->price;
-	$products = get_product( $post->ID );
+	$products = wc_get_product( $post->ID );
 	$ex_product = $products->is_type( 'external' );
 	
 	echo '<div class="home-index-thumb';
 	if ($product_layout) { echo '-' . esc_attr($product_layout); }
 	echo '">';
-	if ( $price != 0 && $price != null && !$ex_product ) {
+	if ( !$ex_product ) {
 		echo '<div class="index-cart"><a href="' . esc_url(get_permalink()) . '?add-to-cart=' . esc_attr($postid) . '">';
 		echo '<i class="fa fa-shopping-cart"></i> ' . esc_html__( 'Add to Cart', 'wise-blog' ) . '</a></div>';
 	}
@@ -87,7 +84,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		// Category
 		global $wise_allowed_html;
 		$size = sizeof( get_the_terms( $post->ID, 'product_cat' ) );
-		$cat_products = $product->get_categories( ', ', '<p>' . _n( 'Category:', 'Categories:', $size, 'wise-blog' ) . ' ', ' </p>' );
+		$cat_products = wc_get_product_category_list( $postid, ', ', '<p>' . _n( 'Category:', 'Categories:', $size, 'wise-blog' ) . ' ', '</p>' );
 		echo wp_kses_post($cat_products);
 		
 		// Excerpt

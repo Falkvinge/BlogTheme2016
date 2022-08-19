@@ -7,29 +7,29 @@ get_header(); ?>
 <div id="blog">
 	<div class="content-wrapper-outer">
 		<div class="content-wrapper" data-sticky_parent>
-		
+			<?php get_sidebar('docs_top'); ?>
 			<div id="primary" class="content-area">	
-				<?php get_sidebar('left'); ?>
-				<main id="main" class="site-main<?php if( !have_posts() ) : echo ' single-page'; endif; ?>">
+				<?php get_sidebar('pageleft'); ?>
+				<main id="main" class="site-main">
 					
 					<?php
 						if ( get_query_var('paged') ) { $paged = get_query_var('paged'); }
 						elseif ( get_query_var('page') ) { $paged = get_query_var('page'); }
 						else { $paged = 1; }
-						$number_default = get_option('wise_def_posts');
+						$number_default = get_theme_mod('wise_def_posts');
 						query_posts( array('post_type' => 'post', 'post_status' => 'publish', 'orderby' => 'date', /* 'posts_per_page' => $number_default, */ 'paged' => $paged ) ); ?>
 					<?php if ( have_posts() ) : ?>
-					<?php if(get_option('wise_def_name')) { echo '<header class="page-header"><h2 class="page-title-archive">' . esc_html(get_option('wise_def_name')) . '</h2></header>'; } ?>
+					<?php if(get_theme_mod('wise_def_name')) { echo '<header class="page-header"><h1 class="page-title-archive">' . esc_html(get_theme_mod('wise_def_name')) . '</h1></header>'; } ?>
 					
-						<?php if(get_option('wise_posts_layout') == 'grid') { echo '<div class="index-wrapper-outer">'; } ?>
-							<div id="index-lists<?php if (get_option('wise_posts_layout')) { echo '-' . esc_attr(get_option('wise_posts_layout')); } ?>" class="index-wrapper<?php if (get_option('wise_posts_layout')) { echo '-' . esc_attr(get_option('wise_posts_layout')); } ?>">
+						<?php if(get_theme_mod('wise_posts_layout') == 'grid') { echo '<div class="index-wrapper-outer">'; } ?>
+							<div id="index-lists<?php if (get_theme_mod('wise_posts_layout')) { echo '-' . esc_attr(get_theme_mod('wise_posts_layout')); } ?>" class="index-wrapper<?php if (get_theme_mod('wise_posts_layout')) { echo '-' . esc_attr(get_theme_mod('wise_posts_layout')); } ?>">
 							<?php while ( have_posts() ) : the_post(); ?>
 
 								<?php get_template_part( 'templates/content', get_post_format() ); ?>
 
 							<?php endwhile; ?>
 							</div>
-						<?php if(get_option('wise_posts_layout') == 'grid') { echo '</div>'; } ?>
+						<?php if(get_theme_mod('wise_posts_layout') == 'grid') { echo '</div>'; } ?>
 						
 						<?php wise_paging_nav(); ?>
 

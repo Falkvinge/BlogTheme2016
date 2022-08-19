@@ -4,15 +4,16 @@
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/archive-product.php.
  *
- * HOWEVER, on occasion WooCommerce will need to update template files and you (the theme developer).
- * will need to copy the new files to your theme to maintain compatibility. We try to do this.
- * as little as possible, but it does happen. When this occurs the version of the template file will.
- * be bumped and the readme will list any important changes.
+ * HOWEVER, on occasion WooCommerce will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen. When this occurs the version of the template file will be bumped and
+ * the readme will list any important changes.
  *
- * @see 	    http://docs.woothemes.com/document/template-structure/
+ * @see 	    https://docs.woocommerce.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.0.0
+ * @version     9.9.8
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -20,25 +21,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
-<?php
-	/**
-	 * woocommerce_before_main_content hook.
-	 *
-	 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-	 * @hooked woocommerce_breadcrumb - 20
-	 */
-	add_action( 'woocommerce_wraps', 'woocommerce_output_content_wrapper', 10 );
-	do_action( 'woocommerce_wraps');
-?>
 
-	<div class="top-meta-2">
+	<div class="top-meta">
 		<?php woocommerce_breadcrumb(); ?>
 	</div><!-- breadcrumbs -->
 
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 
 		<div class="page-header clear">
-			<h2 class="page-title-archive"><?php woocommerce_page_title(); ?></h2>
+			<h1 class="page-title-archive"><?php woocommerce_page_title(); ?></h1>
 		</div>
 
 	<?php endif; ?>
@@ -64,20 +55,17 @@ get_header( 'shop' ); ?>
 			 */
 			do_action( 'woocommerce_before_shop_loop' );
 		?>
-
-		<?php woocommerce_product_loop_start(); ?>
-			
-			<?php /* product categories and subcategories */ ?>
-			
+		<div class="clear">
 			<div class="index-wrapper-outer">
 				<div id="comp4" class="col-4">			
-					<?php woocommerce_product_subcategories(); ?>
+					<?php woocommerce_product_loop_start(); ?>
 				</div>
 			</div>
+		</div>
 			
 			<span class="border-1"></span>
 			
-			<?php $product_layout = get_option('wise_prod_layout'); ?>
+			<?php $product_layout = get_theme_mod('wise_prod_layout'); ?>
 			<?php if($product_layout == 'grid') { echo '<div class="index-wrapper-outer">'; }  ?>
 			<div id="index-lists<?php if ($product_layout) { echo '-' . esc_attr($product_layout); } ?>" class="index-wrapper<?php if ($product_layout) { echo '-' . esc_attr($product_layout); } ?>">
 			
@@ -106,12 +94,3 @@ get_header( 'shop' ); ?>
 		<?php wc_get_template( 'loop/no-products-found.php' ); ?>
 
 	<?php endif; ?>
-
-<?php
-	/**
-	 * woocommerce_after_main_content hook.
-	 *
-	 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-	 */
-	do_action( 'woocommerce_after_main_content' );
-?>

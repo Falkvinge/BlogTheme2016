@@ -55,7 +55,7 @@ query_posts( array( 'category_name' => $wise_post_categ, 'post_type' => 'post', 
 								
 								<?php if ( 'post' == get_post_type() ) : ?>
 								<div class="entry-meta-index">
-									<?php wise_posted_on(); ?><?php wise_posted_by(); ?><?php printf( '<span class="post-views"> %d</span>', wise_get_post_views( get_the_ID() ) ); ?><?php wise_comments(); ?>
+									<?php wise_posted_on(); ?><?php wise_posted_by(); ?><?php wise_comments(); ?>
 									<?php edit_post_link( esc_html__( 'Edit', 'wise-blog' ), '<span class="edit-link">', '</span>' ); ?>
 								</div><!-- End of .entry-meta -->
 								<?php endif; ?>

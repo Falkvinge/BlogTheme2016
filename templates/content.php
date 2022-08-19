@@ -4,7 +4,7 @@
 *
 */
 ?>
-<?php $wise_posts_layout = get_option('wise_posts_layout'); ?>
+<?php $wise_posts_layout = get_theme_mod('wise_posts_layout'); ?>
 <div class="index-divider<?php if ( $wise_posts_layout == 'grid' ) { echo '-grid'; } ?>">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -43,7 +43,7 @@
 				
 				<?php if ( 'post' == get_post_type() ) : ?>
 				<div class="entry-meta-index">
-					<?php wise_posted_on(); ?><?php wise_posted_by(); ?><?php printf( '<span class="post-views"> %d</span>', wise_get_post_views( get_the_ID() ) ); ?><?php wise_comments(); ?>
+					<?php wise_posted_on(); ?><?php wise_posted_by(); ?><?php if( function_exists('wise_get_post_views') ) : wise_get_post_views( get_the_ID() ); endif; ?><?php wise_comments(); ?>
 					<?php edit_post_link( esc_html__( 'Edit', 'wise-blog' ), '<span class="edit-link">', '</span>' ); ?>
 				</div><!-- End of .entry-meta -->
 				<?php endif; ?>

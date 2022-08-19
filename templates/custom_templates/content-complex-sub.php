@@ -22,7 +22,8 @@
 			<header class="entry-header-index-compsub">				
 				<?php
 					echo '<h5 class="entry-title-index-compsub">';
-					echo '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . esc_html( get_the_title() ) . '</a></h5>';
+					echo '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . esc_html( get_the_title() ) . '</a></h5><span class="entry-meta-sub">';
+					if( function_exists('wise_posted_on') ) : wise_posted_on(); endif; echo '</span>';
 				?>
 			</header><!-- .entry-header -->
 

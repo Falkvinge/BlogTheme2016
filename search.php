@@ -5,19 +5,19 @@
 */
 get_header(); ?>
 <div class="content-wrapper-outer">
-	<div class="content-wrapper" data-sticky_parent>
-	
+	<div class="content-wrapper" data-sticky_parent>	
 		<div id="primary" class="content-area">
-			<main id="main" class="site-main single-page">
+			<?php get_sidebar('pageleft'); ?>
+			<main id="main" class="site-main">
 			
 				<?php if ( have_posts() ) : ?>
+				
+					<header class="page-header">
+						<h1 class="page-title-archive"><?php echo esc_html__( 'Search Results for: ', 'wise-blog' ), '<span><em>&#34;' . get_search_query() . '&#34;</em></span>'; ?></h1>
+					</header><!-- End of .page-header -->
 
-					<?php if(get_option('wise_posts_layout') == 'grid') { echo '<div class="index-wrapper-outer">'; } ?>
-						<div id="index-lists<?php if (get_option('wise_posts_layout')) { echo '-' . esc_attr(get_option('wise_posts_layout')); } ?>" class="index-wrapper page-singles">
-						
-						<header class="page-header">
-							<h2 class="page-title-archive"><?php printf( esc_html__( 'Search Results for: %s', 'wise-blog' ), '<span><em>&#34;' . get_search_query() . '&#34;</em></span>' ); ?></h2>
-						</header><!-- End of .page-header -->
+					<?php $wise_post_layout = get_theme_mod('wise_posts_layout'); if( $wise_post_layout == 'grid' ) { echo '<div class="index-wrapper-outer">'; } ?>
+						<div id="index-lists<?php if( $wise_post_layout == 'grid' ) { echo '-grid'; } ?>" class="index-wrapper<?php if( $wise_post_layout == 'grid' ) { echo '-grid'; } ?>">
 						
 						<?php while ( have_posts() ) : the_post(); ?>
 
@@ -26,7 +26,7 @@ get_header(); ?>
 						<?php endwhile; ?>
 						<?php wise_paging_nav(); ?>
 						</div>
-					<?php if(get_option('wise_posts_layout') == 'grid') { echo '</div>'; } ?>
+					<?php if( $wise_post_layout == 'grid' ) { echo '</div>'; } ?>
 
 				<?php else : ?>
 
@@ -37,6 +37,7 @@ get_header(); ?>
 			</main><!-- End of #main -->
 		</div><!-- End of #primary -->
 		
+		<?php get_sidebar(); ?>	
 	</div><!-- End of #content-wrapper -->
 </div><!-- End of #content-wrapper-outer -->
 <?php get_footer(); ?>

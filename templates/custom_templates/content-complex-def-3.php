@@ -22,7 +22,8 @@
 			
 			<?php
 				echo '<h3 class="entry-title-index">';
-				echo '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . esc_html( get_the_title() ) . '</a></h3>';
+				echo '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . esc_html( get_the_title() ) . '</a></h3><span class="entry-meta-subig">';
+				if( function_exists('wise_posted_on') ) : wise_posted_on(); endif; echo '</span>';
 			?>
 			
 		</header><!-- .entry-header -->

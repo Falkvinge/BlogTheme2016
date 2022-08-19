@@ -18,16 +18,14 @@
 	2.7 Make HTML5 Valid
 	2.8 Posts Format Support
 3. Set Maximum Content Width
-4. Register Widgets
+4. Register Sidebars
 5. Enqueue Scripts and Style
 6. Require Functions
 	6.1 Additional Functions
-	6.2 Wise Widgets
-	6.3 Wise Panel
-	6.4 Wise Custom Fields
-7. One Click Demo Function
-	7.1 Demo File URL
-	7.2 Menu/Homepage Assignment
+	6.2 Wise Panel and Wise Typography
+	6.3 Wise Blocks and Fields
+	6.4 Dynamic Sidebar
+	6.5 TGM Plugin Activation
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -36,23 +34,37 @@
 // Styles Directory
 $wise_style_css = get_template_directory_uri() . '/style.css';
 $wise_font_awesome = get_template_directory_uri() . '/fonts/font-awesome/css/font-awesome.min.css';
-$wise_tabs_css = get_template_directory_uri() . '/css/tab.css';
+$wise_tabs_css = get_template_directory_uri() . '/css/tabs.css';
 $wise_bbpress_css = get_template_directory_uri() . '/css/bbpress.css';
 $wise_owl_carousel = get_template_directory_uri() . '/css/owl.carousel.css';
 $wise_woocommerce_css = get_template_directory_uri() . '/css/woocommerce.css';
-if( get_option('wise_pre_colors') != null ) { $wise_pre_colors_css = get_template_directory_uri() . '/css/pre-colors/color-' . get_option('wise_pre_colors') . '.css'; } else { $wise_pre_colors_css = null; };
 $wise_animate_css = get_template_directory_uri() . '/css/animate.css';
 $wise_prism_css = get_template_directory_uri() . '/css/prism.css';
-$wise_preloader_css = get_template_directory_uri() . '/css/preloader.css';
+
+// Header Style
+$wise_header_simple_css = get_template_directory_uri() . '/css/header-simple.css';
+
+// Predefined Colors
+$wise_pre_colors_css = get_template_directory_uri() . '/css/all-colors.css';  // default
+$wise_precs_newsred_css = get_template_directory_uri() . '/css/pre-colors/color-newsred.css';
+$wise_precs_orange_css = get_template_directory_uri() . '/css/pre-colors/color-orange.css';
+$wise_precs_darkcyan_css = get_template_directory_uri() . '/css/pre-colors/color-darkcyan.css';
+$wise_precs_steelblue_css = get_template_directory_uri() . '/css/pre-colors/color-steelblue.css';
+$wise_precs_olive_css = get_template_directory_uri() . '/css/pre-colors/color-olive.css';
+$wise_precs_wallnut_css = get_template_directory_uri() . '/css/pre-colors/color-wallnut.css';
+$wise_precs_sienna_css = get_template_directory_uri() . '/css/pre-colors/color-sienna.css';
+$wise_precs_hotpink_css = get_template_directory_uri() . '/css/pre-colors/color-hotpink.css';
+$wise_precs_neonpurple_css = get_template_directory_uri() . '/css/pre-colors/color-neonpurple.css';
 
 // Columns
-$wise_layout_opt = get_option('wise_layout');
-if( $wise_layout_opt != null ) { $wise_column_layout = get_template_directory_uri() . '/css/' . $wise_layout_opt . '-column.css'; } else { $wise_column_layout = get_template_directory_uri() . '/css/two-column.css'; }
+$wise_layout_opt = get_theme_mod('wise_layout');
+$wise_3column_layout = get_template_directory_uri() . '/css/three-column.css';
+$wise_2column_layout = get_template_directory_uri() . '/css/two-column.css';
 
 // Scripts Directory
 $wise_headhesive_js = get_template_directory_uri() . '/js/headhesive.min.js';
 $wise_superfish_js = get_template_directory_uri() . '/js/superfish.min.js';
-$wise_tab_js = get_template_directory_uri() . '/js/tab.min.js';
+$wise_tabs_js = get_template_directory_uri() . '/js/tabs.min.js';
 $wise_sticky_js = get_template_directory_uri() . '/js/sticky-kit.min.js';
 $wise_owl_js = get_template_directory_uri() . '/js/owl.carousel.min.js';
 $wise_masonry_js = get_template_directory_uri() . '/js/wise-masonry.js';
@@ -78,6 +90,15 @@ $wise_allowed_html = array(
 	'span' => array()
 );
 
+/* List Categories */
+global $wp_cats;
+$categories = get_categories('hide_empty=0&orderby=name');
+$wp_cats = array();
+foreach ($categories as $category_list ) {
+	$wp_cats[$category_list->slug] = $category_list->cat_name;
+}
+array_unshift($wp_cats, '');
+
 /*--------------------------------------------------------------
 2. Wise Setup
 --------------------------------------------------------------*/
@@ -87,71 +108,72 @@ if ( ! function_exists( 'wise_setup' ) ) :
 		/*--------------------------------------------------------------
 		2.1 Visual Editor Theme
 		--------------------------------------------------------------*/
-			if( is_admin() ) {
-				$font_url = str_replace( ',', '%2C', wise_google_fonts_settings() );
-				add_editor_style( 'css/custom-editor-style.css' );
-				add_editor_style( '/fonts/font-awesome/css/font-awesome.min.css' );
-				add_editor_style( $font_url );
-			}
+		if( is_admin() ) {
+			$wise_google_fonts_settings = function_exists('wise_google_fonts_settings') ? wise_google_fonts_settings() : null;
+			$font_url = str_replace( ',', '%2C', $wise_google_fonts_settings );
+			add_editor_style( 'css/custom-editor-style.css' );
+			add_editor_style( '/fonts/font-awesome/css/font-awesome.min.css' );
+			add_editor_style( $font_url );
+		}
 			
 		/*--------------------------------------------------------------
 		2.2 Language
 		--------------------------------------------------------------*/
-			load_theme_textdomain( 'wise-blog', get_template_directory() . '/lang' );
+		load_theme_textdomain( 'wise-blog', get_template_directory() . '/lang' );
 
 		/*--------------------------------------------------------------
 		2.3 RSS Links Support
 		--------------------------------------------------------------*/
-			add_theme_support( 'automatic-feed-links' );
+		add_theme_support( 'automatic-feed-links' );
 
 		/*--------------------------------------------------------------
 		2.4 Manage Document Title
 		--------------------------------------------------------------*/
-			add_theme_support( 'title-tag' );
+		add_theme_support( 'title-tag' );
 
 		/*--------------------------------------------------------------
 		2.5 Posts Thumbnails Sizes
 		--------------------------------------------------------------*/
-			add_theme_support( 'post-thumbnails' );
-			add_image_size( 'wise-post-thumb', 730, 438, true );
-			add_image_size( 'wise-related-thumb', 230, 138, true );
-			add_image_size( 'wise-home-thumb', 380, 228, true );
-			add_image_size( 'wise-side-thumb', 88, 53, true );
+		add_theme_support( 'post-thumbnails' );
+		add_image_size( 'wise-post-thumb', 730, 438, true );
+		add_image_size( 'wise-related-thumb', 230, 138, true );
+		add_image_size( 'wise-home-thumb', 380, 228, true );
+		add_image_size( 'wise-side-thumb', 88, 53, true );
 
 		/*--------------------------------------------------------------
 		2.6 Register Navigation
 		--------------------------------------------------------------*/
-			register_nav_menus( array(
-				'primary' => esc_html__( 'Primary Menu', 'wise-blog' ),
-				'secondary' => esc_html__( 'Secondary Menu', 'wise-blog' ),
-				'sitelinks_first' => esc_html__( 'Sitelinks First Column', 'wise-blog' ), // Sitelinks first column for sitelinks footer widget
-				'sitelinks_second' => esc_html__( 'Sitelinks Second Column', 'wise-blog' ), // Sitelinks second column for sitelinks footer widget
-				'footers' => esc_html__( 'Footer Menu', 'wise-blog' ),
-				'bbpress' => esc_html__( 'bbPress Menu', 'wise-blog' ),
-				'woocommerce' => esc_html__( 'WooCommerce Menu', 'wise-blog' ),
-			) );
+		register_nav_menus( array(
+			'primary' => esc_html__( 'Primary Menu', 'wise-blog' ),
+			'secondary' => esc_html__( 'Secondary Menu', 'wise-blog' ),
+			'sitelinks_first' => esc_html__( 'Sitelinks First Column', 'wise-blog' ), // Sitelinks first column for sitelinks footer widget
+			'sitelinks_second' => esc_html__( 'Sitelinks Second Column', 'wise-blog' ), // Sitelinks second column for sitelinks footer widget
+			'footers' => esc_html__( 'Footer Menu', 'wise-blog' ),
+			'bbpress' => esc_html__( 'bbPress Menu', 'wise-blog' ),
+			'woocommerce' => esc_html__( 'WooCommerce Menu', 'wise-blog' ),
+		) );
 
 		/*--------------------------------------------------------------
 		2.7 Make HTML5 Valid
 		--------------------------------------------------------------*/	
-			add_theme_support( 'html5', array(
-				'search-form',
-				'comment-form',
-				'comment-list',
-				'gallery',
-				'caption',
-			) );
+		add_theme_support( 'html5', array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		) );
 
 		/*--------------------------------------------------------------
 		2.8 Posts Format Support
 		--------------------------------------------------------------*/
-			add_theme_support( 'post-formats', array(
-				'aside',
-				'image',
-				'video',
-				'quote',
-				'link',
-			) );
+		add_theme_support( 'post-formats', array(
+			'aside',
+			'image',
+			'video',
+			'quote',
+			'link',
+		) );
 	}
 
 	/* End wise_setup */
@@ -166,7 +188,7 @@ if ( ! isset( $content_width ) ) :
 endif;
 
 /*--------------------------------------------------------------
-4. Register Widgets
+4. Register Sidebars
 --------------------------------------------------------------*/
 if ( ! function_exists( 'wise_widgets_init' ) ) :
 	function wise_widgets_init() {
@@ -225,7 +247,7 @@ if ( ! function_exists( 'wise_widgets_init' ) ) :
 			'id'            => 'sidebar-6',
 			'description'   => esc_attr__( 'Add widgets to be displayed at the bottom of header.', 'wise-blog' ),
 		) );
-		
+
 		register_sidebar( array(
 			'name'          => esc_attr__( 'Top Document', 'wise-blog' ),
 			'id'            => 'sidebar-7',
@@ -249,20 +271,28 @@ if ( ! function_exists( 'wise_scripts' ) ) :
 
 	function wise_scripts() {
 		
-		global $wp_filesystem, $wise_style_css, $wise_font_awesome, $wise_tabs_css, $wise_bbpress_css, $wise_owl_carousel, $wise_woocommerce_css, $wise_animate_css, $wise_pre_colors_css, $wise_column_layout, $wise_prism_css, $wise_preloader_css, 
-		$wise_headhesive_js, $wise_superfish_js, $wise_tab_js, $wise_sticky_js, $wise_owl_js, $wise_masonry_js, $wise_retina_js, $wise_alert_js, $wise_settings_js, $wise_smooth_scroll_js, $wise_homeToggle_js, $wise_prism_js;
+		global $wise_style_css, $wise_font_awesome, $wise_tabs_css, $wise_bbpress_css, $wise_owl_carousel, $wise_woocommerce_css, $wise_animate_css, $wise_pre_colors_css, $wise_3column_layout, $wise_2column_layout, $wise_prism_css, 
+		$wise_headhesive_js, $wise_superfish_js, $wise_tabs_js, $wise_sticky_js, $wise_owl_js, $wise_masonry_js, $wise_retina_js, $wise_alert_js, $wise_settings_js, $wise_smooth_scroll_js, $wise_homeToggle_js, $wise_prism_js,
+        $wise_precs_newsred_css, $wise_precs_orange_css, $wise_precs_darkcyan_css, $wise_precs_steelblue_css, $wise_precs_olive_css, $wise_precs_wallnut_css, $wise_precs_sienna_css, $wise_precs_hotpink_css, $wise_precs_neonpurple_css,
+        $wise_header_simple_css;
 	
+		$wise_google_fonts_settings = function_exists('wise_google_fonts_settings') ? wise_google_fonts_settings() : null;
+
+		wp_enqueue_style ( 'wise-tabs', $wise_tabs_css );
+		
 		wp_enqueue_style( 'wise-style', $wise_style_css );
 		
-		wp_enqueue_style ( 'wise-google-fonts', wise_google_fonts_settings(), false, null, 'all' );
+		wp_enqueue_style ( 'wise-google-fonts', $wise_google_fonts_settings, false, null, 'all' );
 		
 		wp_enqueue_style ( 'font-awesome', $wise_font_awesome );
 				
 		wp_enqueue_style ( 'tab-css', $wise_tabs_css );
 		
-		wp_enqueue_style ( 'owl-carousel-css', $wise_owl_carousel );
+		wp_enqueue_style ( 'owl-carousel', $wise_owl_carousel );
 		
-		wp_enqueue_style ( 'wise-layout-style', $wise_column_layout );
+		wp_enqueue_style ( 'wise-three-column-layout', $wise_3column_layout );
+
+		wp_enqueue_style ( 'wise-two-column-layout', $wise_2column_layout );
 		
 		if( function_exists('is_bbpress') ) {
 			wp_enqueue_style ( 'bbpress', $wise_bbpress_css );
@@ -272,28 +302,39 @@ if ( ! function_exists( 'wise_scripts' ) ) :
 			wp_enqueue_style ( 'woocommerce', $wise_woocommerce_css );
 		}
 								
-		wp_enqueue_style ( 'wise-pre-colors-css', $wise_pre_colors_css );
+		// Predefined Color Scheme
+		wp_enqueue_style ( 'wise-precs-neonpurple', $wise_precs_neonpurple_css );
+		wp_enqueue_style ( 'wise-precs-hotpink', $wise_precs_hotpink_css );
+		wp_enqueue_style ( 'wise-precs-sienna', $wise_precs_sienna_css );
+		wp_enqueue_style ( 'wise-precs-wallnut', $wise_precs_wallnut_css );
+		wp_enqueue_style ( 'wise-precs-olive', $wise_precs_olive_css );
+		wp_enqueue_style ( 'wise-precs-steelblue', $wise_precs_steelblue_css );
+		wp_enqueue_style ( 'wise-precs-darkcyan', $wise_precs_darkcyan_css );
+		wp_enqueue_style ( 'wise-precs-orange', $wise_precs_orange_css );
+		wp_enqueue_style ( 'wise-precs-newsred', $wise_precs_newsred_css );
 		
-		wp_enqueue_style ( 'animate-css', $wise_animate_css );
+		wp_enqueue_style ( 'animate', $wise_animate_css );
 		
-		wp_enqueue_style ( 'prism-css', $wise_prism_css );
-		
-		wp_enqueue_style ( 'wise-preloader', $wise_preloader_css );
+        wp_enqueue_style ( 'prism', $wise_prism_css );
+        
+        if( get_theme_mod( 'wise_header_type' ) == 'simple' ){
+            wp_enqueue_style ( 'wise-header-simple', $wise_header_simple_css );
+        }
 					
 		// Original Javascript			
-		if (get_option('wise_headhesive') == false) : wp_enqueue_script ( 'headhesive', $wise_headhesive_js, array('jquery'), '20150714', true ); endif;
+		if (get_theme_mod('wise_headhesive') == false) : wp_enqueue_script ( 'headhesive', $wise_headhesive_js, array('jquery'), '20150714', true ); endif;
 			
 		wp_enqueue_script( 'superfish', $wise_superfish_js, array('jquery'), '20150713', true );	
 		
-		wp_enqueue_script( 'tab', $wise_tab_js, array(), '20160109', true );
+		wp_enqueue_script( 'wise-tabs', $wise_tabs_js, array('jquery'), '1.12.1', true );
 			
-		if (get_option('wise_disable_sticky') == false) : wp_enqueue_script( 'sticky-kit', $wise_sticky_js, array(), '20151118', true ); endif;
+		if( get_theme_mod('wise_disable_sticky') == false ) : wp_enqueue_script( 'sticky-kit', $wise_sticky_js, array(), '20151118', true ); endif;
 				
 		wp_enqueue_script ( 'owl-carousel', $wise_owl_js, array('jquery'), '20151201', true );
 		
 		wp_enqueue_script ( 'masonry-settings', $wise_masonry_js, array('masonry'), '20151203', true );
 		
-		wp_enqueue_script ( 'retina', $wise_retina_js, array(), '20151228', true );
+		wp_enqueue_script ( 'retina', $wise_retina_js, array(), '20190923', true );
 		
 		wp_enqueue_script ( 'alert', $wise_alert_js, array(), '20160222', true );		
 		
@@ -325,131 +366,113 @@ endif; // End Enqueue
 	require get_template_directory() . '/inc/falkvinge-functions.php';
 
 	/*--------------------------------------------------------------
-	6.2 Wise Widgets
-	--------------------------------------------------------------*/
-	require get_template_directory() . '/inc/wise-widgets/wise-about.php';
-	require get_template_directory() . '/inc/wise-widgets/wise-popular-posts.php';
-	require get_template_directory() . '/inc/wise-widgets/wise-recent-posts.php';
-	require get_template_directory() . '/inc/wise-widgets/wise-tab-popular-recent.php';
-	require get_template_directory() . '/inc/wise-widgets/wise-sitelinks.php';
-	require get_template_directory() . '/inc/wise-widgets/wise-social-media-footer.php';
-	require get_template_directory() . '/inc/wise-widgets/wise-subscribe-footer.php';
-	require get_template_directory() . '/inc/wise-widgets/wise-subscribe-sidebar.php';
-	require get_template_directory() . '/inc/wise-widgets/wise-text-alert.php';
-	require get_template_directory() . '/inc/wise-widgets/wise-script.php';
-	require get_template_directory() . '/inc/wise-widgets/wise-dashboard-user.php';
-
-	/*--------------------------------------------------------------
-	6.3 Wise Panel
+	6.2 Wise Panel and Wise Typography
 	--------------------------------------------------------------*/
 	require get_template_directory() . '/inc/wise-panel/wise-panel.php';
+	require get_template_directory() . '/inc/wise-typography/main.php';
 	
 	/*--------------------------------------------------------------
-	6.4 Wise Custom Fields
+	6.3 Wise Blocks and Fields
 	--------------------------------------------------------------*/
-	if ( !class_exists( '\\Carbon_Fields\\Field\\Field' ) ) : // check if Carbon Fields is not already installed
-		function wise_carbon_fields_spl_autoload_register( $class ) {
-			$prefix = 'Carbon_Fields';
-			if ( stripos( $class, $prefix ) === false ) {
-				return;
+	if( function_exists('carbon_fields_boot_plugin') && !function_exists('wise_register_builder') ) :
+		function wise_register_builder() {
+			/* Verify if it is installed */
+			if ( !function_exists('carbon_get_post_meta') ) {
+				function carbon_get_post_meta( $id, $name, $type = null ) {
+					return false;
+				}   
 			}
 
-			$file_path = get_template_directory() . '/inc/carbon-fields/core/' . str_ireplace( 'Carbon_Fields\\', '', $class ) . '.php';
-			$file_path = str_replace( '\\', DIRECTORY_SEPARATOR, $file_path );
-			include_once( $file_path );
+			if ( !function_exists( 'carbon_get_the_post_meta' ) ) {
+				function carbon_get_the_post_meta( $name, $type = null ) {
+					return false;
+				}   
+			}
+
+			if ( !function_exists( 'carbon_get_theme_option' ) ) {
+				function carbon_get_theme_option( $name, $type = null ) {
+					return false;
+				}   
+			}
+
+			if ( !function_exists( 'carbon_get_term_meta' ) ) {
+				function carbon_get_term_meta( $id, $name, $type = null ) {
+					return false;
+				}   
+			}
+
+			if ( !function_exists( 'carbon_get_user_meta' ) ) {
+				function carbon_get_user_meta( $id, $name, $type = null ) {
+					return false;
+				}   
+			}
+
+			if ( !function_exists( 'carbon_get_comment_meta' ) ) {
+				function carbon_get_comment_meta( $id, $name, $type = null ) {
+					return false;
+				}   
+			}
+
+			/* Blocks and fields */
+			include_once get_template_directory() . '/inc/page-fields.php';
+            include_once get_template_directory() . '/inc/post-fields.php';
+            if( method_exists( '\\Carbon_Fields\\Container\\Block_Container', 'set_mode' ) ) { // plugin is version 3.2 or higher, using set_mode instead of set_preview_mode
+                include_once get_template_directory() . '/inc/wise-blocks/wise-slider-block.php';
+                include_once get_template_directory() . '/inc/wise-blocks/wise-ticker-block.php';
+                include_once get_template_directory() . '/inc/wise-blocks/wise-content-sidebar-layout.php';
+                include_once get_template_directory() . '/inc/wise-blocks/wise-ads-block.php';
+                include_once get_template_directory() . '/inc/wise-blocks/wise-defaults-block.php';
+                include_once get_template_directory() . '/inc/wise-blocks/wise-complex-one-block.php';
+                include_once get_template_directory() . '/inc/wise-blocks/wise-complex-two-block.php';
+                include_once get_template_directory() . '/inc/wise-blocks/wise-complex-three-block.php';
+                include_once get_template_directory() . '/inc/wise-blocks/wise-complex-four-block.php';
+            }
 		}
+		add_action('carbon_fields_register_fields', 'wise_register_builder');
+	endif;
 
-		spl_autoload_register( 'wise_carbon_fields_spl_autoload_register' );
+	/*--------------------------------------------------------------
+	6.4 Dynamic Sidebar
+	--------------------------------------------------------------*/
+	if( function_exists('carbon_fields_boot_plugin') && !function_exists('wise_dynamic_sidebar') ) : // If Carbon Field exists
+		function wise_dynamic_sidebar($index = 1, $options = array()) {
+			global $wp_registered_sidebars;
 
-		include_once( get_template_directory() . '/inc/carbon-fields/carbon-fields.php' );
-		include_once( get_template_directory() . '/inc/carbon-fields/core/functions.php' );	
+			// Get the sidebar index the same way as the dynamic_sidebar() function
+			if ( is_int($index) ) {
+				$index = 'sidebar-$index';
+			} else {
+				$index = sanitize_title($index);
+				foreach ( (array) $wp_registered_sidebars as $key => $value ) {
+					if ( sanitize_title($value['name']) == $index ) {
+						$index = $key;
+						break;
+					}
+				}
+			}
+
+			// Bail if this sidebar doesn't exist
+			if ( empty( $wp_registered_sidebars[$index] ) ) {
+				return false;
+			}
+
+			// Get the current sidebar options
+			$sidebar = $wp_registered_sidebars[$index];
+
+			// Update the sidebar options
+			$wp_registered_sidebars[$index] = wp_parse_args($options, $sidebar);
+
+			// Display the sidebar
+			$status = dynamic_sidebar($index);
+
+			// Restore the original sidebar options
+			$wp_registered_sidebars[$index] = $sidebar;
+
+			return $status;
+		}
 	endif;
 	
-	function wise_register_builder() {
-		include_once(get_template_directory() . '/inc/page-fields.php');
-	}
-	add_action('carbon_register_fields', 'wise_register_builder');
-	
-	function wise_load_widgets() {
-		include_once(get_template_directory() . '/inc/wise-widgets/home-widgets.php');
-		include_once(get_template_directory() . '/inc/wise-widgets/wise-ads.php');
-	}
-
-	add_action('widgets_init', 'wise_load_widgets');
-
-/*--------------------------------------------------------------
-7. One Click Demo Function
---------------------------------------------------------------*/	
 	/*--------------------------------------------------------------
-	7.1 Demo File URL
+	6.5 TGM Plugin Activation
 	--------------------------------------------------------------*/
-	function wise_blog_import_files() {
-	  return array(
-		array(
-		  'import_file_name'           => 'Wise Blog WordPress Theme',
-		  'import_file_url'            => 'http://www.probewise.com/demo/import/wise-blog-demo-xml-import.xml',
-		  'import_widget_file_url'     => 'http://www.probewise.com/demo/import/wise-blog-widgets-import.wie',
-		  // 'import_notice'              => esc_attr__( 'After you import this demo, you will have to setup the slider separately.', 'wise-blog' ),
-		),
-	  );
-	}
-	add_filter( 'pt-ocdi/import_files', 'wise_blog_import_files' );
-
-	/*--------------------------------------------------------------
-	7.2 Menu/Homepage Assignment
-	--------------------------------------------------------------*/
-	function wise_blog_after_import_setup() {
-		// Assign menus to their locations.
-		$wise_blog_main_menu = get_term_by( 'name', 'Main Menu', 'nav_menu' );
-		$wise_blog_secondary_menu = get_term_by( 'name', 'Secondary Menu', 'nav_menu' );
-		$wise_blog_bbpress_menu = get_term_by( 'name', 'Forum Menu', 'nav_menu' );
-		$wise_blog_woocommerce_menu = get_term_by( 'name', 'Shop Menu', 'nav_menu' );
-
-		set_theme_mod( 'nav_menu_locations', array(
-				'primary-menu' => $wise_blog_main_menu->term_id,
-				'secondary-menu' => $wise_blog_secondary_menu->term_id,
-				'bbpress-menu' => $wise_blog_bbpress_menu->term_id,
-				'woocommerce-menu' => $wise_blog_woocommerce_menu->term_id,
-			)
-		);
-
-		// Assign front page.
-		$wise_blog_front_page_id = get_page_by_title( 'Home' );
-		update_option( 'show_on_front', 'page' );
-		update_option( 'page_on_front', $wise_blog_front_page_id->ID );
-
-	}
-	add_action( 'pt-ocdi/after_import', 'wise_blog_after_import_setup' );
-	
-	/*--------------------------------------------------------------
-	7.3 Add Predefined Widget Column
-	--------------------------------------------------------------*/
-	function wise_blog_before_widgets_import( $selected_import ) {
-		echo
-			'homepage-column
-			homepage-news
-			sidebar-news
-			homepage-lifestyle
-			sidebar-lifestyle
-			homepage-technology
-			sidebar-technology
-			homepage-entertainment
-			sidebar-entertainment
-			homepage-sports
-			sidebar-sports
-			homepage-complex-carousel
-			homepage-defaults-carousel
-			homepage-defaults-grid';
-	}
-	add_action( 'pt-ocdi/before_widgets_import', 'wise_blog_before_widgets_import' );
-	
-	/*--------------------------------------------------------------
-	7.4. Text and Notices
-	--------------------------------------------------------------*/
-	function wise_blog_plugin_intro_text( $default_text ) {
-		$wise_blog_default_text .= '<div class="ocdi__intro-text">This is a custom text added to this plugin intro text.</div>';
-
-		return $wise_blog_default_text;
-	}
-	add_filter( 'pt-ocdi/plugin_intro_text', 'wise_blog_plugin_intro_text' );
-
+	require get_template_directory() . '/inc/tgmpa/tgmpa-settings.php';

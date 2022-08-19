@@ -255,10 +255,6 @@
 	bottom: 20px;
 }
 
-.owl-buttons {
-	/* No settings */
-}
-
 .owl-buttons .owl-prev:before {
 	font-family: "Fontawesome";
 	content: "\f053";

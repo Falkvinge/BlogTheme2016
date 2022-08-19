@@ -3,9 +3,8 @@
 * Template to Display Left Sidebar
 *
 */
-?>
-<?php
-if ( ! is_active_sidebar( 'sidebar-2' ) ) {
+
+if( !is_active_sidebar( 'sidebar-2' ) ) {
 	return;
 }
 ?>
